@@ -5204,3 +5204,10 @@ void cosmec::llenarcombocargo(QString sql,QComboBox *combo){
 		fila++;
 	}
 }
+//no me gustan los candados :P
+//te amo
+<<<<<<< HEAD
+//tequiro
+=======
+// yo mas buji
+>>>>>>> 3d73b6718d5a5dae7710f16d6a0eefde8b4cf7ff
