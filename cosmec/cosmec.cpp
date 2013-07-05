@@ -2611,7 +2611,7 @@ void cosmec::agregarfilaMo(){
 
 }
 void cosmec::nuevaActTrab(){
-
+	
 }
 void cosmec::editarActTrab(){
 	limpiarFActTrab();
