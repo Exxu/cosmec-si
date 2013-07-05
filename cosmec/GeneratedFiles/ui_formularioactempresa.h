@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioactempresa.ui'
 **
-** Created: Thu 4. Jul 22:43:08 2013
+** Created: Fri 5. Jul 17:35:34 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

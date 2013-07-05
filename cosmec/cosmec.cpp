@@ -117,7 +117,7 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	//connect(ui.pushButton_32,SIGNAL(toggled(bool)),this,SLOT(actualizarSExternos())); //boton editar estados
 	connect(ui.pushButton_33,SIGNAL(clicked()),this,SLOT(eliminarFilaSExternos())); //boton -
 	//connect(ui.tableWidget_15,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(filaEditableSExternos(int,int))); //boton editar accion
-	connect(ui.pushButton_6,SIGNAL(clicked()),this,SLOT(editarSExterno()));
+	connect(ui.pushButton_32,SIGNAL(clicked()),this,SLOT(editarSExterno()));
 	fexternos=new formularioSerExternos;
 	connect(fexternos->ui.pushButton,SIGNAL(clicked()),this,SLOT(nuevoSExterno()));
 	connect(fexternos->ui.pushButton_2,SIGNAL(clicked()),this,SLOT(updateSExterno()));
@@ -761,7 +761,7 @@ void cosmec::actualizarSExternos()
 	}
 }
 void cosmec::agregarfilaSExternos(){
-	const int currentRow =ui.tableWidget_15->rowCount();
+	/*const int currentRow =ui.tableWidget_15->rowCount();
 	if(currentRow!=0){
 		QTableWidgetItem *itab1 = ui.tableWidget_15->item(currentRow-1,0);
 		QTableWidgetItem *itab2 = ui.tableWidget_15->item(currentRow-1,1);
@@ -788,7 +788,12 @@ void cosmec::agregarfilaSExternos(){
 		}
 	}else{
 		ui.tableWidget_15->insertRow(currentRow);
-	}
+	}*/
+	limpiarFSexternos();
+	fexternos->ui.pushButton_2->setVisible(false); //guardar
+	fexternos->ui.pushButton->setVisible(true); //crear
+	
+	fexternos->show();
 }
 
 
@@ -796,7 +801,31 @@ void cosmec::nuevoSExterno(){
 
 }
 void cosmec::editarSExterno(){
+	limpiarFSexternos();
+	fexternos->ui.pushButton_2->setVisible(true); //guardar
+	fexternos->ui.pushButton->setVisible(false); //crear
 
+	int filh=ui.tableWidget_15->currentRow();
+	if((filh!=ui.tableWidget_15->rowCount()-1)&&(filh>=0)){
+		QTableWidgetItem *itab1 = ui.tableWidget_15->item(filh,0);
+		QTableWidgetItem *itab2 = ui.tableWidget_15->item(filh,1);
+		QTableWidgetItem *itab3 = ui.tableWidget_15->item(filh,2);
+
+		QString id=itab1->text();
+		QString nombre=itab2->text();
+		QString costo=itab3->text();
+
+		fexternos->ui.lineEdit->setText(id);
+		fexternos->ui.lineEdit_2->setText(nombre);
+		fexternos->ui.doubleSpinBox->setValue(QString(costo).toDouble());
+		fexternos->show();
+
+	}
+	else{
+		QMessageBox msgBox;
+		msgBox.setText("Seleccione un registro!");
+		msgBox.exec();
+	}	
 }
 void cosmec::updateSExterno(){
 
@@ -5176,7 +5205,9 @@ void cosmec::limpiarFMateriales(){
 	fmateriales->ui.doubleSpinBox->setValue(0);
 }
 void cosmec::limpiarFSexternos(){
-
+	fexternos->ui.lineEdit->setText("");
+	fexternos->ui.lineEdit_2->setText("");
+	fexternos->ui.doubleSpinBox->setValue(0);
 }
 int cosmec::buscarid(int *aux, int id,int tam){
 	int index;
