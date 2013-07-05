@@ -5206,3 +5206,4 @@ void cosmec::llenarcombocargo(QString sql,QComboBox *combo){
 }
 //no me gustan los candados :P
 //te amo
+//tequiro
