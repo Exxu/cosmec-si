@@ -5204,3 +5204,4 @@ void cosmec::llenarcombocargo(QString sql,QComboBox *combo){
 		fila++;
 	}
 }
+//no me gustan los candados :P
