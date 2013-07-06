@@ -5129,28 +5129,34 @@ void cosmec::setBusqueda(){
 	ui.comboBox_3->setEnabled(false);
 }
 void cosmec::cambiarCombo(int opcion){
+	QString sql;
 	switch(opcion){
 		case 0:
 			ui.comboBox_3->setEnabled(false);
 			break;
 		case 1:
-			ui.comboBox_3->setEnabled(true);
+			//ui.comboBox_3->setEnabled(true);
+
 			//cargar combo con máquinas
-			break;
+			//break;
 		case 2:
-			ui.comboBox_3->setEnabled(true);
-			//cargar combo con máquinas
-			break;
+			//ui.comboBox_3->setEnabled(true);
+			////cargar combo con máquinas
+			//break;
 		case 3:
-			ui.comboBox_3->setEnabled(true);
-			//cargar combo con máquinas
-			break;
+			//ui.comboBox_3->setEnabled(true);
+			////cargar combo con máquinas
+			//break;
 		case 4:
 			ui.comboBox_3->setEnabled(true);
 			//cargar combo con máquinas
+			sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+			llenarcombomaq(sql,ui.comboBox_3);
 			break;
 		case 5:
 			ui.comboBox_3->setEnabled(true);
+			sql="SELECT a.id_categoria_actividades,a.nombre FROM categoria_actividades AS a ORDER BY a.nombre";
+			llenarcombocat(sql,ui.comboBox_3);
 			//cargar combo con CATEGORIAS
 			break;
 		case 6:
@@ -5158,6 +5164,8 @@ void cosmec::cambiarCombo(int opcion){
 			break;
 		case 7:
 			ui.comboBox_3->setEnabled(true);
+			sql="SELECT a.id_cargo,a.nombre FROM cargo AS a ORDER BY a.nombre";
+			llenarcombocargo(sql,ui.comboBox_3);
 			//cargar combo con CARGOS
 			break;
 		case 8:
@@ -5173,6 +5181,7 @@ void cosmec::cambiarCombo(int opcion){
 }
 void cosmec::tablaBusqueda(){
 	//poner función para llenar la tabla en función de los parámetros de búsqueda
+
 	
 }
 void cosmec::mostrarFormlleno(){
