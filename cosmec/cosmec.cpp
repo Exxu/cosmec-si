@@ -448,7 +448,23 @@ void cosmec::agregarfila(){
 }
 
 void cosmec::nuevoCargo(){
+	QString sql;
+	//quitar combobox y poner texto
+	QString nombre=fcargo->ui.lineEdit_2->text();
+	double salario=fcargo->ui.doubleSpinBox->value();
+	if(nombre!="" && salario!=0){
+		sql=QString("INSERT INTO cargo(nombre, salario)"
+			"VALUES ('%1',%2)").arg(nombre).arg(salario);
+		insertarsql(sql);
+		sql="SELECT a.id_cargo,a.nombre,a.salario FROM cargo AS a";
+		llenartabla(ui.tableWidget,sql);
 
+		limpiarFCargo();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}
 }
 void cosmec::editarCargo(){
 	limpiarFCargo();
@@ -480,7 +496,24 @@ void cosmec::editarCargo(){
 
 }
 void cosmec::updateCargo(){
+	QString sql;
+	//quitar combobox y poner texto
+	int id=QString(fcargo->ui.lineEdit->text()).toInt();
+	QString nombre=fcargo->ui.lineEdit_2->text();
+	double salario=fcargo->ui.doubleSpinBox->value();
+	if(nombre!="" && salario!=0){
+		sql=QString("UPDATE cargo SET nombre='%1', salario=%2 "
+			"WHERE id_cargo=%3").arg(nombre).arg(salario).arg(id);
+		insertarsql(sql);
+		sql="SELECT a.id_cargo,a.nombre,a.salario FROM cargo AS a";
+		llenartabla(ui.tableWidget,sql);
 
+		limpiarFCargo();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}
 }
 //maquinaria
 void cosmec::filaEditableMaq(int row,int column)
@@ -798,7 +831,23 @@ void cosmec::agregarfilaSExternos(){
 
 
 void cosmec::nuevoSExterno(){
+	QString sql;
+	//datos
+	QString nombre=fexternos->ui.lineEdit_2->text();
+	double costo=fexternos->ui.doubleSpinBox->value();
+	if(nombre!="" && costo!=0){
+		sql=QString("INSERT INTO servicios_externos(nombre_srevicio, costo_hora)"
+			" VALUES ('%1',%2)").arg(nombre).arg(costo);
+		insertarsql(sql);
+		sql="SELECT id_servicios,nombre_srevicio, costo_hora FROM servicios_externos";
+		llenartabla(ui.tableWidget_15,sql);
 
+		limpiarFSexternos();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}
 }
 void cosmec::editarSExterno(){
 	limpiarFSexternos();
@@ -828,7 +877,24 @@ void cosmec::editarSExterno(){
 	}	
 }
 void cosmec::updateSExterno(){
+	QString sql;
+	//datos
+	int idSEx=QString(fexternos->ui.lineEdit->text()).toInt();
+	QString nombre=fexternos->ui.lineEdit_2->text();
+	double costo=fexternos->ui.doubleSpinBox->value();
+	if(nombre!="" && costo!=0){
+		sql=QString("UPDATE servicios_externos SET nombre_srevicio='%1', costo_hora=%2"
+			" WHERE id_servicios=%3").arg(nombre).arg(costo).arg(idSEx);
+		insertarsql(sql);
+		sql="SELECT id_servicios,nombre_srevicio, costo_hora FROM servicios_externos";
+		llenartabla(ui.tableWidget_15,sql);
 
+		limpiarFSexternos();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}
 }
 //materiales
 void cosmec::filaEditableMat(int row,int column)
@@ -944,7 +1010,26 @@ void cosmec::agregarfilaMat(){
 	fmateriales->show();
 }
 void cosmec::nuevoMat(){
+	QString sql;
+	//datos
+	QString material=fmateriales->ui.lineEdit_2->text();
+	QString geometria=fmateriales->ui.lineEdit_3->text();
+	QString dimensiones=fmateriales->ui.lineEdit_4->text();
+	double costo=fmateriales->ui.doubleSpinBox->value();
+	if(material!="" && geometria!="" && dimensiones!="" && costo!=0){
+		sql=QString("INSERT INTO materiales(nombre, geometria, dimencion, costo)"
+			"VALUES ('%1','%2','%3',%4)").arg(material).arg(geometria).arg(dimensiones).arg(costo);
+		insertarsql(sql);
+		sql="SELECT id_material, nombre, geometria, dimencion, costo"
+			" FROM materiales";
+		llenartabla(ui.tableWidget_14,sql);
 
+		limpiarFSexternos();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}
 }
 void cosmec::editarMat(){
 	limpiarFMateriales();
@@ -979,7 +1064,27 @@ void cosmec::editarMat(){
 	}
 }
 void cosmec::updateMat(){
+	QString sql;
+	//datos
+	QString id=fmateriales->ui.lineEdit->text();
+	QString material=fmateriales->ui.lineEdit_2->text();
+	QString geometria=fmateriales->ui.lineEdit_3->text();
+	QString dimensiones=fmateriales->ui.lineEdit_4->text();
+	double costo=fmateriales->ui.doubleSpinBox->value();
+	if(material!="" && geometria!="" && dimensiones!="" && costo!=0){
+		sql=QString("UPDATE materiales SET  nombre='%1', geometria='%2', dimencion='%3', costo=%4 "
+			"WHERE id_material=%5").arg(material).arg(geometria).arg(dimensiones).arg(costo).arg(id);
+		insertarsql(sql);
+		sql="SELECT id_material, nombre, geometria, dimencion, costo"
+			" FROM materiales";
+		llenartabla(ui.tableWidget_14,sql);
 
+		limpiarFSexternos();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}
 }
 //herramientas
 void cosmec::filaEditableHe(int row,int column)
@@ -2640,7 +2745,28 @@ void cosmec::agregarfilaMo(){
 
 }
 void cosmec::nuevaActTrab(){
+	QString sql;
+	//datos
+	int fila=fActTrab->ui.comboBox->currentIndex();
+	int id_cargo=idcargo[fila];
+	QString nombre=fActTrab->ui.lineEdit_2->text();
+	int horas_mes=fActTrab->ui.spinBox->value();
+	double costo_mes=fActTrab->ui.doubleSpinBox->value();
+	if(id_cargo!=0 && horas_mes!=0 && nombre!="" && costo_mes!=0){
+		//calculos
+		double costo_hora=costo_mes/horas_mes;
+		sql=QString("INSERT INTO actividades_trabajo(nombre, hora_mensual, costo_mes, costo_hora, id_cargo_cargo) VALUES ('%1',%2,%3,%4,%5)").arg(nombre).arg(horas_mes).arg(costo_mes).arg(costo_hora).arg(id_cargo);
+		insertarsql(sql);
+		cargaridactividades();
+		sql="SELECT b.nombre, a.nombre AS nombre_cargo, b.hora_mensual, b.costo_mes, b.costo_hora FROM cargo AS a,actividades_trabajo AS b WHERE a.id_cargo=b.id_cargo_cargo ORDER BY a.nombre";
+		llenartabla(ui.tableWidget_2,sql);
 
+		limpiarFActTrab();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}	
 }
 void cosmec::editarActTrab(){
 	limpiarFActTrab();
@@ -2688,7 +2814,30 @@ void cosmec::editarActTrab(){
 	}
 }
 void cosmec::updateActTrab(){
+	QString sql;
+	//datos
+	int id_actividad=QString(fActTrab->ui.lineEdit->text()).toInt();
+	int fila=fActTrab->ui.comboBox->currentIndex();
+	int id_cargo=idcargo[fila];
+	QString nombre=fActTrab->ui.lineEdit_2->text();
+	int horas_mes=fActTrab->ui.spinBox->value();
+	double costo_mes=fActTrab->ui.doubleSpinBox->value();
+	if(id_cargo!=0 && horas_mes!=0 && nombre!="" && costo_mes!=0){
+		//calculos
+		double costo_hora=costo_mes/horas_mes;
+		sql=QString("UPDATE actividades_trabajo	SET nombre='%1', hora_mensual=%2, costo_mes=%3, costo_hora=%4, " 
+			"id_cargo_cargo=%5 WHERE id_actividad=%6").arg(nombre).arg(horas_mes).arg(costo_mes).arg(costo_hora).arg(id_cargo).arg(id_actividad);
+		insertarsql(sql);
+		cargaridactividades();
+		sql="SELECT b.nombre, a.nombre AS nombre_cargo, b.hora_mensual, b.costo_mes, b.costo_hora FROM cargo AS a,actividades_trabajo AS b WHERE a.id_cargo=b.id_cargo_cargo ORDER BY a.nombre";
+		llenartabla(ui.tableWidget_2,sql);
 
+		limpiarFActTrab();
+	}else{
+		QMessageBox msgBox;
+		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
+		msgBox.exec();
+	}	
 }
 //cambiar de widget en stack
 void cosmec::setgenerador(){
