@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Fri 5. Jul 22:11:22 2013
+** Created: Sat 6. Jul 16:23:27 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -1240,7 +1240,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->setRowCount(1);
         tableWidget->setColumnCount(3);
-        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -3542,6 +3542,7 @@ public:
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
         tableWidget_17->horizontalHeader()->setDefaultSectionSize(195);
+        tableWidget_17->verticalHeader()->setVisible(false);
 
         horizontalLayout_50->addWidget(tableWidget_17);
 
@@ -3629,7 +3630,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(18);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);

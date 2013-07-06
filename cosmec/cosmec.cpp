@@ -5181,8 +5181,37 @@ void cosmec::cambiarCombo(int opcion){
 }
 void cosmec::tablaBusqueda(){
 	//poner función para llenar la tabla en función de los parámetros de búsqueda
-
-	
+	QString sql;
+	int op=ui.comboBox_2->currentIndex();
+	switch(op) {
+		case 0:
+			sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+			break;
+		case 1:
+			sql=QString("SELECT a.id_herramienta,a.nombre_herramienta FROM maquinas AS b,herramientas AS a "
+				"WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+		case 10:
+			break;
+	}
+	llenartabla(ui.tableWidget_17,sql);
+	llenartabla(ui.tableWidget_17,sql);
 }
 void cosmec::mostrarFormlleno(){
 
