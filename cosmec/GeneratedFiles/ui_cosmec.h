@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sat 6. Jul 21:48:45 2013
+** Created: Sat 6. Jul 23:16:48 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -1110,7 +1110,7 @@ public:
             tableWidget_4->setRowCount(1);
         tableWidget_4->setObjectName(QString::fromUtf8("tableWidget_4"));
         tableWidget_4->setMinimumSize(QSize(700, 300));
-        tableWidget_4->setEditTriggers(QAbstractItemView::DoubleClicked);
+        tableWidget_4->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_4->setTabKeyNavigation(false);
         tableWidget_4->setRowCount(1);
         tableWidget_4->horizontalHeader()->setDefaultSectionSize(120);
@@ -1207,6 +1207,7 @@ public:
             tableWidget_5->setRowCount(1);
         tableWidget_5->setObjectName(QString::fromUtf8("tableWidget_5"));
         tableWidget_5->setMinimumSize(QSize(700, 300));
+        tableWidget_5->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_5->setRowCount(1);
         tableWidget_5->horizontalHeader()->setDefaultSectionSize(150);
         tableWidget_5->horizontalHeader()->setMinimumSectionSize(50);
@@ -1308,7 +1309,7 @@ public:
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
         tableWidget->setEnabled(true);
         tableWidget->setMinimumSize(QSize(600, 150));
-        tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
+        tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
         tableWidget->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         tableWidget->setShowGrid(true);
@@ -1317,7 +1318,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->setRowCount(1);
         tableWidget->setColumnCount(3);
-        tableWidget->horizontalHeader()->setVisible(false);
+        tableWidget->horizontalHeader()->setVisible(true);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -1403,6 +1404,7 @@ public:
             tableWidget_2->setRowCount(1);
         tableWidget_2->setObjectName(QString::fromUtf8("tableWidget_2"));
         tableWidget_2->setMinimumSize(QSize(600, 150));
+        tableWidget_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_2->setRowCount(1);
         tableWidget_2->setColumnCount(5);
         tableWidget_2->horizontalHeader()->setDefaultSectionSize(130);
@@ -1498,6 +1500,7 @@ public:
         tableWidget_6->setHorizontalHeaderItem(7, __qtablewidgetitem41);
         tableWidget_6->setObjectName(QString::fromUtf8("tableWidget_6"));
         tableWidget_6->setMinimumSize(QSize(700, 300));
+        tableWidget_6->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_6->horizontalHeader()->setDefaultSectionSize(170);
         tableWidget_6->verticalHeader()->setVisible(false);
 
@@ -1598,6 +1601,7 @@ public:
         tableWidget_7->setHorizontalHeaderItem(5, __qtablewidgetitem47);
         tableWidget_7->setObjectName(QString::fromUtf8("tableWidget_7"));
         tableWidget_7->setMinimumSize(QSize(600, 150));
+        tableWidget_7->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_7->horizontalHeader()->setDefaultSectionSize(130);
         tableWidget_7->verticalHeader()->setVisible(false);
 
@@ -1677,6 +1681,7 @@ public:
         tableWidget_8->setHorizontalHeaderItem(4, __qtablewidgetitem52);
         tableWidget_8->setObjectName(QString::fromUtf8("tableWidget_8"));
         tableWidget_8->setMinimumSize(QSize(700, 150));
+        tableWidget_8->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_8->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget_8->verticalHeader()->setVisible(false);
 
@@ -1735,6 +1740,7 @@ public:
         tableWidget_9->setHorizontalHeaderItem(1, __qtablewidgetitem54);
         tableWidget_9->setObjectName(QString::fromUtf8("tableWidget_9"));
         tableWidget_9->setMinimumSize(QSize(400, 150));
+        tableWidget_9->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_9->horizontalHeader()->setDefaultSectionSize(190);
         tableWidget_9->verticalHeader()->setVisible(false);
 
@@ -1812,6 +1818,7 @@ public:
         tableWidget_10->setHorizontalHeaderItem(3, __qtablewidgetitem58);
         tableWidget_10->setObjectName(QString::fromUtf8("tableWidget_10"));
         tableWidget_10->setMinimumSize(QSize(600, 150));
+        tableWidget_10->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_10->horizontalHeader()->setCascadingSectionResizes(true);
         tableWidget_10->horizontalHeader()->setDefaultSectionSize(165);
         tableWidget_10->verticalHeader()->setVisible(false);
@@ -3322,6 +3329,7 @@ public:
         tableWidget_14->setHorizontalHeaderItem(4, __qtablewidgetitem79);
         tableWidget_14->setObjectName(QString::fromUtf8("tableWidget_14"));
         tableWidget_14->setMinimumSize(QSize(700, 300));
+        tableWidget_14->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_14->horizontalHeader()->setDefaultSectionSize(190);
         tableWidget_14->verticalHeader()->setVisible(false);
 
@@ -3492,6 +3500,7 @@ public:
             tableWidget_15->setRowCount(1);
         tableWidget_15->setObjectName(QString::fromUtf8("tableWidget_15"));
         tableWidget_15->setMinimumSize(QSize(700, 300));
+        tableWidget_15->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_15->setAlternatingRowColors(false);
         tableWidget_15->setRowCount(1);
         tableWidget_15->horizontalHeader()->setCascadingSectionResizes(true);
@@ -3638,6 +3647,7 @@ public:
         tableWidget_16->setHorizontalHeaderItem(1, __qtablewidgetitem88);
         tableWidget_16->setObjectName(QString::fromUtf8("tableWidget_16"));
         tableWidget_16->setMinimumSize(QSize(200, 0));
+        tableWidget_16->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_16->setSortingEnabled(true);
         tableWidget_16->horizontalHeader()->setDefaultSectionSize(120);
         tableWidget_16->horizontalHeader()->setMinimumSectionSize(110);
@@ -3800,6 +3810,7 @@ public:
         tableWidget_17->setHorizontalHeaderItem(1, __qtablewidgetitem90);
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
+        tableWidget_17->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_17->horizontalHeader()->setDefaultSectionSize(195);
         tableWidget_17->verticalHeader()->setVisible(false);
 
@@ -3889,7 +3900,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
