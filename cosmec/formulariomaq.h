@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QtGui/QPlainTextEdit>
 #include "ui_formulariomaq.h"
+#include <QtDebug>
 
 class formularioMaq : public QWidget
 {
@@ -19,6 +20,11 @@ public:
 
 private slots:
 	void pathDialog();
+	void calcularDepre(double costo);
+	void calcularDepre2(int vida);
+	void costo_hora(double costo);
+	void costo_hora2(int horas);
+	void costo_hora3(int vida);
 };
 
 #endif // FORMULARIOMAQ_H
