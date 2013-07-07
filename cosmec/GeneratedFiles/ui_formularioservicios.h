@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioservicios.ui'
 **
-** Created: Fri 5. Jul 21:45:33 2013
+** Created: Sat 6. Jul 14:44:05 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

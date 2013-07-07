@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Fri 5. Jul 19:32:24 2013
+** Created: Sat 6. Jul 18:24:47 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -170,7 +170,6 @@ public:
     QGridLayout *gridLayout_6;
     QLabel *label_13;
     QSpacerItem *verticalSpacer_24;
-    QTableWidget *tableWidget_6;
     QSpacerItem *verticalSpacer_25;
     QSpacerItem *horizontalSpacer_20;
     QHBoxLayout *horizontalLayout_10;
@@ -179,6 +178,7 @@ public:
     QPushButton *pushButton_7;
     QSpacerItem *horizontalSpacer_21;
     QSpacerItem *verticalSpacer_26;
+    QTableWidget *tableWidget_6;
     QWidget *page_7;
     QGridLayout *gridLayout_20;
     QHBoxLayout *horizontalLayout_11;
@@ -621,7 +621,6 @@ public:
 " background: transparent;\n"
 " color: black;\n"
 " font:10pt \"Calibri\";\n"
-" text-align: center;\n"
 " gridline-color: rgb(165, 165, 165);\n"
 "}\n"
 ".QPushButton {\n"
@@ -654,8 +653,8 @@ public:
 "                                       stop: 0 #E0E0E0, stop: 1 #FFFFFF);\n"
 "     border: 1px inset gray;\n"
 "     border-radius: 5px;\n"
-"     margin-top: 1ex; /*"
-                        " leave space at the top for the title */\n"
+"     margin-top: 1ex; /* leave space at the top f"
+                        "or the title */\n"
 " }\n"
 " QGroupBox::title {\n"
 "     subcontrol-origin: margin;\n"
@@ -919,6 +918,7 @@ public:
         if (tableWidget_3->columnCount() < 9)
             tableWidget_3->setColumnCount(9);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         tableWidget_3->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget_3->setHorizontalHeaderItem(1, __qtablewidgetitem1);
@@ -938,8 +938,18 @@ public:
         tableWidget_3->setHorizontalHeaderItem(8, __qtablewidgetitem8);
         if (tableWidget_3->rowCount() < 1)
             tableWidget_3->setRowCount(1);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        __qtablewidgetitem9->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        tableWidget_3->setItem(0, 0, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        __qtablewidgetitem10->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        tableWidget_3->setItem(0, 1, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        __qtablewidgetitem11->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        tableWidget_3->setItem(0, 2, __qtablewidgetitem11);
         tableWidget_3->setObjectName(QString::fromUtf8("tableWidget_3"));
         tableWidget_3->setMinimumSize(QSize(0, 300));
+        tableWidget_3->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_3->setAlternatingRowColors(false);
         tableWidget_3->setRowCount(1);
         tableWidget_3->horizontalHeader()->setCascadingSectionResizes(true);
@@ -1034,22 +1044,22 @@ public:
         tableWidget_4 = new QTableWidget(page_2);
         if (tableWidget_4->columnCount() < 8)
             tableWidget_4->setColumnCount(8);
-        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem9);
-        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(1, __qtablewidgetitem10);
-        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(2, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(3, __qtablewidgetitem12);
+        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(4, __qtablewidgetitem13);
+        tableWidget_4->setHorizontalHeaderItem(1, __qtablewidgetitem13);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(5, __qtablewidgetitem14);
+        tableWidget_4->setHorizontalHeaderItem(2, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(6, __qtablewidgetitem15);
+        tableWidget_4->setHorizontalHeaderItem(3, __qtablewidgetitem15);
         QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(7, __qtablewidgetitem16);
+        tableWidget_4->setHorizontalHeaderItem(4, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(5, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(6, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(7, __qtablewidgetitem19);
         if (tableWidget_4->rowCount() < 1)
             tableWidget_4->setRowCount(1);
         tableWidget_4->setObjectName(QString::fromUtf8("tableWidget_4"));
@@ -1121,18 +1131,18 @@ public:
         tableWidget_5 = new QTableWidget(page_4);
         if (tableWidget_5->columnCount() < 6)
             tableWidget_5->setColumnCount(6);
-        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(0, __qtablewidgetitem17);
-        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(1, __qtablewidgetitem18);
-        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(2, __qtablewidgetitem19);
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(3, __qtablewidgetitem20);
+        tableWidget_5->setHorizontalHeaderItem(0, __qtablewidgetitem20);
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(4, __qtablewidgetitem21);
+        tableWidget_5->setHorizontalHeaderItem(1, __qtablewidgetitem21);
         QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(5, __qtablewidgetitem22);
+        tableWidget_5->setHorizontalHeaderItem(2, __qtablewidgetitem22);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        tableWidget_5->setHorizontalHeaderItem(3, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        tableWidget_5->setHorizontalHeaderItem(4, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        tableWidget_5->setHorizontalHeaderItem(5, __qtablewidgetitem25);
         if (tableWidget_5->rowCount() < 1)
             tableWidget_5->setRowCount(1);
         tableWidget_5->setObjectName(QString::fromUtf8("tableWidget_5"));
@@ -1220,12 +1230,12 @@ public:
         tableWidget = new QTableWidget(page_5);
         if (tableWidget->columnCount() < 3)
             tableWidget->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem23);
-        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem24);
-        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem25);
+        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem27);
+        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem28);
         if (tableWidget->rowCount() < 1)
             tableWidget->setRowCount(1);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
@@ -1240,7 +1250,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->setRowCount(1);
         tableWidget->setColumnCount(3);
-        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -1308,16 +1318,16 @@ public:
         tableWidget_2 = new QTableWidget(page_5);
         if (tableWidget_2->columnCount() < 5)
             tableWidget_2->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
-        tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem26);
-        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
-        tableWidget_2->setHorizontalHeaderItem(1, __qtablewidgetitem27);
-        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
-        tableWidget_2->setHorizontalHeaderItem(2, __qtablewidgetitem28);
         QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
-        tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem29);
+        tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem29);
         QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
-        tableWidget_2->setHorizontalHeaderItem(4, __qtablewidgetitem30);
+        tableWidget_2->setHorizontalHeaderItem(1, __qtablewidgetitem30);
+        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(2, __qtablewidgetitem31);
+        QTableWidgetItem *__qtablewidgetitem32 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem32);
+        QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(4, __qtablewidgetitem33);
         if (tableWidget_2->rowCount() < 1)
             tableWidget_2->setRowCount(1);
         tableWidget_2->setObjectName(QString::fromUtf8("tableWidget_2"));
@@ -1385,32 +1395,6 @@ public:
 
         gridLayout_6->addItem(verticalSpacer_24, 1, 1, 1, 1);
 
-        tableWidget_6 = new QTableWidget(page_6);
-        if (tableWidget_6->columnCount() < 8)
-            tableWidget_6->setColumnCount(8);
-        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(0, __qtablewidgetitem31);
-        QTableWidgetItem *__qtablewidgetitem32 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(1, __qtablewidgetitem32);
-        QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(2, __qtablewidgetitem33);
-        QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(3, __qtablewidgetitem34);
-        QTableWidgetItem *__qtablewidgetitem35 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(4, __qtablewidgetitem35);
-        QTableWidgetItem *__qtablewidgetitem36 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(5, __qtablewidgetitem36);
-        QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(6, __qtablewidgetitem37);
-        QTableWidgetItem *__qtablewidgetitem38 = new QTableWidgetItem();
-        tableWidget_6->setHorizontalHeaderItem(7, __qtablewidgetitem38);
-        tableWidget_6->setObjectName(QString::fromUtf8("tableWidget_6"));
-        tableWidget_6->setMinimumSize(QSize(0, 300));
-        tableWidget_6->horizontalHeader()->setDefaultSectionSize(160);
-        tableWidget_6->verticalHeader()->setVisible(false);
-
-        gridLayout_6->addWidget(tableWidget_6, 2, 0, 1, 3);
-
         verticalSpacer_25 = new QSpacerItem(20, 49, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_6->addItem(verticalSpacer_25, 3, 1, 1, 1);
@@ -1449,6 +1433,32 @@ public:
 
         gridLayout_6->addItem(verticalSpacer_26, 5, 1, 1, 1);
 
+        tableWidget_6 = new QTableWidget(page_6);
+        if (tableWidget_6->columnCount() < 8)
+            tableWidget_6->setColumnCount(8);
+        QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(0, __qtablewidgetitem34);
+        QTableWidgetItem *__qtablewidgetitem35 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(1, __qtablewidgetitem35);
+        QTableWidgetItem *__qtablewidgetitem36 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(2, __qtablewidgetitem36);
+        QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(3, __qtablewidgetitem37);
+        QTableWidgetItem *__qtablewidgetitem38 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(4, __qtablewidgetitem38);
+        QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(5, __qtablewidgetitem39);
+        QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(6, __qtablewidgetitem40);
+        QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
+        tableWidget_6->setHorizontalHeaderItem(7, __qtablewidgetitem41);
+        tableWidget_6->setObjectName(QString::fromUtf8("tableWidget_6"));
+        tableWidget_6->setMinimumSize(QSize(0, 300));
+        tableWidget_6->horizontalHeader()->setDefaultSectionSize(170);
+        tableWidget_6->verticalHeader()->setVisible(false);
+
+        gridLayout_6->addWidget(tableWidget_6, 2, 0, 1, 3);
+
         stackedWidget->addWidget(page_6);
         page_7 = new QWidget();
         page_7->setObjectName(QString::fromUtf8("page_7"));
@@ -1466,18 +1476,18 @@ public:
         tableWidget_7 = new QTableWidget(page_7);
         if (tableWidget_7->columnCount() < 6)
             tableWidget_7->setColumnCount(6);
-        QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(0, __qtablewidgetitem39);
-        QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(1, __qtablewidgetitem40);
-        QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(2, __qtablewidgetitem41);
         QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(3, __qtablewidgetitem42);
+        tableWidget_7->setHorizontalHeaderItem(0, __qtablewidgetitem42);
         QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(4, __qtablewidgetitem43);
+        tableWidget_7->setHorizontalHeaderItem(1, __qtablewidgetitem43);
         QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(5, __qtablewidgetitem44);
+        tableWidget_7->setHorizontalHeaderItem(2, __qtablewidgetitem44);
+        QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
+        tableWidget_7->setHorizontalHeaderItem(3, __qtablewidgetitem45);
+        QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
+        tableWidget_7->setHorizontalHeaderItem(4, __qtablewidgetitem46);
+        QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
+        tableWidget_7->setHorizontalHeaderItem(5, __qtablewidgetitem47);
         tableWidget_7->setObjectName(QString::fromUtf8("tableWidget_7"));
         tableWidget_7->setMinimumSize(QSize(500, 150));
         tableWidget_7->horizontalHeader()->setDefaultSectionSize(103);
@@ -1557,19 +1567,19 @@ public:
         tableWidget_8 = new QTableWidget(page_7);
         if (tableWidget_8->columnCount() < 5)
             tableWidget_8->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
-        tableWidget_8->setHorizontalHeaderItem(0, __qtablewidgetitem45);
-        QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
-        tableWidget_8->setHorizontalHeaderItem(1, __qtablewidgetitem46);
-        QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
-        tableWidget_8->setHorizontalHeaderItem(2, __qtablewidgetitem47);
         QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
-        tableWidget_8->setHorizontalHeaderItem(3, __qtablewidgetitem48);
+        tableWidget_8->setHorizontalHeaderItem(0, __qtablewidgetitem48);
         QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
-        tableWidget_8->setHorizontalHeaderItem(4, __qtablewidgetitem49);
+        tableWidget_8->setHorizontalHeaderItem(1, __qtablewidgetitem49);
+        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
+        tableWidget_8->setHorizontalHeaderItem(2, __qtablewidgetitem50);
+        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
+        tableWidget_8->setHorizontalHeaderItem(3, __qtablewidgetitem51);
+        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
+        tableWidget_8->setHorizontalHeaderItem(4, __qtablewidgetitem52);
         tableWidget_8->setObjectName(QString::fromUtf8("tableWidget_8"));
         tableWidget_8->setMinimumSize(QSize(0, 150));
-        tableWidget_8->horizontalHeader()->setDefaultSectionSize(180);
+        tableWidget_8->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget_8->verticalHeader()->setVisible(false);
 
         gridLayout_20->addWidget(tableWidget_8, 8, 0, 1, 1);
@@ -1616,10 +1626,10 @@ public:
         tableWidget_9 = new QTableWidget(page_9);
         if (tableWidget_9->columnCount() < 2)
             tableWidget_9->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
-        tableWidget_9->setHorizontalHeaderItem(0, __qtablewidgetitem50);
-        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
-        tableWidget_9->setHorizontalHeaderItem(1, __qtablewidgetitem51);
+        QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
+        tableWidget_9->setHorizontalHeaderItem(0, __qtablewidgetitem53);
+        QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
+        tableWidget_9->setHorizontalHeaderItem(1, __qtablewidgetitem54);
         tableWidget_9->setObjectName(QString::fromUtf8("tableWidget_9"));
         tableWidget_9->setMinimumSize(QSize(400, 0));
         tableWidget_9->horizontalHeader()->setDefaultSectionSize(190);
@@ -1685,14 +1695,14 @@ public:
         tableWidget_10 = new QTableWidget(page_9);
         if (tableWidget_10->columnCount() < 4)
             tableWidget_10->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
-        tableWidget_10->setHorizontalHeaderItem(0, __qtablewidgetitem52);
-        QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
-        tableWidget_10->setHorizontalHeaderItem(1, __qtablewidgetitem53);
-        QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
-        tableWidget_10->setHorizontalHeaderItem(2, __qtablewidgetitem54);
         QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        tableWidget_10->setHorizontalHeaderItem(3, __qtablewidgetitem55);
+        tableWidget_10->setHorizontalHeaderItem(0, __qtablewidgetitem55);
+        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
+        tableWidget_10->setHorizontalHeaderItem(1, __qtablewidgetitem56);
+        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
+        tableWidget_10->setHorizontalHeaderItem(2, __qtablewidgetitem57);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        tableWidget_10->setHorizontalHeaderItem(3, __qtablewidgetitem58);
         tableWidget_10->setObjectName(QString::fromUtf8("tableWidget_10"));
         tableWidget_10->horizontalHeader()->setCascadingSectionResizes(true);
         tableWidget_10->horizontalHeader()->setDefaultSectionSize(165);
@@ -2759,18 +2769,18 @@ public:
         tableWidget_12 = new QTableWidget(page_13);
         if (tableWidget_12->columnCount() < 6)
             tableWidget_12->setColumnCount(6);
-        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        tableWidget_12->setHorizontalHeaderItem(0, __qtablewidgetitem56);
-        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
-        tableWidget_12->setHorizontalHeaderItem(1, __qtablewidgetitem57);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        tableWidget_12->setHorizontalHeaderItem(2, __qtablewidgetitem58);
         QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        tableWidget_12->setHorizontalHeaderItem(3, __qtablewidgetitem59);
+        tableWidget_12->setHorizontalHeaderItem(0, __qtablewidgetitem59);
         QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        tableWidget_12->setHorizontalHeaderItem(4, __qtablewidgetitem60);
+        tableWidget_12->setHorizontalHeaderItem(1, __qtablewidgetitem60);
         QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
-        tableWidget_12->setHorizontalHeaderItem(5, __qtablewidgetitem61);
+        tableWidget_12->setHorizontalHeaderItem(2, __qtablewidgetitem61);
+        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
+        tableWidget_12->setHorizontalHeaderItem(3, __qtablewidgetitem62);
+        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
+        tableWidget_12->setHorizontalHeaderItem(4, __qtablewidgetitem63);
+        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
+        tableWidget_12->setHorizontalHeaderItem(5, __qtablewidgetitem64);
         tableWidget_12->setObjectName(QString::fromUtf8("tableWidget_12"));
         tableWidget_12->setMinimumSize(QSize(600, 0));
         tableWidget_12->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -2906,16 +2916,16 @@ public:
         tableWidget_11 = new QTableWidget(page_14);
         if (tableWidget_11->columnCount() < 5)
             tableWidget_11->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
-        tableWidget_11->setHorizontalHeaderItem(0, __qtablewidgetitem62);
-        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        tableWidget_11->setHorizontalHeaderItem(1, __qtablewidgetitem63);
-        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        tableWidget_11->setHorizontalHeaderItem(2, __qtablewidgetitem64);
         QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
-        tableWidget_11->setHorizontalHeaderItem(3, __qtablewidgetitem65);
+        tableWidget_11->setHorizontalHeaderItem(0, __qtablewidgetitem65);
         QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
-        tableWidget_11->setHorizontalHeaderItem(4, __qtablewidgetitem66);
+        tableWidget_11->setHorizontalHeaderItem(1, __qtablewidgetitem66);
+        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
+        tableWidget_11->setHorizontalHeaderItem(2, __qtablewidgetitem67);
+        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
+        tableWidget_11->setHorizontalHeaderItem(3, __qtablewidgetitem68);
+        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
+        tableWidget_11->setHorizontalHeaderItem(4, __qtablewidgetitem69);
         tableWidget_11->setObjectName(QString::fromUtf8("tableWidget_11"));
         tableWidget_11->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget_11->horizontalHeader()->setDefaultSectionSize(150);
@@ -3035,16 +3045,16 @@ public:
         tableWidget_24 = new QTableWidget(page_15);
         if (tableWidget_24->columnCount() < 5)
             tableWidget_24->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
-        tableWidget_24->setHorizontalHeaderItem(0, __qtablewidgetitem67);
-        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
-        tableWidget_24->setHorizontalHeaderItem(1, __qtablewidgetitem68);
-        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
-        tableWidget_24->setHorizontalHeaderItem(2, __qtablewidgetitem69);
         QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
-        tableWidget_24->setHorizontalHeaderItem(3, __qtablewidgetitem70);
+        tableWidget_24->setHorizontalHeaderItem(0, __qtablewidgetitem70);
         QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
-        tableWidget_24->setHorizontalHeaderItem(4, __qtablewidgetitem71);
+        tableWidget_24->setHorizontalHeaderItem(1, __qtablewidgetitem71);
+        QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
+        tableWidget_24->setHorizontalHeaderItem(2, __qtablewidgetitem72);
+        QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
+        tableWidget_24->setHorizontalHeaderItem(3, __qtablewidgetitem73);
+        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
+        tableWidget_24->setHorizontalHeaderItem(4, __qtablewidgetitem74);
         tableWidget_24->setObjectName(QString::fromUtf8("tableWidget_24"));
         tableWidget_24->setMinimumSize(QSize(0, 300));
         tableWidget_24->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -3091,16 +3101,16 @@ public:
         tableWidget_14 = new QTableWidget(page_16);
         if (tableWidget_14->columnCount() < 5)
             tableWidget_14->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
-        tableWidget_14->setHorizontalHeaderItem(0, __qtablewidgetitem72);
-        QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
-        tableWidget_14->setHorizontalHeaderItem(1, __qtablewidgetitem73);
-        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
-        tableWidget_14->setHorizontalHeaderItem(2, __qtablewidgetitem74);
         QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
-        tableWidget_14->setHorizontalHeaderItem(3, __qtablewidgetitem75);
+        tableWidget_14->setHorizontalHeaderItem(0, __qtablewidgetitem75);
         QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
-        tableWidget_14->setHorizontalHeaderItem(4, __qtablewidgetitem76);
+        tableWidget_14->setHorizontalHeaderItem(1, __qtablewidgetitem76);
+        QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
+        tableWidget_14->setHorizontalHeaderItem(2, __qtablewidgetitem77);
+        QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
+        tableWidget_14->setHorizontalHeaderItem(3, __qtablewidgetitem78);
+        QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
+        tableWidget_14->setHorizontalHeaderItem(4, __qtablewidgetitem79);
         tableWidget_14->setObjectName(QString::fromUtf8("tableWidget_14"));
         tableWidget_14->setMinimumSize(QSize(0, 300));
         tableWidget_14->horizontalHeader()->setDefaultSectionSize(190);
@@ -3194,14 +3204,14 @@ public:
         tableWidget_13 = new QTableWidget(page_17);
         if (tableWidget_13->columnCount() < 4)
             tableWidget_13->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(0, __qtablewidgetitem77);
-        QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(1, __qtablewidgetitem78);
-        QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(2, __qtablewidgetitem79);
         QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(3, __qtablewidgetitem80);
+        tableWidget_13->setHorizontalHeaderItem(0, __qtablewidgetitem80);
+        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
+        tableWidget_13->setHorizontalHeaderItem(1, __qtablewidgetitem81);
+        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
+        tableWidget_13->setHorizontalHeaderItem(2, __qtablewidgetitem82);
+        QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
+        tableWidget_13->setHorizontalHeaderItem(3, __qtablewidgetitem83);
         tableWidget_13->setObjectName(QString::fromUtf8("tableWidget_13"));
         tableWidget_13->setLineWidth(1);
         tableWidget_13->horizontalHeader()->setDefaultSectionSize(190);
@@ -3234,12 +3244,12 @@ public:
         tableWidget_15 = new QTableWidget(page_12);
         if (tableWidget_15->columnCount() < 3)
             tableWidget_15->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
-        tableWidget_15->setHorizontalHeaderItem(0, __qtablewidgetitem81);
-        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
-        tableWidget_15->setHorizontalHeaderItem(1, __qtablewidgetitem82);
-        QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
-        tableWidget_15->setHorizontalHeaderItem(2, __qtablewidgetitem83);
+        QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
+        tableWidget_15->setHorizontalHeaderItem(0, __qtablewidgetitem84);
+        QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
+        tableWidget_15->setHorizontalHeaderItem(1, __qtablewidgetitem85);
+        QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
+        tableWidget_15->setHorizontalHeaderItem(2, __qtablewidgetitem86);
         if (tableWidget_15->rowCount() < 1)
             tableWidget_15->setRowCount(1);
         tableWidget_15->setObjectName(QString::fromUtf8("tableWidget_15"));
@@ -3373,10 +3383,10 @@ public:
         tableWidget_16 = new QTableWidget(page_18);
         if (tableWidget_16->columnCount() < 2)
             tableWidget_16->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
-        tableWidget_16->setHorizontalHeaderItem(0, __qtablewidgetitem84);
-        QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
-        tableWidget_16->setHorizontalHeaderItem(1, __qtablewidgetitem85);
+        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
+        tableWidget_16->setHorizontalHeaderItem(0, __qtablewidgetitem87);
+        QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
+        tableWidget_16->setHorizontalHeaderItem(1, __qtablewidgetitem88);
         tableWidget_16->setObjectName(QString::fromUtf8("tableWidget_16"));
         tableWidget_16->setMinimumSize(QSize(200, 0));
         tableWidget_16->setSortingEnabled(true);
@@ -3535,10 +3545,10 @@ public:
         tableWidget_17 = new QTableWidget(page_19);
         if (tableWidget_17->columnCount() < 2)
             tableWidget_17->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
-        tableWidget_17->setHorizontalHeaderItem(0, __qtablewidgetitem86);
-        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
-        tableWidget_17->setHorizontalHeaderItem(1, __qtablewidgetitem87);
+        QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
+        tableWidget_17->setHorizontalHeaderItem(0, __qtablewidgetitem89);
+        QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
+        tableWidget_17->setHorizontalHeaderItem(1, __qtablewidgetitem90);
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
         tableWidget_17->horizontalHeader()->setDefaultSectionSize(195);
@@ -3629,7 +3639,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -3683,6 +3693,11 @@ public:
         ___qtablewidgetitem7->setText(QApplication::translate("cosmecClass", "Costo hora", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidget_3->horizontalHeaderItem(8);
         ___qtablewidgetitem8->setText(QApplication::translate("cosmecClass", "Presupuesto anual", 0, QApplication::UnicodeUTF8));
+
+        const bool __sortingEnabled = tableWidget_3->isSortingEnabled();
+        tableWidget_3->setSortingEnabled(false);
+        tableWidget_3->setSortingEnabled(__sortingEnabled);
+
         pushButton_22->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_23->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
         pushButton_24->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
@@ -3730,7 +3745,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem24 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem24->setText(QApplication::translate("cosmecClass", "Nombre del Cargo", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem25 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem25->setText(QApplication::translate("cosmecClass", "Salario", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem25->setText(QApplication::translate("cosmecClass", "Salario [$]", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_5->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
@@ -3740,59 +3755,59 @@ public:
         QTableWidgetItem *___qtablewidgetitem27 = tableWidget_2->horizontalHeaderItem(1);
         ___qtablewidgetitem27->setText(QApplication::translate("cosmecClass", "Cargo", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem28 = tableWidget_2->horizontalHeaderItem(2);
-        ___qtablewidgetitem28->setText(QApplication::translate("cosmecClass", "Horas Mes", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem28->setText(QApplication::translate("cosmecClass", "Horas Mes [h]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem29 = tableWidget_2->horizontalHeaderItem(3);
-        ___qtablewidgetitem29->setText(QApplication::translate("cosmecClass", "Costo Actividad", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem29->setText(QApplication::translate("cosmecClass", "Costo Actividad [$]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem30 = tableWidget_2->horizontalHeaderItem(4);
-        ___qtablewidgetitem30->setText(QApplication::translate("cosmecClass", "Costo Hora", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem30->setText(QApplication::translate("cosmecClass", "Costo Hora [$/h]", 0, QApplication::UnicodeUTF8));
         pushButton_4->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_6->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
         pushButton_3->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("cosmecClass", "Servicios B\303\241sicos", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem31 = tableWidget_6->horizontalHeaderItem(0);
-        ___qtablewidgetitem31->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem32 = tableWidget_6->horizontalHeaderItem(1);
-        ___qtablewidgetitem32->setText(QApplication::translate("cosmecClass", "Tiempo de consumo [horas]", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem33 = tableWidget_6->horizontalHeaderItem(2);
-        ___qtablewidgetitem33->setText(QApplication::translate("cosmecClass", "Unidades", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem34 = tableWidget_6->horizontalHeaderItem(3);
-        ___qtablewidgetitem34->setText(QApplication::translate("cosmecClass", "Consumo total del servicio", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem35 = tableWidget_6->horizontalHeaderItem(4);
-        ___qtablewidgetitem35->setText(QApplication::translate("cosmecClass", "Consumo por hora", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem36 = tableWidget_6->horizontalHeaderItem(5);
-        ___qtablewidgetitem36->setText(QApplication::translate("cosmecClass", "Costo por unidad consumida", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem37 = tableWidget_6->horizontalHeaderItem(6);
-        ___qtablewidgetitem37->setText(QApplication::translate("cosmecClass", "Costo hora del servicio", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem38 = tableWidget_6->horizontalHeaderItem(7);
-        ___qtablewidgetitem38->setText(QApplication::translate("cosmecClass", "Maquina", 0, QApplication::UnicodeUTF8));
         pushButton_8->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_9->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
         pushButton_7->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem31 = tableWidget_6->horizontalHeaderItem(0);
+        ___qtablewidgetitem31->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem32 = tableWidget_6->horizontalHeaderItem(1);
+        ___qtablewidgetitem32->setText(QApplication::translate("cosmecClass", "Tiempo de consumo [h]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem33 = tableWidget_6->horizontalHeaderItem(2);
+        ___qtablewidgetitem33->setText(QApplication::translate("cosmecClass", "Unidades", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem34 = tableWidget_6->horizontalHeaderItem(3);
+        ___qtablewidgetitem34->setText(QApplication::translate("cosmecClass", "Consumo total del servicio [u]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem35 = tableWidget_6->horizontalHeaderItem(4);
+        ___qtablewidgetitem35->setText(QApplication::translate("cosmecClass", "Consumo por hora [u/h]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem36 = tableWidget_6->horizontalHeaderItem(5);
+        ___qtablewidgetitem36->setText(QApplication::translate("cosmecClass", "Costo por unidad consumida [$/u]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem37 = tableWidget_6->horizontalHeaderItem(6);
+        ___qtablewidgetitem37->setText(QApplication::translate("cosmecClass", "Costo hora del servicio [$/h]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem38 = tableWidget_6->horizontalHeaderItem(7);
+        ___qtablewidgetitem38->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem39 = tableWidget_7->horizontalHeaderItem(0);
         ___qtablewidgetitem39->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem40 = tableWidget_7->horizontalHeaderItem(1);
-        ___qtablewidgetitem40->setText(QApplication::translate("cosmecClass", "Costo unitario", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem40->setText(QApplication::translate("cosmecClass", "Costo unitario [$]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem41 = tableWidget_7->horizontalHeaderItem(2);
         ___qtablewidgetitem41->setText(QApplication::translate("cosmecClass", "Cantidad anual", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem42 = tableWidget_7->horizontalHeaderItem(3);
-        ___qtablewidgetitem42->setText(QApplication::translate("cosmecClass", "Valor total", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem42->setText(QApplication::translate("cosmecClass", "Valor total [$]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem43 = tableWidget_7->horizontalHeaderItem(4);
-        ___qtablewidgetitem43->setText(QApplication::translate("cosmecClass", "Costo hora", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem43->setText(QApplication::translate("cosmecClass", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem44 = tableWidget_7->horizontalHeaderItem(5);
-        ___qtablewidgetitem44->setText(QApplication::translate("cosmecClass", "Maquina", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem44->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         pushButton_15->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_14->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
         pushButton_13->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
         label_14->setText(QApplication::translate("cosmecClass", "Insumos para Mantenimiento Preventivo", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("cosmecClass", "Mantenimiento Preventivo y Correctivo", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem45 = tableWidget_8->horizontalHeaderItem(0);
-        ___qtablewidgetitem45->setText(QApplication::translate("cosmecClass", "Costo mtto. preventivo hora", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem45->setText(QApplication::translate("cosmecClass", "Costo mtto. preventivo hora [$/h]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem46 = tableWidget_8->horizontalHeaderItem(1);
-        ___qtablewidgetitem46->setText(QApplication::translate("cosmecClass", "Costo mtto. correctivo anual", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem46->setText(QApplication::translate("cosmecClass", "Costo mtto. correctivo anual [$/a\303\261o]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem47 = tableWidget_8->horizontalHeaderItem(2);
-        ___qtablewidgetitem47->setText(QApplication::translate("cosmecClass", "Costo mtto. correctivo hora", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem47->setText(QApplication::translate("cosmecClass", "Costo mtto. correctivo hora [$/h]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem48 = tableWidget_8->horizontalHeaderItem(3);
-        ___qtablewidgetitem48->setText(QApplication::translate("cosmecClass", "Costo mtto. total hora", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem48->setText(QApplication::translate("cosmecClass", "Costo mtto. total hora [$]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem49 = tableWidget_8->horizontalHeaderItem(4);
         ___qtablewidgetitem49->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("cosmecClass", "Mantenimiento", 0, QApplication::UnicodeUTF8));
@@ -3811,7 +3826,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem53 = tableWidget_10->horizontalHeaderItem(1);
         ___qtablewidgetitem53->setText(QApplication::translate("cosmecClass", "Actividad", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem54 = tableWidget_10->horizontalHeaderItem(2);
-        ___qtablewidgetitem54->setText(QApplication::translate("cosmecClass", "Costo Hora", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem54->setText(QApplication::translate("cosmecClass", "Costo Hora [$/h]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem55 = tableWidget_10->horizontalHeaderItem(3);
         ___qtablewidgetitem55->setText(QApplication::translate("cosmecClass", "Categor\303\255a", 0, QApplication::UnicodeUTF8));
         pushButton_20->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
@@ -3833,10 +3848,10 @@ public:
         groupBox_2->setTitle(QString());
         label_46->setText(QApplication::translate("cosmecClass", "Herramientas", 0, QApplication::UnicodeUTF8));
         checkherrg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkherr->setText(QApplication::translate("cosmecClass", "Reporte por Maquina", 0, QApplication::UnicodeUTF8));
+        checkherr->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_50->setText(QApplication::translate("cosmecClass", "Mano de Obra", 0, QApplication::UnicodeUTF8));
         checkmanog->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkmano->setText(QApplication::translate("cosmecClass", "Reporte por Maquina", 0, QApplication::UnicodeUTF8));
+        checkmano->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_51->setText(QApplication::translate("cosmecClass", "Actividades", 0, QApplication::UnicodeUTF8));
         checkactivg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
         checkactiv->setText(QApplication::translate("cosmecClass", "Reporte por Cargos", 0, QApplication::UnicodeUTF8));
@@ -3845,13 +3860,13 @@ public:
         genreport->setText(QApplication::translate("cosmecClass", "Generar", 0, QApplication::UnicodeUTF8));
         label_52->setText(QApplication::translate("cosmecClass", "Servicios b\303\241sicos", 0, QApplication::UnicodeUTF8));
         checkbasg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkbas->setText(QApplication::translate("cosmecClass", "Reporte por Maquina", 0, QApplication::UnicodeUTF8));
+        checkbas->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_48->setText(QApplication::translate("cosmecClass", "Mantenimiento", 0, QApplication::UnicodeUTF8));
         checkmantg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkmant->setText(QApplication::translate("cosmecClass", "Reporte por Maquina", 0, QApplication::UnicodeUTF8));
+        checkmant->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_47->setText(QApplication::translate("cosmecClass", "Consumibles", 0, QApplication::UnicodeUTF8));
         checkconsug->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkconsu->setText(QApplication::translate("cosmecClass", "Reporte por Maquina", 0, QApplication::UnicodeUTF8));
+        checkconsu->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_24->setText(QApplication::translate("cosmecClass", "Exportar a Excel", 0, QApplication::UnicodeUTF8));
         groupBox_21->setTitle(QApplication::translate("cosmecClass", "Hojas a Exportar", 0, QApplication::UnicodeUTF8));
         checkBox->setText(QApplication::translate("cosmecClass", "M\303\241quinas", 0, QApplication::UnicodeUTF8));
