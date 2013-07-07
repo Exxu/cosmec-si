@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sat 6. Jul 20:40:33 2013
+** Created: Sat 6. Jul 19:38:04 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -62,7 +62,6 @@ public:
     QAction *actionUsuarios;
     QAction *actionBuscarReg;
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout_43;
     QStackedWidget *stackedWidget;
     QWidget *page;
     QGridLayout *gridLayout_2;
@@ -76,17 +75,7 @@ public:
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_11;
     QSpacerItem *horizontalSpacer_2;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *label;
-    QLabel *label_17;
-    QSpacerItem *verticalSpacer_4;
-    QSpacerItem *verticalSpacer_6;
-    QSpacerItem *horizontalSpacer_13;
-    QSpacerItem *horizontalSpacer_12;
-    QSpacerItem *verticalSpacer_5;
-    QSpacerItem *verticalSpacer_7;
     QHBoxLayout *horizontalLayout_4;
-    QSpacerItem *horizontalSpacer_10;
     QFrame *frame_11;
     QVBoxLayout *verticalLayout_28;
     QLabel *label_8;
@@ -94,7 +83,18 @@ public:
     QFrame *frame_2;
     QVBoxLayout *verticalLayout_29;
     QLabel *label_9;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label;
+    QLabel *label_17;
+    QSpacerItem *verticalSpacer_4;
+    QSpacerItem *verticalSpacer_6;
+    QPushButton *pushButton_10;
+    QSpacerItem *horizontalSpacer_13;
+    QSpacerItem *horizontalSpacer_12;
+    QSpacerItem *horizontalSpacer_10;
+    QSpacerItem *verticalSpacer_5;
     QSpacerItem *horizontalSpacer_11;
+    QSpacerItem *verticalSpacer_7;
     QWidget *page_3;
     QVBoxLayout *verticalLayout_10;
     QLabel *label_2;
@@ -775,13 +775,10 @@ public:
         centralWidget = new QWidget(cosmecClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         centralWidget->setMaximumSize(QSize(16777215, 16777215));
-        verticalLayout_43 = new QVBoxLayout(centralWidget);
-        verticalLayout_43->setSpacing(6);
-        verticalLayout_43->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_43->setObjectName(QString::fromUtf8("verticalLayout_43"));
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setEnabled(true);
+        stackedWidget->setGeometry(QRect(9, 9, 785, 565));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
         gridLayout_2 = new QGridLayout(page);
@@ -841,53 +838,9 @@ public:
 
         gridLayout_2->addWidget(frame_4, 5, 2, 1, 1);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        label = new QLabel(page);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        verticalLayout_2->addWidget(label);
-
-        label_17 = new QLabel(page);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
-
-        verticalLayout_2->addWidget(label_17);
-
-
-        gridLayout_2->addLayout(verticalLayout_2, 1, 0, 1, 5);
-
-        verticalSpacer_4 = new QSpacerItem(20, 22, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_4, 2, 2, 1, 1);
-
-        verticalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_6, 0, 2, 1, 1);
-
-        horizontalSpacer_13 = new QSpacerItem(108, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_13, 5, 3, 1, 1);
-
-        horizontalSpacer_12 = new QSpacerItem(108, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_12, 5, 1, 1, 1);
-
-        verticalSpacer_5 = new QSpacerItem(20, 21, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_5, 4, 2, 1, 1);
-
-        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_7, 6, 2, 1, 1);
-
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalSpacer_10 = new QSpacerItem(105, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_10);
-
         frame_11 = new QFrame(page);
         frame_11->setObjectName(QString::fromUtf8("frame_11"));
         frame_11->setMinimumSize(QSize(240, 240));
@@ -928,12 +881,61 @@ public:
 
         horizontalLayout_4->addWidget(frame_2);
 
+
+        gridLayout_2->addLayout(horizontalLayout_4, 3, 1, 1, 3);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        label = new QLabel(page);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        verticalLayout_2->addWidget(label);
+
+        label_17 = new QLabel(page);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+
+        verticalLayout_2->addWidget(label_17);
+
+
+        gridLayout_2->addLayout(verticalLayout_2, 1, 0, 1, 5);
+
+        verticalSpacer_4 = new QSpacerItem(20, 22, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_4, 2, 2, 1, 1);
+
+        verticalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_6, 0, 2, 1, 1);
+
+        pushButton_10 = new QPushButton(page);
+        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
+
+        gridLayout_2->addWidget(pushButton_10, 0, 4, 1, 1);
+
+        horizontalSpacer_13 = new QSpacerItem(108, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_13, 5, 3, 1, 1);
+
+        horizontalSpacer_12 = new QSpacerItem(108, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_12, 5, 1, 1, 1);
+
+        horizontalSpacer_10 = new QSpacerItem(105, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_10, 3, 0, 1, 1);
+
+        verticalSpacer_5 = new QSpacerItem(20, 21, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_5, 4, 2, 1, 1);
+
         horizontalSpacer_11 = new QSpacerItem(105, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_4->addItem(horizontalSpacer_11);
+        gridLayout_2->addItem(horizontalSpacer_11, 3, 4, 1, 1);
 
+        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addLayout(horizontalLayout_4, 3, 0, 1, 5);
+        gridLayout_2->addItem(verticalSpacer_7, 6, 2, 1, 1);
 
         stackedWidget->addWidget(page);
         page_3 = new QWidget();
@@ -1083,7 +1085,7 @@ public:
         horizontalLayout_51 = new QHBoxLayout();
         horizontalLayout_51->setSpacing(6);
         horizontalLayout_51->setObjectName(QString::fromUtf8("horizontalLayout_51"));
-        horizontalSpacer_94 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_94 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_51->addItem(horizontalSpacer_94);
 
@@ -1118,7 +1120,7 @@ public:
 
         horizontalLayout_51->addWidget(tableWidget_4);
 
-        horizontalSpacer_93 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_93 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_51->addItem(horizontalSpacer_93);
 
@@ -1184,7 +1186,7 @@ public:
         horizontalLayout_52 = new QHBoxLayout();
         horizontalLayout_52->setSpacing(6);
         horizontalLayout_52->setObjectName(QString::fromUtf8("horizontalLayout_52"));
-        horizontalSpacer_96 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_96 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_52->addItem(horizontalSpacer_96);
 
@@ -1214,7 +1216,7 @@ public:
 
         horizontalLayout_52->addWidget(tableWidget_5);
 
-        horizontalSpacer_95 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_95 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_52->addItem(horizontalSpacer_95);
 
@@ -1382,7 +1384,7 @@ public:
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setSpacing(6);
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        horizontalSpacer_97 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_97 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_9->addItem(horizontalSpacer_97);
 
@@ -1410,7 +1412,7 @@ public:
 
         horizontalLayout_9->addWidget(tableWidget_2);
 
-        horizontalSpacer_98 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_98 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_9->addItem(horizontalSpacer_98);
 
@@ -1473,7 +1475,7 @@ public:
         horizontalLayout_53 = new QHBoxLayout();
         horizontalLayout_53->setSpacing(6);
         horizontalLayout_53->setObjectName(QString::fromUtf8("horizontalLayout_53"));
-        horizontalSpacer_100 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_100 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_53->addItem(horizontalSpacer_100);
 
@@ -1503,7 +1505,7 @@ public:
 
         horizontalLayout_53->addWidget(tableWidget_6);
 
-        horizontalSpacer_99 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_99 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_53->addItem(horizontalSpacer_99);
 
@@ -1658,7 +1660,7 @@ public:
         horizontalLayout_54 = new QHBoxLayout();
         horizontalLayout_54->setSpacing(6);
         horizontalLayout_54->setObjectName(QString::fromUtf8("horizontalLayout_54"));
-        horizontalSpacer_102 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_102 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_54->addItem(horizontalSpacer_102);
 
@@ -1682,7 +1684,7 @@ public:
 
         horizontalLayout_54->addWidget(tableWidget_8);
 
-        horizontalSpacer_101 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_101 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_54->addItem(horizontalSpacer_101);
 
@@ -1795,7 +1797,7 @@ public:
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setSpacing(6);
         horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
-        horizontalSpacer_103 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_103 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_13->addItem(horizontalSpacer_103);
 
@@ -1818,7 +1820,7 @@ public:
 
         horizontalLayout_13->addWidget(tableWidget_10);
 
-        horizontalSpacer_104 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_104 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_13->addItem(horizontalSpacer_104);
 
@@ -1881,7 +1883,7 @@ public:
         horizontalLayout_55 = new QHBoxLayout();
         horizontalLayout_55->setSpacing(6);
         horizontalLayout_55->setObjectName(QString::fromUtf8("horizontalLayout_55"));
-        horizontalSpacer_24 = new QSpacerItem(122, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_24 = new QSpacerItem(122, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_55->addItem(horizontalSpacer_24);
 
@@ -1943,7 +1945,7 @@ public:
 
         horizontalLayout_55->addWidget(groupBox_11);
 
-        horizontalSpacer_25 = new QSpacerItem(122, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_25 = new QSpacerItem(122, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_55->addItem(horizontalSpacer_25);
 
@@ -1957,7 +1959,7 @@ public:
         horizontalLayout_56 = new QHBoxLayout();
         horizontalLayout_56->setSpacing(6);
         horizontalLayout_56->setObjectName(QString::fromUtf8("horizontalLayout_56"));
-        horizontalSpacer_26 = new QSpacerItem(122, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_26 = new QSpacerItem(122, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_56->addItem(horizontalSpacer_26);
 
@@ -1989,7 +1991,7 @@ public:
 
         horizontalLayout_56->addWidget(groupBox_12);
 
-        horizontalSpacer_27 = new QSpacerItem(122, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_27 = new QSpacerItem(122, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_56->addItem(horizontalSpacer_27);
 
@@ -2570,7 +2572,7 @@ public:
         horizontalLayout_58 = new QHBoxLayout();
         horizontalLayout_58->setSpacing(6);
         horizontalLayout_58->setObjectName(QString::fromUtf8("horizontalLayout_58"));
-        horizontalSpacer_55 = new QSpacerItem(122, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_55 = new QSpacerItem(122, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_58->addItem(horizontalSpacer_55);
 
@@ -2609,7 +2611,7 @@ public:
 
         horizontalLayout_58->addWidget(groupBox_21);
 
-        horizontalSpacer_56 = new QSpacerItem(122, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_56 = new QSpacerItem(122, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_58->addItem(horizontalSpacer_56);
 
@@ -2906,7 +2908,7 @@ public:
         horizontalLayout_37 = new QHBoxLayout();
         horizontalLayout_37->setSpacing(6);
         horizontalLayout_37->setObjectName(QString::fromUtf8("horizontalLayout_37"));
-        horizontalSpacer_23 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_23 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_37->addItem(horizontalSpacer_23);
 
@@ -2933,7 +2935,7 @@ public:
 
         horizontalLayout_37->addWidget(tableWidget_12);
 
-        horizontalSpacer_105 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_105 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_37->addItem(horizontalSpacer_105);
 
@@ -2993,7 +2995,7 @@ public:
         horizontalLayout_59 = new QHBoxLayout();
         horizontalLayout_59->setSpacing(6);
         horizontalLayout_59->setObjectName(QString::fromUtf8("horizontalLayout_59"));
-        horizontalSpacer_62 = new QSpacerItem(172, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_62 = new QSpacerItem(172, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_59->addItem(horizontalSpacer_62);
 
@@ -3060,7 +3062,7 @@ public:
 
         horizontalLayout_59->addWidget(frame_3);
 
-        horizontalSpacer_63 = new QSpacerItem(172, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_63 = new QSpacerItem(172, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_59->addItem(horizontalSpacer_63);
 
@@ -3074,7 +3076,7 @@ public:
         horizontalLayout_60 = new QHBoxLayout();
         horizontalLayout_60->setSpacing(6);
         horizontalLayout_60->setObjectName(QString::fromUtf8("horizontalLayout_60"));
-        horizontalSpacer_107 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_107 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_60->addItem(horizontalSpacer_107);
 
@@ -3099,7 +3101,7 @@ public:
 
         horizontalLayout_60->addWidget(tableWidget_11);
 
-        horizontalSpacer_106 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_106 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_60->addItem(horizontalSpacer_106);
 
@@ -3155,7 +3157,7 @@ public:
         horizontalLayout_61 = new QHBoxLayout();
         horizontalLayout_61->setSpacing(6);
         horizontalLayout_61->setObjectName(QString::fromUtf8("horizontalLayout_61"));
-        horizontalSpacer_109 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_109 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_61->addItem(horizontalSpacer_109);
 
@@ -3180,7 +3182,7 @@ public:
 
         horizontalLayout_61->addWidget(tableWidget_24);
 
-        horizontalSpacer_108 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_108 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_61->addItem(horizontalSpacer_108);
 
@@ -3190,7 +3192,7 @@ public:
         horizontalLayout_62 = new QHBoxLayout();
         horizontalLayout_62->setSpacing(6);
         horizontalLayout_62->setObjectName(QString::fromUtf8("horizontalLayout_62"));
-        horizontalSpacer_111 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_111 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_62->addItem(horizontalSpacer_111);
 
@@ -3243,7 +3245,7 @@ public:
 
         horizontalLayout_62->addWidget(frame_13);
 
-        horizontalSpacer_110 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_110 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_62->addItem(horizontalSpacer_110);
 
@@ -3303,7 +3305,7 @@ public:
         horizontalLayout_63 = new QHBoxLayout();
         horizontalLayout_63->setSpacing(6);
         horizontalLayout_63->setObjectName(QString::fromUtf8("horizontalLayout_63"));
-        horizontalSpacer_113 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_113 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_63->addItem(horizontalSpacer_113);
 
@@ -3327,7 +3329,7 @@ public:
 
         horizontalLayout_63->addWidget(tableWidget_14);
 
-        horizontalSpacer_112 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_112 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_63->addItem(horizontalSpacer_112);
 
@@ -3392,7 +3394,7 @@ public:
         horizontalLayout_64 = new QHBoxLayout();
         horizontalLayout_64->setSpacing(6);
         horizontalLayout_64->setObjectName(QString::fromUtf8("horizontalLayout_64"));
-        horizontalSpacer_115 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_115 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_64->addItem(horizontalSpacer_115);
 
@@ -3415,7 +3417,7 @@ public:
 
         horizontalLayout_64->addWidget(tableWidget_13);
 
-        horizontalSpacer_114 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_114 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_64->addItem(horizontalSpacer_114);
 
@@ -3475,7 +3477,7 @@ public:
         horizontalLayout_65 = new QHBoxLayout();
         horizontalLayout_65->setSpacing(6);
         horizontalLayout_65->setObjectName(QString::fromUtf8("horizontalLayout_65"));
-        horizontalSpacer_117 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_117 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_65->addItem(horizontalSpacer_117);
 
@@ -3507,7 +3509,7 @@ public:
 
         horizontalLayout_65->addWidget(tableWidget_15);
 
-        horizontalSpacer_116 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_116 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_65->addItem(horizontalSpacer_116);
 
@@ -3572,7 +3574,7 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalSpacer_7 = new QSpacerItem(56, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_7 = new QSpacerItem(56, 20, QSizePolicy::Preferred, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_7);
 
@@ -3645,7 +3647,7 @@ public:
 
         horizontalLayout_3->addWidget(tableWidget_16);
 
-        horizontalSpacer_8 = new QSpacerItem(55, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_8 = new QSpacerItem(55, 20, QSizePolicy::Preferred, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_8);
 
@@ -3709,7 +3711,7 @@ public:
         horizontalLayout_47 = new QHBoxLayout();
         horizontalLayout_47->setSpacing(6);
         horizontalLayout_47->setObjectName(QString::fromUtf8("horizontalLayout_47"));
-        horizontalSpacer_85 = new QSpacerItem(198, 17, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_85 = new QSpacerItem(198, 17, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_47->addItem(horizontalSpacer_85);
 
@@ -3749,7 +3751,7 @@ public:
 
         horizontalLayout_47->addLayout(gridLayout_23);
 
-        horizontalSpacer_86 = new QSpacerItem(198, 17, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_86 = new QSpacerItem(198, 17, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_47->addItem(horizontalSpacer_86);
 
@@ -3787,7 +3789,7 @@ public:
         horizontalLayout_50 = new QHBoxLayout();
         horizontalLayout_50->setSpacing(6);
         horizontalLayout_50->setObjectName(QString::fromUtf8("horizontalLayout_50"));
-        horizontalSpacer_91 = new QSpacerItem(152, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_91 = new QSpacerItem(152, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_50->addItem(horizontalSpacer_91);
 
@@ -3801,11 +3803,10 @@ public:
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
         tableWidget_17->horizontalHeader()->setDefaultSectionSize(195);
-        tableWidget_17->verticalHeader()->setVisible(false);
 
         horizontalLayout_50->addWidget(tableWidget_17);
 
-        horizontalSpacer_92 = new QSpacerItem(152, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+        horizontalSpacer_92 = new QSpacerItem(152, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_50->addItem(horizontalSpacer_92);
 
@@ -3841,9 +3842,6 @@ public:
         verticalLayout_7->addItem(verticalSpacer_76);
 
         stackedWidget->addWidget(page_19);
-
-        verticalLayout_43->addWidget(stackedWidget);
-
         cosmecClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(cosmecClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -3889,7 +3887,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -3920,10 +3918,11 @@ public:
         label_32->setText(QApplication::translate("cosmecClass", "Usuario", 0, QApplication::UnicodeUTF8));
         label_33->setText(QApplication::translate("cosmecClass", "Contrase\303\261a", 0, QApplication::UnicodeUTF8));
         pushButton_11->setText(QApplication::translate("cosmecClass", "Ingresar", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("cosmecClass", "Costos de Prestaci\303\263n de Servicios del Centro de Mecanizado", 0, QApplication::UnicodeUTF8));
-        label_17->setText(QApplication::translate("cosmecClass", " Fadal VMC 3016 y del Torno Viwa VTC 1640 \342\200\223 T400", 0, QApplication::UnicodeUTF8));
         label_8->setText(QString());
         label_9->setText(QString());
+        label->setText(QApplication::translate("cosmecClass", "Costos de Prestaci\303\263n de Servicios del Centro de Mecanizado", 0, QApplication::UnicodeUTF8));
+        label_17->setText(QApplication::translate("cosmecClass", " Fadal VMC 3016 y del Torno Viwa VTC 1640 \342\200\223 T400", 0, QApplication::UnicodeUTF8));
+        pushButton_10->setText(QApplication::translate("cosmecClass", "Formularios", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("cosmecClass", "M\303\241quinas Ingresadas en el Sistema", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_3->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("cosmecClass", "Serie", 0, QApplication::UnicodeUTF8));
