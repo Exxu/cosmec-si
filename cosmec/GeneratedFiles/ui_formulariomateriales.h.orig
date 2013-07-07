@@ -1,20 +1,19 @@
 /********************************************************************************
-** Form generated from reading UI file 'formularioactempresa.ui'
+** Form generated from reading UI file 'formulariomateriales.ui'
 **
-** Created: Sat 6. Jul 20:40:32 2013
+** Created: Sat 6. Jul 19:35:56 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_FORMULARIOACTEMPRESA_H
-#define UI_FORMULARIOACTEMPRESA_H
+#ifndef UI_FORMULARIOMATERIALES_H
+#define UI_FORMULARIOMATERIALES_H
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
 #include <QtGui/QDoubleSpinBox>
 #include <QtGui/QFormLayout>
 #include <QtGui/QHBoxLayout>
@@ -28,7 +27,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_formularioActEmpresa
+class Ui_formularioMateriales
 {
 public:
     QVBoxLayout *verticalLayout;
@@ -39,13 +38,14 @@ public:
     QFormLayout *formLayout;
     QLabel *label_2;
     QLabel *label_3;
-    QLabel *label_4;
-    QLabel *label_5;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
-    QDoubleSpinBox *doubleSpinBox;
-    QComboBox *comboBox;
     QLineEdit *lineEdit_3;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLineEdit *lineEdit_4;
+    QDoubleSpinBox *doubleSpinBox;
+    QLabel *label_4;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
@@ -55,13 +55,13 @@ public:
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *verticalSpacer_3;
 
-    void setupUi(QWidget *formularioActEmpresa)
+    void setupUi(QWidget *formularioMateriales)
     {
-        if (formularioActEmpresa->objectName().isEmpty())
-            formularioActEmpresa->setObjectName(QString::fromUtf8("formularioActEmpresa"));
-        formularioActEmpresa->resize(400, 350);
-        formularioActEmpresa->setMinimumSize(QSize(400, 350));
-        formularioActEmpresa->setStyleSheet(QString::fromUtf8("QWidget#formularioActEmpresa{\n"
+        if (formularioMateriales->objectName().isEmpty())
+            formularioMateriales->setObjectName(QString::fromUtf8("formularioMateriales"));
+        formularioMateriales->resize(400, 350);
+        formularioMateriales->setMinimumSize(QSize(350, 250));
+        formularioMateriales->setStyleSheet(QString::fromUtf8("QWidget#formularioMateriales{\n"
 "background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(221, 235, 255, 255), stop:0.522727 rgba(255, 255, 255, 255));\n"
 "border: 1px solid black;\n"
 "}\n"
@@ -104,11 +104,11 @@ public:
                         "kground:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
-        verticalLayout = new QVBoxLayout(formularioActEmpresa);
+        verticalLayout = new QVBoxLayout(formularioMateriales);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        label = new QLabel(formularioActEmpresa);
+        label = new QLabel(formularioMateriales);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
 
@@ -128,60 +128,65 @@ public:
         formLayout = new QFormLayout();
         formLayout->setSpacing(6);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        formLayout->setHorizontalSpacing(6);
         formLayout->setVerticalSpacing(20);
-        label_2 = new QLabel(formularioActEmpresa);
+        label_2 = new QLabel(formularioMateriales);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label_2);
 
-        label_3 = new QLabel(formularioActEmpresa);
+        label_3 = new QLabel(formularioMateriales);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_3);
 
-        label_4 = new QLabel(formularioActEmpresa);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        formLayout->setWidget(2, QFormLayout::LabelRole, label_4);
-
-        label_5 = new QLabel(formularioActEmpresa);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        formLayout->setWidget(3, QFormLayout::LabelRole, label_5);
-
-        lineEdit = new QLineEdit(formularioActEmpresa);
+        lineEdit = new QLineEdit(formularioMateriales);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setEnabled(false);
         lineEdit->setMinimumSize(QSize(200, 0));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit);
 
-        lineEdit_2 = new QLineEdit(formularioActEmpresa);
+        lineEdit_2 = new QLineEdit(formularioMateriales);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
 
-        doubleSpinBox = new QDoubleSpinBox(formularioActEmpresa);
+        lineEdit_3 = new QLineEdit(formularioMateriales);
+        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_3);
+
+        label_5 = new QLabel(formularioMateriales);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_5);
+
+        label_6 = new QLabel(formularioMateriales);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        formLayout->setWidget(3, QFormLayout::LabelRole, label_6);
+
+        lineEdit_4 = new QLineEdit(formularioMateriales);
+        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_4);
+
+        doubleSpinBox = new QDoubleSpinBox(formularioMateriales);
         doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
         doubleSpinBox->setMaximum(1e+09);
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, doubleSpinBox);
+        formLayout->setWidget(4, QFormLayout::FieldRole, doubleSpinBox);
 
-        comboBox = new QComboBox(formularioActEmpresa);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        label_4 = new QLabel(formularioMateriales);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, comboBox);
-
-        lineEdit_3 = new QLineEdit(formularioActEmpresa);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-        lineEdit_3->setEnabled(false);
-
-        formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_3);
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_4);
 
 
         horizontalLayout_2->addLayout(formLayout);
 
-        horizontalSpacer_2 = new QSpacerItem(28, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
@@ -199,12 +204,12 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_3);
 
-        pushButton = new QPushButton(formularioActEmpresa);
+        pushButton = new QPushButton(formularioMateriales);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         horizontalLayout->addWidget(pushButton);
 
-        pushButton_2 = new QPushButton(formularioActEmpresa);
+        pushButton_2 = new QPushButton(formularioMateriales);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         horizontalLayout->addWidget(pushButton_2);
@@ -221,29 +226,30 @@ public:
         verticalLayout->addItem(verticalSpacer_3);
 
 
-        retranslateUi(formularioActEmpresa);
+        retranslateUi(formularioMateriales);
 
-        QMetaObject::connectSlotsByName(formularioActEmpresa);
+        QMetaObject::connectSlotsByName(formularioMateriales);
     } // setupUi
 
-    void retranslateUi(QWidget *formularioActEmpresa)
+    void retranslateUi(QWidget *formularioMateriales)
     {
-        formularioActEmpresa->setWindowTitle(QApplication::translate("formularioActEmpresa", "formularioActEmpresa", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("formularioActEmpresa", "Actividades de la Empresa", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("formularioActEmpresa", "ID", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("formularioActEmpresa", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioActEmpresa", "Costo hora", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioActEmpresa", "categor\303\255a", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("formularioActEmpresa", "Crear", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("formularioActEmpresa", "Guardar", 0, QApplication::UnicodeUTF8));
+        formularioMateriales->setWindowTitle(QApplication::translate("formularioMateriales", "formularioMateriales", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("formularioMateriales", "Materiales", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("formularioMateriales", "ID", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("formularioMateriales", "Nombre", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioMateriales", "Geometr\303\255a", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioMateriales", "Dimensiones", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioMateriales", "Costo hora", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("formularioMateriales", "Crear", 0, QApplication::UnicodeUTF8));
+        pushButton_2->setText(QApplication::translate("formularioMateriales", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class formularioActEmpresa: public Ui_formularioActEmpresa {};
+    class formularioMateriales: public Ui_formularioMateriales {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_FORMULARIOACTEMPRESA_H
+#endif // UI_FORMULARIOMATERIALES_H

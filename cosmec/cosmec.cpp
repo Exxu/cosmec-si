@@ -224,9 +224,6 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	//connect(ui.pushButton_42,SIGNAL(clicked()),this,SLOT(cancelarCotizacion()));
 	connect(ui.pushButton_74,SIGNAL(clicked()),this,SLOT(sumarServExt()));
 	connect(ui.pushButton_93,SIGNAL(clicked()),this,SLOT(sumarMaterial()));
-	
-	//FORMULARIO
-	connect(ui.pushButton_10,SIGNAL(clicked()),this,SLOT(setformulariomaq()));
 
 	//USUARIOS
 	connect(ui.pushButton_11,SIGNAL(clicked()),this,SLOT(verificarUsuario()));
