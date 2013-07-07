@@ -5192,26 +5192,42 @@ void cosmec::tablaBusqueda(){
 				"WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
 			break;
 		case 2:
+			sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo "
+				"FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
 			break;
 		case 3:
+			sql=QString("SELECT a.id_serv_basico, a.nombre_servi"
+				" FROM serv_basico AS a, maquinas AS b WHERE "
+				"a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
 			break;
 		case 4:
+			sql=QString("SELECT a.id_insumo, a.nombre FROM mantenimiento_preventivo AS a, "
+				"maquinas AS b WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
 			break;
 		case 5:
+			sql=QString("SELECT a.id_actividad, a.nombre FROM actividades AS a, categoria_actividades AS b "
+				"WHERE a.id_categoria_actividades_categoria_actividades=b.id_categoria_actividades AND b.id_categoria_actividades=%1").arg(idcategoria[ui.comboBox_3->currentIndex()]);
 			break;
 		case 6:
+			sql=sql="SELECT a.id_categoria_actividades, a.nombre FROM categoria_actividades AS a";
 			break;
 		case 7:
+			sql=QString("SELECT b.id_actividad, b.nombre FROM cargo AS a,actividades_trabajo AS b "
+				"WHERE a.id_cargo=b.id_cargo_cargo AND a.id_cargo=%1 ORDER BY a.nombre").arg(idcargo[ui.comboBox_3->currentIndex()]);
 			break;
 		case 8:
+			sql="SELECT a.id_cargo,a.nombre FROM cargo AS a";
 			break;
 		case 9:
+			sql="SELECT id_material, nombre FROM materiales";
 			break;
 		case 10:
+			sql="SELECT id_servicios, nombre_srevicio FROM servicios_externos";
 			break;
 	}
 	llenartabla(ui.tableWidget_17,sql);
 	llenartabla(ui.tableWidget_17,sql);
+	ui.tableWidget_17->removeRow(ui.tableWidget_17->rowCount()-1);
 }
 void cosmec::mostrarFormlleno(){
 
