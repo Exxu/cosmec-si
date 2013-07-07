@@ -26,6 +26,26 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	ui.menuReportes->setEnabled(false);
 	ui.actionUsuarios->setEnabled(false);
 	
+	//CENTRAR DATOS DE LAS TABLAS
+	connect(ui.tableWidget,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_2,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_3,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_4,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_5,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_6,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_7,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_8,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_9,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_10,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_11,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_12,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_13,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_14,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_15,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_16,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_17,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+	connect(ui.tableWidget_24,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
+
 	//Parametros Base de datos
 	QFile file("in.txt");
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -364,7 +384,7 @@ void cosmec::eliminarFila()
 {
 	QString sql;
 	int currentRow=ui.tableWidget->currentRow();
-	if(currentRow==-1){
+	if(currentRow==-1 ||(currentRow==ui.tableWidget->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -538,7 +558,7 @@ void cosmec::eliminarFilaMaq()
 {
 	int currentRow=ui.tableWidget_3->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_3->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -740,7 +760,7 @@ void cosmec::eliminarFilaSExternos()
 {
 	int currentRow=ui.tableWidget_15->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_15->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -919,7 +939,7 @@ void cosmec::eliminarFilaMat()
 {
 	int currentRow=ui.tableWidget_14->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_14->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -1113,7 +1133,7 @@ void cosmec::eliminarFilaHe()
 {
 	int currentRow=ui.tableWidget_4->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_4->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -1332,7 +1352,7 @@ void cosmec::eliminarFilaCons()
 {
 	int currentRow=ui.tableWidget_5->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_5->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -1571,7 +1591,7 @@ void cosmec::eliminarFilaSer()
 {
 	int currentRow=ui.tableWidget_6->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_6->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -1848,7 +1868,7 @@ void cosmec::eliminarFilaMtto()
 {
 	int currentRow=ui.tableWidget_7->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_7->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -2217,7 +2237,7 @@ void cosmec::eliminarFilaActC()
 {
 	int currentRow=ui.tableWidget_9->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_9->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -2404,7 +2424,7 @@ void cosmec::eliminarFilaActAct()
 {
 	QString sql;
 	int currentRow=ui.tableWidget_10->currentRow();
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_10->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -2634,7 +2654,7 @@ void cosmec::eliminarFilaMo()
 {
 	int currentRow=ui.tableWidget_2->currentRow();
 	QString sql;
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_2->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -3538,7 +3558,7 @@ void cosmec::eliminarFilaMaqActividades(){
 	QString sql;
 	QTableWidgetItem *itab1 = ui.tableWidget_13->item(currentRow,0);
 	QTableWidgetItem *itab3 = ui.tableWidget_13->item(currentRow,2);
-	if(currentRow==-1){
+	if(currentRow==-1||(currentRow==ui.tableWidget_13->rowCount()-1)){
 		QMessageBox msgBox;
 		msgBox.setText("No hay fila seleccionada");
 		msgBox.exec();
@@ -5631,4 +5651,8 @@ void cosmec::llenarcombocargo(QString sql,QComboBox *combo){
 		combo->addItem(uno);
 		fila++;
 	}
+}
+
+void cosmec::centrarItem(QTableWidgetItem *elemento){
+	elemento->setTextAlignment(Qt::AlignHCenter);
 }

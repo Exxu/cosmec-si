@@ -307,6 +307,9 @@ private slots:
 	void cambiarCombo(int opcion);
 	void mostrarFormlleno();
 	void tablaBusqueda();
+
+	//CENTRAR DATOS DE LAS TABLAS
+	void centrarItem(QTableWidgetItem *elemento);
 };
 
 #endif // COSMEC_H
