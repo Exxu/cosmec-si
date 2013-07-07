@@ -6,6 +6,7 @@
 #include <QtGui/QPlainTextEdit>
 #include "ui_formulariomaq.h"
 #include <QtDebug>
+#include <math.h>
 
 class formularioMaq : public QWidget
 {
@@ -17,6 +18,9 @@ public:
 
 //private:
 	Ui::formularioMaq ui;
+
+private:
+	double redondear(double num);
 
 private slots:
 	void pathDialog();

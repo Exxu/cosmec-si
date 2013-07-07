@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariomaq.ui'
 **
-** Created: Sat 6. Jul 22:41:28 2013
+** Created: Sun 7. Jul 17:38:46 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,7 @@ public:
     QSpacerItem *verticalSpacer_3;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *horizontalSpacer_10;
     QFormLayout *formLayout;
     QLabel *label_2;
     QLineEdit *lineEdit;
@@ -79,6 +80,7 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
     QSpacerItem *horizontalSpacer_9;
+    QSpacerItem *horizontalSpacer_11;
     QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer_2;
 
@@ -154,6 +156,10 @@ public:
         horizontalSpacer_3 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_4->addItem(horizontalSpacer_3);
+
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_10);
 
         formLayout = new QFormLayout();
         formLayout->setSpacing(6);
@@ -387,6 +393,10 @@ public:
 
 
         horizontalLayout_4->addLayout(verticalLayout);
+
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_11);
 
         horizontalSpacer_5 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 

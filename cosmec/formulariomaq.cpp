@@ -32,26 +32,37 @@ void formularioMaq::pathDialog(){
 
 void formularioMaq::calcularDepre(double costo){
 	if(costo!=0 &&ui.spinBox->value()!=0){
-		ui.lineEdit_5->setText(QString::number(costo/ui.spinBox->value()));
+		double resultado=redondear(costo/ui.spinBox->value());
+		ui.lineEdit_5->setText(QString::number(resultado));
 	}
 }
 void formularioMaq::calcularDepre2(int vida){
 	if(ui.doubleSpinBox_2->value()!=0 &&vida!=0){
-		ui.lineEdit_5->setText(QString::number(ui.doubleSpinBox_2->value()/vida));
+		double resultado=redondear(ui.doubleSpinBox_2->value()/vida);
+		ui.lineEdit_5->setText(QString::number(resultado));
 	}
 }
 void formularioMaq::costo_hora(double costo){
 	if(costo!=0 &&ui.spinBox_2->value()!=0&&ui.spinBox->value()!=0){
-		ui.lineEdit_10->setText(QString::number((2*costo)/(ui.spinBox->value()*ui.spinBox_2->value())));
+		double resultado=redondear((2*costo)/(ui.spinBox->value()*ui.spinBox_2->value()));
+		ui.lineEdit_10->setText(QString::number(resultado));
 	}
 }
 void formularioMaq::costo_hora2(int horas){
 	if(ui.doubleSpinBox_2->value()!=0 &&horas!=0&&ui.spinBox->value()!=0){
-		ui.lineEdit_10->setText(QString::number((2*ui.doubleSpinBox_2->value())/(horas*ui.spinBox->value())));
+		double resultado=redondear((2*ui.doubleSpinBox_2->value())/(horas*ui.spinBox->value()));
+		ui.lineEdit_10->setText(QString::number(resultado));
 	}
 }
 void formularioMaq::costo_hora3(int vida){
 	if(ui.doubleSpinBox_2->value()!=0 &&vida!=0&&ui.spinBox_2->value()!=0){
-		ui.lineEdit_10->setText(QString::number((2*ui.doubleSpinBox_2->value())/(vida*ui.spinBox_2->value())));
+		double resultado=redondear((2*ui.doubleSpinBox_2->value())/(vida*ui.spinBox_2->value()));
+		ui.lineEdit_10->setText(QString::number(resultado));
 	}
+}
+double formularioMaq::redondear(double num){
+	double val;
+	double scale = 0.01;  // i.e. round to nearest one-hundreth
+	val = floor(num / scale + 0.5) * scale;
+	return val;
 }
