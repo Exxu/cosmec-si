@@ -3552,6 +3552,7 @@ public:
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
         tableWidget_17->horizontalHeader()->setDefaultSectionSize(195);
+        tableWidget_17->verticalHeader()->setVisible(false);
 
         horizontalLayout_50->addWidget(tableWidget_17);
 
