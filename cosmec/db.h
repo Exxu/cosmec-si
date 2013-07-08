@@ -36,6 +36,9 @@ class db{
 	void reinicio_seq(PGconn *conn,string sequiencia,string tabla);
 	void lectura();
 	bool db::esunnumero(char* dato);
+	void db::consulta_maquina(PGconn *conn,string nombre,char aux[50]);
+	void db::consulta_cargos(PGconn *conn,string nombre,char aux[50]);
+	void db::consulta_suma(PGconn *conn,string nombre,char aux[50]);
 	void escritura(int a);
 	private:
 	string ip;

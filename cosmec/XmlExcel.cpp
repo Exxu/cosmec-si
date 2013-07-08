@@ -352,6 +352,32 @@ TiXmlElement * XmlExcel::crear_general_titulo(char titulo[],char tipo1[],char co
 	row->LinkEndChild(cell);
 	return row;
 }
+void XmlExcel::crear_linea(TiXmlElement* row,char titulo[],char tipo1[],char comienzo[],bool opci,bool opci2){
+	TiXmlElement * cell = new TiXmlElement( "Cell" );
+	TiXmlElement * data = new TiXmlElement( "Data" );	
+	TiXmlText * valor1;
+	if (opci==true){
+		valor1 = new TiXmlText( titulo ); //titulo
+	}
+	else{
+		valor1 = new TiXmlText( "1" ); //titulo
+	}
+	data->SetAttribute("ss:Type",tipo1); //fijando el dato como numero
+	data->LinkEndChild(valor1);//Anadiendo un dato 
+	cell->SetAttribute("ss:Index",comienzo);
+	if (opci==true){
+		cell->SetAttribute("ss:StyleID","s23");	
+	}
+	else{
+		cell->SetAttribute("ss:StyleID","s21");
+		if (opci2==true){
+		cell->SetAttribute("ss:Formula",titulo);
+		}
+	}
+	cell->LinkEndChild(data);
+	row->LinkEndChild(cell);
+	//return row;
+}
 TiXmlElement* XmlExcel::row_anadido_dato(TiXmlElement* row,char dato[],char tipo[],char estilo_tipo[],bool menu){
 	row->SetAttribute("ss:AutoFitHeight","1");
 	TiXmlElement * cell = new TiXmlElement( "Cell" );
@@ -445,6 +471,42 @@ TiXmlElement* XmlExcel::row_lista_anadido_dato(TiXmlElement* table,list <hoja> l
 				}
 				else{
 					row_anadido_dato(row,coor2.dato,coor2.tipo,"s19",false);
+				}
+			}
+			pos_list++;
+		}
+		pos_fila++;
+		table->LinkEndChild(row);
+	}
+	return table;
+}
+TiXmlElement* XmlExcel::row_lista_anadido_dato(TiXmlElement * row,TiXmlElement* table,list <hoja> list_filas){
+	elemento coor2;
+	hoja k9;
+	list<hoja>::iterator pos_fila;
+	pos_fila=list_filas.begin();
+	while (pos_fila!=list_filas.end()){
+		//row=salto_linea(); //crear un elemento row de excel para anadir los datos
+		k9=*pos_fila;
+		list<elemento>::iterator pos_list;
+		pos_list=k9.tabla.begin();
+		while(pos_list!=k9.tabla.end()){
+			coor2=*pos_list;
+			//usar XmlExcel
+			if (coor2.menu){
+				if (pos_list==k9.tabla.begin()){
+					row_anadido_dato(row,coor2.dato,coor2.tipo,"s18",true);
+				}
+				else{
+					row_anadido_dato(row,coor2.dato,coor2.tipo,"s18",true);
+				}
+			}
+			else{
+				if (pos_list==k9.tabla.begin()){
+					row_anadido_dato(row,coor2.dato,coor2.tipo,"s21",false);
+				}
+				else{
+					row_anadido_dato(row,coor2.dato,coor2.tipo,"s21",false);
 				}
 			}
 			pos_list++;

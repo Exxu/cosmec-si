@@ -8,6 +8,169 @@ struct repcot {
 	QString maquina;
 	int costo;
 };
+TiXmlElement* tabla_herramientasss(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[600];
+	list <hoja> list_filas;
+	char nombre[50], titulo_aux[200];
+	basedatos.consulta_maquina(conn,maquina,nombre);
+	n=sprintf(titulo_aux,"HERRAMIENTAS DE LA MAQUINA: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo(titulo_aux,"String","3");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"1");
+	n=sprintf(sql,"SELECT a.nombre_herramienta, a.costo_unitario, a.depreciacion, a.costo_hora FROM herramientas AS a, maquinas AS b WHERE b.serie=a.serie_maquinas and b.serie=%s",maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	row=archivo.salto_linea();
+	int aux1=list_filas.size()-1;
+	char aux2[50]="=SUM(R[-7]C:R[-1]C)";
+	n=sprintf (aux2, "=SUM(R[-%d]C:R[-1]C)", aux1);
+	//printf(aux2);
+	//char a=getchar();
+	archivo.crear_linea(row,"Costo Hora Total","String","4",true,false);
+	archivo.crear_linea(row,aux2,"Number","5",false,true);
+	table->LinkEndChild(row);
+	return table;
+}
+TiXmlElement* tabla_herramientasss2(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[1000];
+	list <hoja> list_filas;
+	char nombre[50], total[50], titulo_aux[200];
+	basedatos.consulta_maquina(conn,maquina,nombre);
+	basedatos.consulta_suma(conn,maquina,total);
+	n=sprintf(titulo_aux,"MANO DE OBRA DE LA MAQUINA: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo(titulo_aux,"String","4");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"2");
+	//n=sprintf(sql,"SELECT c.nombre,d.nombre AS nombre_cargo,c.hora_mensual,c.costo_mes,c.costo_hora FROM maquinas AS a, mano_obra AS b, actividades_trabajo AS c, cargo AS d WHERE a.serie=b.serie_maquinas AND b.id_actividad_actividades_trabajo=c.id_actividad AND c.id_cargo_cargo=d.id_cargo and a.serie=%s",maquina);
+	n=sprintf(sql,"SELECT c.nombre,d.nombre AS nombre_cargo,c.hora_mensual,c.costo_mes,c.costo_mes*100/%s as promedio FROM maquinas AS a, mano_obra AS b, actividades_trabajo AS c, cargo AS d WHERE a.serie=b.serie_maquinas AND b.id_actividad_actividades_trabajo=c.id_actividad AND c.id_cargo_cargo=d.id_cargo and a.serie=%s",total,maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	row=archivo.salto_linea();
+	int aux1=list_filas.size()-1;
+	char aux2[50]="=SUM(R[-7]C:R[-1]C)";
+	n=sprintf (aux2, "=SUM(R[-%d]C:R[-1]C)", aux1);
+	//printf(aux2);
+	//char a=getchar();
+	archivo.crear_linea(row,"Valor de mano de obra","String","4",true,false);
+	archivo.crear_linea(row,aux2,"Number","5",false,true);
+	table->LinkEndChild(row);
+	return table;
+}
+TiXmlElement* tabla_herramientasss3(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[1000];
+	list <hoja> list_filas;
+	char nombre[50], titulo_aux[200];
+	basedatos.consulta_maquina(conn,maquina,nombre);
+	n=sprintf(titulo_aux,"CONSUMIBLES DE LA MAQUINA: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo(titulo_aux,"String","2");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"3");
+	n=sprintf(sql,"SELECT a.nombre_consumible, a.costo_unitario,a.costo_hora FROM consumible AS a, maquinas AS b WHERE b.serie=a.serie_maquinas and b.serie=%s",maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	row=archivo.salto_linea();
+	int aux1=list_filas.size()-1;
+	char aux2[50]="=SUM(R[-7]C:R[-1]C)";
+	n=sprintf (aux2, "=SUM(R[-%d]C:R[-1]C)", aux1);
+	//printf(aux2);
+	//char a=getchar();
+	archivo.crear_linea(row,"Costo Hora total","String","3",true,false);
+	archivo.crear_linea(row,aux2,"Number","4",false,true);
+	table->LinkEndChild(row);
+	return table;
+}
+TiXmlElement* tabla_herramientasss4(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[1000];
+	list <hoja> list_filas;
+	char nombre[50], titulo_aux[200];
+	basedatos.consulta_cargos(conn,maquina,nombre);
+	n=sprintf(titulo_aux,"REPORTE DE ACTIVIDADES DE: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo(titulo_aux,"String","2");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"4");
+	n=sprintf(sql,"SELECT c.nombre,c.hora_mensual,c.costo_mes FROM actividades_trabajo AS c, cargo AS d WHERE  d.id_cargo=c.id_cargo_cargo and d.id_cargo=%s ORDER BY d.nombre",maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	row=archivo.salto_linea();
+	int aux1=list_filas.size()-1;
+	char aux2[50];
+	n=sprintf (aux2, "=SUM(R[-%d]C:R[-1]C)", aux1);
+	//printf(aux2);
+	//char a=getchar();
+	archivo.crear_linea(row,"Salario","String","3",true,false);
+	archivo.crear_linea(row,aux2,"Number","4",false,true);
+	table->LinkEndChild(row);
+	row=archivo.salto_linea();
+	aux1+=1;
+	n=sprintf (aux2, "=SUM(R[-%d]C[-1]:R[-2]C[-1])", aux1);
+	archivo.crear_linea(row,"Horas de trabajo total","String","3",true,false);
+	archivo.crear_linea(row,aux2,"Number","4",false,true);
+	table->LinkEndChild(row);
+	return table;
+}
+
+TiXmlElement* tabla_herramientasss5(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[1000];
+	list <hoja> list_filas;
+	char nombre[50], titulo_aux[200];
+	basedatos.consulta_maquina(conn,maquina,nombre);
+	n=sprintf(titulo_aux,"MANTENIMIENTO DE LA MAQUINA: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo(titulo_aux,"String","4");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"5");
+	//SELECT c.modelo,c.horas_trabajo_anual,c.presupuesto_anual,b.nombre,b.costo_unitario,b.cantidad_anual,b.valor_total,b.costo_hora FROM mantenimiento_preventivo AS b, maquinas AS c WHERE b.serie_maquinas=c.serie ORDER BY c.modelo
+	//SELECT b.nombre,b.costo_unitario,b.cantidad_anual,b.valor_total,b.costo_hora FROM mantenimiento_preventivo AS b, maquinas AS c WHERE b.serie_maquinas=c.serie ORDER BY c.modelo
+	n=sprintf(sql,"select b.nombre,b.costo_unitario,b.cantidad_anual,b.valor_total,b.costo_hora FROM mantenimiento_preventivo AS b, maquinas AS c WHERE b.serie_maquinas=c.serie and c.serie=%s ORDER BY c.modelo",maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	row=archivo.salto_linea();
+	int aux1=list_filas.size()-1;
+	char aux2[50]="=SUM(R[-7]C:R[-1]C)";
+	n=sprintf (aux2, "=SUM(R[-%d]C:R[-1]C)", aux1);
+	archivo.crear_linea(row,"Costo Mantenimiento Preventivo:","String","4",true,false);
+	archivo.crear_linea(row,aux2,"Number","5",false,true);
+	archivo.crear_linea(row,aux2,"Number","6",false,true);
+	table->LinkEndChild(row);
+	row=archivo.salto_linea();
+	archivo.crear_linea(row,"Costo Mantenimiento Correctivo:","String","4",true,false);
+	list_filas.clear();
+	n=sprintf(sql,"select presupuesto_anual as presupuesto, presupuesto_anual/horas_trabajo_anual as horas_anual  from maquinas where serie=%s",maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(row,table,list_filas);
+	row=archivo.salto_linea();
+	archivo.crear_linea(row,"Costo Mantenimiento:","String","4",true,false);
+	archivo.crear_linea(row,"=SUM(R[-2]C:R[-1]C)","Number","5",false,true);
+	archivo.crear_linea(row,"=SUM(R[-2]C:R[-1]C)","Number","6",false,true);
+	table->LinkEndChild(row);
+	return table;
+}
+
+TiXmlElement* tabla_herramientasss6(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[1000];
+	list <hoja> list_filas;
+	char nombre[50], titulo_aux[200];
+	//basedatos.consulta_cargos(conn,maquina,nombre);
+	//n=sprintf(titulo_aux,"REPORTE DE ACTIVIDADES DE: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo("Lista de Maquinas en el sistema","String","6");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"6");
+	strcpy(sql,"SELECT serie,modelo,costo,vida_util, horas_trabajo_anual, deprecicacion, costo_hora FROM maquinas");
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	return table;
+}
 cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
 {
@@ -2956,6 +3119,17 @@ void cosmec::setgenerador(){
 	ui.stackedWidget->setCurrentIndex(9);
 }
 void cosmec::setreporteexel(){
+	//llenar combobox maquinas
+	QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+	llenarcombomaq(sql,ui.comboBox_4);
+	llenarcombomaq(sql,ui.comboBox_7);
+	llenarcombomaq(sql,ui.comboBox_12);
+	llenarcombomaq(sql,ui.comboBox_8);
+	llenarcombomaq(sql,ui.comboBox_10);
+	//llenar combo cargo
+	sql="SELECT a.id_cargo,a.nombre FROM cargo AS a ORDER BY a.nombre";
+	llenarcombocargo(sql,ui.comboBox_9);
+
 	ui.stackedWidget->setCurrentIndex(10);
 }
 void cosmec::setconfig(){
@@ -3272,15 +3446,69 @@ void cosmec::reporteexel(){
 		TiXmlElement* worksheet;
 		TiXmlElement * table;
 		TiXmlElement * row;
-		list <hoja> list_filas;
+		TiXmlElement * row1;
+
 		decl=archivo.cabecera();
 		workbook=archivo.crear_documento_libro("COSMEC","2013-06-05T15:20:15Z"); //autor, fecha
 		estilo=archivo.crear_estilos();
 		workbook ->LinkEndChild(estilo);
 
-		if(ui.checkBox->isChecked()){
+		if(ui.radioButton_3->isChecked()){ //HERRAMIENTAS GRAL.
 			//crea hoja de datos
-			worksheet=archivo.crear_hoja("Maquinas"); //Nombre de la hoja
+			worksheet=archivo.crear_hoja("Herramientas"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+
+			int tam=ui.comboBox_4->count();
+			int index;
+			char indexChar[20];
+			for(int k=0;k<tam;k++){
+				index=idmaquinas[k];
+				sprintf(indexChar,"%d",index);
+				//qDebug()<<index;
+				table=tabla_herramientasss(archivo,basedatos,conn,row,table,indexChar);
+				row=archivo.salto_linea();
+				table->LinkEndChild(row);
+			}
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton_4->isChecked()){//HERRAMIENTAS P/MAQ
+			//crea hoja de datos
+			worksheet=archivo.crear_hoja("Herramientas"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+
+			char indexChar[20];
+			int index=idmaquinas[ui.comboBox_4->currentIndex()];
+			sprintf(indexChar,"%d",index);
+			table=tabla_herramientasss(archivo,basedatos,conn,row,table,indexChar);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton_12->isChecked()){//MANO OBRA GRAL
+			//hoja2
+			worksheet=archivo.crear_hoja("mano de obra"); //Nombre de la hoja
 			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
 			//Cabecera de hoja
 			row=archivo.salto_linea();
@@ -3292,176 +3520,219 @@ void cosmec::reporteexel(){
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
 			//
-			row=archivo.crear_cell_tabla_titulo("SERVICIOS GENERALES","String","6");
-			table->LinkEndChild(row);
-			//lsitas para los datos
-			//se tiene que cambiar por consulta
-			
-			//list_filas=archivo.row_anadido_menu(list_filas,1);
-			list_filas=basedatos.consulta_menus(conn,list_filas,"1");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT a.serie,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion,a.costo_hora FROM maquinas AS a"); //lee de la base de datos y almacena en la lista
-			table=archivo.row_lista_anadido_dato(table,list_filas);
+			int tam=ui.comboBox_8->count();
+			int index;
+			char indexChar[20];
+			for(int k=0;k<tam;k++){
+				index=idmaquinas[k];
+				sprintf(indexChar,"%d",index);
+				table=tabla_herramientasss2(archivo,basedatos,conn,row,table,indexChar);
+				row=archivo.salto_linea();
+				table->LinkEndChild(row);
+			}
 			worksheet->LinkEndChild(table);
-			workbook ->LinkEndChild(worksheet);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
 		}
-		//otra hoja
-		if(ui.checkBox_2->isChecked()){
-			//crea hoja de datos
-			worksheet=archivo.crear_hoja("Consumibles y Herrameintas"); //Nombre de la hoja
-			table=archivo.crear_tabla("199","2000"); //dimensiones maxima de la hoja x,y
+		if(ui.radioButton_6->isChecked()){//MANO OBRA P/MAQ
+			//hoja2
+			worksheet=archivo.crear_hoja("mano de obra"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
 			//Cabecera de hoja
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","7","25");
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","7","15");
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
 			table->LinkEndChild(row);
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
 			//
-			//creado de tabla
-			row=archivo.crear_cell_tabla_titulo("HERRAMIENTAS","String","7");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"2");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT a.modelo,b.nombre_herramienta, b.costo_unitario, b.vida_util, b.depreciacion, b.valor_hora, b.depreciacion_hora, b.costo_hora FROM maquinas AS a,herramientas AS b WHERE b.serie_maquinas=a.serie");
-			table=archivo.row_lista_anadido_dato(table,list_filas); //ya hace el LinkEndChild internamente
+			char indexChar[20];
+			int index=idmaquinas[ui.comboBox_8->currentIndex()];
+			sprintf(indexChar,"%d",index);
+			table=tabla_herramientasss2(archivo,basedatos,conn,row,table,indexChar);
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
-			row=archivo.crear_cell_tabla_titulo("CONSUMIBLES","String","3");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"3");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT a.modelo, b.nombre_consumible, b.costo_unitario, b.costo_hora FROM maquinas a,consumible b WHERE a.serie=b.serie_maquinas"); //lee de la base de datos y almacena en la lista
-			table=archivo.row_lista_anadido_dato(table,list_filas); 
-			//
 			worksheet->LinkEndChild(table);
-			workbook ->LinkEndChild(worksheet);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
 		}
-		//hoja3
-		if(ui.checkBox_3->isChecked()){
-			worksheet=archivo.crear_hoja("Mantenimiento"); //Nombre de la hoja
-			table=archivo.crear_tabla("199","2000"); //dimensiones maxima de la hoja x,y
+		if(ui.radioButton_10->isChecked()){//CONSUMIBLES GRAL
+			//hoja3
+			worksheet=archivo.crear_hoja("Consumibles"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
 			//Cabecera de hoja
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","4","25");
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","4","15");
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
 			table->LinkEndChild(row);
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
 			//
-			//creado de tabla
-			row=archivo.crear_cell_tabla_titulo("MANTENIMIENTO PREVENTIVO","String","4");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"4");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT a.nombre,b.modelo, a.costo_unitario, a.cantidad_anual, "
-				"a.valor_total FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo");
-			table=archivo.row_lista_anadido_dato(table,list_filas); //ya hace el LinkEndChild internamente
-			row=archivo.salto_linea();
-			table->LinkEndChild(row);
-			row=archivo.crear_cell_tabla_titulo("MANTENIMIENTO","String","4");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"5");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT b.modelo, b.presupuesto_anual, b.presupuesto_anual/b.horas_trabajo_anual AS costo_hora, SUM(a.costo_hora) AS suma_prev,(b.presupuesto_anual/b.horas_trabajo_anual)+(SUM(a.costo_hora))  AS costo_total FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie GROUP BY b.serie ORDER BY b.modelo"); //lee de la base de datos y almacena en la lista
-			table=archivo.row_lista_anadido_dato(table,list_filas); 
-			//
+			int tam=ui.comboBox_7->count();
+			int index;
+			char indexChar[20];
+			for(int k=0;k<tam;k++){
+				index=idmaquinas[k];
+				sprintf(indexChar,"%d",index);
+				table=tabla_herramientasss3(archivo,basedatos,conn,row,table,indexChar);
+				row=archivo.salto_linea();
+				table->LinkEndChild(row);
+			}
 			worksheet->LinkEndChild(table);
-			workbook ->LinkEndChild(worksheet);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
 		}
-		//hoja4
-		if(ui.checkBox_4->isChecked()){
-			worksheet=archivo.crear_hoja("Servicios y Mano de Obra"); //Nombre de la hoja
-			table=archivo.crear_tabla("199","2000"); //dimensiones maxima de la hoja x,y
+		if(ui.radioButton_5->isChecked()){//CONSUMIBLES P/MAQ
+			//hoja3
+			worksheet=archivo.crear_hoja("Consumibles"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
 			//Cabecera de hoja
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","7","25");
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","7","15");
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
 			table->LinkEndChild(row);
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
 			//
-			//creado de tabla
-			row=archivo.crear_cell_tabla_titulo("SERVICIOS GENERALES","String","7");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"6");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT c.modelo,b.consumo_anual AS anual_agua,b.costo_consumo AS costo_agua,a.consumo,a.costo_consumo,b.costo_hora,a.costo_energia,b.costo_hora+a.costo_energia  FROM energia AS a, agua AS b, maquinas AS c WHERE b.serie_maquinas=a.serie_maquinas AND b.serie_maquinas=c.serie");
-			table=archivo.row_lista_anadido_dato(table,list_filas); //ya hace el LinkEndChild internamente
+			char indexChar[20];
+			int index=idmaquinas[ui.comboBox_7->currentIndex()];
+			sprintf(indexChar,"%d",index);
+			table=tabla_herramientasss3(archivo,basedatos,conn,row,table,indexChar);
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
-			row=archivo.crear_cell_tabla_titulo("MANO DE OBRA","String","4");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"7");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT d.modelo, b.nombre, b.hora_mensual, b.costo_mes, b.costo_hora FROM cargo AS a,actividades_trabajo AS b,mano_obra AS c,maquinas AS d WHERE a.id_cargo=b.id_cargo_cargo AND b.id_actividad=c.id_actividad_actividades_trabajo AND c.serie_maquinas=d.serie"); //lee de la base de datos y almacena en la lista
-			table=archivo.row_lista_anadido_dato(table,list_filas); 
-			row=archivo.salto_linea();
-			table->LinkEndChild(row);
-			row=archivo.crear_cell_tabla_titulo("ACTIVIDADES DE TRABAJO","String","4");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"8");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT b.nombre, a.nombre AS nombre_cargo, b.hora_mensual, b.costo_mes, b.costo_hora FROM cargo AS a,actividades_trabajo AS b WHERE a.id_cargo=b.id_cargo_cargo ORDER BY a.nombre"); //lee de la base de datos y almacena en la lista
-			table=archivo.row_lista_anadido_dato(table,list_filas);
-
 			worksheet->LinkEndChild(table);
-			workbook ->LinkEndChild(worksheet);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
 		}
-		//hoja 5
-		if(ui.checkBox_5->isChecked()){
+		if(ui.radioButton_13->isChecked()){//ACTIVIDADES GRAL
+			//hoja4
 			worksheet=archivo.crear_hoja("Actividades"); //Nombre de la hoja
-			table=archivo.crear_tabla("199","2000"); //dimensiones maxima de la hoja x,y
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
 			//Cabecera de hoja
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","2","25");
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
 			table->LinkEndChild(row);
-			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","2","15");
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
 			table->LinkEndChild(row);
 			row=archivo.salto_linea();
 			table->LinkEndChild(row);
 			//
-			//creado de tabla
-			row=archivo.crear_cell_tabla_titulo("ACTIVIDADES","String","2");
-			table->LinkEndChild(row);
-			list_filas.clear();
-			list_filas=basedatos.consulta_menus(conn,list_filas,"9");
-			list_filas=basedatos.consulta(conn,list_filas,"SELECT b.nombre,a.nombre AS categoria,b.costo_hora FROM categoria_actividades AS a,actividades AS b WHERE a.id_categoria_actividades=b.id_categoria_actividades_categoria_actividades");
-			table=archivo.row_lista_anadido_dato(table,list_filas); //ya hace el LinkEndChild internamente
-
+			int tam=ui.comboBox_9->count();
+			int index;
+			char indexChar[20];
+			for(int k=0;k<tam;k++){
+				index=idcargo[k];
+				sprintf(indexChar,"%d",index);
+				table=tabla_herramientasss4(archivo,basedatos,conn,row,table,indexChar);
+				row=archivo.salto_linea();
+				table->LinkEndChild(row);
+			}
 			worksheet->LinkEndChild(table);
-			workbook ->LinkEndChild(worksheet);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
 		}
-		//hoja 6
-		//worksheet=archivo.crear_hoja("General"); //Nombre de la hoja
-		//table=archivo.crear_tabla("199","2000"); //dimensiones maxima de la hoja x,y
-		////Cabecera de hoja
-		//row=archivo.salto_linea();
-		//table->LinkEndChild(row);
-		//row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","4","25");
-		//table->LinkEndChild(row);
-		//row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","4","15");
-		//table->LinkEndChild(row);
-		//row=archivo.salto_linea();
-		//table->LinkEndChild(row);
-		////
-		////creado de tabla
-		//row=archivo.crear_cell_tabla_titulo("COSTOS GENERALES","String","4");
-		//table->LinkEndChild(row);
-		//list_filas.clear();
-		//list_filas=basedatos.consulta_menus(conn,list_filas,"10");
-		////list_filas=basedatos.consulta(conn,list_filas,"select * from herramientas");
-		//table=archivo.row_lista_anadido_dato(table,list_filas); //ya hace el LinkEndChild internamente
-
-		//worksheet->LinkEndChild(table);
-		//workbook ->LinkEndChild(worksheet);
-
+		if(ui.radioButton_7->isChecked()){//ACTIVIDADES P/CARGO
+			//hoja4
+			worksheet=archivo.crear_hoja("Actividades"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			//
+			char indexChar[20];
+			int index=idcargo[ui.comboBox_9->currentIndex()];
+			sprintf(indexChar,"%d",index);
+			table=tabla_herramientasss4(archivo,basedatos,conn,row,table,indexChar);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton_11->isChecked()){//MTTO GRAL
+			//hoja5
+			worksheet=archivo.crear_hoja("Mantenimiento"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			//
+			int tam=ui.comboBox_12->count();
+			int index;
+			char indexChar[20];
+			for(int k=0;k<tam;k++){
+				index=idmaquinas[k];
+				sprintf(indexChar,"%d",index);
+				table=tabla_herramientasss5(archivo,basedatos,conn,row,table,indexChar);
+				row=archivo.salto_linea();
+				table->LinkEndChild(row);
+			}
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton_9->isChecked()){//MTTO P/MAQ
+			//hoja5
+			worksheet=archivo.crear_hoja("Mantenimiento"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			//
+			char indexChar[20];
+			int index=idmaquinas[ui.comboBox_12->currentIndex()];
+			sprintf(indexChar,"%d",index);
+			table=tabla_herramientasss5(archivo,basedatos,conn,row,table,indexChar);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton->isChecked()){//MAQ GRAL
+			//hoja6
+			worksheet=archivo.crear_hoja("General"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			//
+			table=tabla_herramientasss6(archivo,basedatos,conn,row,table,"nada");
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
 
 		//Armado del archivo
 		doc.LinkEndChild( decl );
@@ -3469,9 +3740,6 @@ void cosmec::reporteexel(){
 		//Creacion del xml y visualizacion
 		archivo.guardar_archivo(doc,"excel1a.xml");
 		archivo.abrir_archivo("excel1a.xml");
-		//string a;
-		//cin>>a;
-
 	}
 }
 void cosmec::setactividadesMo(){

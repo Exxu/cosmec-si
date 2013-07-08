@@ -65,6 +65,70 @@ void db::consulta_tipo(PGconn *conn,string nombre){
 	}
 	}
 }
+void db::consulta_maquina(PGconn *conn,string nombre,char aux[50]){
+	PGresult *res;
+	int i, j, n;
+	string sql;
+	stringstream msg;
+	msg<<"Select  modelo from maquinas WHERE serie='"<<nombre<<"'";
+	sql=msg.str();
+	const char *a=sql.c_str();
+	if (PQstatus(conn) != CONNECTION_BAD){
+	res = PQexec(conn, a);
+	if (res != NULL && PGRES_TUPLES_OK == PQresultStatus(res)){
+		for (i = 0; i < PQntuples(res); i++){
+			for (j = 0; j < PQnfields(res); j++){
+				n=sprintf(aux,"%s",PQgetvalue(res,i,j));
+				//printf("%s\t",PQgetvalue(res,i,j));
+			}
+		}
+		PQclear(res);
+	}
+	}
+}
+void db::consulta_suma(PGconn *conn,string nombre,char aux[50]){
+	PGresult *res;
+	int i, j, n;
+	string sql;
+	stringstream msg;
+	msg<<"SELECT sum(c.costo_mes) as promedio FROM maquinas AS a, mano_obra AS b, actividades_trabajo AS c, cargo AS d WHERE a.serie=b.serie_maquinas AND b.id_actividad_actividades_trabajo=c.id_actividad AND c.id_cargo_cargo=d.id_cargo and a.serie='"<<nombre<<"'";
+	sql=msg.str();
+	const char *a=sql.c_str();
+	if (PQstatus(conn) != CONNECTION_BAD){
+	res = PQexec(conn, a);
+	if (res != NULL && PGRES_TUPLES_OK == PQresultStatus(res)){
+		for (i = 0; i < PQntuples(res); i++){
+			for (j = 0; j < PQnfields(res); j++){
+				n=sprintf(aux,"%s",PQgetvalue(res,i,j));
+				//printf("%s\t",PQgetvalue(res,i,j));
+			}
+		}
+		PQclear(res);
+	}
+	}
+}
+void db::consulta_cargos(PGconn *conn,string nombre,char aux[50]){
+	PGresult *res;
+	int i, j, n;
+	string sql;
+	stringstream msg;
+	msg<<"Select  nombre from cargo WHERE id_cargo='"<<nombre<<"'";
+	sql=msg.str();
+	const char *a=sql.c_str();
+	if (PQstatus(conn) != CONNECTION_BAD){
+	res = PQexec(conn, a);
+	if (res != NULL && PGRES_TUPLES_OK == PQresultStatus(res)){
+		for (i = 0; i < PQntuples(res); i++){
+			for (j = 0; j < PQnfields(res); j++){
+				n=sprintf(aux,"%s",PQgetvalue(res,i,j));
+				//printf("%s\t",PQgetvalue(res,i,j));
+			}
+		}
+		PQclear(res);
+	}
+	}
+}
+
 bool db::esunnumero(char* dato){
 	int aux;
 	int longitud = strlen(dato);
