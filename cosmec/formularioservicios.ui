@@ -91,6 +91,9 @@ QLineEdit {
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
@@ -128,21 +131,21 @@ QLineEdit {
        <item row="3" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Consumo tota del serviciol</string>
+          <string>Consumo total del servicio [u]</string>
          </property>
         </widget>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Consumo por hora</string>
+          <string>Consumo por hora [u/h]</string>
          </property>
         </widget>
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="label_7">
          <property name="text">
-          <string>Costo por unidad consumida</string>
+          <string>Costo por unidad consumida [$/u]</string>
          </property>
         </widget>
        </item>
@@ -193,7 +196,7 @@ QLineEdit {
        <item row="6" column="0">
         <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>Costo hora servicio</string>
+          <string>Costo hora servicio [$/h]</string>
          </property>
         </widget>
        </item>
@@ -237,6 +240,9 @@ QLineEdit {
       <spacer name="horizontalSpacer_4">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "ui_formularioconsumibles.h"
+#include <math.h>
 
 class formularioConsumibles : public QWidget
 {
@@ -14,6 +15,9 @@ public:
 
 //private:
 	Ui::formularioConsumibles ui;
+
+private slots:
+	void labelCombo(QString actual);
 };
 
 #endif // FORMULARIOCONSUMIBLES_H

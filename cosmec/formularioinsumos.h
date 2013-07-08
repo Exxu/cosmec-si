@@ -14,6 +14,9 @@ public:
 
 //private:
 	Ui::formularioInsumos ui;
+
+private slots:
+	void labelCombo(QString actual);
 };
 
 #endif // FORMULARIOINSUMOS_H

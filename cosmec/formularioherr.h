@@ -14,6 +14,9 @@ public:
 
 //private:
 	Ui::formularioHerr ui;
+
+private slots:
+		void labelCombo(QString actual);
 };
 
 #endif // FORMULARIOHERR_H

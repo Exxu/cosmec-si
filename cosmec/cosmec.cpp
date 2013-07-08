@@ -622,6 +622,13 @@ void cosmec::agregarfilaMaq(){
 	fmaquina->ui.pushButton_2->setVisible(false);
 	fmaquina->ui.pushButton->setVisible(true);
 	fmaquina->ui.plainTextEdit->setVisible(true);
+	fmaquina->ui.lineEdit->setEnabled(true);//lineEdit de maquina
+	fmaquina->ui.lineEdit_7->setVisible(false);//labels y lineEdit de consumo de agua etc etc
+	fmaquina->ui.lineEdit_8->setVisible(false);
+	fmaquina->ui.lineEdit_9->setVisible(false);
+	fmaquina->ui.label_12->setVisible(false);
+	fmaquina->ui.label_13->setVisible(false);
+	fmaquina->ui.label_14->setVisible(false);
 	fmaquina->show();
 }
 void cosmec::nuevaMaq(){
@@ -662,6 +669,13 @@ void cosmec::editarMaq(){
 	fmaquina->ui.pushButton_2->setVisible(true);
 	fmaquina->ui.pushButton->setVisible(true);
 	fmaquina->ui.plainTextEdit->setVisible(true);
+	fmaquina->ui.lineEdit->setEnabled(false);
+	fmaquina->ui.lineEdit_7->setVisible(false);
+	fmaquina->ui.lineEdit_8->setVisible(false);
+	fmaquina->ui.lineEdit_9->setVisible(false);
+	fmaquina->ui.label_12->setVisible(false);
+	fmaquina->ui.label_13->setVisible(false);
+	fmaquina->ui.label_14->setVisible(false);
 
 	int film=ui.tableWidget_3->currentRow();
 

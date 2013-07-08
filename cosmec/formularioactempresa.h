@@ -14,6 +14,9 @@ public:
 
 //private:
 	Ui::formularioActEmpresa ui;
+
+private slots:
+	void labelCombo(QString actual);
 };
 
 #endif // FORMULARIOACTEMPRESA_H
