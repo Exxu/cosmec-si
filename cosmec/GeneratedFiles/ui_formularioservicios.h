@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioservicios.ui'
 **
-** Created: Sun 7. Jul 17:38:45 2013
+** Created: Sun 7. Jul 19:29:02 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -304,10 +304,10 @@ public:
         label_2->setText(QApplication::translate("formularioServicios", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioServicios", "Nombre", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioServicios", "Tiempo de cosumo [horas]", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioServicios", "Consumo tota del serviciol", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioServicios", "Consumo por hora", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("formularioServicios", "Costo por unidad consumida", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("formularioServicios", "Costo hora servicio", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioServicios", "Consumo total del servicio [u]", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioServicios", "Consumo por hora [u/h]", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("formularioServicios", "Costo por unidad consumida [$/u]", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("formularioServicios", "Costo hora servicio [$/h]", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("formularioServicios", "Unidad", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("formularioServicios", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("formularioServicios", "Crear", 0, QApplication::UnicodeUTF8));

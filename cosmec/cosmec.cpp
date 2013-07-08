@@ -5265,12 +5265,21 @@ void cosmec::mostrarFormlleno(){
 	QTableWidgetItem *itab1 = ui.tableWidget_17->item(filh,0);
 	int idid=QString(itab1->text()).toInt();
 	QString sql;
+	
+	QString serie;
+	QString codespe;
+	QString modelo;
+	QString costo;
+	QString vida;
+	QString horas;
+	QString presu;
+	QString depre;
+	QString costo_hora;
+	
 	QSqlQuery respuesta(cosmecdb);
 	QString id_consumible="";
 	QString nombre="";
-	QString costo="";
 	QString cantidad="";
-	QString costo_hora="";
 	QString maquina="";	
 
 
@@ -5315,6 +5324,7 @@ void cosmec::mostrarFormlleno(){
 				fmaquina->ui.label_13->setVisible(true);
 				fmaquina->ui.label_14->setVisible(true);
 
+
 				cosmecdb.open();
 				sql=QString("SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion, "
 					"a.costo_hora,a.presupuesto_anual FROM maquinas AS a WHERE a.serie=%1").arg(idid);
@@ -5324,16 +5334,26 @@ void cosmec::mostrarFormlleno(){
 					msgBox.exec();
 				}else{
 					while(respuesta.next()){
-						fmaquina->ui.lineEdit->setText(respuesta.value(0).toString());
-						fmaquina->ui.lineEdit_2->setText(respuesta.value(1).toString());
-						fmaquina->ui.lineEdit_3->setText(respuesta.value(2).toString());
-						fmaquina->ui.lineEdit_5->setText(respuesta.value(7).toString());
-						fmaquina->ui.lineEdit_10->setText(respuesta.value(8).toString());
-						fmaquina->ui.doubleSpinBox_2->setValue(respuesta.value(3).toDouble());
-						fmaquina->ui.doubleSpinBox_3->setValue(respuesta.value(9).toDouble());
-						fmaquina->ui.spinBox->setValue(respuesta.value(4).toInt());
-						fmaquina->ui.spinBox_2->setValue(respuesta.value(5).toInt());					
+						serie=respuesta.value(0).toString();
+						codespe=respuesta.value(1).toString();
+						modelo=respuesta.value(2).toString();
+						costo=respuesta.value(3).toString();
+						vida=respuesta.value(4).toString();
+						horas=respuesta.value(5).toString();
+						depre=respuesta.value(6).toString();
+						costo_hora=respuesta.value(7).toString();
+						presu=respuesta.value(8).toString();
+										
 					}
+					fmaquina->ui.lineEdit->setText(serie);
+					fmaquina->ui.lineEdit_2->setText(codespe);
+					fmaquina->ui.lineEdit_3->setText(modelo);
+					fmaquina->ui.lineEdit_5->setText(depre);
+					fmaquina->ui.lineEdit_10->setText(costo_hora);
+					fmaquina->ui.doubleSpinBox_2->setValue(QString(costo).toDouble());
+					fmaquina->ui.doubleSpinBox_3->setValue(QString(presu).toDouble());
+					fmaquina->ui.spinBox->setValue(QString(vida).toInt());
+					fmaquina->ui.spinBox_2->setValue(QString(horas).toInt());
 				}
 				cosmecdb.close();
 				fmaquina->show();
