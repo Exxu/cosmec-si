@@ -171,6 +171,33 @@ TiXmlElement* tabla_herramientasss6(XmlExcel archivo,db basedatos,PGconn *conn,T
 	table=archivo.row_lista_anadido_dato(table,list_filas);
 	return table;
 }
+TiXmlElement* tabla_herramientasss7(XmlExcel archivo,db basedatos,PGconn *conn,TiXmlElement * row, TiXmlElement * table,char maquina[20]){
+	int n;
+	char sql[1000];
+	list <hoja> list_filas;
+	char nombre[50], titulo_aux[200];
+	basedatos.consulta_maquina(conn,maquina,nombre);
+	n=sprintf(titulo_aux,"SERVICIOS BASICOS DE LA MAQUINA: %s",nombre);
+	//list_filas=archivo.row_anadido_menu(list_filas,1);
+	row=archivo.crear_cell_tabla_titulo(titulo_aux,"String","6");
+	table->LinkEndChild(row);
+	list_filas=basedatos.consulta_menus(conn,list_filas,"5");
+	//SELECT c.modelo,c.horas_trabajo_anual,c.presupuesto_anual,b.nombre,b.costo_unitario,b.cantidad_anual,b.valor_total,b.costo_hora FROM mantenimiento_preventivo AS b, maquinas AS c WHERE b.serie_maquinas=c.serie ORDER BY c.modelo
+	//SELECT b.nombre,b.costo_unitario,b.cantidad_anual,b.valor_total,b.costo_hora FROM mantenimiento_preventivo AS b, maquinas AS c WHERE b.serie_maquinas=c.serie ORDER BY c.modelo
+	n=sprintf(sql,"SELECT a.nombre_servi, a.tipo_consum, a.consumo_serv, a.unidad, a.consumo_hora, a.costo_consu, a.costo_hora FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie and b.serie=%s",maquina);
+	list_filas=basedatos.consulta(conn,list_filas,sql); //lee de la base de datos y almacena en la lista
+	table=archivo.row_lista_anadido_dato(table,list_filas);
+	row=archivo.salto_linea();
+	int aux1=list_filas.size();
+	char aux2[50]="=SUM(R[-7]C:R[-1]C)";
+	n=sprintf (aux2, "=SUM(R[-%d]C:R[-1]C)", aux1);
+	archivo.crear_linea(row,"Costo Total:","String","7",true,false);
+	archivo.crear_linea(row,aux2,"Number","8",false,true);
+	table->LinkEndChild(row);
+	row=archivo.salto_linea();
+	table->LinkEndChild(row);
+	return table;
+}
 cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
 {
@@ -3732,6 +3759,58 @@ void cosmec::reporteexel(){
 			table->LinkEndChild(row);
 			//
 			table=tabla_herramientasss6(archivo,basedatos,conn,row,table,"nada");
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton_14->isChecked()){//SERV BAS GRAL
+			//hoja7
+			worksheet=archivo.crear_hoja("Servicio Basicos"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			//
+			int tam=ui.comboBox_10->count();
+			int index;
+			char indexChar[20];
+			for(int k=0;k<tam;k++){
+				index=idmaquinas[k];
+				sprintf(indexChar,"%d",index);
+				table=tabla_herramientasss7(archivo,basedatos,conn,row,table,indexChar);
+				row=archivo.salto_linea();
+				table->LinkEndChild(row);
+			}
+			worksheet->LinkEndChild(table);
+			workbook ->LinkEndChild(worksheet);	
+			//Fin de la hoja de datos
+		}
+		if(ui.radioButton_8->isChecked()){//SERV BAS P/MAQ
+			//hoja7
+			worksheet=archivo.crear_hoja("Servicio Basicos"); //Nombre de la hoja
+			table=archivo.crear_tabla("199","200"); //dimensiones maxima de la hoja x,y
+			//Cabecera de hoja
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Escuela Politecnica del Ejercito","String","2","6","25");
+			table->LinkEndChild(row);
+			row=archivo.crear_general_titulo("Departamento de ciencias de la energia y mecanica","String","2","6","15");
+			table->LinkEndChild(row);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
+			//
+			char indexChar[20];
+			int index=idmaquinas[ui.comboBox_10->currentIndex()];
+			sprintf(indexChar,"%d",index);
+			table=tabla_herramientasss7(archivo,basedatos,conn,row,table,indexChar);
+			row=archivo.salto_linea();
+			table->LinkEndChild(row);
 			worksheet->LinkEndChild(table);
 			workbook ->LinkEndChild(worksheet);	
 			//Fin de la hoja de datos

@@ -82,7 +82,7 @@
             <Interior ss:Color="#76933C" ss:Pattern="Solid" />
         </Style>
     </Styles>
-    <Worksheet ss:Name="Herramientas">
+    <Worksheet ss:Name="Servicio Basicos">
         <Table ss:ExpandedColumnCount="199" ss:ExpandedRowCount="200" x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
             <Row />
             <Row ss:Height="25">
@@ -99,73 +99,28 @@
             <Row ss:Height="30">
                 <Cell ss:Index="2" ss:MergeAcross="3" ss:StyleID="s23">
                     <Data ss:Type="String">HERRAMIENTAS DE LA MAQUINA: FADAL VMC</Data>
+                <Cell ss:Index="2" ss:MergeAcross="6" ss:StyleID="s23">
+                    <Data ss:Type="String">SERVICIOS BASICOS DE LA MAQUINA: VIWA VTC</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Cono BT-40 porta Roseta-27</Data>
+                    <Data ss:Type="String">Agua</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">90.28</Data>
+                    <Data ss:Type="Number">1920</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">22.57</Data>
+                    <Data ss:Type="Number">100.00</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.06</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Cono BT-40 porta Roseta-22</Data>
+                    <Data ss:Type="String">m3</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">90.28</Data>
+                    <Data ss:Type="Number">0.05</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">45.14</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.12</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Cono BT-40 porta Roseta-25</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">75.00</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">37.50</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.10</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Cono BT-40 porta Pinza-ER32</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">90.00</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">22.50</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.06</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Pull stud(tirantes) a 45</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">10.27</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">15.41</Data>
+                    <Data ss:Type="Number">0.68</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
                     <Data ss:Type="Number">0.04</Data>
@@ -173,26 +128,36 @@
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Set de pinzas ER 32(18 piezas)3-20mm</Data>
+                    <Data ss:Type="String">Energia</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">225.00</Data>
+                    <Data ss:Type="Number">1</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">56.25</Data>
+                    <Data ss:Type="Number">12.00</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.15</Data>
+                    <Data ss:Type="String">Kw</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">12.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.08</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.96</Data>
                 </Cell>
             </Row>
             <Row>
-                <Cell ss:Index="4" ss:StyleID="s23">
-                    <Data ss:Type="String">Costo Hora Total</Data>
+                <Cell ss:Index="7" ss:StyleID="s23">
+                    <Data ss:Type="String">Costo Total:</Data>
                 </Cell>
-                <Cell ss:Index="5" ss:StyleID="s21" ss:Formula="=SUM(R[-5]C:R[-1]C)">
+                <Cell ss:Index="8" ss:StyleID="s21" ss:Formula="=SUM(R[-2]C:R[-1]C)">
                     <Data ss:Type="Number">1</Data>
                 </Cell>
             </Row>
+            <Row />
             <Row />
         </Table>
     </Worksheet>
