@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariocargos.ui'
 **
-** Created: Sun 7. Jul 19:29:03 2013
+** Created: Sun 7. Jul 19:33:43 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

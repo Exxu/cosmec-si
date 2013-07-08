@@ -45,7 +45,7 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(ui.tableWidget_16,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
 	connect(ui.tableWidget_17,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
 	connect(ui.tableWidget_24,SIGNAL(itemChanged(QTableWidgetItem*)),this,SLOT(centrarItem(QTableWidgetItem*)));
-
+	
 	//Parametros Base de datos
 	QFile file("in.txt");
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -257,6 +257,23 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(ui.comboBox_2,SIGNAL(currentIndexChanged(int)),this,SLOT(cambiarCombo(int)));
 	connect(ui.pushButton_42,SIGNAL(clicked()),this,SLOT(tablaBusqueda()));
 	connect(ui.pushButton_45,SIGNAL(clicked()),this,SLOT(mostrarFormlleno()));
+	
+	//CALCULOS EN TIEMPO REAL
+	connect(fcons->ui.doubleSpinBox,SIGNAL(valueChanged(double)),this,SLOT(costo_hora_consumibles(double)));
+	connect(fcons->ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora_consumibles2(int)));
+	connect(fcons->ui.comboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(costo_hora_consumibles3(int)));
+	
+	connect(fherr->ui.doubleSpinBox,SIGNAL(valueChanged(double)),this,SLOT(depre_herramientas(double)));
+	connect(fherr->ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(depre_herramientas2(int)));
+	connect(fherr->ui.spinBox_2,SIGNAL(valueChanged(int)),this,SLOT(depre_herramientas3(int)));
+
+	connect(fherr->ui.doubleSpinBox,SIGNAL(valueChanged(double)),this,SLOT(costo_hora_herramientas(double)));
+	connect(fherr->ui.spinBox_2,SIGNAL(valueChanged(int)),this,SLOT(costo_hora_herramientas2(int)));
+	connect(fherr->ui.comboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(costo_hora_herramientas3(int)));
+
+	connect(fherr->ui.lineEdit_2,SIGNAL(textChanged(QString)),this,SLOT(costo_total_herramientas(QString)));
+	connect(fherr->ui.lineEdit,SIGNAL(textChanged(QString)),this,SLOT(costo_total_herramientas2(QString)));
+	connect(fherr->ui.comboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(costo_total_herramientas3(int)));
 }	
 
 cosmec::~cosmec()
@@ -5780,4 +5797,76 @@ void cosmec::llenarcombocargo(QString sql,QComboBox *combo){
 
 void cosmec::centrarItem(QTableWidgetItem *elemento){
 	elemento->setTextAlignment(Qt::AlignHCenter);
+}
+
+//CALCULOS EN TIEMPO REAL
+void cosmec::costo_hora_consumibles(double valor){
+	if(fcons->ui.spinBox->value()!=0 && valor !=0){
+		int horas_maq=sql_maquina(idmaquinas[fcons->ui.comboBox->currentIndex()],5).toInt();
+		double resultado=redondear((valor*fcons->ui.spinBox->value())/(horas_maq));
+		fcons->ui.lineEdit_3->setText(QString::number(resultado));
+	}
+}
+void cosmec::costo_hora_consumibles2(int cantidad){
+	if(cantidad!=0 && fcons->ui.doubleSpinBox->value()!=0){
+		int horas_maq=sql_maquina(idmaquinas[fcons->ui.comboBox->currentIndex()],5).toInt();
+		double resultado=redondear((cantidad*fcons->ui.doubleSpinBox->value())/(horas_maq));
+		fcons->ui.lineEdit_3->setText(QString::number(resultado));
+	}
+
+}
+void cosmec::costo_hora_consumibles3( int maq){
+	if(fcons->ui.spinBox->value()!=0 && fcons->ui.doubleSpinBox->value()!=0){
+		int horas_maq=sql_maquina(idmaquinas[maq],5).toInt();
+		double resultado=redondear((fcons->ui.doubleSpinBox->value()*fcons->ui.spinBox->value())/(horas_maq));
+		fcons->ui.lineEdit_3->setText(QString::number(resultado));
+	}
+}
+void cosmec::depre_herramientas(double costo){
+	int vida=fherr->ui.spinBox->value();
+	int cantidad=fherr->ui.spinBox_2->value();
+	if(vida!=0 && costo!=0 &&cantidad!=0){
+		double resultado=redondear(costo*cantidad/vida);
+		fherr->ui.lineEdit->setText(QString::number(resultado));
+	}
+}
+void cosmec::depre_herramientas2(int vida){
+	double costo=fherr->ui.doubleSpinBox->value();
+	int cantidad=fherr->ui.spinBox_2->value();
+	if(vida!=0 && costo!=0 &&cantidad!=0){
+		double resultado=redondear(costo*cantidad/vida);
+		fherr->ui.lineEdit->setText(QString::number(resultado));
+	}
+}
+void cosmec::depre_herramientas3(int cantidad){
+	int vida=fherr->ui.spinBox->value();
+	double costo=fherr->ui.doubleSpinBox->value();
+	if(vida!=0 && costo!=0 &&cantidad!=0){
+		double resultado=redondear(costo*cantidad/vida);
+		fherr->ui.lineEdit->setText(QString::number(resultado));
+	}
+}
+
+void cosmec::costo_hora_herramientas(double costo){
+	int horas_maq=sql_maquina(idmaquinas[fherr->ui.comboBox->currentIndex()],5).toInt();
+	int cantidad=fherr->ui.spinBox_2->value();
+	if(costo!=0 && cantidad!=0 && horas_maq!=0){
+		double resultado=redondear(costo*cantidad/horas_maq);
+		fherr->ui.lineEdit_2->setText(QString::number(resultado));
+	}
+}
+void cosmec::costo_hora_herramientas2(int cantidad){
+
+}
+void cosmec::costo_hora_herramientas3(int maq){
+
+}
+void cosmec::costo_total_herramientas(QString costoHoraText){
+
+}
+void cosmec::costo_total_herramientas2(QString depreText){
+
+}
+void cosmec::costo_total_herramientas3(int maq){
+
 }

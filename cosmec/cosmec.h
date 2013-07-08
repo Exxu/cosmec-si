@@ -310,6 +310,24 @@ private slots:
 
 	//CENTRAR DATOS DE LAS TABLAS
 	void centrarItem(QTableWidgetItem *elemento);
+
+	//CALCULOS EN TIEMPO REAL
+	void costo_hora_consumibles(double valor);
+	void costo_hora_consumibles2(int cantidad);
+	void costo_hora_consumibles3( int maq);
+	
+	void depre_herramientas(double costo);
+	void depre_herramientas2(int vida);
+	void depre_herramientas3(int cantidad);
+
+	void costo_hora_herramientas(double costo);
+	void costo_hora_herramientas2(int cantidad);
+	void costo_hora_herramientas3(int maq);
+
+	void costo_total_herramientas(QString costoHoraText);
+	void costo_total_herramientas2(QString depreText);
+	void costo_total_herramientas3(int maq);
+
 };
 
 #endif // COSMEC_H
