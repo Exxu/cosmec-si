@@ -5247,74 +5247,127 @@ void cosmec::tablaBusqueda(){
 	ui.tableWidget_17->removeRow(ui.tableWidget_17->rowCount()-1);
 }
 void cosmec::mostrarFormlleno(){
+	int filh=ui.tableWidget_17->currentRow();
+	QTableWidgetItem *itab1 = ui.tableWidget_17->item(filh,0);
+	int idid=QString(itab1->text()).toInt();
 	QString sql;
 	QSqlQuery respuesta(cosmecdb);
-	//if(ui.tableWidget_17->currentRow()!=-1){
-	switch(ui.comboBox_2->currentIndex()){
-		case 0:
-			fmaquina=new formularioMaq();
-			fmaquina->ui.pushButton_2->setVisible(false);
-			fmaquina->ui.pushButton_3->setVisible(false);
-			fmaquina->ui.pushButton->setVisible(false);
-			fmaquina->ui.plainTextEdit->setVisible(false);
-			cosmecdb.open();
-			sql="SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion,a.costo_hora,a.presupuesto_anual FROM maquinas AS a";
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-			}else{
-				while(respuesta.next()){
-					fmaquina->ui.lineEdit->setText(respuesta.value(0));
-					fmaquina->ui.lineEdit_2->setText(respuesta.value(1));
-					fmaquina->ui.lineEdit_3->setText(respuesta.value(2));
-					fmaquina->ui.lineEdit_5->setText(respuesta.value(7));
-					fmaquina->ui.lineEdit_10->setText(respuesta.value(8));
-					fmaquina->ui.doubleSpinBox_2->setValue(respuesta.value(3));
-					fmaquina->ui.doubleSpinBox_3->setValue(respuesta.value(9));
-					fmaquina->ui.spinBox->setValue(respuesta.value(4));
-					fmaquina->ui.spinBox_2->setValue(respuesta.value(5));					
+	QString id_consumible="";
+	QString nombre="";
+	QString costo="";
+	QString cantidad="";
+	QString costo_hora="";
+	QString maquina="";	
+
+
+	QString id_servicio="";
+	QString tiempo_consumo="";
+	QString consumo_total="";
+	QString consumo_hora="";
+	QString costo_unidad="";
+	QString costo_hora_servicio="";
+	QString unidades="";
+	
+	QString id_insumo="";
+	QString costo_unitario="";
+	QString valor_total="";
+		
+	QString id="";
+	QString	actividad="";
+	QString	categoria="";
+
+	QString	cargo="";
+	QString	horas_mes="";
+	QString	costo_actividad="";
+	
+	QString salario="";
+
+	QString material="";
+	QString geometria="";
+	QString dimensiones="";
+	
+	if(ui.tableWidget_17->currentRow()!=-1){
+		switch(ui.comboBox_2->currentIndex()){
+			case 0:
+				fmaquina=new formularioMaq();
+				fmaquina->ui.pushButton_2->setVisible(false);
+				fmaquina->ui.pushButton_3->setVisible(false);
+				fmaquina->ui.pushButton->setVisible(false);
+				fmaquina->ui.plainTextEdit->setVisible(false);
+				fmaquina->ui.lineEdit_7->setVisible(true);
+				fmaquina->ui.lineEdit_8->setVisible(true);
+				fmaquina->ui.lineEdit_9->setVisible(true);
+				fmaquina->ui.label_12->setVisible(true);
+				fmaquina->ui.label_13->setVisible(true);
+				fmaquina->ui.label_14->setVisible(true);
+
+				cosmecdb.open();
+				sql=QString("SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion, "
+					"a.costo_hora,a.presupuesto_anual FROM maquinas AS a WHERE a.serie=%1").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+				}else{
+					while(respuesta.next()){
+						fmaquina->ui.lineEdit->setText(respuesta.value(0).toString());
+						fmaquina->ui.lineEdit_2->setText(respuesta.value(1).toString());
+						fmaquina->ui.lineEdit_3->setText(respuesta.value(2).toString());
+						fmaquina->ui.lineEdit_5->setText(respuesta.value(7).toString());
+						fmaquina->ui.lineEdit_10->setText(respuesta.value(8).toString());
+						fmaquina->ui.doubleSpinBox_2->setValue(respuesta.value(3).toDouble());
+						fmaquina->ui.doubleSpinBox_3->setValue(respuesta.value(9).toDouble());
+						fmaquina->ui.spinBox->setValue(respuesta.value(4).toInt());
+						fmaquina->ui.spinBox_2->setValue(respuesta.value(5).toInt());					
+					}
 				}
-			}
-			cosmecdb.close();
-			fmaquina->show();
-			break;
-		case 1:
-			fherr=new formularioHerr();
-			cosmecdb.open();
-			sql="SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario,a.vida_util,a.depreciacion,a.costo_hora,b.modelo FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
-					fherr->ui.lineEdit_4->setText(id_herramiento);
-					fherr->ui.lineEdit_5->setText(nombre);
-					fherr->ui.doubleSpinBox->setValue(QString(costo).toDouble());
-					fherr->ui.spinBox->setValue(QString(vida).toInt());
-					fherr->ui.lineEdit->setText(depre);
-					fherr->ui.lineEdit_2->setText(costo_hora);
-					fherr->ui.spinBox_2->setValue(QString(cantidad).toInt());
-					fherr->ui.lineEdit_3->setText(QString::number(QString(costo_hora).toDouble()*QString(cantidad).toInt()));
-					fherr->ui.lineEdit_6->setText(maquina);
+				cosmecdb.close();
+				fmaquina->show();
+				break;
+			case 1:
+				fherr=new formularioHerr();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario, "
+					"a.vida_util,a.depreciacion,a.costo_hora,b.modelo FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie AND a.id_herramienta=%1 ORDER BY b.modelo").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						fherr->ui.lineEdit_4->setText(respuesta.value(0).toString());
+						fherr->ui.lineEdit_5->setText(respuesta.value(1).toString());
+						fherr->ui.doubleSpinBox->setValue(respuesta.value(3).toDouble());
+						fherr->ui.spinBox->setValue(respuesta.value(4).toInt());
+						fherr->ui.lineEdit->setText(respuesta.value(5).toString());
+						fherr->ui.lineEdit_2->setText(respuesta.value(6).toString());
+						fherr->ui.spinBox_2->setValue(respuesta.value(2).toInt());
+						fherr->ui.lineEdit_3->setText(QString::number(respuesta.value(6).toDouble()*respuesta.value(2).toInt()));
+						fherr->ui.lineEdit_6->setText(respuesta.value(7).toString());
+					}
 				}
-			}
-			cosmecdb.close();
-			fherr->show();
-			break;
-		case 2:
-			fcons=new formularioConsumibles();
-			cosmecdb.open();
-			sql="SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fherr->show();
+				break;
+			case 2:
+				fcons=new formularioConsumibles();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND a.id_consumible=%1 ORDER BY b.modelo").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						id_consumible=respuesta.value(0).toString();
+						nombre=respuesta.value(1).toString();
+						costo=respuesta.value(3).toString();
+						cantidad=respuesta.value(2).toString();
+						costo_hora=respuesta.value(4).toString();
+						maquina=respuesta.value(5).toString();		
+					}
 					fcons->ui.lineEdit->setText(id_consumible);
 					fcons->ui.lineEdit_2->setText(nombre);
 					fcons->ui.doubleSpinBox->setValue(QString(costo).toDouble());
@@ -5322,22 +5375,31 @@ void cosmec::mostrarFormlleno(){
 					fcons->ui.lineEdit_3->setText(costo_hora);
 					fcons->ui.lineEdit_4->setText(maquina);	
 				}
-			}
-			cosmecdb.close();
-			fcons->show();
-			break;
-		case 3:
-			fser=new formularioServicios();
-			cosmecdb.open();
-			sql="SELECT a.nombre_servi, a.tipo_consum, a.unidad, a.consumo_serv, a.consumo_hora, "
-				"a.costo_consu, a.costo_hora, b.modelo FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fcons->show();
+				break;
+			case 3:
+				fser=new formularioServicios();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_serv_basico, a.nombre_servi, a.tipo_consum, a.unidad, a.consumo_serv, a.consumo_hora, "
+					"a.costo_consu, a.costo_hora, b.modelo FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_serv_basico=%1 ORDER BY b.modelo").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						id_servicio=respuesta.value(0).toString();
+						nombre=respuesta.value(1).toString();
+						tiempo_consumo=respuesta.value(2).toString();
+						consumo_total=respuesta.value(4).toString();
+						consumo_hora=respuesta.value(5).toString();
+						costo_unidad=respuesta.value(6).toString();
+						costo_hora_servicio=respuesta.value(7).toString();
+						unidades=respuesta.value(3).toString();
+						maquina=respuesta.value(8).toString();	
+					}
 					fser->ui.lineEdit->setText(id_servicio);
 					fser->ui.lineEdit_2->setText(nombre);
 					fser->ui.spinBox->setValue(QString(tiempo_consumo).toInt());
@@ -5348,21 +5410,29 @@ void cosmec::mostrarFormlleno(){
 					fser->ui.lineEdit_5->setText(unidades);
 					fser->ui.lineEdit_6->setText(maquina);	
 				}
-			}
-			cosmecdb.close();
-			fser->show();
-			break;
-		case 4:
-			finsumo=new formularioInsumos();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-			
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fser->show();
+				break;
+			case 4:
+				finsumo=new formularioInsumos();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_insumo, a.nombre, a.costo_unitario, a.cantidad_anual, "
+					"a.valor_total, a.costo_hora, b.modelo FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_insumo=%1 ORDER BY b.modelo").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+				
+				}else{
+					while(respuesta.next()){
+						id_insumo=respuesta.value(0).toString();
+						nombre=respuesta.value(1).toString();
+						costo_unitario=respuesta.value(2).toString();
+						cantidad=respuesta.value(3).toString();
+						valor_total=respuesta.value(4).toString();
+						costo_hora=respuesta.value(5).toString();
+						maquina=respuesta.value(6).toString();
+					}
 					finsumo->ui.lineEdit->setText(id_insumo);
 					finsumo->ui.lineEdit_2->setText(nombre);
 					finsumo->ui.lineEdit_3->setText(valor_total);
@@ -5371,59 +5441,71 @@ void cosmec::mostrarFormlleno(){
 					finsumo->ui.doubleSpinBox->setValue(QString(costo_unitario).toDouble());
 					finsumo->ui.spinBox->setValue(QString(cantidad).toInt());
 				}
-			}
-			cosmecdb.close();
-			finsumo->show();
-			break;
-		case 5:
-			fActEmp=new formularioActEmpresa();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				finsumo->show();
+				break;
+			case 5:
+				fActEmp=new formularioActEmpresa();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_actividad, a.nombre, a.costo_hora, b.nombre AS cargo FROM actividades AS a, categoria_actividades AS b WHERE a.id_categoria_actividades_categoria_actividades=b.id_categoria_actividades AND a.id_actividad=%1").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						id=respuesta.value(0).toString();
+						actividad=respuesta.value(1).toString();
+						costo_hora=respuesta.value(2).toString();
+						categoria=respuesta.value(3).toString();
+					}
 					fActEmp->ui.lineEdit->setText(id);
 					fActEmp->ui.lineEdit_2->setText(actividad);
 					fActEmp->ui.lineEdit_3->setText(categoria);
 					fActEmp->ui.doubleSpinBox->setValue(QString(costo_hora).toDouble());	
 				}
-			}
-			cosmecdb.close();
-			fActEmp->show();
-			break;
-		case 6:
-			fcat=new formularioCategorias();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-			
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fActEmp->show();
+				break;
+			case 6:
+				fcat=new formularioCategorias();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_categoria_actividades, a.nombre FROM categoria_actividades AS a WHERE  a.id_categoria_actividades=%1").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+				
+				}else{
+					while(respuesta.next()){
+						id=respuesta.value(0).toString();
+						categoria=respuesta.value(1).toString();
+					}
 					fcat->ui.lineEdit->setText(id);
 					fcat->ui.lineEdit_2->setText(categoria);
 				}
-			}
-			cosmecdb.close();
-			fcat->show();
-			break;
-		case 7:
-			fActTrab=new formularioActTrabajo();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-			
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fcat->show();
+				break;
+			case 7:
+				fActTrab=new formularioActTrabajo();
+				cosmecdb.open();
+				sql=QString("SELECT b.id_actividad, b.nombre, a.nombre AS nombre_cargo, b.hora_mensual, b.costo_mes, b.costo_hora FROM cargo AS a,actividades_trabajo AS b WHERE a.id_cargo=b.id_cargo_cargo AND b.id_actividad=%1 ORDER BY a.nombre").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+				
+				}else{
+					while(respuesta.next()){
+						id=respuesta.value(0).toString();
+						nombre=respuesta.value(1).toString();
+						cargo=respuesta.value(2).toString();
+						horas_mes=respuesta.value(3).toString();
+						costo_actividad=respuesta.value(4).toString();
+						costo_hora=respuesta.value(5).toString();
+					}
 					fActTrab->ui.lineEdit->setText(id);
 					fActTrab->ui.lineEdit_2->setText(nombre);
 					fActTrab->ui.lineEdit_3->setText(costo_hora);
@@ -5431,76 +5513,86 @@ void cosmec::mostrarFormlleno(){
 					fActTrab->ui.spinBox->setValue(QString(horas_mes).toInt());
 					fActTrab->ui.doubleSpinBox->setValue(QString(costo_actividad).toDouble());
 				}
-			}
-			cosmecdb.close();
-			fActTrab->show();
-			break;
-		case 8:
-			fcargo=new formularioCargos();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fActTrab->show();
+				break;
+			case 8:
+				fcargo=new formularioCargos();
+				cosmecdb.open();
+				sql=QString("SELECT a.id_cargo,a.nombre,a.salario FROM cargo AS a WHERE a.id_cargo=%1").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						id=respuesta.value(0).toString();
+						nombre=respuesta.value(1).toString();
+						salario=respuesta.value(2).toString();	
+					}
 					fcargo->ui.lineEdit->setText(id);
 					fcargo->ui.lineEdit_2->setText(nombre);
 					fcargo->ui.doubleSpinBox->setValue(QString(salario).toDouble());
 				}
-			}
-			cosmecdb.close();
-			fcargo->show();
-			break;
-		case 9:
-			fmateriales=new formularioMateriales();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fcargo->show();
+				break;
+			case 9:
+				fmateriales=new formularioMateriales();
+				cosmecdb.open();
+				sql=QString("SELECT id_material, nombre, geometria, dimencion, costo"
+					" FROM materiales WHERE id_material=%1").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						id=respuesta.value(0).toString();
+						material=respuesta.value(1).toString();
+						geometria=respuesta.value(2).toString();
+						dimensiones=respuesta.value(3).toString();
+						costo=respuesta.value(4).toString();
+					}
 					fmateriales->ui.lineEdit->setText(id);
 					fmateriales->ui.lineEdit_2->setText(material);
 					fmateriales->ui.lineEdit_3->setText(geometria);
 					fmateriales->ui.lineEdit_4->setText(dimensiones);
 					fmateriales->ui.doubleSpinBox->setValue(QString(costo).toDouble());
 				}
-			}
-			cosmecdb.close();
-			fmateriales->show();
-			break;
-		case 10:
-			fexternos=new formularioSerExternos();
-			cosmecdb.open();
-			sql=""
-			if(!respuesta.exec(sql)){
-				QMessageBox msgBox;
-				msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
-				msgBox.exec();
-				
-			}else{
-				while(respuesta.next()){
+				cosmecdb.close();
+				fmateriales->show();
+				break;
+			case 10:
+				fexternos=new formularioSerExternos();
+				cosmecdb.open();
+				sql=QString("SELECT id_servicios, nombre_srevicio, costo_hora FROM servicios_externos WHERE id_servicios=%1").arg(idid);
+				if(!respuesta.exec(sql)){
+					QMessageBox msgBox;
+					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+					msgBox.exec();
+					
+				}else{
+					while(respuesta.next()){
+						id=respuesta.value(0).toString();
+						nombre=respuesta.value(1).toString();
+						costo=respuesta.value(2).toString();
+					}
 					fexternos->ui.lineEdit->setText(id);
 					fexternos->ui.lineEdit_2->setText(nombre);
 					fexternos->ui.doubleSpinBox->setValue(QString(costo).toDouble());
 				}
-			}
-			cosmecdb.close();
-			fexternos->show();
-			break;
-	}
-	*}
-	else{
+				cosmecdb.close();
+				fexternos->show();
+				break;
+		}
+	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Escoja un elemento de la tabla");
 		msgBox.exec();
-	}*/
+	}
 }
 void cosmec::limpiarFMaq(){
 	fmaquina->ui.lineEdit->setText("");
