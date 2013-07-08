@@ -324,10 +324,17 @@ private slots:
 	void costo_hora_herramientas2(int cantidad);
 	void costo_hora_herramientas3(int maq);
 
-	void costo_total_herramientas(QString costoHoraText);
-	void costo_total_herramientas2(QString depreText);
+	void costo_total_herramientas(double costo);
+	void costo_total_herramientas2(int cantidad);
 	void costo_total_herramientas3(int maq);
+	void costo_total_herramientas4(int vida);
 
+	void valor_total_insumo(double unitario);
+	void valor_total_insumo2(int cantidad);
+
+	void costo_hora_insumo(double unitario);
+	void costo_hora_insumo2(int cantidad);
+	void costo_hora_insumo3(int maq);
 };
 
 #endif // COSMEC_H
