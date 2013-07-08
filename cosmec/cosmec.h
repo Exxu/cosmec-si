@@ -44,6 +44,11 @@
 #include "formulariomateriales.h"
 #include "formularioserexternos.h"
 #include "formularioservicios.h"
+#include <stdio.h>
+#include <tchar.h>
+#include <string>
+#include <iostream>
+#include <list>
 
 
 class cosmec : public QMainWindow
