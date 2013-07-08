@@ -654,6 +654,7 @@ void cosmec::agregarfilaMaq(){
 }
 void cosmec::nuevaMaq(){
 	QString sql;
+	QString path;
 	QString serie=fmaquina->ui.lineEdit->text();
 	QString codigo=fmaquina->ui.lineEdit_2->text();
 	QString nombre=fmaquina->ui.lineEdit_3->text();
@@ -661,6 +662,15 @@ void cosmec::nuevaMaq(){
 	int vida=fmaquina->ui.spinBox->value();
 	int horas_anuales=fmaquina->ui.spinBox_2->value();
 	double presupuesto=fmaquina->ui.doubleSpinBox_3->value();
+	/*path=fmaquina->ui.plainTextEdit->toPlainText();
+	QImage imagen(path);
+	uchar *byteme=imagen.bits();*/
+	QSqlQuery query(cosmecdb);
+	QByteArray baPhoto;
+	QBuffer buffer( &baPhoto );
+	buffer.open(QBuffer::WriteOnly);
+	fmaquina->ui.label_11->pixmap()->save(&buffer,"PNG");
+
 	if(serie!="" && codigo!="" && nombre!="" && costo!=0 && vida!=0 && horas_anuales!=0 && presupuesto!=0){
 		double depre=costo/vida;
 		double costo_hora=(2*costo)/(horas_anuales*vida);
@@ -670,6 +680,15 @@ void cosmec::nuevaMaq(){
 		sql=QString("INSERT INTO maquinas (serie,modelo,costo,vida_util,horas_trabajo_anual,deprecicacion,costo_hora,presupuesto_anual, "
 			"cod_espe) VALUES (%1,'%2',%3,%4,%5,%6,%7,%8,'%9')").arg(serie.toInt()).arg(nombre).arg(costo).arg(vida).arg(horas_anuales).arg(depre).arg(costo_hora).arg(presupuesto).arg(codigo);
 		insertarsql(sql);
+
+		/*sql=QString("UPDATE maquinas SET imagen='%1' WHERE serie=%2").arg(byteme).arg(serie);
+		insertarsql(sql);*/
+		cosmecdb.open();
+		query.prepare( "UPDATE maquinas SET imagen=:photo WHERE serie=:serie" );
+		query.bindValue(":photo",baPhoto.toBase64()); // without toBase64()
+		query.bindValue(":serie",serie);
+		qDebug()<<query.exec();
+        qDebug()<<query.lastError().text();
 		sql="SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion,a.costo_hora,a.presupuesto_anual FROM maquinas AS a ORDER BY a.modelo";
 		llenartabla(ui.tableWidget_3,sql);
 
@@ -4430,6 +4449,23 @@ QVariant cosmec::sql_general(QString sql,int para){
 	}
 	cosmecdb.close();
 }
+QVariant cosmec::sql_record(QString sql,int para){
+	cosmecdb.open();
+	QVariant res;
+	QSqlQuery respuesta(cosmecdb);
+	if(!respuesta.exec(sql)){
+		QMessageBox msgBox;
+		msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
+		msgBox.exec();
+		return 0;
+	}else{
+		while(respuesta.next()){
+			res=respuesta.record().value(para);
+		}
+		return res;
+	}
+	cosmecdb.close();
+}
 void cosmec::combocotizacion(int index){
 	//ui.comboBox_2->clear();
 	//ui.comboBox_4->clear();
@@ -5315,7 +5351,9 @@ void cosmec::mostrarFormlleno(){
 	QTableWidgetItem *itab1 = ui.tableWidget_17->item(filh,0);
 	int idid=QString(itab1->text()).toInt();
 	QString sql;
-
+	QImage image;
+	QPixmap* pixmap;
+	QByteArray im;
 	double valor_herra;
 	double valor_consu;
 	double servicios;
@@ -5383,7 +5421,14 @@ void cosmec::mostrarFormlleno(){
 				fmaquina->ui.label_14->setVisible(true);
 				fmaquina->ui.label_15->setVisible(true);
 				fmaquina->ui.label_16->setVisible(true);
-
+				//imagen
+				sql=QString("SELECT imagen FROM maquinas WHERE serie=%1").arg(idid);
+				im=sql_record(sql,0).toByteArray();
+				qDebug()<<"imagen"<<QByteArray::fromBase64(im);
+				pixmap = new QPixmap();
+				pixmap->loadFromData(QByteArray::fromBase64(im));
+				fmaquina->ui.label_11->setPixmap(*pixmap);
+				fmaquina->ui.label_11->setScaledContents(true);
 				//datos extras
 				sql=QString("SELECT SUM(costo_hora) FROM herramientas WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(idid);
 				valor_herra=sql_general(sql,0).toDouble();

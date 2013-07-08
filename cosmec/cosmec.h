@@ -14,7 +14,9 @@
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlRecord>
+#include <QBuffer>
 #include <QThread>
+#include <QtCore>
 #include <QFile>
 #include <QString>
 #include <QTextStream>
@@ -141,6 +143,7 @@ private:
 	void llenarcombocat(QString sql,QComboBox *combo);
 	void llenarcombocargo(QString sql,QComboBox *combo);
 	int buscarid(int *aux,int id,int tam);
+	QVariant sql_record(QString sql,int para);
 
 private slots:
 	//inicio
