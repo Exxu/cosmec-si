@@ -2962,16 +2962,19 @@ void cosmec::setmaquina(){
 	ui.stackedWidget->setCurrentIndex(1);
 }
 void cosmec::setherramienta(){
+	fherr->ui.comboBox->setVisible(true);
 	QString sql="SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario,a.vida_util,a.depreciacion,a.costo_hora,b.modelo FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_4,sql);
 	ui.stackedWidget->setCurrentIndex(2);
 }
 void cosmec::setconsumible(){
+	fcons->ui.comboBox->setVisible(true);
 	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_5,sql);
 	ui.stackedWidget->setCurrentIndex(3);
 }
 void cosmec::setenergia(){
+	fser->ui.comboBox->setVisible(true);
 	QString sql="SELECT a.nombre_servi, a.tipo_consum, a.unidad, a.consumo_serv, a.consumo_hora, "
 		"a.costo_consu, a.costo_hora, b.modelo FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	cargaridenergia();
@@ -2980,6 +2983,7 @@ void cosmec::setenergia(){
 	ui.stackedWidget->setCurrentIndex(5);
 }
 void cosmec::setmantenimiento(){
+	finsumo->ui.comboBox->setVisible(true);
 	QString sql="SELECT a.nombre, a.costo_unitario, a.cantidad_anual, "
 		"a.valor_total, a.costo_hora, b.modelo FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_7,sql);
@@ -2995,6 +2999,7 @@ void cosmec::setmantenimiento(){
 	ui.stackedWidget->setCurrentIndex(6);
 }
 void cosmec::setmanoobra(){
+	fActTrab->ui.comboBox->setVisible(true);
 	cargaridactividades();
 	QString sql;
 	sql="SELECT a.id_cargo,a.nombre,a.salario FROM cargo AS a";
@@ -3012,6 +3017,7 @@ void cosmec::setmanoobra(){
 	}
 }
 void cosmec::setactividades(){
+	fActEmp->ui.comboBox->setVisible(true);
 	QString sql;
 	sql="SELECT a.id_categoria_actividades, a.nombre FROM categoria_actividades AS a";
 	llenartabla(ui.tableWidget_9,sql);
@@ -5436,6 +5442,9 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 1:
 				fherr=new formularioHerr();
+				fherr->ui.pushButton_2->setVisible(false);
+				fherr->ui.pushButton->setVisible(false);
+				fherr->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario, "
 					"a.vida_util,a.depreciacion,a.costo_hora,b.modelo FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie AND a.id_herramienta=%1 ORDER BY b.modelo").arg(idid);
@@ -5462,6 +5471,9 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 2:
 				fcons=new formularioConsumibles();
+				fcons->ui.pushButton_2->setVisible(false);
+				fcons->ui.pushButton->setVisible(false);
+				fcons->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND a.id_consumible=%1 ORDER BY b.modelo").arg(idid);
 				if(!respuesta.exec(sql)){
@@ -5490,6 +5502,9 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 3:
 				fser=new formularioServicios();
+				fser->ui.pushButton_2->setVisible(false);
+				fser->ui.pushButton->setVisible(false);
+				fser->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_serv_basico, a.nombre_servi, a.tipo_consum, a.unidad, a.consumo_serv, a.consumo_hora, "
 					"a.costo_consu, a.costo_hora, b.modelo FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_serv_basico=%1 ORDER BY b.modelo").arg(idid);
@@ -5525,6 +5540,9 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 4:
 				finsumo=new formularioInsumos();
+				finsumo->ui.pushButton_2->setVisible(false);
+				finsumo->ui.pushButton->setVisible(false);
+				finsumo->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_insumo, a.nombre, a.costo_unitario, a.cantidad_anual, "
 					"a.valor_total, a.costo_hora, b.modelo FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_insumo=%1 ORDER BY b.modelo").arg(idid);
@@ -5556,6 +5574,9 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 5:
 				fActEmp=new formularioActEmpresa();
+				fActEmp->ui.pushButton_2->setVisible(false);
+				fActEmp->ui.pushButton->setVisible(false);
+				fActEmp->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_actividad, a.nombre, a.costo_hora, b.nombre AS cargo FROM actividades AS a, categoria_actividades AS b WHERE a.id_categoria_actividades_categoria_actividades=b.id_categoria_actividades AND a.id_actividad=%1").arg(idid);
 				if(!respuesta.exec(sql)){
@@ -5580,6 +5601,8 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 6:
 				fcat=new formularioCategorias();
+				fcat->ui.pushButton_2->setVisible(false);
+				fcat->ui.pushButton->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_categoria_actividades, a.nombre FROM categoria_actividades AS a WHERE  a.id_categoria_actividades=%1").arg(idid);
 				if(!respuesta.exec(sql)){
@@ -5600,6 +5623,9 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 7:
 				fActTrab=new formularioActTrabajo();
+				fActTrab->ui.pushButton_2->setVisible(false);
+				fActTrab->ui.pushButton->setVisible(false);
+				fActTrab->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT b.id_actividad, b.nombre, a.nombre AS nombre_cargo, b.hora_mensual, b.costo_mes, b.costo_hora FROM cargo AS a,actividades_trabajo AS b WHERE a.id_cargo=b.id_cargo_cargo AND b.id_actividad=%1 ORDER BY a.nombre").arg(idid);
 				if(!respuesta.exec(sql)){
@@ -5628,6 +5654,8 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 8:
 				fcargo=new formularioCargos();
+				fcargo->ui.pushButton_2->setVisible(false);
+				fcargo->ui.pushButton->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_cargo,a.nombre,a.salario FROM cargo AS a WHERE a.id_cargo=%1").arg(idid);
 				if(!respuesta.exec(sql)){
@@ -5650,6 +5678,8 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 9:
 				fmateriales=new formularioMateriales();
+				fmateriales->ui.pushButton_2->setVisible(false);
+				fmateriales->ui.pushButton->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT id_material, nombre, geometria, dimencion, costo"
 					" FROM materiales WHERE id_material=%1").arg(idid);
@@ -5677,6 +5707,8 @@ void cosmec::mostrarFormlleno(){
 				break;
 			case 10:
 				fexternos=new formularioSerExternos();
+				fexternos->ui.pushButton_2->setVisible(false);
+				fexternos->ui.pushButton->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT id_servicios, nombre_srevicio, costo_hora FROM servicios_externos WHERE id_servicios=%1").arg(idid);
 				if(!respuesta.exec(sql)){
@@ -5989,7 +6021,6 @@ void cosmec::costo_hora_insumo(double unitario){
 	if(unitario!=0 && cantidad!=0){
 		double resultado=redondear(unitario*cantidad/horas_maq);
 		finsumo->ui.lineEdit_4->setText(QString::number(resultado));
-		qDebug()<<"unitario";
 	}
 
 }
@@ -5999,7 +6030,6 @@ void cosmec::costo_hora_insumo2(int cantidad){
 	if(unitario!=0 && cantidad!=0){
 		double resultado=redondear(unitario*cantidad/horas_maq);
 		finsumo->ui.lineEdit_4->setText(QString::number(resultado));
-		qDebug()<<"cantidad";
 	}
 }
 void cosmec::costo_hora_insumo3(int maq){
@@ -6009,6 +6039,5 @@ void cosmec::costo_hora_insumo3(int maq){
 	if(unitario!=0 && cantidad!=0){
 		double resultado=redondear(unitario*cantidad/horas_maq);
 		finsumo->ui.lineEdit_4->setText(QString::number(resultado));
-		qDebug()<<"combo";
 	}
 }
