@@ -1,7 +1,11 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioserexternos.ui'
 **
-** Created: Sat 6. Jul 19:35:56 2013
+<<<<<<< HEAD
+** Created: Sun 7. Jul 19:29:02 2013
+=======
+** Created: Sun 7. Jul 19:33:42 2013
+>>>>>>> e3b0034b5ed93e37e5a27d8807c512d401ee341e
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -117,7 +121,7 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
@@ -161,7 +165,7 @@ public:
 
         horizontalLayout->addLayout(formLayout);
 
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_2);
 

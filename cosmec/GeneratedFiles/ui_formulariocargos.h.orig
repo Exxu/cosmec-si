@@ -1,7 +1,11 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariocargos.ui'
 **
-** Created: Sat 6. Jul 19:35:58 2013
+<<<<<<< HEAD
+** Created: Sun 7. Jul 19:29:03 2013
+=======
+** Created: Sun 7. Jul 19:33:43 2013
+>>>>>>> e3b0034b5ed93e37e5a27d8807c512d401ee341e
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -117,7 +121,7 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalSpacer_3 = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_3);
 
@@ -161,7 +165,7 @@ public:
 
         horizontalLayout_2->addLayout(formLayout);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_4);
 

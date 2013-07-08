@@ -494,6 +494,7 @@ void cosmec::nuevoCargo(){
 		llenartabla(ui.tableWidget,sql);
 
 		limpiarFCargo();
+		fcargo->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -543,6 +544,7 @@ void cosmec::updateCargo(){
 		llenartabla(ui.tableWidget,sql);
 
 		limpiarFCargo();
+		fcargo->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -664,7 +666,7 @@ void cosmec::nuevaMaq(){
 		llenartabla(ui.tableWidget_3,sql);
 
 		limpiarFMaq();
-		//fmaquina->close();
+		fmaquina->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -879,6 +881,7 @@ void cosmec::nuevoSExterno(){
 		llenartabla(ui.tableWidget_15,sql);
 
 		limpiarFSexternos();
+		fexternos->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -926,6 +929,7 @@ void cosmec::updateSExterno(){
 		llenartabla(ui.tableWidget_15,sql);
 
 		limpiarFSexternos();
+		fexternos->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1061,6 +1065,7 @@ void cosmec::nuevoMat(){
 		llenartabla(ui.tableWidget_14,sql);
 
 		limpiarFSexternos();
+		fmateriales->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1116,6 +1121,7 @@ void cosmec::updateMat(){
 		llenartabla(ui.tableWidget_14,sql);
 
 		limpiarFSexternos();
+		fmateriales->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1256,6 +1262,7 @@ void cosmec::nuevaHerr(){
 		llenartabla(ui.tableWidget_4,sql);
 
 		limpiarFHerr();
+		fherr->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1335,6 +1342,7 @@ void cosmec::updateHerr(){
 		llenartabla(ui.tableWidget_4,sql);
 
 		limpiarFHerr();
+		fherr->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1501,6 +1509,7 @@ void cosmec::nuevoCons(){
 		llenartabla(ui.tableWidget_5,sql);
 
 		limpiarFCons();
+		fcons->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1573,6 +1582,7 @@ void cosmec::updateCons(){
 		llenartabla(ui.tableWidget_5,sql);
 
 		limpiarFCons();
+		fcons->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1763,6 +1773,7 @@ void cosmec::nuevoSbasico(){
 		llenartabla(ui.tableWidget_6,sql);
 
 		limpiarFser();
+		fser->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -1850,6 +1861,7 @@ void cosmec::updateSbasico(){
 		llenartabla(ui.tableWidget_6,sql);
 
 		limpiarFser();
+		fser->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2048,6 +2060,7 @@ void cosmec::nuevoInsumo(){
 		llenartabla(ui.tableWidget_8,sql);
 
 		limpiarFInsumos();
+		finsumo->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2132,6 +2145,7 @@ void cosmec::updateInsumo(){
 		llenartabla(ui.tableWidget_8,sql);
 
 		limpiarFInsumos();
+		finsumo->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2361,6 +2375,7 @@ void cosmec::nuevaCat(){
 		llenartabla(ui.tableWidget_10,sql);
 
 		limpiarFCat();
+		fcat->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2406,6 +2421,7 @@ void cosmec::updateCat(){
 		llenartabla(ui.tableWidget_10,sql);
 
 		limpiarFCat();
+		fcat->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2571,6 +2587,7 @@ void cosmec::nuevaActE(){
 		llenartabla(ui.tableWidget_10,sql);
 
 		limpiarFActE();
+		fActEmp->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2636,6 +2653,7 @@ void cosmec::updateActE(){
 		llenartabla(ui.tableWidget_10,sql);
 
 		limpiarFActE();
+		fActEmp->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2798,6 +2816,7 @@ void cosmec::nuevaActTrab(){
 		llenartabla(ui.tableWidget_2,sql);
 
 		limpiarFActTrab();
+		fActTrab->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -2869,6 +2888,7 @@ void cosmec::updateActTrab(){
 		llenartabla(ui.tableWidget_2,sql);
 
 		limpiarFActTrab();
+		fActTrab->close();
 	}else{
 		QMessageBox msgBox;
 		msgBox.setText("Todos los campos deben llenarse y los valores deben ser mayores a 0");
@@ -5281,7 +5301,13 @@ void cosmec::mostrarFormlleno(){
 	QTableWidgetItem *itab1 = ui.tableWidget_17->item(filh,0);
 	int idid=QString(itab1->text()).toInt();
 	QString sql;
-	
+
+	double valor_herra;
+	double valor_consu;
+	double servicios;
+	double manteni;
+	double costomaqui;
+	double maquina2;
 	QString serie;
 	QString codespe;
 	QString modelo;
@@ -5344,7 +5370,29 @@ void cosmec::mostrarFormlleno(){
 				fmaquina->ui.label_15->setVisible(true);
 				fmaquina->ui.label_16->setVisible(true);
 
+				//datos extras
+				sql=QString("SELECT SUM(costo_hora) FROM herramientas WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(idid);
+				valor_herra=sql_general(sql,0).toDouble();
+				sql=QString("SELECT SUM(costo_hora) FROM consumible WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(idid);
+				valor_consu=sql_general(sql,0).toDouble();
 
+				sql=QString("SELECT SUM(costo_hora) FROM serv_basico WHERE serie_maquinas=%1").arg(idid);
+				servicios=sql_general(sql,0).toDouble();
+				sql=QString("SELECT (b.presupuesto_anual/b.horas_trabajo_anual)+(SUM(a.costo_hora)) AS costo_total "
+					"FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND b.serie=%1 GROUP BY b.serie").arg(idid);
+				manteni=sql_general(sql,0).toDouble();
+				sql=QString("SELECT ((2*costo)/(vida_util*horas_trabajo_anual)) FROM maquinas WHERE serie=%1").arg(idid);
+				costomaqui=sql_general(sql,0).toDouble();
+				manteni=redondear(manteni);
+				maquina2=(valor_herra+valor_consu+servicios+manteni+costomaqui);
+				maquina2=redondear(maquina2);
+
+				fmaquina->ui.lineEdit_7->setText(QString::number(servicios));
+				fmaquina->ui.lineEdit_8->setText(QString::number(valor_herra));
+				fmaquina->ui.lineEdit_4->setText(QString::number(valor_consu));
+				fmaquina->ui.lineEdit_6->setText(QString::number(manteni));
+				fmaquina->ui.lineEdit_9->setText(QString::number(maquina2));
+				//
 				cosmecdb.open();
 				sql=QString("SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion, "
 					"a.costo_hora,a.presupuesto_anual FROM maquinas AS a WHERE a.serie=%1").arg(idid);
