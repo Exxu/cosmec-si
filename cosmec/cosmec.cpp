@@ -825,14 +825,20 @@ void cosmec::nuevaMaq(){
 	int vida=fmaquina->ui.spinBox->value();
 	int horas_anuales=fmaquina->ui.spinBox_2->value();
 	double presupuesto=fmaquina->ui.doubleSpinBox_3->value();
-	/*path=fmaquina->ui.plainTextEdit->toPlainText();
+	
+	path=fmaquina->ui.plainTextEdit->toPlainText();
 	QImage imagen(path);
-	uchar *byteme=imagen.bits();*/
+	QImage imagen2;
+	QLabel *prue;
 	QSqlQuery query(cosmecdb);
 	QByteArray ba;
-	QImage image("1.png");
 	QBuffer buffer(&ba);
-	image.save(&buffer);
+	imagen.save(&buffer,"PNG");
+    
+	imagen2=QImage::fromData(QByteArray::fromBase64(ba.toBase64()),"PNG");
+	prue=new QLabel();
+	prue->setPixmap(QPixmap::fromImage(imagen2));
+	prue->show();
 
 	if(serie!="" && codigo!="" && nombre!="" && costo!=0 && vida!=0 && horas_anuales!=0 && presupuesto!=0){
 		double depre=costo/vida;
@@ -843,17 +849,14 @@ void cosmec::nuevaMaq(){
 		sql=QString("INSERT INTO maquinas (serie,modelo,costo,vida_util,horas_trabajo_anual,deprecicacion,costo_hora,presupuesto_anual, "
 			"cod_espe) VALUES (%1,'%2',%3,%4,%5,%6,%7,%8,'%9')").arg(serie.toInt()).arg(nombre).arg(costo).arg(vida).arg(horas_anuales).arg(depre).arg(costo_hora).arg(presupuesto).arg(codigo);
 		insertarsql(sql);
-		/*baPhoto = QByteArray("iVBORw0KGgoAAAANSUhEUgAAAlgAAABkCAYAAABaQU4jAAAAAX NSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYA AICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAABblJRE FUeF7t3M1RwkAYBmDuXjzqgXiyARuwAiugAzuwBwdwxps10ARd 0EwiX2AxxKCEmRB+Hmcy4yTLZvMsh3c2HzsY+CNAgAABAgQIEC BAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBA gAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgA ABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAAB AgQIECBAgAABAgQIECBAgAABAgQIECDQu8DtZ3GTfRRPXQ4k+r 9/zx+r92g61+UY9E2AAAECBAgQOJrAcJq/ZdOi6DJkZZN8sTzmWwGr4dzRHtqNCBAgQIAAAQJdCghYXerqmw ABAgQIELhKAQHrKqfdQxMgQIAAAQJdCtQDVtRKxevCfV4ZDsf5 XWpbr7H673Vg02vDLp9T3wQIECBAgACBowmkgPUwKZ6Hk3xW1m OlI+qkdhTAl23j+nb7eVN7NVhHm043IkCAAAECBE5BYLOCtS46 z6b5KEJS5fxWcXqMOQrWI1gtQ9ZXWsGq9hMrW1awTmF2jYEAAQ IECBDoRWCfIFVdlUrtI1zVB5yN89d18JoJWL1Mp5sSIECAAAEC pyDwV5F7WqmqBqx0blfN1fp14ELAOoXZNQYCBAgQIECgF4EDAt aq7ipeEzYf5fVqAFOD1cvUuikBAgQIECDQl0AHAasMXgJWXzPq vgQIECBAgEDvAgcFrGVBfJuBW8Fqo6UtAQIECBAgcPYCbQPWz1 YO+ajp4aO/OKrXBKyz/5p4AAIECBAgQKCNQNuAFftlpRqsX9sx+BVhG3ptCRAgQIAAgUs VaBuwwqHc/2pV6L6I/8tVq7RJ6fJc/ReGVrAu9dvjuQgQIECAAIFGgXLvqlpRempYBqnd1142u7mvNil dha3aJqPrQDar75sVn23aS8s0ESBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAg AABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAA BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABA gQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ IECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAg AABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAA BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABA gQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ IECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAg AABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAA BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABA gQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ IECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBwrQLfmeUk6E23pFsAAAAASUVORK5CYII=");
-		sql=QString("UPDATE maquinas SET imagen='%1' WHERE serie=%2").arg(QString(baPhoto)).arg(serie);
-		insertarsql(sql);*/
-		
+				
 		cosmecdb.open();
-		query.prepare( "UPDATE maquinas SET imagen=:photo WHERE serie=:serie" );
+		query.prepare( "UPDATE maquinas SET imagen=:photo WHERE serie=E':serie'::bytea" );
 		query.bindValue(":photo",ba.toBase64()); // without toBase64()
 		query.bindValue(":serie",serie);
 		qDebug()<<query.exec();
         qDebug()<<query.lastError().text();
-		qDebug()<<"imageno"<<ba;
+		qDebug()<<"imageno"<<ba.toBase64();
 
 		sql="SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion,a.costo_hora,a.presupuesto_anual FROM maquinas AS a ORDER BY a.modelo";
 		llenartabla(ui.tableWidget_3,sql);
@@ -5694,15 +5697,12 @@ void cosmec::mostrarFormlleno(){
 				fmaquina->ui.label_15->setVisible(true);
 				fmaquina->ui.label_16->setVisible(true);
 				//imagen
-				sql=QString("SELECT imagen FROM maquinas WHERE serie=%1").arg(idid);
-				im=sql_general(sql,0).toByteArray();
+				sql=QString("SELECT encode(imagen,'base64') FROM maquinas WHERE serie=%1").arg(idid);
+				im=sql_record(sql,0).toByteArray();
 				qDebug()<<"imagen"<<im;
-				//im2 = QByteArray::fromBase64("iVBORw0KGgoAAAANSUhEUgAAAlgAAABkCAYAAABaQU4jAAAAAX NSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYA AICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAABblJRE FUeF7t3M1RwkAYBmDuXjzqgXiyARuwAiugAzuwBwdwxps10ARd 0EwiX2AxxKCEmRB+Hmcy4yTLZvMsh3c2HzsY+CNAgAABAgQIEC BAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBA gAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgA ABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAAB AgQIECBAgAABAgQIECBAgAABAgQIECDQu8DtZ3GTfRRPXQ4k+r 9/zx+r92g61+UY9E2AAAECBAgQOJrAcJq/ZdOi6DJkZZN8sTzmWwGr4dzRHtqNCBAgQIAAAQJdCghYXerqmw ABAgQIELhKAQHrKqfdQxMgQIAAAQJdCtQDVtRKxevCfV4ZDsf5 XWpbr7H673Vg02vDLp9T3wQIECBAgACBowmkgPUwKZ6Hk3xW1m OlI+qkdhTAl23j+nb7eVN7NVhHm043IkCAAAECBE5BYLOCtS46 z6b5KEJS5fxWcXqMOQrWI1gtQ9ZXWsGq9hMrW1awTmF2jYEAAQ IECBDoRWCfIFVdlUrtI1zVB5yN89d18JoJWL1Mp5sSIECAAAEC pyDwV5F7WqmqBqx0blfN1fp14ELAOoXZNQYCBAgQIECgF4EDAt aq7ipeEzYf5fVqAFOD1cvUuikBAgQIECDQl0AHAasMXgJWXzPq vgQIECBAgEDvAgcFrGVBfJuBW8Fqo6UtAQIECBAgcPYCbQPWz1 YO+ajp4aO/OKrXBKyz/5p4AAIECBAgQKCNQNuAFftlpRqsX9sx+BVhG3ptCRAgQIAAgUs VaBuwwqHc/2pV6L6I/8tVq7RJ6fJc/ReGVrAu9dvjuQgQIECAAIFGgXLvqlpRempYBqnd1142u7mvNil dha3aJqPrQDar75sVn23aS8s0ESBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAg AABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAA BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABA gQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ IECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAg AABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAA BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABA gQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ IECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAg AABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAA BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABA gQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ IECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIE CBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECB AgAABAgQIECBwrQLfmeUk6E23pFsAAAAASUVORK5CYII=");
-				//qDebug()<<"imagen2"<<im2;
-				image = QImage::fromData(QByteArray::fromBase64(im));
+				image = QImage::fromData(QByteArray::fromBase64(im),"JPG");
 				fmaquina->ui.label_11->setPixmap(QPixmap::fromImage(image));
-				fmaquina->ui.label_11->setScaledContents(true);
-
+				
 				//datos extras
 				sql=QString("SELECT SUM(costo_hora) FROM herramientas WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(idid);
 				valor_herra=sql_general(sql,0).toDouble();
