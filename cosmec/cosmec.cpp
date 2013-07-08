@@ -640,12 +640,6 @@ void cosmec::agregarfilaMaq(){
 	fmaquina->ui.pushButton->setVisible(true);
 	fmaquina->ui.plainTextEdit->setVisible(true);
 	fmaquina->ui.lineEdit->setEnabled(true);//lineEdit de maquina
-	fmaquina->ui.lineEdit_7->setVisible(false);//labels y lineEdit de consumo de agua etc etc
-	fmaquina->ui.lineEdit_8->setVisible(false);
-	fmaquina->ui.lineEdit_9->setVisible(false);
-	fmaquina->ui.label_12->setVisible(false);
-	fmaquina->ui.label_13->setVisible(false);
-	fmaquina->ui.label_14->setVisible(false);
 	fmaquina->show();
 }
 void cosmec::nuevaMaq(){
@@ -687,12 +681,6 @@ void cosmec::editarMaq(){
 	fmaquina->ui.pushButton->setVisible(true);
 	fmaquina->ui.plainTextEdit->setVisible(true);
 	fmaquina->ui.lineEdit->setEnabled(false);
-	fmaquina->ui.lineEdit_7->setVisible(false);
-	fmaquina->ui.lineEdit_8->setVisible(false);
-	fmaquina->ui.lineEdit_9->setVisible(false);
-	fmaquina->ui.label_12->setVisible(false);
-	fmaquina->ui.label_13->setVisible(false);
-	fmaquina->ui.label_14->setVisible(false);
 
 	int film=ui.tableWidget_3->currentRow();
 
@@ -2931,6 +2919,16 @@ void cosmec::setServiciosExternos(){
 	ui.stackedWidget->setCurrentIndex(16);
 }
 void cosmec::setmaquina(){
+	fmaquina->ui.lineEdit_7->setVisible(false);//labels y lineEdit de consumo de agua etc etc
+	fmaquina->ui.lineEdit_8->setVisible(false);
+	fmaquina->ui.lineEdit_9->setVisible(false);
+	fmaquina->ui.lineEdit_4->setVisible(false);
+	fmaquina->ui.lineEdit_6->setVisible(false);
+	fmaquina->ui.label_12->setVisible(false);
+	fmaquina->ui.label_13->setVisible(false);
+	fmaquina->ui.label_14->setVisible(false);
+	fmaquina->ui.label_15->setVisible(false);
+	fmaquina->ui.label_16->setVisible(false);
 	QString sql="SELECT a.serie,a.cod_espe,a.modelo,a.costo,a.vida_util,a.horas_trabajo_anual,a.deprecicacion,a.costo_hora,a.presupuesto_anual FROM maquinas AS a";
 	llenartabla(ui.tableWidget_3,sql);
 	ui.stackedWidget->setCurrentIndex(1);
@@ -5278,6 +5276,7 @@ void cosmec::tablaBusqueda(){
 	ui.tableWidget_17->removeRow(ui.tableWidget_17->rowCount()-1);
 }
 void cosmec::mostrarFormlleno(){
+	if(ui.tableWidget_17->currentRow()!=-1){
 	int filh=ui.tableWidget_17->currentRow();
 	QTableWidgetItem *itab1 = ui.tableWidget_17->item(filh,0);
 	int idid=QString(itab1->text()).toInt();
@@ -5326,7 +5325,7 @@ void cosmec::mostrarFormlleno(){
 	QString geometria="";
 	QString dimensiones="";
 	
-	if(ui.tableWidget_17->currentRow()!=-1){
+	
 		switch(ui.comboBox_2->currentIndex()){
 			case 0:
 				fmaquina=new formularioMaq();
@@ -5334,12 +5333,16 @@ void cosmec::mostrarFormlleno(){
 				fmaquina->ui.pushButton_3->setVisible(false);
 				fmaquina->ui.pushButton->setVisible(false);
 				fmaquina->ui.plainTextEdit->setVisible(false);
-				fmaquina->ui.lineEdit_7->setVisible(true);
+				fmaquina->ui.lineEdit_7->setVisible(true);//labels y lineEdit de consumo de agua etc etc
 				fmaquina->ui.lineEdit_8->setVisible(true);
 				fmaquina->ui.lineEdit_9->setVisible(true);
+				fmaquina->ui.lineEdit_4->setVisible(true);
+				fmaquina->ui.lineEdit_6->setVisible(true);
 				fmaquina->ui.label_12->setVisible(true);
 				fmaquina->ui.label_13->setVisible(true);
 				fmaquina->ui.label_14->setVisible(true);
+				fmaquina->ui.label_15->setVisible(true);
+				fmaquina->ui.label_16->setVisible(true);
 
 
 				cosmecdb.open();
