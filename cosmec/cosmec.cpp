@@ -206,7 +206,7 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	ui.label_8->setPixmap(QPixmap::fromImage(espe));
 	ui.label_8->setScaledContents(true);
 
-	QImage mecanica("lmecanica.jpg");
+	QImage mecanica("lmecanica.png");
 	ui.label_9->setPixmap(QPixmap::fromImage(mecanica));
 	ui.label_9->setScaledContents(true);
 
@@ -415,7 +415,7 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	//connect(ui.tableWidget_13,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(filaEditableMaqActividades(int,int))); //boton editar accion
 
 	//buscar cotización
-	connect(ui.radioButton,SIGNAL(clicked()),this,SLOT(habilitarBuscarCotizacion()));
+	connect(ui.radioButton_c,SIGNAL(clicked()),this,SLOT(habilitarBuscarCotizacion()));
 	connect(ui.radioButton_2,SIGNAL(clicked()),this,SLOT(habilitarBuscarRuc()));
 	connect(ui.pushButton_36,SIGNAL(clicked()),this,SLOT(buscarCotizacion()));
 	connect(ui.commandLinkButton_2,SIGNAL(clicked()),this,SLOT(resultadoCotizacion()));
@@ -3946,12 +3946,12 @@ void cosmec::setbuscarCotizacion(){
 	borrartabla(ui.tableWidget_11);
 	ui.lineEdit_5->clear();
 	ui.lineEdit_6->clear();
-	ui.radioButton->setChecked(false);
+	ui.radioButton_c->setChecked(false);
 	ui.radioButton_2->setChecked(false);
 	ui.stackedWidget->setCurrentIndex(12);
 }
 void cosmec::setmateriales(){
-	QString sql="SELECT id_material, nombre, geometria, dimencion, costo"
+	QString sql="SELECT id_material, nombre, geometria, dimension, costo"
 		" FROM materiales";
 	llenartabla(ui.tableWidget_14,sql);
 	llenartabla(ui.tableWidget_14,sql);
@@ -4080,17 +4080,19 @@ void cosmec::eliminarFilaMaqActividades(){
 void cosmec::habilitarBuscarRuc(){
 	ui.lineEdit_5->setEnabled(false);
 	ui.lineEdit_6->setEnabled(true);
+	qDebug()<<"habilita ruc";
 }
 void cosmec::habilitarBuscarCotizacion(){
 	ui.lineEdit_5->setEnabled(true);
 	ui.lineEdit_6->setEnabled(false);
+	qDebug()<<"habilita cotizacion";
 }
 void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con ese valor de RUC o # cotizacion
 	QString sql;
 	//cosmecdb.open()
 	//QSqlQuery aux(cosmecdb);
-	if(ui.radioButton->isChecked() || ui.radioButton_2->isChecked()){
-		if(ui.radioButton->isChecked()){
+	if(ui.radioButton_c->isChecked() || ui.radioButton_2->isChecked()){
+		if(ui.radioButton_c->isChecked()){
 			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.numero=%1").arg(ui.lineEdit_5->text());
 			llenartabla(ui.tableWidget_11,sql);
 			llenartabla(ui.tableWidget_11,sql);

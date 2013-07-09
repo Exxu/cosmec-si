@@ -140,7 +140,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>18</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1258,7 +1258,7 @@ background: qlineargradient(
              <number>3</number>
             </property>
             <attribute name="horizontalHeaderVisible">
-             <bool>false</bool>
+             <bool>true</bool>
             </attribute>
             <attribute name="horizontalHeaderCascadingSectionResizes">
              <bool>false</bool>
@@ -4907,7 +4907,7 @@ background: qlineargradient(
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_39">
                <item>
-                <widget class="QRadioButton" name="radioButton">
+                <widget class="QRadioButton" name="radioButton_c">
                  <property name="text">
                   <string>Por número de Cotización</string>
                  </property>
