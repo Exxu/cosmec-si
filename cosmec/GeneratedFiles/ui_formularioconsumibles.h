@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioconsumibles.ui'
 **
-** Created: Mon 8. Jul 09:52:41 2013
+** Created: Tue 9. Jul 09:46:13 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -52,6 +52,11 @@ public:
     QLineEdit *lineEdit_4;
     QComboBox *comboBox;
     QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout_4;
+    QSpacerItem *horizontalSpacer_6;
+    QLabel *label_8;
+    QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer_3;
@@ -65,7 +70,7 @@ public:
     {
         if (formularioConsumibles->objectName().isEmpty())
             formularioConsumibles->setObjectName(QString::fromUtf8("formularioConsumibles"));
-        formularioConsumibles->resize(500, 400);
+        formularioConsumibles->resize(500, 450);
         formularioConsumibles->setStyleSheet(QString::fromUtf8("QWidget#formularioConsumibles{\n"
 "background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(221, 235, 255, 255), stop:0.522727 rgba(255, 255, 255, 255));\n"
 "border: 1px solid black;\n"
@@ -216,7 +221,30 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
-        verticalSpacer_2 = new QSpacerItem(20, 14, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_4);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_6);
+
+        label_8 = new QLabel(formularioConsumibles);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+
+        horizontalLayout_4->addWidget(label_8);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_5);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_2);
 
@@ -250,7 +278,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
-        verticalSpacer_3 = new QSpacerItem(20, 8, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_3);
 
@@ -270,6 +298,7 @@ public:
         label_5->setText(QApplication::translate("formularioConsumibles", "Cantidad anual", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("formularioConsumibles", "Costo hora", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("formularioConsumibles", "M\303\241quina", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QString());
         pushButton->setText(QApplication::translate("formularioConsumibles", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioConsumibles", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

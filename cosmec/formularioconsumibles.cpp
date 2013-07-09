@@ -4,6 +4,9 @@ formularioConsumibles::formularioConsumibles(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	QImage formula("costo_cons.png");
+	ui.label_8->setPixmap(QPixmap::fromImage(formula));
+	ui.label_8->setScaledContents(true);
 	connect(ui.comboBox,SIGNAL(currentIndexChanged(QString)),this,SLOT(labelCombo(QString)));
 }
 

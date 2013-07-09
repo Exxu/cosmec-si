@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>500</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -35,10 +35,6 @@ border: 1px inset gray;
 font: bold 12pt &quot;Calibri&quot;;
 background:rgb(0, 85, 127);
 color:white;
-qproperty-alignment: AlignCenter
-}
-QLabel#label_11 {/*foto*/
-border: 1px inset gray;
 qproperty-alignment: AlignCenter
 }
 QLabel{
@@ -268,6 +264,56 @@ QLineEdit {
     </layout>
    </item>
    <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <spacer name="horizontalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -275,7 +321,7 @@ QLineEdit {
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>2</height>
+       <height>40</height>
       </size>
      </property>
     </spacer>
@@ -336,7 +382,7 @@ QLineEdit {
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>6</height>
+       <height>40</height>
       </size>
      </property>
     </spacer>

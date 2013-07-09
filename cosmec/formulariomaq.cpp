@@ -4,6 +4,10 @@ formularioMaq::formularioMaq(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	QImage formula("costo_maq.png");
+	ui.label_17->setPixmap(QPixmap::fromImage(formula));
+	ui.label_17->setScaledContents(true);
+
 	connect(ui.pushButton,SIGNAL(clicked()),this,SLOT(pathDialog()));
 	connect(ui.doubleSpinBox_2,SIGNAL(valueChanged(double)),this,SLOT(calcularDepre(double)));
 	connect(ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(calcularDepre2(int)));

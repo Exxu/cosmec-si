@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariomaq.ui'
 **
-** Created: Mon 8. Jul 09:52:40 2013
+** Created: Tue 9. Jul 09:26:00 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -78,6 +78,8 @@ public:
     QPushButton *pushButton;
     QSpacerItem *horizontalSpacer_7;
     QPlainTextEdit *plainTextEdit;
+    QSpacerItem *verticalSpacer_4;
+    QLabel *label_17;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_8;
@@ -387,6 +389,15 @@ public:
 
         verticalLayout->addWidget(plainTextEdit);
 
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_4);
+
+        label_17 = new QLabel(formularioMaq);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+
+        verticalLayout->addWidget(label_17);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
@@ -459,6 +470,7 @@ public:
         label_16->setText(QApplication::translate("formularioMaq", "Mantenimiento [$]", 0, QApplication::UnicodeUTF8));
         label_11->setText(QString());
         pushButton->setText(QApplication::translate("formularioMaq", "A\303\261adir imagen", 0, QApplication::UnicodeUTF8));
+        label_17->setText(QString());
         pushButton_3->setText(QApplication::translate("formularioMaq", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioMaq", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

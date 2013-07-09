@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioherr.ui'
 **
-** Created: Mon 8. Jul 09:52:41 2013
+** Created: Tue 9. Jul 09:46:13 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -58,6 +58,11 @@ public:
     QLineEdit *lineEdit_6;
     QComboBox *comboBox;
     QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout_4;
+    QSpacerItem *horizontalSpacer_6;
+    QLabel *label_11;
+    QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_2;
@@ -71,7 +76,7 @@ public:
     {
         if (formularioHerr->objectName().isEmpty())
             formularioHerr->setObjectName(QString::fromUtf8("formularioHerr"));
-        formularioHerr->resize(700, 500);
+        formularioHerr->resize(700, 550);
         formularioHerr->setMinimumSize(QSize(700, 500));
         formularioHerr->setStyleSheet(QString::fromUtf8("QWidget#formularioHerr{\n"
 "background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(221, 235, 255, 255), stop:0.522727 rgba(255, 255, 255, 255));\n"
@@ -88,10 +93,6 @@ public:
 "font: bold 12pt \"Calibri\";\n"
 "background:rgb(0, 85, 127);\n"
 "color:white;\n"
-"qproperty-alignment: AlignCenter\n"
-"}\n"
-"QLabel#label_11 {/*foto*/\n"
-"border: 1px inset gray;\n"
 "qproperty-alignment: AlignCenter\n"
 "}\n"
 "QLabel{\n"
@@ -112,8 +113,7 @@ public:
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
 "     border-radius: 5px;\n"
-"     backgroun"
-                        "d:white;\n"
+"     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
         verticalLayout = new QVBoxLayout(formularioHerr);
@@ -256,7 +256,30 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
-        verticalSpacer = new QSpacerItem(20, 2, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_4);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_6);
+
+        label_11 = new QLabel(formularioHerr);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+
+        horizontalLayout_4->addWidget(label_11);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_5);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
 
@@ -290,7 +313,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
-        verticalSpacer_3 = new QSpacerItem(20, 6, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_3);
 
@@ -313,6 +336,7 @@ public:
         label_8->setText(QApplication::translate("formularioHerr", "Cantidad anual", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("formularioHerr", "Costo total", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("formularioHerr", "M\303\241quina", 0, QApplication::UnicodeUTF8));
+        label_11->setText(QString());
         pushButton->setText(QApplication::translate("formularioHerr", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioHerr", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

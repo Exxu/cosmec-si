@@ -344,6 +344,8 @@ private slots:
 	void costo_hora_insumo(double unitario);
 	void costo_hora_insumo2(int cantidad);
 	void costo_hora_insumo3(int maq);
+
+	void borrartablaSlot(int index);
 };
 
 #endif // COSMEC_H

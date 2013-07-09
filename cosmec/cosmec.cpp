@@ -472,6 +472,10 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(finsumo->ui.doubleSpinBox,SIGNAL(valueChanged(double)),this,SLOT(costo_hora_insumo(double)));
 	connect(finsumo->ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora_insumo2(int)));
 	connect(finsumo->ui.comboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(costo_hora_insumo3(int)));
+
+	//vaciar tabla busqueda
+	connect(ui.comboBox_2,SIGNAL(currentIndexChanged(int)),this,SLOT(borrartablaSlot(int)));
+	connect(ui.comboBox_3,SIGNAL(currentIndexChanged(int)),this,SLOT(borrartablaSlot(int)));
 }	
 
 cosmec::~cosmec()
@@ -4906,6 +4910,15 @@ void cosmec::combocotizacion2(int index){
 
 }
 void cosmec::borrartabla(QTableWidget *tableNum){
+	int tam=tableNum->rowCount();
+	while(tam!=0){
+		tableNum->removeRow(tableNum->rowCount()-1);
+		tam--;
+	}
+	tam=0;
+}
+void cosmec::borrartablaSlot(int index){
+	QTableWidget *tableNum=ui.tableWidget_17;
 	int tam=tableNum->rowCount();
 	while(tam!=0){
 		tableNum->removeRow(tableNum->rowCount()-1);
