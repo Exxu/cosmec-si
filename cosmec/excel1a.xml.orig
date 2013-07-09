@@ -1,0 +1,256 @@
+<?xml version="1.0" ?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+    <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+        <Author>COSMEC</Author>
+        <LastAuthor>COSMEC</LastAuthor>
+        <Created>2013-06-05T15:20:15Z</Created>
+        <Version>14</Version>
+    </DocumentProperties>
+    <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+        <AllowPNG />
+    </OfficeDocumentSettings>
+    <Styles>
+        <Style ss:ID="Default" ss:Name="Normal">
+            <Alignment ss:Vertical="Bottom" />
+            <Borders />
+            <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+            <Interior />
+            <NumberFormat />
+            <Protection />
+        </Style>
+        <Style ss:ID="s16">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" />
+            <Borders />
+        </Style>
+        <Style ss:ID="s18">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3" />
+            </Borders>
+            <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+            <Interior ss:Color="#C4D79B" ss:Pattern="Solid" />
+        </Style>
+        <Style ss:ID="s19">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+            </Borders>
+        </Style>
+        <Style ss:ID="s20">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+            </Borders>
+            <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+            <Interior ss:Color="#C4D79B" ss:Pattern="Solid" />
+        </Style>
+        <Style ss:ID="s21">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+            </Borders>
+            <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+            <Interior ss:Color="#C4D79B" ss:Pattern="Solid" />
+        </Style>
+        <Style ss:ID="s22">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#76933C" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3" />
+            </Borders>
+            <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+            <Interior ss:Color="#C4D79B" ss:Pattern="Solid" />
+            <NumberFormat ss:Format="@" />
+        </Style>
+        <Style ss:ID="s23">
+            <Alignment ss:Horizontal="Center" ss:Vertical="Center" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3" />
+            </Borders>
+            <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FFFFFF" />
+            <Interior ss:Color="#76933C" ss:Pattern="Solid" />
+        </Style>
+    </Styles>
+    <Worksheet ss:Name="Servicio Basicos">
+        <Table ss:ExpandedColumnCount="199" ss:ExpandedRowCount="200" x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
+            <Row />
+            <Row ss:Height="25">
+                <Cell ss:Index="2" ss:MergeAcross="6" ss:StyleID="s23">
+                    <Data ss:Type="String">Escuela Politecnica del Ejercito</Data>
+                </Cell>
+            </Row>
+            <Row ss:Height="15">
+                <Cell ss:Index="2" ss:MergeAcross="6" ss:StyleID="s23">
+                    <Data ss:Type="String">Departamento de ciencias de la energia y mecanica</Data>
+                </Cell>
+            </Row>
+            <Row />
+            <Row ss:Height="30">
+<<<<<<< HEAD
+                <Cell ss:Index="2" ss:MergeAcross="3" ss:StyleID="s23">
+                    <Data ss:Type="String">HERRAMIENTAS DE LA MAQUINA: FADAL VMC</Data>
+=======
+                <Cell ss:Index="2" ss:MergeAcross="6" ss:StyleID="s23">
+                    <Data ss:Type="String">SERVICIOS BASICOS DE LA MAQUINA: VIWA VTC</Data>
+>>>>>>> b44bfcae155dfac0f37ad2751f6c3323b52cfc60
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+<<<<<<< HEAD
+                    <Data ss:Type="String">Cono BT-40 porta Roseta-27</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">90.28</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">22.57</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.06</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Cono BT-40 porta Roseta-22</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">90.28</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">45.14</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.12</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Cono BT-40 porta Roseta-25</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">75.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">37.50</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.10</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Cono BT-40 porta Pinza-ER32</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">90.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">22.50</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.06</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Pull stud(tirantes) a 45</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">10.27</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">15.41</Data>
+=======
+                    <Data ss:Type="String">Agua</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">1920</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">100.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="String">m3</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.05</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.68</Data>
+>>>>>>> b44bfcae155dfac0f37ad2751f6c3323b52cfc60
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.04</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+<<<<<<< HEAD
+                    <Data ss:Type="String">Set de pinzas ER 32(18 piezas)3-20mm</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">225.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">56.25</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.15</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="4" ss:StyleID="s23">
+                    <Data ss:Type="String">Costo Hora Total</Data>
+                </Cell>
+                <Cell ss:Index="5" ss:StyleID="s21" ss:Formula="=SUM(R[-5]C:R[-1]C)">
+=======
+                    <Data ss:Type="String">Energia</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">12.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="String">Kw</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">12.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.08</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">0.96</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="7" ss:StyleID="s23">
+                    <Data ss:Type="String">Costo Total:</Data>
+                </Cell>
+                <Cell ss:Index="8" ss:StyleID="s21" ss:Formula="=SUM(R[-2]C:R[-1]C)">
+>>>>>>> b44bfcae155dfac0f37ad2751f6c3323b52cfc60
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+            </Row>
+            <Row />
+<<<<<<< HEAD
+=======
+            <Row />
+>>>>>>> b44bfcae155dfac0f37ad2751f6c3323b52cfc60
+        </Table>
+    </Worksheet>
+</Workbook>
