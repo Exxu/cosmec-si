@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Tue 9. Jul 11:46:16 2013
+** Created: Thu 11. Jul 13:01:46 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -2223,6 +2223,7 @@ public:
         font1.setItalic(false);
         font1.setWeight(50);
         checkherrg->setFont(font1);
+        checkherrg->setCheckable(true);
 
         horizontalLayout_17->addWidget(checkherrg);
 
@@ -4166,12 +4167,14 @@ public:
         horizontalLayout_50->addItem(horizontalSpacer_91);
 
         tableWidget_17 = new QTableWidget(page_19);
-        if (tableWidget_17->columnCount() < 2)
-            tableWidget_17->setColumnCount(2);
+        if (tableWidget_17->columnCount() < 3)
+            tableWidget_17->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
         tableWidget_17->setHorizontalHeaderItem(0, __qtablewidgetitem89);
         QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
         tableWidget_17->setHorizontalHeaderItem(1, __qtablewidgetitem90);
+        QTableWidgetItem *__qtablewidgetitem91 = new QTableWidgetItem();
+        tableWidget_17->setHorizontalHeaderItem(2, __qtablewidgetitem91);
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
         tableWidget_17->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -4264,7 +4267,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -4662,6 +4665,8 @@ public:
         ___qtablewidgetitem86->setText(QApplication::translate("cosmecClass", "ID", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem87 = tableWidget_17->horizontalHeaderItem(1);
         ___qtablewidgetitem87->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem88 = tableWidget_17->horizontalHeaderItem(2);
+        ___qtablewidgetitem88->setText(QApplication::translate("cosmecClass", "Codigo Espe", 0, QApplication::UnicodeUTF8));
         pushButton_45->setText(QApplication::translate("cosmecClass", "Mostrar", 0, QApplication::UnicodeUTF8));
         menuArchivos->setTitle(QApplication::translate("cosmecClass", "Registros", 0, QApplication::UnicodeUTF8));
         menuNuevo->setTitle(QApplication::translate("cosmecClass", "Agregar / Edtar / Eliminar", 0, QApplication::UnicodeUTF8));

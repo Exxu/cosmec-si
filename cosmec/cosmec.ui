@@ -140,7 +140,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -2920,6 +2920,9 @@ background: qlineargradient(
                   </property>
                   <property name="text">
                    <string>Reporte General</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -6607,6 +6610,11 @@ background: qlineargradient(
             <column>
              <property name="text">
               <string>Nombre</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Codigo Espe</string>
              </property>
             </column>
            </widget>

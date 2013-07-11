@@ -1488,7 +1488,7 @@ void cosmec::agregarfilaHe(){
 	fherr->ui.pushButton_2->setVisible(false); //guardar
 	fherr->ui.pushButton->setVisible(true); //crear
 	//llenar combobox maq
-	QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+	QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 	llenarcombomaq(sql,fherr->ui.comboBox);
 	fherr->show();
 }
@@ -1559,7 +1559,7 @@ void cosmec::editarHerr(){
 		fherr->ui.lineEdit_3->setText(QString::number(QString(costo_hora).toDouble()*QString(cantidad).toInt()));
 		fherr->ui.lineEdit_6->setText(maquina);
 		//llenar combobox maq
-		QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+		QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 		llenarcombomaq(sql,fherr->ui.comboBox);
 		int tam=fherr->ui.comboBox->count();
 		int id=sql_herramienta(QString(id_herramiento).toInt(),9).toInt();
@@ -1738,7 +1738,7 @@ void cosmec::agregarfilaCons(){
 	fcons->ui.pushButton_2->setVisible(false); //guardar
 	
 	//llenar combobox maq
-	QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+	QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 	llenarcombomaq(sql,fcons->ui.comboBox);
 
 	fcons->show();
@@ -1800,7 +1800,7 @@ void cosmec::editarCons(){
 		fcons->ui.lineEdit_4->setText(maquina);
 
 		//llenar combobox maq
-		QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+		QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 		llenarcombomaq(sql,fcons->ui.comboBox);
 
 		int tam=fcons->ui.comboBox->count();
@@ -1999,7 +1999,7 @@ void cosmec::agregarfilaSer(){
 	fser->ui.pushButton->setVisible(true); //crear
 	
 	//llenar combobox maq
-	QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+	QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 	llenarcombomaq(sql,fser->ui.comboBox);
 	fser->show();
 }
@@ -2072,7 +2072,7 @@ void cosmec::editarSbasico(){
 		fser->ui.lineEdit_6->setText(maquina);
 		
 		//llenar combobox maq
-		QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+		QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 		llenarcombomaq(sql,fser->ui.comboBox);
 		
 		int tam=fser->ui.comboBox->count();
@@ -2281,7 +2281,7 @@ void cosmec::agregarfilaMtto(){
 	finsumo->ui.pushButton->setVisible(true); //crear
 	
 	//llenar combobox maq
-	QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+	QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 	llenarcombomaq(sql,finsumo->ui.comboBox);
 	
 	finsumo->show();
@@ -2353,7 +2353,7 @@ void cosmec::editarInsumo(){
 		finsumo->ui.spinBox->setValue(QString(cantidad).toInt());
 		
 		//llenar combobox maq
-		QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+		QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 		llenarcombomaq(sql,finsumo->ui.comboBox);
 		int tam=finsumo->ui.comboBox->count();
 		sql=QString("SELECT * FROM mantenimiento_preventivo WHERE id_insumo=%1").arg(id_insumo);
@@ -3153,17 +3153,17 @@ void cosmec::updateActTrab(){
 void cosmec::setgenerador(){
 	cosmecdb.open();
 	QSqlQuery respuesta(cosmecdb);
-	respuesta.exec("SELECT a.serie, a.modelo FROM maquinas AS a ORDER BY a.modelo");
+	respuesta.exec("SELECT a.serie, a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo");
 	tamquery1=respuesta.size();
 	idquery1=new int[tamquery1];
 	int b=0;
 	while(respuesta.next()){
 		idquery1[b]=respuesta.value(0).toInt();
-		ui.combobasicos->addItem(respuesta.value(1).toString());
-		ui.comboconsuibles->addItem(respuesta.value(1).toString());
-		ui.comboherramientas->addItem(respuesta.value(1).toString());
-		ui.combomanoobra->addItem(respuesta.value(1).toString());
-		ui.combomaqmantenimiento->addItem(respuesta.value(1).toString());
+		ui.combobasicos->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
+		ui.comboconsuibles->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
+		ui.comboherramientas->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
+		ui.combomanoobra->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
+		ui.combomaqmantenimiento->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
 		b++;
 	}
 
@@ -3181,7 +3181,7 @@ void cosmec::setgenerador(){
 }
 void cosmec::setreporteexel(){
 	//llenar combobox maquinas
-	QString sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+	QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 	llenarcombomaq(sql,ui.comboBox_4);
 	llenarcombomaq(sql,ui.comboBox_7);
 	llenarcombomaq(sql,ui.comboBox_12);
@@ -3951,7 +3951,7 @@ void cosmec::setbuscarCotizacion(){
 	ui.stackedWidget->setCurrentIndex(12);
 }
 void cosmec::setmateriales(){
-	QString sql="SELECT id_material, nombre, geometria, dimension, costo"
+	QString sql="SELECT id_material, nombre, geometria, dimencion, costo"
 		" FROM materiales";
 	llenartabla(ui.tableWidget_14,sql);
 	llenartabla(ui.tableWidget_14,sql);
@@ -4093,7 +4093,7 @@ void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con e
 	//QSqlQuery aux(cosmecdb);
 	if(ui.radioButton_c->isChecked() || ui.radioButton_2->isChecked()){
 		if(ui.radioButton_c->isChecked()){
-			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.numero=%1").arg(ui.lineEdit_5->text());
+			sql=QString("SELECT a.numero,a.nombre,a.cod_espe,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.numero=%1").arg(ui.lineEdit_5->text());
 			llenartabla(ui.tableWidget_11,sql);
 			llenartabla(ui.tableWidget_11,sql);
 			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
@@ -4921,6 +4921,7 @@ void cosmec::borrartabla(QTableWidget *tableNum){
 }
 void cosmec::borrartablaSlot(int index){
 	QTableWidget *tableNum=ui.tableWidget_17;
+	tableNum->setColumnHidden(2,true);
 	int tam=tableNum->rowCount();
 	while(tam!=0){
 		tableNum->removeRow(tableNum->rowCount()-1);
@@ -5639,6 +5640,7 @@ double cosmec::redondear(double num){
 
 void cosmec::setBusqueda(){
 	ui.stackedWidget->setCurrentIndex(18);
+	ui.tableWidget_17->setColumnHidden(2,true);
 	ui.comboBox_3->setEnabled(false);
 }
 void cosmec::cambiarCombo(int opcion){
@@ -5663,7 +5665,7 @@ void cosmec::cambiarCombo(int opcion){
 		case 4:
 			ui.comboBox_3->setEnabled(true);
 			//cargar combo con máquinas
-			sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+			sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 			llenarcombomaq(sql,ui.comboBox_3);
 			break;
 		case 5:
@@ -5698,44 +5700,55 @@ void cosmec::tablaBusqueda(){
 	int op=ui.comboBox_2->currentIndex();
 	switch(op) {
 		case 0:
-			sql="SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo";
+			sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
+			ui.tableWidget_17->setColumnHidden(2,false);
 			break;
 		case 1:
 			sql=QString("SELECT a.id_herramienta,a.nombre_herramienta FROM maquinas AS b,herramientas AS a "
 				"WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 2:
 			sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo "
 				"FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 3:
 			sql=QString("SELECT a.id_serv_basico, a.nombre_servi"
 				" FROM serv_basico AS a, maquinas AS b WHERE "
 				"a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 4:
 			sql=QString("SELECT a.id_insumo, a.nombre FROM mantenimiento_preventivo AS a, "
 				"maquinas AS b WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 5:
 			sql=QString("SELECT a.id_actividad, a.nombre FROM actividades AS a, categoria_actividades AS b "
 				"WHERE a.id_categoria_actividades_categoria_actividades=b.id_categoria_actividades AND b.id_categoria_actividades=%1").arg(idcategoria[ui.comboBox_3->currentIndex()]);
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 6:
 			sql=sql="SELECT a.id_categoria_actividades, a.nombre FROM categoria_actividades AS a";
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 7:
 			sql=QString("SELECT b.id_actividad, b.nombre FROM cargo AS a,actividades_trabajo AS b "
 				"WHERE a.id_cargo=b.id_cargo_cargo AND a.id_cargo=%1 ORDER BY a.nombre").arg(idcargo[ui.comboBox_3->currentIndex()]);
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 8:
 			sql="SELECT a.id_cargo,a.nombre FROM cargo AS a";
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 9:
 			sql="SELECT id_material, nombre FROM materiales";
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 10:
 			sql="SELECT id_servicios, nombre_srevicio FROM servicios_externos";
+			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 	}
 	llenartabla(ui.tableWidget_17,sql);
@@ -6203,7 +6216,7 @@ void cosmec::llenarcombomaq(QString sql,QComboBox *combo){
 	while(respuesta.next()){
 		QString uno;
 		idmaquinas[fila]=respuesta.value(0).toInt();
-		uno=respuesta.value(1).toString();
+		uno=respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")";
 		combo->addItem(uno);
 		fila++;
 	}
