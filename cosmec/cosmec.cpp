@@ -4093,7 +4093,7 @@ void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con e
 	//QSqlQuery aux(cosmecdb);
 	if(ui.radioButton_c->isChecked() || ui.radioButton_2->isChecked()){
 		if(ui.radioButton_c->isChecked()){
-			sql=QString("SELECT a.numero,a.nombre,a.cod_espe,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.numero=%1").arg(ui.lineEdit_5->text());
+			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.numero=%1").arg(ui.lineEdit_5->text());
 			llenartabla(ui.tableWidget_11,sql);
 			llenartabla(ui.tableWidget_11,sql);
 			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
@@ -4379,7 +4379,6 @@ void cosmec::segundaParte(){
 		sql=QString("INSERT INTO cotizacion(nombre,ruc,telefono,direccion,id_usuario_usuarios)"
 			"VALUES ('%1',%2,'%3','%4',%5)").arg(nobre).arg(ruc).arg(telf).arg(direc).arg(idusuario);
 		insertarsql(sql);
-		
 		for(int a=0;a<numfilas;a++){
 			QTableWidgetItem *itab1 = ui.tableWidget_12->item(a,4);
 			QTableWidgetItem *itab2 = ui.tableWidget_12->item(a,1);
@@ -4389,9 +4388,16 @@ void cosmec::segundaParte(){
 			int id_item=QString(itab4->text()).toInt();
 			double cantidad=QString(itab5->text()).toDouble();
 			double valor;
+			sql=QString("SELECT SUM(a.costo_mes), c.modelo FROM actividades_trabajo AS a,mano_obra AS b, maquinas AS c "
+				"WHERE c.serie=b.serie_maquinas AND b.id_actividad_actividades_trabajo=a.id_actividad AND c.serie=%1 GROUP BY c.serie").arg(id_maquina);
+			valor=sql_general(sql,0).toDouble()/160;
+
 			if(itab1->text()=="Máquina"){
 				sql=QString("INSERT INTO maquina_cotizacion(cantidad, numero_cotizacion, serie_maquinas) "
 					"VALUES (%1,%2,%3)").arg(cantidad).arg(numerocoti).arg(id_maquina);
+				insertarsql(sql);
+				sql=QString("INSERT INTO cotizacion_manoobra(serie_maquina, numero_cotizacion,valor_mano,cantidad_mano) "
+					"VALUES (%1,%2,0,0)").arg(id_maquina).arg(numerocoti);
 				insertarsql(sql);
 			}
 			if(itab1->text()=="Actividad"){
@@ -4400,12 +4406,8 @@ void cosmec::segundaParte(){
 				insertarsql(sql);
 			}
 			if(itab1->text()=="Mano de obra"){
-				sql=QString("SELECT SUM(a.costo_mes), c.modelo FROM actividades_trabajo AS a,mano_obra AS b, maquinas AS c "
-					"WHERE c.serie=b.serie_maquinas AND b.id_actividad_actividades_trabajo=a.id_actividad AND c.serie=%1 GROUP BY c.serie").arg(id_maquina);
-				double valor=sql_general(sql,0).toDouble()/160;
-
-				sql=QString("INSERT INTO cotizacion_manoobra(serie_maquina, valor_mano, cantidad_mano, numero_cotizacion) "
-					"VALUES (%1,%2,%3,%4)").arg(id_maquina).arg(valor).arg(cantidad).arg(numerocoti);
+				sql=QString("UPDATE cotizacion_manoobra SET valor_mano=%1, cantidad_mano=%2 "
+					"WHERE serie_maquina=%3 AND numero_cotizacion=%4").arg(valor).arg(cantidad).arg(id_maquina).arg(numerocoti);
 				insertarsql(sql);
 			}
 			if(itab1->text()=="Material"){
@@ -4962,7 +4964,7 @@ double cosmec::calcularcotizacion(int numero){
 	double total_activi=0;
 	int fila=0;
 	double indice=0;
-	int indice2=1;
+	int indice2=0;
 	double subtotal=0;
 	double totalaux=0;
 	double cant_mat=0;
@@ -4971,11 +4973,13 @@ double cosmec::calcularcotizacion(int numero){
 	double cant_serv=0;
 	double costo_serv=0;
 	double total_serv=0;
+	bool flag=true;
 	int index=0;
 	cosmecdb.open();
 	mac.exec(QString("SELECT a.serie_maquinas, cantidad, b.modelo FROM  maquina_cotizacion AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.numero_cotizacion=%1").arg(numero));
 	idmaquinacot=new int[mac.size()];
 	while(mac.next()){
+		indice2++;
 		serie=mac.value(0).toInt();
 		idmaquinacot[index]=serie;
 		cantidad_maquina=mac.value(1).toInt();
@@ -5027,26 +5031,27 @@ double cosmec::calcularcotizacion(int numero){
 		total_mano_obra=mano_obra*cant_mano_obra*(1+vcomp);//<---
 		total_mano_obra=redondear(total_mano_obra);
 		
-		//ingresa datos a tabla
-		ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(indice2+indice));
-		ui.tableWidget_24->setItem(fila,0,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText("Mano de obra");
-		ui.tableWidget_24->setItem(fila,1,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(mano_obra));
-		ui.tableWidget_24->setItem(fila,2,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(cant_mano_obra));
-		ui.tableWidget_24->setItem(fila,3,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(total_mano_obra));
-		ui.tableWidget_24->setItem(fila,4,nuevo);
-		fila++;
-		indice=indice+0.1;
-
+		if(mano_obra>0){
+			//ingresa datos a tabla
+			ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(indice2+indice));
+			ui.tableWidget_24->setItem(fila,0,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText("Mano de obra");
+			ui.tableWidget_24->setItem(fila,1,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(mano_obra));
+			ui.tableWidget_24->setItem(fila,2,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(cant_mano_obra));
+			ui.tableWidget_24->setItem(fila,3,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(total_mano_obra));
+			ui.tableWidget_24->setItem(fila,4,nuevo);
+			fila++;
+			indice=indice+0.1;
+		}
 		//Materiales
 		cosmecdb.open();
 		sql=QString("SELECT a.cantidad, b.costo, b.nombre FROM cotizacion_material AS a,materiales AS b WHERE a.id_material_materiales=b.id_material AND a.serie_maquinas=%1 AND a.numero_cotizacion=%2").arg(serie).arg(numero);
@@ -5061,24 +5066,26 @@ double cosmec::calcularcotizacion(int numero){
 				costo_mat=aux.value(1).toDouble();
 				total_mat=total_mat+(cant_mat*costo_mat);//<--
 				//--------------------------------------
-				ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-				nuevo=new QTableWidgetItem();
-				nuevo->setText(QString::number(indice2+indice));
-				ui.tableWidget_24->setItem(fila,0,nuevo);
-				nuevo=new QTableWidgetItem();
-				nuevo->setText(aux.value(2).toString());
-				ui.tableWidget_24->setItem(fila,1,nuevo);
-				nuevo=new QTableWidgetItem();
-				nuevo->setText(QString::number(cant_mat));
-				ui.tableWidget_24->setItem(fila,3,nuevo);
-				nuevo=new QTableWidgetItem();
-				nuevo->setText(QString::number(costo_mat));
-				ui.tableWidget_24->setItem(fila,2,nuevo);
-				nuevo=new QTableWidgetItem();
-				nuevo->setText(QString::number(redondear(cant_mat*costo_mat)));
-				ui.tableWidget_24->setItem(fila,4,nuevo);
-				fila++;
-				indice=indice+0.1;
+				if(cant_mat*costo_mat>0){
+					ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+					nuevo=new QTableWidgetItem();
+					nuevo->setText(QString::number(indice2+indice));
+					ui.tableWidget_24->setItem(fila,0,nuevo);
+					nuevo=new QTableWidgetItem();
+					nuevo->setText(aux.value(2).toString());
+					ui.tableWidget_24->setItem(fila,1,nuevo);
+					nuevo=new QTableWidgetItem();
+					nuevo->setText(QString::number(cant_mat));
+					ui.tableWidget_24->setItem(fila,3,nuevo);
+					nuevo=new QTableWidgetItem();
+					nuevo->setText(QString::number(costo_mat));
+					ui.tableWidget_24->setItem(fila,2,nuevo);
+					nuevo=new QTableWidgetItem();
+					nuevo->setText(QString::number(redondear(cant_mat*costo_mat)));
+					ui.tableWidget_24->setItem(fila,4,nuevo);
+					fila++;
+					indice=indice+0.1;
+				}
 			}
 		}
 		total_mat=redondear(total_mat);
@@ -5086,7 +5093,6 @@ double cosmec::calcularcotizacion(int numero){
 		cosmecdb.close();
 		index++;
 		indice=0;
-		indice2++;
 		totalaux=total_maquina+total_mano_obra+total_mat;
 		/*sql=QString("UPDATE maquina_cotizacion SET valor_maquina=%1 WHERE numero_cotizacion=%2 AND serie_maquinas=%3").arg(totalaux).arg(numero).arg(serie);
 		insertarsql(sql);*/
@@ -5119,18 +5125,21 @@ double cosmec::calcularcotizacion(int numero){
 		msgBox.setText("Error al agregar datos :"+aux.lastError().databaseText());
 		msgBox.exec();
 	}else{
-		//cabezera
-		ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(indice2+indice));
-		ui.tableWidget_24->setItem(fila,0,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText("Actividades");
-		ui.tableWidget_24->setItem(fila,1,nuevo);
-		indice=indice+0.1;
-		fila++;
-
 		while(aux.next()){
+			if(flag==true){
+				//cabezera
+				indice2++;
+				ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+				nuevo=new QTableWidgetItem();
+				nuevo->setText(QString::number(indice2+indice));
+				ui.tableWidget_24->setItem(fila,0,nuevo);
+				nuevo=new QTableWidgetItem();
+				nuevo->setText("Actividades");
+				ui.tableWidget_24->setItem(fila,1,nuevo);
+				indice=indice+0.1;
+				fila++;
+				flag=false;
+			}
 			//--------------------------------------
 			cant_activi=aux.value(0).toDouble();
 			costo_activi=aux.value(1).toDouble();
@@ -5155,11 +5164,10 @@ double cosmec::calcularcotizacion(int numero){
 			fila++;
 			indice=indice+0.1;
 		}
-		
+		flag=true;
 	}
 	cosmecdb.close();
 	subtotal=subtotal+redondear(total_activi);
-	indice2++;
 	indice=0;
 
 	//Servicios Externos
@@ -5171,18 +5179,21 @@ double cosmec::calcularcotizacion(int numero){
 		msgBox.setText("Error al agregar datos :"+aux2.lastError().databaseText());
 		msgBox.exec();
 	}else{
-		//cabezera
-		ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(indice2+indice));
-		ui.tableWidget_24->setItem(fila,0,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText("Servicios Extras");
-		ui.tableWidget_24->setItem(fila,1,nuevo);
-		indice=indice+0.1;
-		fila++;
-
 		while(aux2.next()){
+			if (flag==true){
+				//cabezera
+				indice2++;
+				ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+				nuevo=new QTableWidgetItem();
+				nuevo->setText(QString::number(indice2+indice));
+				ui.tableWidget_24->setItem(fila,0,nuevo);
+				nuevo=new QTableWidgetItem();
+				nuevo->setText("Servicios Extras");
+				ui.tableWidget_24->setItem(fila,1,nuevo);
+				indice=indice+0.1;
+				fila++;
+				flag=false;
+			}
 			//--------------------------------------
 			cant_serv=aux2.value(0).toDouble();
 			costo_serv=aux2.value(1).toDouble();
@@ -5207,6 +5218,7 @@ double cosmec::calcularcotizacion(int numero){
 			fila++;
 			indice=indice+0.1;
 		}
+		flag=true;
 	}
 	cosmecdb.close();
 	subtotal=subtotal+redondear(total_serv);
@@ -5238,7 +5250,7 @@ double cosmec::calcularcotizacion2(int numero){
 	double total_activi=0;
 	int fila=0;
 	double indice=0;
-	int indice2=1;
+	int indice2=0;
 	double subtotal=0;
 	double totalaux=0;
 	double cant_mat=0;
@@ -5248,10 +5260,12 @@ double cosmec::calcularcotizacion2(int numero){
 	double costo_serv=0;
 	double total_serv=0;
 	int index=0;
+	bool flag=true;
 	cosmecdb.open();
 	mac.exec(QString("SELECT a.serie_maquinas, cantidad, b.modelo FROM  maquina_cotizacion AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.numero_cotizacion=%1").arg(numero));
 	idmaquinacot=new int[mac.size()];
 	while(mac.next()){
+		indice2++;
 		serie=mac.value(0).toInt();
 		idmaquinacot[index]=serie;
 		cantidad_maquina=mac.value(1).toInt();
@@ -5304,26 +5318,27 @@ double cosmec::calcularcotizacion2(int numero){
 		cant_mano_obra=sql_general(sql,1).toDouble();
 		total_mano_obra=mano_obra*cant_mano_obra*(1+vcomp);//<---
 		
-		//ingresa datos a tabla
-		ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(indice2+indice));
-		ui.tableWidget_24->setItem(fila,0,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText("Mano de obra");
-		ui.tableWidget_24->setItem(fila,1,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(mano_obra));
-		ui.tableWidget_24->setItem(fila,2,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(cant_mano_obra));
-		ui.tableWidget_24->setItem(fila,3,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(total_mano_obra));
-		ui.tableWidget_24->setItem(fila,4,nuevo);
-		fila++;
-		indice=indice+0.1;
-
+		if(mano_obra>0){
+			//ingresa datos a tabla
+			ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(indice2+indice));
+			ui.tableWidget_24->setItem(fila,0,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText("Mano de obra");
+			ui.tableWidget_24->setItem(fila,1,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(mano_obra));
+			ui.tableWidget_24->setItem(fila,2,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(cant_mano_obra));
+			ui.tableWidget_24->setItem(fila,3,nuevo);
+			nuevo=new QTableWidgetItem();
+			nuevo->setText(QString::number(total_mano_obra));
+			ui.tableWidget_24->setItem(fila,4,nuevo);
+			fila++;
+			indice=indice+0.1;
+		}
 		//Materiales
 		cosmecdb.open();
 		sql=QString("SELECT a.cantidad, b.costo, b.nombre FROM cotizacion_material AS a,materiales AS b WHERE a.id_material_materiales=b.id_material AND a.serie_maquinas=%1 AND a.numero_cotizacion=%2").arg(serie).arg(numero);
@@ -5366,10 +5381,7 @@ double cosmec::calcularcotizacion2(int numero){
 		//--------------------------
 		index++;
 		indice=0;
-		indice2++;
 		totalaux=total_maquina+total_mano_obra+total_mat;
-		/*sql=QString("UPDATE maquina_cotizacion SET valor_maquina=%1 WHERE numero_cotizacion=%2 AND serie_maquinas=%3").arg(totalaux).arg(numero).arg(serie);
-		insertarsql(sql);*/
 		subtotal=subtotal+totalaux;
 		
 		//encere de variables
@@ -5399,18 +5411,21 @@ double cosmec::calcularcotizacion2(int numero){
 		msgBox.setText("Error al agregar datos :"+aux.lastError().databaseText());
 		msgBox.exec();
 	}else{
-		//cabezera
-		ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(indice2+indice));
-		ui.tableWidget_24->setItem(fila,0,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText("Actividades");
-		ui.tableWidget_24->setItem(fila,1,nuevo);
-		indice=indice+0.1;
-		fila++;
-
 		while(aux.next()){
+			if(flag==true){
+				//cabezera
+				indice2++;
+				ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+				nuevo=new QTableWidgetItem();
+				nuevo->setText(QString::number(indice2+indice));
+				ui.tableWidget_24->setItem(fila,0,nuevo);
+				nuevo=new QTableWidgetItem();
+				nuevo->setText("Actividades");
+				ui.tableWidget_24->setItem(fila,1,nuevo);
+				indice=indice+0.1;
+				fila++;
+				flag=false;
+			}
 			//--------------------------------------
 			cant_activi=aux.value(0).toDouble();
 			costo_activi=aux.value(1).toDouble();
@@ -5435,11 +5450,10 @@ double cosmec::calcularcotizacion2(int numero){
 			fila++;
 			indice=indice+0.1;
 		}
-		
+		flag=true;
 	}
 	cosmecdb.close();
 	subtotal=subtotal+total_activi;
-	indice2++;
 	indice=0;
 
 	//Servicios Externos
@@ -5451,18 +5465,21 @@ double cosmec::calcularcotizacion2(int numero){
 		msgBox.setText("Error al agregar datos :"+aux2.lastError().databaseText());
 		msgBox.exec();
 	}else{
-		//cabecera
-		ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
-		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(indice2+indice));
-		ui.tableWidget_24->setItem(fila,0,nuevo);
-		nuevo=new QTableWidgetItem();
-		nuevo->setText("Servicios Extras");
-		ui.tableWidget_24->setItem(fila,1,nuevo);
-		indice=indice+0.1;
-		fila++;
-
 		while(aux2.next()){
+			if(flag==true){
+				//cabecera
+				indice2++;
+				ui.tableWidget_24->insertRow(ui.tableWidget_24->rowCount());
+				nuevo=new QTableWidgetItem();
+				nuevo->setText(QString::number(indice2+indice));
+				ui.tableWidget_24->setItem(fila,0,nuevo);
+				nuevo=new QTableWidgetItem();
+				nuevo->setText("Servicios Extras");
+				ui.tableWidget_24->setItem(fila,1,nuevo);
+				indice=indice+0.1;
+				fila++;
+				flag=false;
+			}
 			//--------------------------------------
 			cant_serv=aux2.value(0).toDouble();
 			costo_serv=aux2.value(1).toDouble();
@@ -5487,6 +5504,7 @@ double cosmec::calcularcotizacion2(int numero){
 			fila++;
 			indice=indice+0.1;
 		}
+		flag=true;
 	}
 	cosmecdb.close();
 	subtotal=subtotal+total_serv;
