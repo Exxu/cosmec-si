@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariomateriales.ui'
 **
-** Created: Thu 11. Jul 11:56:05 2013
+** Created: Sun 14. Jul 17:35:16 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

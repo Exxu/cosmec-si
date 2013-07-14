@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sun 14. Jul 17:10:02 2013
+** Created: Sun 14. Jul 17:35:19 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -2202,6 +2202,10 @@ public:
 
         comboherramientas = new QComboBox(groupBox_9);
         comboherramientas->setObjectName(QString::fromUtf8("comboherramientas"));
+        QFont font2;
+        font2.setBold(true);
+        font2.setWeight(75);
+        comboherramientas->setFont(font2);
 
         horizontalLayout_16->addWidget(comboherramientas);
 
@@ -2213,9 +2217,6 @@ public:
 
         groupBox = new QGroupBox(groupBox_2);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
         groupBox->setFont(font2);
         verticalLayout_19 = new QVBoxLayout(groupBox);
         verticalLayout_19->setSpacing(6);
@@ -2497,6 +2498,7 @@ public:
 
         comboconsuibles = new QComboBox(groupBox_10);
         comboconsuibles->setObjectName(QString::fromUtf8("comboconsuibles"));
+        comboconsuibles->setFont(font2);
 
         horizontalLayout_20->addWidget(comboconsuibles);
 
@@ -2691,6 +2693,7 @@ public:
 
         comboBox_4 = new QComboBox(groupBox_41);
         comboBox_4->setObjectName(QString::fromUtf8("comboBox_4"));
+        comboBox_4->setFont(font2);
 
         horizontalLayout_71->addWidget(comboBox_4);
 
@@ -2773,6 +2776,7 @@ public:
 
         comboBox_8 = new QComboBox(groupBox_61);
         comboBox_8->setObjectName(QString::fromUtf8("comboBox_8"));
+        comboBox_8->setFont(font2);
 
         horizontalLayout_73->addWidget(comboBox_8);
 
@@ -2822,6 +2826,7 @@ public:
 
         comboBox_12 = new QComboBox(groupBox_5);
         comboBox_12->setObjectName(QString::fromUtf8("comboBox_12"));
+        comboBox_12->setFont(font2);
 
         horizontalLayout_76->addWidget(comboBox_12);
 
@@ -2871,6 +2876,7 @@ public:
 
         comboBox_10 = new QComboBox(groupBox_81);
         comboBox_10->setObjectName(QString::fromUtf8("comboBox_10"));
+        comboBox_10->setFont(font2);
 
         horizontalLayout_75->addWidget(comboBox_10);
 
@@ -2920,6 +2926,7 @@ public:
 
         comboBox_9 = new QComboBox(groupBox_71);
         comboBox_9->setObjectName(QString::fromUtf8("comboBox_9"));
+        comboBox_9->setFont(font2);
 
         horizontalLayout_74->addWidget(comboBox_9);
 
@@ -2969,6 +2976,7 @@ public:
 
         comboBox_7 = new QComboBox(groupBox_3);
         comboBox_7->setObjectName(QString::fromUtf8("comboBox_7"));
+        comboBox_7->setFont(font2);
 
         horizontalLayout_72->addWidget(comboBox_7);
 

@@ -2854,7 +2854,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboherramientas"/>
+                 <widget class="QComboBox" name="comboherramientas">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -3357,7 +3364,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboconsuibles"/>
+                 <widget class="QComboBox" name="comboconsuibles">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -3707,7 +3721,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_4"/>
+                 <widget class="QComboBox" name="comboBox_4">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -3827,7 +3848,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_8"/>
+                 <widget class="QComboBox" name="comboBox_8">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -3894,7 +3922,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_12"/>
+                 <widget class="QComboBox" name="comboBox_12">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -3961,7 +3996,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_10"/>
+                 <widget class="QComboBox" name="comboBox_10">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -4028,7 +4070,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_9"/>
+                 <widget class="QComboBox" name="comboBox_9">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -4095,7 +4144,14 @@ background: qlineargradient(
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_7"/>
+                 <widget class="QComboBox" name="comboBox_7">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
