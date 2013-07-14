@@ -150,6 +150,8 @@ private:
 	void llenarcombocargo(QString sql,QComboBox *combo);
 	int buscarid(int *aux,int id,int tam);
 	QVariant sql_record(QString sql,int para);
+	void limpiarRep();
+	void limpiarExcel();
 
 private slots:
 	//inicio
@@ -346,6 +348,8 @@ private slots:
 	void costo_hora_insumo3(int maq);
 
 	void borrartablaSlot(int index);
+	void botonLimpiarRpt();
+	void botonLimpiarExcel();
 };
 
 #endif // COSMEC_H
