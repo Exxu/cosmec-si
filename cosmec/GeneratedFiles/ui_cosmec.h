@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Thu 11. Jul 13:01:46 2013
+** Created: Sun 14. Jul 17:10:02 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -285,16 +285,6 @@ public:
     QSpacerItem *verticalSpacer_49;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_9;
-    QHBoxLayout *horizontalLayout_35;
-    QSpacerItem *horizontalSpacer_51;
-    QVBoxLayout *verticalLayout_23;
-    QSpacerItem *verticalSpacer_44;
-    QPushButton *genreport;
-    QSpacerItem *verticalSpacer_45;
-    QSpacerItem *horizontalSpacer_52;
-    QSpacerItem *verticalSpacer_47;
-    QSpacerItem *verticalSpacer_46;
-    QSpacerItem *verticalSpacer_48;
     QGroupBox *groupBox_9;
     QVBoxLayout *verticalLayout_16;
     QHBoxLayout *horizontalLayout_15;
@@ -307,6 +297,27 @@ public:
     QHBoxLayout *horizontalLayout_16;
     QRadioButton *checkherr;
     QComboBox *comboherramientas;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_19;
+    QHBoxLayout *horizontalLayout_24;
+    QSpacerItem *horizontalSpacer_39;
+    QLabel *label_49;
+    QSpacerItem *horizontalSpacer_40;
+    QHBoxLayout *horizontalLayout_25;
+    QRadioButton *checkmaqg;
+    QSpacerItem *horizontalSpacer_41;
+    QGroupBox *groupBox_8;
+    QVBoxLayout *verticalLayout_22;
+    QHBoxLayout *horizontalLayout_32;
+    QSpacerItem *horizontalSpacer_48;
+    QLabel *label_52;
+    QSpacerItem *horizontalSpacer_49;
+    QHBoxLayout *horizontalLayout_33;
+    QRadioButton *checkbasg;
+    QSpacerItem *horizontalSpacer_50;
+    QHBoxLayout *horizontalLayout_34;
+    QRadioButton *checkbas;
+    QComboBox *combobasicos;
     QGroupBox *groupBox_4;
     QVBoxLayout *verticalLayout_20;
     QHBoxLayout *horizontalLayout_26;
@@ -319,6 +330,18 @@ public:
     QHBoxLayout *horizontalLayout_27;
     QRadioButton *checkmano;
     QComboBox *combomanoobra;
+    QGroupBox *groupBox_7;
+    QVBoxLayout *verticalLayout_18;
+    QHBoxLayout *horizontalLayout_21;
+    QSpacerItem *horizontalSpacer_36;
+    QLabel *label_48;
+    QSpacerItem *horizontalSpacer_37;
+    QHBoxLayout *horizontalLayout_23;
+    QRadioButton *checkmantg;
+    QSpacerItem *horizontalSpacer_38;
+    QHBoxLayout *horizontalLayout_22;
+    QRadioButton *checkmant;
+    QComboBox *combomaqmantenimiento;
     QGroupBox *groupBox_10;
     QVBoxLayout *verticalLayout_25;
     QHBoxLayout *horizontalLayout_18;
@@ -343,39 +366,17 @@ public:
     QHBoxLayout *horizontalLayout_31;
     QRadioButton *checkactiv;
     QComboBox *comboactividades;
-    QGroupBox *groupBox_7;
-    QVBoxLayout *verticalLayout_18;
-    QHBoxLayout *horizontalLayout_21;
-    QSpacerItem *horizontalSpacer_36;
-    QLabel *label_48;
-    QSpacerItem *horizontalSpacer_37;
-    QHBoxLayout *horizontalLayout_23;
-    QRadioButton *checkmantg;
-    QSpacerItem *horizontalSpacer_38;
-    QHBoxLayout *horizontalLayout_22;
-    QRadioButton *checkmant;
-    QComboBox *combomaqmantenimiento;
-    QGroupBox *groupBox_8;
-    QVBoxLayout *verticalLayout_22;
-    QHBoxLayout *horizontalLayout_32;
-    QSpacerItem *horizontalSpacer_48;
-    QLabel *label_52;
-    QSpacerItem *horizontalSpacer_49;
-    QHBoxLayout *horizontalLayout_33;
-    QRadioButton *checkbasg;
-    QSpacerItem *horizontalSpacer_50;
-    QHBoxLayout *horizontalLayout_34;
-    QRadioButton *checkbas;
-    QComboBox *combobasicos;
-    QGroupBox *groupBox;
-    QVBoxLayout *verticalLayout_19;
-    QHBoxLayout *horizontalLayout_24;
-    QSpacerItem *horizontalSpacer_39;
-    QLabel *label_49;
-    QSpacerItem *horizontalSpacer_40;
-    QHBoxLayout *horizontalLayout_25;
-    QRadioButton *checkmaqg;
-    QSpacerItem *horizontalSpacer_41;
+    QSpacerItem *verticalSpacer_46;
+    QSpacerItem *verticalSpacer_47;
+    QSpacerItem *verticalSpacer_48;
+    QHBoxLayout *horizontalLayout_35;
+    QSpacerItem *horizontalSpacer_51;
+    QPushButton *pushButton_rpt;
+    QVBoxLayout *verticalLayout_23;
+    QSpacerItem *verticalSpacer_44;
+    QPushButton *genreport;
+    QSpacerItem *verticalSpacer_45;
+    QSpacerItem *horizontalSpacer_52;
     QSpacerItem *verticalSpacer_50;
     QWidget *page_11;
     QVBoxLayout *verticalLayout_44;
@@ -456,6 +457,7 @@ public:
     QSpacerItem *horizontalSpacer_53;
     QSpacerItem *horizontalSpacer_54;
     QSpacerItem *verticalSpacer_82;
+    QPushButton *pushButton_xls;
     QSpacerItem *verticalSpacer_84;
     QSpacerItem *verticalSpacer_83;
     QSpacerItem *verticalSpacer_85;
@@ -2141,51 +2143,6 @@ public:
         gridLayout_9->setSpacing(6);
         gridLayout_9->setContentsMargins(11, 11, 11, 11);
         gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
-        horizontalLayout_35 = new QHBoxLayout();
-        horizontalLayout_35->setSpacing(6);
-        horizontalLayout_35->setObjectName(QString::fromUtf8("horizontalLayout_35"));
-        horizontalSpacer_51 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_35->addItem(horizontalSpacer_51);
-
-        verticalLayout_23 = new QVBoxLayout();
-        verticalLayout_23->setSpacing(6);
-        verticalLayout_23->setObjectName(QString::fromUtf8("verticalLayout_23"));
-        verticalSpacer_44 = new QSpacerItem(20, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_23->addItem(verticalSpacer_44);
-
-        genreport = new QPushButton(groupBox_2);
-        genreport->setObjectName(QString::fromUtf8("genreport"));
-
-        verticalLayout_23->addWidget(genreport);
-
-        verticalSpacer_45 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_23->addItem(verticalSpacer_45);
-
-
-        horizontalLayout_35->addLayout(verticalLayout_23);
-
-        horizontalSpacer_52 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_35->addItem(horizontalSpacer_52);
-
-
-        gridLayout_9->addLayout(horizontalLayout_35, 8, 1, 1, 1);
-
-        verticalSpacer_47 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_9->addItem(verticalSpacer_47, 5, 1, 1, 1);
-
-        verticalSpacer_46 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_9->addItem(verticalSpacer_46, 2, 0, 1, 1);
-
-        verticalSpacer_48 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_9->addItem(verticalSpacer_48, 7, 0, 1, 1);
-
         groupBox_9 = new QGroupBox(groupBox_2);
         groupBox_9->setObjectName(QString::fromUtf8("groupBox_9"));
         verticalLayout_16 = new QVBoxLayout(groupBox_9);
@@ -2254,11 +2211,118 @@ public:
 
         gridLayout_9->addWidget(groupBox_9, 0, 0, 1, 1);
 
-        groupBox_4 = new QGroupBox(groupBox_2);
-        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        groupBox = new QGroupBox(groupBox_2);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         QFont font2;
         font2.setBold(true);
         font2.setWeight(75);
+        groupBox->setFont(font2);
+        verticalLayout_19 = new QVBoxLayout(groupBox);
+        verticalLayout_19->setSpacing(6);
+        verticalLayout_19->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_19->setObjectName(QString::fromUtf8("verticalLayout_19"));
+        horizontalLayout_24 = new QHBoxLayout();
+        horizontalLayout_24->setSpacing(6);
+        horizontalLayout_24->setObjectName(QString::fromUtf8("horizontalLayout_24"));
+        horizontalSpacer_39 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_24->addItem(horizontalSpacer_39);
+
+        label_49 = new QLabel(groupBox);
+        label_49->setObjectName(QString::fromUtf8("label_49"));
+
+        horizontalLayout_24->addWidget(label_49);
+
+        horizontalSpacer_40 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_24->addItem(horizontalSpacer_40);
+
+
+        verticalLayout_19->addLayout(horizontalLayout_24);
+
+        horizontalLayout_25 = new QHBoxLayout();
+        horizontalLayout_25->setSpacing(6);
+        horizontalLayout_25->setObjectName(QString::fromUtf8("horizontalLayout_25"));
+        checkmaqg = new QRadioButton(groupBox);
+        checkmaqg->setObjectName(QString::fromUtf8("checkmaqg"));
+        checkmaqg->setFont(font1);
+
+        horizontalLayout_25->addWidget(checkmaqg);
+
+        horizontalSpacer_41 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_25->addItem(horizontalSpacer_41);
+
+
+        verticalLayout_19->addLayout(horizontalLayout_25);
+
+
+        gridLayout_9->addWidget(groupBox, 8, 0, 1, 1);
+
+        groupBox_8 = new QGroupBox(groupBox_2);
+        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
+        groupBox_8->setFont(font2);
+        verticalLayout_22 = new QVBoxLayout(groupBox_8);
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_22->setObjectName(QString::fromUtf8("verticalLayout_22"));
+        horizontalLayout_32 = new QHBoxLayout();
+        horizontalLayout_32->setSpacing(6);
+        horizontalLayout_32->setObjectName(QString::fromUtf8("horizontalLayout_32"));
+        horizontalSpacer_48 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_32->addItem(horizontalSpacer_48);
+
+        label_52 = new QLabel(groupBox_8);
+        label_52->setObjectName(QString::fromUtf8("label_52"));
+
+        horizontalLayout_32->addWidget(label_52);
+
+        horizontalSpacer_49 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_32->addItem(horizontalSpacer_49);
+
+
+        verticalLayout_22->addLayout(horizontalLayout_32);
+
+        horizontalLayout_33 = new QHBoxLayout();
+        horizontalLayout_33->setSpacing(6);
+        horizontalLayout_33->setObjectName(QString::fromUtf8("horizontalLayout_33"));
+        checkbasg = new QRadioButton(groupBox_8);
+        checkbasg->setObjectName(QString::fromUtf8("checkbasg"));
+        checkbasg->setFont(font1);
+
+        horizontalLayout_33->addWidget(checkbasg);
+
+        horizontalSpacer_50 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_33->addItem(horizontalSpacer_50);
+
+
+        verticalLayout_22->addLayout(horizontalLayout_33);
+
+        horizontalLayout_34 = new QHBoxLayout();
+        horizontalLayout_34->setSpacing(6);
+        horizontalLayout_34->setObjectName(QString::fromUtf8("horizontalLayout_34"));
+        checkbas = new QRadioButton(groupBox_8);
+        checkbas->setObjectName(QString::fromUtf8("checkbas"));
+        checkbas->setFont(font1);
+
+        horizontalLayout_34->addWidget(checkbas);
+
+        combobasicos = new QComboBox(groupBox_8);
+        combobasicos->setObjectName(QString::fromUtf8("combobasicos"));
+
+        horizontalLayout_34->addWidget(combobasicos);
+
+
+        verticalLayout_22->addLayout(horizontalLayout_34);
+
+
+        gridLayout_9->addWidget(groupBox_8, 6, 1, 1, 1);
+
+        groupBox_4 = new QGroupBox(groupBox_2);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setFont(font2);
         verticalLayout_20 = new QVBoxLayout(groupBox_4);
         verticalLayout_20->setSpacing(6);
@@ -2318,6 +2382,68 @@ public:
 
 
         gridLayout_9->addWidget(groupBox_4, 0, 1, 1, 1);
+
+        groupBox_7 = new QGroupBox(groupBox_2);
+        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
+        groupBox_7->setFont(font2);
+        verticalLayout_18 = new QVBoxLayout(groupBox_7);
+        verticalLayout_18->setSpacing(6);
+        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_18->setObjectName(QString::fromUtf8("verticalLayout_18"));
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setSpacing(6);
+        horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
+        horizontalSpacer_36 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_36);
+
+        label_48 = new QLabel(groupBox_7);
+        label_48->setObjectName(QString::fromUtf8("label_48"));
+
+        horizontalLayout_21->addWidget(label_48);
+
+        horizontalSpacer_37 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_37);
+
+
+        verticalLayout_18->addLayout(horizontalLayout_21);
+
+        horizontalLayout_23 = new QHBoxLayout();
+        horizontalLayout_23->setSpacing(6);
+        horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
+        checkmantg = new QRadioButton(groupBox_7);
+        checkmantg->setObjectName(QString::fromUtf8("checkmantg"));
+        checkmantg->setFont(font1);
+
+        horizontalLayout_23->addWidget(checkmantg);
+
+        horizontalSpacer_38 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_23->addItem(horizontalSpacer_38);
+
+
+        verticalLayout_18->addLayout(horizontalLayout_23);
+
+        horizontalLayout_22 = new QHBoxLayout();
+        horizontalLayout_22->setSpacing(6);
+        horizontalLayout_22->setObjectName(QString::fromUtf8("horizontalLayout_22"));
+        checkmant = new QRadioButton(groupBox_7);
+        checkmant->setObjectName(QString::fromUtf8("checkmant"));
+        checkmant->setFont(font1);
+
+        horizontalLayout_22->addWidget(checkmant);
+
+        combomaqmantenimiento = new QComboBox(groupBox_7);
+        combomaqmantenimiento->setObjectName(QString::fromUtf8("combomaqmantenimiento"));
+
+        horizontalLayout_22->addWidget(combomaqmantenimiento);
+
+
+        verticalLayout_18->addLayout(horizontalLayout_22);
+
+
+        gridLayout_9->addWidget(groupBox_7, 6, 0, 1, 1);
 
         groupBox_10 = new QGroupBox(groupBox_2);
         groupBox_10->setObjectName(QString::fromUtf8("groupBox_10"));
@@ -2442,174 +2568,55 @@ public:
 
         gridLayout_9->addWidget(groupBox_6, 4, 1, 1, 1);
 
-        groupBox_7 = new QGroupBox(groupBox_2);
-        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
-        groupBox_7->setFont(font2);
-        verticalLayout_18 = new QVBoxLayout(groupBox_7);
-        verticalLayout_18->setSpacing(6);
-        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_18->setObjectName(QString::fromUtf8("verticalLayout_18"));
-        horizontalLayout_21 = new QHBoxLayout();
-        horizontalLayout_21->setSpacing(6);
-        horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
-        horizontalSpacer_36 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalSpacer_46 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_21->addItem(horizontalSpacer_36);
+        gridLayout_9->addItem(verticalSpacer_46, 2, 0, 1, 1);
 
-        label_48 = new QLabel(groupBox_7);
-        label_48->setObjectName(QString::fromUtf8("label_48"));
+        verticalSpacer_47 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_21->addWidget(label_48);
+        gridLayout_9->addItem(verticalSpacer_47, 5, 1, 1, 1);
 
-        horizontalSpacer_37 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalSpacer_48 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_21->addItem(horizontalSpacer_37);
+        gridLayout_9->addItem(verticalSpacer_48, 7, 0, 1, 1);
 
+        horizontalLayout_35 = new QHBoxLayout();
+        horizontalLayout_35->setSpacing(6);
+        horizontalLayout_35->setObjectName(QString::fromUtf8("horizontalLayout_35"));
+        horizontalSpacer_51 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_18->addLayout(horizontalLayout_21);
+        horizontalLayout_35->addItem(horizontalSpacer_51);
 
-        horizontalLayout_23 = new QHBoxLayout();
-        horizontalLayout_23->setSpacing(6);
-        horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
-        checkmantg = new QRadioButton(groupBox_7);
-        checkmantg->setObjectName(QString::fromUtf8("checkmantg"));
-        checkmantg->setFont(font1);
+        pushButton_rpt = new QPushButton(groupBox_2);
+        pushButton_rpt->setObjectName(QString::fromUtf8("pushButton_rpt"));
 
-        horizontalLayout_23->addWidget(checkmantg);
+        horizontalLayout_35->addWidget(pushButton_rpt);
 
-        horizontalSpacer_38 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalLayout_23 = new QVBoxLayout();
+        verticalLayout_23->setSpacing(6);
+        verticalLayout_23->setObjectName(QString::fromUtf8("verticalLayout_23"));
+        verticalSpacer_44 = new QSpacerItem(20, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_23->addItem(horizontalSpacer_38);
+        verticalLayout_23->addItem(verticalSpacer_44);
 
+        genreport = new QPushButton(groupBox_2);
+        genreport->setObjectName(QString::fromUtf8("genreport"));
 
-        verticalLayout_18->addLayout(horizontalLayout_23);
+        verticalLayout_23->addWidget(genreport);
 
-        horizontalLayout_22 = new QHBoxLayout();
-        horizontalLayout_22->setSpacing(6);
-        horizontalLayout_22->setObjectName(QString::fromUtf8("horizontalLayout_22"));
-        checkmant = new QRadioButton(groupBox_7);
-        checkmant->setObjectName(QString::fromUtf8("checkmant"));
-        checkmant->setFont(font1);
+        verticalSpacer_45 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_22->addWidget(checkmant);
-
-        combomaqmantenimiento = new QComboBox(groupBox_7);
-        combomaqmantenimiento->setObjectName(QString::fromUtf8("combomaqmantenimiento"));
-
-        horizontalLayout_22->addWidget(combomaqmantenimiento);
+        verticalLayout_23->addItem(verticalSpacer_45);
 
 
-        verticalLayout_18->addLayout(horizontalLayout_22);
+        horizontalLayout_35->addLayout(verticalLayout_23);
+
+        horizontalSpacer_52 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_35->addItem(horizontalSpacer_52);
 
 
-        gridLayout_9->addWidget(groupBox_7, 6, 0, 1, 1);
-
-        groupBox_8 = new QGroupBox(groupBox_2);
-        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
-        groupBox_8->setFont(font2);
-        verticalLayout_22 = new QVBoxLayout(groupBox_8);
-        verticalLayout_22->setSpacing(6);
-        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_22->setObjectName(QString::fromUtf8("verticalLayout_22"));
-        horizontalLayout_32 = new QHBoxLayout();
-        horizontalLayout_32->setSpacing(6);
-        horizontalLayout_32->setObjectName(QString::fromUtf8("horizontalLayout_32"));
-        horizontalSpacer_48 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_32->addItem(horizontalSpacer_48);
-
-        label_52 = new QLabel(groupBox_8);
-        label_52->setObjectName(QString::fromUtf8("label_52"));
-
-        horizontalLayout_32->addWidget(label_52);
-
-        horizontalSpacer_49 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_32->addItem(horizontalSpacer_49);
-
-
-        verticalLayout_22->addLayout(horizontalLayout_32);
-
-        horizontalLayout_33 = new QHBoxLayout();
-        horizontalLayout_33->setSpacing(6);
-        horizontalLayout_33->setObjectName(QString::fromUtf8("horizontalLayout_33"));
-        checkbasg = new QRadioButton(groupBox_8);
-        checkbasg->setObjectName(QString::fromUtf8("checkbasg"));
-        checkbasg->setFont(font1);
-
-        horizontalLayout_33->addWidget(checkbasg);
-
-        horizontalSpacer_50 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_33->addItem(horizontalSpacer_50);
-
-
-        verticalLayout_22->addLayout(horizontalLayout_33);
-
-        horizontalLayout_34 = new QHBoxLayout();
-        horizontalLayout_34->setSpacing(6);
-        horizontalLayout_34->setObjectName(QString::fromUtf8("horizontalLayout_34"));
-        checkbas = new QRadioButton(groupBox_8);
-        checkbas->setObjectName(QString::fromUtf8("checkbas"));
-        checkbas->setFont(font1);
-
-        horizontalLayout_34->addWidget(checkbas);
-
-        combobasicos = new QComboBox(groupBox_8);
-        combobasicos->setObjectName(QString::fromUtf8("combobasicos"));
-
-        horizontalLayout_34->addWidget(combobasicos);
-
-
-        verticalLayout_22->addLayout(horizontalLayout_34);
-
-
-        gridLayout_9->addWidget(groupBox_8, 6, 1, 1, 1);
-
-        groupBox = new QGroupBox(groupBox_2);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setFont(font2);
-        verticalLayout_19 = new QVBoxLayout(groupBox);
-        verticalLayout_19->setSpacing(6);
-        verticalLayout_19->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_19->setObjectName(QString::fromUtf8("verticalLayout_19"));
-        horizontalLayout_24 = new QHBoxLayout();
-        horizontalLayout_24->setSpacing(6);
-        horizontalLayout_24->setObjectName(QString::fromUtf8("horizontalLayout_24"));
-        horizontalSpacer_39 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_24->addItem(horizontalSpacer_39);
-
-        label_49 = new QLabel(groupBox);
-        label_49->setObjectName(QString::fromUtf8("label_49"));
-
-        horizontalLayout_24->addWidget(label_49);
-
-        horizontalSpacer_40 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_24->addItem(horizontalSpacer_40);
-
-
-        verticalLayout_19->addLayout(horizontalLayout_24);
-
-        horizontalLayout_25 = new QHBoxLayout();
-        horizontalLayout_25->setSpacing(6);
-        horizontalLayout_25->setObjectName(QString::fromUtf8("horizontalLayout_25"));
-        checkmaqg = new QRadioButton(groupBox);
-        checkmaqg->setObjectName(QString::fromUtf8("checkmaqg"));
-        checkmaqg->setFont(font1);
-
-        horizontalLayout_25->addWidget(checkmaqg);
-
-        horizontalSpacer_41 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_25->addItem(horizontalSpacer_41);
-
-
-        verticalLayout_19->addLayout(horizontalLayout_25);
-
-
-        gridLayout_9->addWidget(groupBox, 8, 0, 1, 1);
+        gridLayout_9->addLayout(horizontalLayout_35, 8, 1, 1, 1);
 
 
         verticalLayout_24->addWidget(groupBox_2);
@@ -2669,6 +2676,7 @@ public:
 
         radioButton_3 = new QRadioButton(groupBox_41);
         radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
+        radioButton_3->setAutoExclusive(true);
 
         verticalLayout_46->addWidget(radioButton_3);
 
@@ -2677,6 +2685,7 @@ public:
         horizontalLayout_71->setObjectName(QString::fromUtf8("horizontalLayout_71"));
         radioButton_4 = new QRadioButton(groupBox_41);
         radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
+        radioButton_4->setAutoExclusive(true);
 
         horizontalLayout_71->addWidget(radioButton_4);
 
@@ -2974,12 +2983,12 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         verticalSpacer_51 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_51, 0, 1, 1, 1);
+        gridLayout->addItem(verticalSpacer_51, 0, 2, 1, 1);
 
         pushButton_31 = new QPushButton(groupBox_21);
         pushButton_31->setObjectName(QString::fromUtf8("pushButton_31"));
 
-        gridLayout->addWidget(pushButton_31, 1, 1, 1, 1);
+        gridLayout->addWidget(pushButton_31, 1, 2, 1, 1);
 
         horizontalSpacer_53 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -2987,11 +2996,16 @@ public:
 
         horizontalSpacer_54 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_54, 1, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_54, 1, 3, 1, 1);
 
         verticalSpacer_82 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_82, 2, 1, 1, 1);
+        gridLayout->addItem(verticalSpacer_82, 2, 2, 1, 1);
+
+        pushButton_xls = new QPushButton(groupBox_21);
+        pushButton_xls->setObjectName(QString::fromUtf8("pushButton_xls"));
+
+        gridLayout->addWidget(pushButton_xls, 1, 1, 1, 1);
 
 
         gridLayout_3->addLayout(gridLayout, 6, 1, 1, 1);
@@ -4267,7 +4281,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(9);
+        stackedWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -4473,27 +4487,28 @@ public:
         commandInicio->setText(QApplication::translate("cosmecClass", "Ir al inicio", 0, QApplication::UnicodeUTF8));
         label_23->setText(QApplication::translate("cosmecClass", "Generador de Reportes de la Base de Datos", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QString());
-        genreport->setText(QApplication::translate("cosmecClass", "Generar", 0, QApplication::UnicodeUTF8));
         label_46->setText(QApplication::translate("cosmecClass", "Herramientas", 0, QApplication::UnicodeUTF8));
         checkherrg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
         checkherr->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
+        label_49->setText(QApplication::translate("cosmecClass", "M\303\241quinas", 0, QApplication::UnicodeUTF8));
+        checkmaqg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
+        label_52->setText(QApplication::translate("cosmecClass", "Servicios b\303\241sicos", 0, QApplication::UnicodeUTF8));
+        checkbasg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
+        checkbas->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_50->setText(QApplication::translate("cosmecClass", "Mano de Obra", 0, QApplication::UnicodeUTF8));
         checkmanog->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
         checkmano->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
+        label_48->setText(QApplication::translate("cosmecClass", "Mantenimiento", 0, QApplication::UnicodeUTF8));
+        checkmantg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
+        checkmant->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_47->setText(QApplication::translate("cosmecClass", "Consumibles", 0, QApplication::UnicodeUTF8));
         checkconsug->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
         checkconsu->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_51->setText(QApplication::translate("cosmecClass", "Actividades", 0, QApplication::UnicodeUTF8));
         checkactivg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
         checkactiv->setText(QApplication::translate("cosmecClass", "Reporte por Cargos", 0, QApplication::UnicodeUTF8));
-        label_48->setText(QApplication::translate("cosmecClass", "Mantenimiento", 0, QApplication::UnicodeUTF8));
-        checkmantg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkmant->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
-        label_52->setText(QApplication::translate("cosmecClass", "Servicios b\303\241sicos", 0, QApplication::UnicodeUTF8));
-        checkbasg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
-        checkbas->setText(QApplication::translate("cosmecClass", "Reporte por M\303\241quina", 0, QApplication::UnicodeUTF8));
-        label_49->setText(QApplication::translate("cosmecClass", "M\303\241quinas", 0, QApplication::UnicodeUTF8));
-        checkmaqg->setText(QApplication::translate("cosmecClass", "Reporte General", 0, QApplication::UnicodeUTF8));
+        pushButton_rpt->setText(QApplication::translate("cosmecClass", "Limpiar selecci\303\263n", 0, QApplication::UnicodeUTF8));
+        genreport->setText(QApplication::translate("cosmecClass", "Generar", 0, QApplication::UnicodeUTF8));
         label_24->setText(QApplication::translate("cosmecClass", "Exportar a Excel", 0, QApplication::UnicodeUTF8));
         groupBox_21->setTitle(QString());
         groupBox_41->setTitle(QString());
@@ -4524,6 +4539,7 @@ public:
         radioButton_10->setText(QApplication::translate("cosmecClass", "Hoja general", 0, QApplication::UnicodeUTF8));
         radioButton_5->setText(QApplication::translate("cosmecClass", "Hoja por m\303\241quina", 0, QApplication::UnicodeUTF8));
         pushButton_31->setText(QApplication::translate("cosmecClass", "Generar", 0, QApplication::UnicodeUTF8));
+        pushButton_xls->setText(QApplication::translate("cosmecClass", "Limpiar Selecci\303\263n", 0, QApplication::UnicodeUTF8));
         label_35->setText(QApplication::translate("cosmecClass", "Cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
         groupBox_91->setTitle(QApplication::translate("cosmecClass", "Datos del Cliente", 0, QApplication::UnicodeUTF8));
         label_30->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));

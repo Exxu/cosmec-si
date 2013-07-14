@@ -291,6 +291,8 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(ui.actionServicios_Externos, SIGNAL(triggered()),this, SLOT(setServiciosExternos()));
 	connect(ui.actionUsuarios,SIGNAL(triggered()),this,SLOT(setUsuarios()));
 	connect(ui.actionBuscarReg,SIGNAL(triggered()),this,SLOT(setBusqueda()));
+	connect(ui.pushButton_rpt,SIGNAL(clicked()),this,SLOT(botonLimpiarRpt()));
+	connect(ui.pushButton_xls,SIGNAL(clicked()),this,SLOT(botonLimpiarExcel()));
 
 	//mano de obra - cargos
 	connect(ui.pushButton,SIGNAL(clicked()),this,SLOT(agregarfila())); //boton +
@@ -3151,6 +3153,7 @@ void cosmec::updateActTrab(){
 }
 //cambiar de widget en stack
 void cosmec::setgenerador(){
+	limpiarRep();
 	cosmecdb.open();
 	QSqlQuery respuesta(cosmecdb);
 	respuesta.exec("SELECT a.serie, a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo");
@@ -3180,6 +3183,7 @@ void cosmec::setgenerador(){
 	ui.stackedWidget->setCurrentIndex(9);
 }
 void cosmec::setreporteexel(){
+	limpiarExcel();
 	//llenar combobox maquinas
 	QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
 	llenarcombomaq(sql,ui.comboBox_4);
@@ -3946,8 +3950,15 @@ void cosmec::setbuscarCotizacion(){
 	borrartabla(ui.tableWidget_11);
 	ui.lineEdit_5->clear();
 	ui.lineEdit_6->clear();
-	ui.radioButton_c->setChecked(false);
-	ui.radioButton_2->setChecked(false);
+
+	ui.radioButton_c->setCheckable(false);
+	ui.radioButton_c->update();
+	ui.radioButton_c->setCheckable(true);
+
+	ui.radioButton_2->setCheckable(false);
+	ui.radioButton_2->update();
+	ui.radioButton_2->setCheckable(true);
+
 	ui.stackedWidget->setCurrentIndex(12);
 }
 void cosmec::setmateriales(){
@@ -4080,12 +4091,12 @@ void cosmec::eliminarFilaMaqActividades(){
 void cosmec::habilitarBuscarRuc(){
 	ui.lineEdit_5->setEnabled(false);
 	ui.lineEdit_6->setEnabled(true);
-	qDebug()<<"habilita ruc";
+	//qDebug()<<"habilita ruc";
 }
 void cosmec::habilitarBuscarCotizacion(){
 	ui.lineEdit_5->setEnabled(true);
 	ui.lineEdit_6->setEnabled(false);
-	qDebug()<<"habilita cotizacion";
+	//qDebug()<<"habilita cotizacion";
 }
 void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con ese valor de RUC o # cotizacion
 	QString sql;
@@ -6512,4 +6523,116 @@ void cosmec::costo_hora_insumo3(int maq){
 		double resultado=redondear(unitario*cantidad/horas_maq);
 		finsumo->ui.lineEdit_4->setText(QString::number(resultado));
 	}
+}
+void cosmec::limpiarRep(){
+	ui.checkherrg->setCheckable(false);
+	ui.checkherrg->update();
+	ui.checkherrg->setCheckable(true);
+
+	ui.checkherr->setCheckable(false);
+	ui.checkherr->update();
+	ui.checkherr->setCheckable(true);
+
+	ui.checkconsug->setCheckable(false);
+	ui.checkconsug->update();
+	ui.checkconsug->setCheckable(true);
+
+	ui.checkconsu->setCheckable(false);
+	ui.checkconsu->update();
+	ui.checkconsu->setCheckable(true);
+
+	ui.checkmantg->setCheckable(false);
+	ui.checkmantg->update();
+	ui.checkmantg->setCheckable(true);
+
+	ui.checkmant->setCheckable(false);
+	ui.checkmant->update();
+	ui.checkmant->setCheckable(true);
+
+	ui.checkmaqg->setCheckable(false);
+	ui.checkmaqg->update();
+	ui.checkmaqg->setCheckable(true);
+
+	ui.checkmanog->setCheckable(false);
+	ui.checkmanog->update();
+	ui.checkmanog->setCheckable(true);
+
+	ui.checkmano->setCheckable(false);
+	ui.checkmano->update();
+	ui.checkmano->setCheckable(true);
+
+	ui.checkactivg->setCheckable(false);
+	ui.checkactivg->update();
+	ui.checkactivg->setCheckable(true);
+
+	ui.checkactiv->setCheckable(false);
+	ui.checkactiv->update();
+	ui.checkactiv->setCheckable(true);
+
+	ui.checkbasg->setCheckable(false);
+	ui.checkbasg->update();
+	ui.checkbasg->setCheckable(true);
+
+	ui.checkbas->setCheckable(false);
+	ui.checkbas->update();
+	ui.checkbas->setCheckable(true);
+}
+void cosmec::limpiarExcel(){
+	ui.radioButton_3->setCheckable(false);
+	ui.radioButton_3->update();
+	ui.radioButton_3->setCheckable(true);
+
+	ui.radioButton_4->setCheckable(false);
+	ui.radioButton_4->update();
+	ui.radioButton_4->setCheckable(true);
+
+	ui.radioButton_12->setCheckable(false);
+	ui.radioButton_12->update();
+	ui.radioButton_12->setCheckable(true);
+
+	ui.radioButton_6->setCheckable(false);
+	ui.radioButton_6->update();
+	ui.radioButton_6->setCheckable(true);
+
+	ui.radioButton_10->setCheckable(false);
+	ui.radioButton_10->update();
+	ui.radioButton_10->setCheckable(true);
+
+	ui.radioButton_5->setCheckable(false);
+	ui.radioButton_5->update();
+	ui.radioButton_5->setCheckable(true);
+
+	ui.radioButton_13->setCheckable(false);
+	ui.radioButton_13->update();
+	ui.radioButton_13->setCheckable(true);
+
+	ui.radioButton_7->setCheckable(false);
+	ui.radioButton_7->update();
+	ui.radioButton_7->setCheckable(true);
+
+	ui.radioButton_11->setCheckable(false);
+	ui.radioButton_11->update();
+	ui.radioButton_11->setCheckable(true);
+
+	ui.radioButton_9->setCheckable(false);
+	ui.radioButton_9->update();
+	ui.radioButton_9->setCheckable(true);
+
+	ui.radioButton_14->setCheckable(false);
+	ui.radioButton_14->update();
+	ui.radioButton_14->setCheckable(true);
+
+	ui.radioButton_8->setCheckable(false);
+	ui.radioButton_8->update();
+	ui.radioButton_8->setCheckable(true);
+
+	ui.radioButton->setCheckable(false);
+	ui.radioButton->update();
+	ui.radioButton->setCheckable(true);
+}
+void cosmec::botonLimpiarRpt(){
+	limpiarRep();
+}
+void cosmec::botonLimpiarExcel(){
+	limpiarExcel();
 }
