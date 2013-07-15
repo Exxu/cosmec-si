@@ -4133,8 +4133,8 @@ void cosmec::resultadoCotizacion(){
 		numerocoti=QString(itab1->text()).toInt();
 		double subtotal=calcularcotizacion(numerocoti);
 		ui.lineEdit_27->setText(QString::number(subtotal));
-		ui.lineEdit_30->setText(QString::number(iva*subtotal));
-		ui.lineEdit_29->setText(QString::number((1+iva)*subtotal));
+		ui.lineEdit_30->setText(QString::number(redondear(iva*subtotal)));
+		ui.lineEdit_29->setText(QString::number(redondear((1+iva)*subtotal)));
 		ui.pushButton_35->setVisible(true);
 		ui.stackedWidget->setCurrentIndex(13);
 
@@ -4186,7 +4186,7 @@ void cosmec::detalle(){
 			
 			dato1=QString::number(ind);
 			dato2="Herramientas";
-			dato3=QString::number(valor_herra);
+			dato3=QString::number(redondear(valor_herra));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
@@ -4196,7 +4196,7 @@ void cosmec::detalle(){
 			
 			dato1=QString::number(ind);
 			dato2="Consumibles";
-			dato3=QString::number(valor_consu);
+			dato3=QString::number(redondear(valor_consu));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
@@ -4206,7 +4206,7 @@ void cosmec::detalle(){
 			
 			dato1=QString::number(ind);
 			dato2="Servicios Basicos";
-			dato3=QString::number(servicios);
+			dato3=QString::number(redondear(servicios));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
@@ -4217,7 +4217,7 @@ void cosmec::detalle(){
 			
 			dato1=QString::number(ind);
 			dato2="Mantenimiento";
-			dato3=QString::number(manteni);
+			dato3=QString::number(redondear(manteni));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
@@ -4229,21 +4229,21 @@ void cosmec::detalle(){
 			
 			dato1=QString::number(ind);
 			dato2="Costo maquina y depreciacion ";
-			dato3=QString::number(costomaqui);
+			dato3=QString::number(redondear(costomaqui));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
 
 			dato1="";
 			dato2="Costo hora total";
-			dato3=QString::number(maquina);
+			dato3=QString::number(redondear(maquina));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
 
 			dato1="";
 			dato2="Precio total "+QString::number(vcomp*100)+"%";
-			dato3=QString::number(maquina*(1+vcomp));
+			dato3=QString::number(redondear(maquina*(1+vcomp)));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
@@ -4271,21 +4271,21 @@ void cosmec::detalle(){
 
 			dato1="";
 			dato2="Costo total";
-			dato3=QString::number(mano_total);
+			dato3=QString::number(redondear(mano_total));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
 			
 			dato1="";
 			dato2="Costo hora";
-			dato3=QString::number(mano_total/160);
+			dato3=QString::number(redondear(mano_total/160));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
 
 			dato1="";
 			dato2="Precio total "+QString::number(vcomp*100)+"%";
-			dato3=QString::number((mano_total/160)*(1+vcomp));
+			dato3=QString::number(redondear((mano_total/160)*(1+vcomp)));
 			pop->tablaDetalle(fila,dato1,dato2,dato3);
 			fila++;
 			ind++;
@@ -4437,8 +4437,8 @@ void cosmec::segundaParte(){
 		sql=QString("UPDATE cotizacion SET subtotal_cotizacion=%1 WHERE numero=%2").arg(subtotal).arg(numerocoti);
 		insertarsql(sql);
 		ui.lineEdit_27->setText(QString::number(subtotal));
-		ui.lineEdit_30->setText(QString::number(iva*subtotal));
-		ui.lineEdit_29->setText(QString::number((1+iva)*subtotal));
+		ui.lineEdit_30->setText(QString::number(redondear(iva*subtotal)));
+		ui.lineEdit_29->setText(QString::number(redondear((1+iva)*subtotal)));
 		ui.stackedWidget->setCurrentIndex(13);
 	}
 	else{
@@ -4959,7 +4959,7 @@ double cosmec::calcularcotizacion(int numero){
 	QTableWidgetItem *nuevo;
 	int b=0;
 	int serie;
-	int cantidad_maquina;
+	double cantidad_maquina;
 	double valor_herra;
 	double total_mano_obra;
 	double valor_consu;
@@ -4993,7 +4993,7 @@ double cosmec::calcularcotizacion(int numero){
 		indice2++;
 		serie=mac.value(0).toInt();
 		idmaquinacot[index]=serie;
-		cantidad_maquina=mac.value(1).toInt();
+		cantidad_maquina=mac.value(1).toDouble();
 		nombre_maquina=mac.value(2).toString();
 		
 		//valor maquina
@@ -5245,7 +5245,7 @@ double cosmec::calcularcotizacion2(int numero){
 	QTableWidgetItem *nuevo;
 	int b=0;
 	int serie;
-	int cantidad_maquina;
+	double cantidad_maquina;
 	double valor_herra;
 	double total_mano_obra;
 	double valor_consu;
@@ -5279,7 +5279,7 @@ double cosmec::calcularcotizacion2(int numero){
 		indice2++;
 		serie=mac.value(0).toInt();
 		idmaquinacot[index]=serie;
-		cantidad_maquina=mac.value(1).toInt();
+		cantidad_maquina=mac.value(1).toDouble();
 		nombre_maquina=mac.value(2).toString();
 		
 		//valor maquina
@@ -5311,13 +5311,13 @@ double cosmec::calcularcotizacion2(int numero){
 		nuevo->setText(nombre_maquina);
 		ui.tableWidget_24->setItem(fila,1,nuevo);
 		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(maquina));
+		nuevo->setText(QString::number(redondear(maquina)));
 		ui.tableWidget_24->setItem(fila,2,nuevo);
 		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(cantidad_maquina));
+		nuevo->setText(QString::number(redondear(cantidad_maquina)));
 		ui.tableWidget_24->setItem(fila,3,nuevo);
 		nuevo=new QTableWidgetItem();
-		nuevo->setText(QString::number(total_maquina));
+		nuevo->setText(QString::number(redondear(total_maquina)));
 		ui.tableWidget_24->setItem(fila,4,nuevo);
 		
 		fila++;
@@ -5345,7 +5345,7 @@ double cosmec::calcularcotizacion2(int numero){
 			nuevo->setText(QString::number(cant_mano_obra));
 			ui.tableWidget_24->setItem(fila,3,nuevo);
 			nuevo=new QTableWidgetItem();
-			nuevo->setText(QString::number(total_mano_obra));
+			nuevo->setText(QString::number(redondear(total_mano_obra)));
 			ui.tableWidget_24->setItem(fila,4,nuevo);
 			fila++;
 			indice=indice+0.1;
@@ -5378,7 +5378,7 @@ double cosmec::calcularcotizacion2(int numero){
 				nuevo->setText(QString::number(costo_mat));
 				ui.tableWidget_24->setItem(fila,2,nuevo);
 				nuevo=new QTableWidgetItem();
-				nuevo->setText(QString::number(cant_mat*costo_mat));
+				nuevo->setText(QString::number(redondear(cant_mat*costo_mat)));
 				ui.tableWidget_24->setItem(fila,4,nuevo);
 				fila++;
 				indice=indice+0.1;
@@ -5456,7 +5456,7 @@ double cosmec::calcularcotizacion2(int numero){
 			nuevo->setText(QString::number(cant_activi));
 			ui.tableWidget_24->setItem(fila,3,nuevo);
 			nuevo=new QTableWidgetItem();
-			nuevo->setText(QString::number(cant_activi*costo_activi));
+			nuevo->setText(QString::number(redondear(cant_activi*costo_activi)));
 			ui.tableWidget_24->setItem(fila,4,nuevo);
 			fila++;
 			indice=indice+0.1;
@@ -5510,7 +5510,7 @@ double cosmec::calcularcotizacion2(int numero){
 			nuevo->setText(QString::number(cant_serv));
 			ui.tableWidget_24->setItem(fila,3,nuevo);
 			nuevo=new QTableWidgetItem();
-			nuevo->setText(QString::number(cant_serv*costo_serv));
+			nuevo->setText(QString::number(redondear(cant_serv*costo_serv)));
 			ui.tableWidget_24->setItem(fila,4,nuevo);
 			fila++;
 			indice=indice+0.1;
