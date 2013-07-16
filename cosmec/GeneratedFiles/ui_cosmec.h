@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sun 14. Jul 17:35:19 2013
+** Created: Mon 15. Jul 17:42:38 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -575,6 +575,8 @@ public:
     QHBoxLayout *horizontalLayout_42;
     QSpacerItem *horizontalSpacer_66;
     QPushButton *pushButton_35;
+    QSpacerItem *horizontalSpacer_130;
+    QPushButton *modificar;
     QSpacerItem *horizontalSpacer_67;
     QCommandLinkButton *commandLinkButton_4;
     QSpacerItem *verticalSpacer_64;
@@ -3660,6 +3662,15 @@ public:
 
         horizontalLayout_42->addWidget(pushButton_35);
 
+        horizontalSpacer_130 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_42->addItem(horizontalSpacer_130);
+
+        modificar = new QPushButton(page_15);
+        modificar->setObjectName(QString::fromUtf8("modificar"));
+
+        horizontalLayout_42->addWidget(modificar);
+
         horizontalSpacer_67 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_42->addItem(horizontalSpacer_67);
@@ -4289,7 +4300,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(13);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -4620,6 +4631,7 @@ public:
         label_154->setText(QApplication::translate("cosmecClass", "% IVA", 0, QApplication::UnicodeUTF8));
         label_153->setText(QApplication::translate("cosmecClass", "Total [$]", 0, QApplication::UnicodeUTF8));
         pushButton_35->setText(QApplication::translate("cosmecClass", "Detalle", 0, QApplication::UnicodeUTF8));
+        modificar->setText(QApplication::translate("cosmecClass", "Modificar", 0, QApplication::UnicodeUTF8));
         commandLinkButton_4->setText(QApplication::translate("cosmecClass", "Imprimir", 0, QApplication::UnicodeUTF8));
         label_38->setText(QApplication::translate("cosmecClass", "Materiales", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem72 = tableWidget_14->horizontalHeaderItem(0);

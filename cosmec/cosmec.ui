@@ -140,7 +140,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -5495,6 +5495,26 @@ background: qlineargradient(
            <widget class="QPushButton" name="pushButton_35">
             <property name="text">
              <string>Detalle</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_130">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="modificar">
+            <property name="text">
+             <string>Modificar</string>
             </property>
            </widget>
           </item>

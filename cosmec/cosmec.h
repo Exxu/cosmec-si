@@ -289,6 +289,7 @@ private slots:
 	void buscarCotizacion();
 	void resultadoCotizacion();
 	void imprimirCotizacion();
+	void modificarCotizacion();
 	void detalle();
 	//nueva cotización
 	void sumarHerramienta();

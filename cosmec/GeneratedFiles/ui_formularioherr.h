@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioherr.ui'
 **
-** Created: Sun 14. Jul 17:35:17 2013
+** Created: Mon 15. Jul 17:42:37 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

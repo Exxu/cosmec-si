@@ -423,6 +423,7 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(ui.commandLinkButton_2,SIGNAL(clicked()),this,SLOT(resultadoCotizacion()));
 	connect(ui.pushButton_35,SIGNAL(clicked()),this,SLOT(detalle()));
 	connect(ui.commandLinkButton_4,SIGNAL(clicked()),this,SLOT(imprimirCotizacion()));
+	connect(ui.modificar,SIGNAL(clicked()),this,SLOT(modificarCotizacion()));
 	//nueva cotización
 	/*connect(ui.pushButton_32,SIGNAL(clicked()),this,SLOT(sumarHerramienta()));
 	connect(ui.pushButton_33,SIGNAL(clicked()),this,SLOT(sumarConsumible()));*/
@@ -3896,13 +3897,13 @@ void cosmec::setnuevaCotizacion(){
 	ui.lineEdit_4->clear();
 	cosmecdb.open();
 	QSqlQuery respuesta(cosmecdb);
-	respuesta.exec("SELECT a.serie, a.modelo FROM maquinas AS a ORDER BY a.modelo");
+	respuesta.exec("SELECT a.serie, a.modelo, a.cod_espe FROM maquinas AS a ORDER BY a.modelo");
 	tamquery1=respuesta.size();
 	idmaquinas=new int[tamquery1];
 	int b=0;
 	while(respuesta.next()){
 		idmaquinas[b]=respuesta.value(0).toInt();
-		ui.comboBox_5->addItem(respuesta.value(1).toString());
+		ui.comboBox_5->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
 		b++;
 	}
 	cosmecdb.close();
@@ -6635,4 +6636,285 @@ void cosmec::botonLimpiarRpt(){
 }
 void cosmec::botonLimpiarExcel(){
 	limpiarExcel();
+}
+void cosmec::modificarCotizacion(){
+	QTableWidgetItem *itemMaquina;
+	QTableWidgetItem *itemDesc;
+	QTableWidgetItem *itemCate;
+	QTableWidgetItem *itemcant;
+	QTableWidgetItem *itemIdMaq;
+	QTableWidgetItem *itemIdDesc;
+
+	QString serie;
+	QString cantidad_maquina;
+	QString nombre_maquina;
+	double mano_obra;
+	double cant_mano_obra;
+	QString nombre_mat;
+	QString cant_mat;
+	QString id_mat;
+
+	QString cant_activi;
+	QString id_activi;
+	QString nombre_activi;
+
+	QString cant_serv;
+	QString id_serv;
+	QString nombre_serv;
+	
+	QSqlQuery cot(cosmecdb);
+	QSqlQuery mac(cosmecdb);
+	QSqlQuery aux(cosmecdb);
+
+	cosmecdb.open();
+	QString sql=QString("SELECT numero, nombre, ruc, telefono, direccion "
+		"FROM cotizacion WHERE numero=%1").arg(numerocoti);
+    
+	ui.label_27->setText(QString::number(numerocoti));
+	if(!cot.exec(sql)){
+		QMessageBox msgBox;
+		msgBox.setText("Error al agregar datos :"+cot.lastError().databaseText());
+		msgBox.exec();
+	}else{
+		while(cot.next()){
+			ui.label_7->setText(cot.value(0).toString());
+			ui.lineEdit_2->setText(cot.value(1).toString());
+			ui.lineEdit->setText(cot.value(2).toString());
+			ui.lineEdit_4->setText(cot.value(3).toString());
+			ui.lineEdit_3->setText(cot.value(4).toString());
+		}
+	}
+
+	mac.exec(QString("SELECT a.serie_maquinas, cantidad, b.modelo FROM  maquina_cotizacion AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.numero_cotizacion=%1").arg(numerocoti));
+	while(mac.next()){
+		serie=mac.value(0).toString();
+		cantidad_maquina=mac.value(1).toString();
+		nombre_maquina=mac.value(2).toString();
+		//Insertar maquina
+		ui.tableWidget_12->insertRow(ui.tableWidget_12->rowCount());
+
+		itemMaquina = new QTableWidgetItem;
+		itemDesc = new QTableWidgetItem;
+		itemCate = new QTableWidgetItem;
+		itemcant = new QTableWidgetItem;
+		itemIdMaq = new QTableWidgetItem;
+		itemIdDesc = new QTableWidgetItem;
+
+		itemMaquina->setText(nombre_maquina);
+		itemDesc->setText(nombre_maquina);
+		itemCate->setText("Máquina");
+		itemcant->setText(cantidad_maquina);
+		itemIdMaq->setText(serie); //id maquina
+		itemIdDesc->setText(serie); //id maquina
+
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,2,itemDesc);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,3,itemIdDesc);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,4,itemCate);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,5,itemcant);
+		
+		//mano de obra
+		sql=QString("SELECT valor_mano, cantidad_mano FROM cotizacion_manoobra WHERE serie_maquina=%1 AND numero_cotizacion=%2").arg(serie).arg(numerocoti);
+		cant_mano_obra=sql_general(sql,1).toDouble();
+		
+		ui.tableWidget_12->insertRow(ui.tableWidget_12->rowCount());
+
+		itemMaquina = new QTableWidgetItem;
+		itemDesc = new QTableWidgetItem;
+		itemCate = new QTableWidgetItem;
+		itemcant = new QTableWidgetItem;
+		itemIdMaq = new QTableWidgetItem;
+		itemIdDesc = new QTableWidgetItem;
+
+		itemMaquina->setText(nombre_maquina);
+		itemDesc->setText("Mano de obra");
+		itemCate->setText("Mano de obra");
+		itemcant->setText(QString::number(cant_mano_obra));
+		itemIdMaq->setText(serie); //id maquina
+		itemIdDesc->setText("Sin Id"); //id maquina
+
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,2,itemDesc);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,3,itemIdDesc);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,4,itemCate);
+		ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,5,itemcant);
+				
+		//Materiales
+		cosmecdb.open();
+		sql=QString("SELECT a.cantidad, b.id_material, b.nombre FROM cotizacion_material AS a,materiales AS b WHERE a.id_material_materiales=b.id_material AND a.serie_maquinas=%1 AND a.numero_cotizacion=%2").arg(serie).arg(numerocoti);
+		if(!aux.exec(sql)){
+			QMessageBox msgBox;
+			msgBox.setText("Error al agregar datos :"+aux.lastError().databaseText());
+			msgBox.exec();
+		}else{
+			while(aux.next()){
+				//--------------------------------------
+				cant_mat=aux.value(0).toString();
+				id_mat=aux.value(1).toString();
+				nombre_mat=aux.value(2).toString();
+				//--------------------------------------
+				ui.tableWidget_12->insertRow(ui.tableWidget_12->rowCount());
+
+				itemMaquina = new QTableWidgetItem;
+				itemDesc = new QTableWidgetItem;
+				itemCate = new QTableWidgetItem;
+				itemcant = new QTableWidgetItem;
+				itemIdMaq = new QTableWidgetItem;
+				itemIdDesc = new QTableWidgetItem;
+
+				itemMaquina->setText(nombre_maquina);
+				itemDesc->setText(nombre_mat);
+				itemCate->setText("Material");
+				itemcant->setText(cant_mat);
+				itemIdMaq->setText(serie); //id maquina
+				itemIdDesc->setText(id_mat); //id maquina
+
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,2,itemDesc);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,3,itemIdDesc);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,4,itemCate);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,5,itemcant);
+			}
+		}
+		cosmecdb.close();
+	}
+
+	//Actividades
+	cosmecdb.open();
+	sql=QString("SELECT a.cantidad, b.id_actividad, b.nombre FROM actividades_cotizacion AS a,actividades AS b WHERE a.id_actividad_actividades=b.id_actividad AND a.numero_cotizacion=%2").arg(numerocoti);
+	if(!aux.exec(sql)){
+		QMessageBox msgBox;
+		msgBox.setText("Error al agregar datos :"+aux.lastError().databaseText());
+		msgBox.exec();
+	}else{
+		while(aux.next()){
+			//--------------------------------------
+			cant_activi=aux.value(0).toString();
+			id_activi=aux.value(1).toString();
+			nombre_activi=aux.value(2).toString();
+			//--------------------------------------
+			ui.tableWidget_12->insertRow(ui.tableWidget_12->rowCount());
+
+			QTableWidgetItem *itemMaquina = new QTableWidgetItem;
+			QTableWidgetItem *itemDesc = new QTableWidgetItem;
+			QTableWidgetItem *itemCate = new QTableWidgetItem;
+			QTableWidgetItem *itemcant = new QTableWidgetItem;
+			QTableWidgetItem *itemIdMaq = new QTableWidgetItem;
+			QTableWidgetItem *itemIdDesc = new QTableWidgetItem;
+
+			itemMaquina->setText("Cotizacion");
+			itemDesc->setText(nombre_activi);
+			itemCate->setText("Actividad");
+			itemcant->setText(cant_activi);
+			itemIdMaq->setText(QString::number(numerocoti)); //id maquina
+			itemIdDesc->setText(id_activi); //id actividad
+
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,2,itemDesc);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,3,itemIdDesc);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,4,itemCate);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,5,itemcant);
+		}
+		
+	}
+	cosmecdb.close();
+	
+	//Servicios Externos
+	cosmecdb.open();
+	sql=QString("SELECT a.cantidad_servicios, b.id_servicios, b.nombre_srevicio FROM servicios_cotizacion a, servicios_externos AS b "
+		"WHERE id_servicios_servicios_externos=id_servicios AND numero_cotizacion=%1").arg(numerocoti);
+	if(!aux.exec(sql)){
+		QMessageBox msgBox;
+		msgBox.setText("Error al agregar datos :"+aux.lastError().databaseText());
+		msgBox.exec();
+	}else{
+		while(aux.next()){
+			//--------------------------------------
+			cant_serv=aux.value(0).toString();
+			id_serv=aux.value(1).toString();
+			nombre_serv=aux.value(2).toString();
+			//--------------------------------------
+			ui.tableWidget_12->insertRow(ui.tableWidget_12->rowCount());
+
+			QTableWidgetItem *itemMaquina = new QTableWidgetItem;
+			QTableWidgetItem *itemDesc = new QTableWidgetItem;
+			QTableWidgetItem *itemCate = new QTableWidgetItem;
+			QTableWidgetItem *itemcant = new QTableWidgetItem;
+			QTableWidgetItem *itemIdMaq = new QTableWidgetItem;
+			QTableWidgetItem *itemIdDesc = new QTableWidgetItem;
+
+			itemMaquina->setText("Cotizacion");
+			itemDesc->setText(nombre_serv);
+			itemCate->setText("Servicio Externo");
+			itemcant->setText(cant_serv);
+			itemIdMaq->setText(QString::number(numerocoti)); //id maquina
+			itemIdDesc->setText(id_serv); //id actividad
+
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,2,itemDesc);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,3,itemIdDesc);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,4,itemCate);
+			ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,5,itemcant);
+		}
+		
+	}
+	cosmecdb.close();
+
+
+	//Caragar combobox
+	cosmecdb.open();
+	QSqlQuery respuesta(cosmecdb);
+	respuesta.exec("SELECT a.serie, a.modelo, a.cod_espe FROM maquinas AS a ORDER BY a.modelo");
+	tamquery1=respuesta.size();
+	idmaquinas=new int[tamquery1];
+	int b=0;
+	while(respuesta.next()){
+		idmaquinas[b]=respuesta.value(0).toInt();
+		ui.comboBox_5->addItem(respuesta.value(1).toString()+"("+respuesta.value(2).toString()+")");
+		b++;
+	}
+	cosmecdb.close();
+
+	cosmecdb.open();
+	respuesta.exec(QString("SELECT a.id_actividad, a.nombre FROM actividades AS a ORDER BY a.nombre"));
+	tamquery1=respuesta.size();
+	qDebug()<<tamquery1;
+	idactividades=new int[tamquery1];
+	b=0;
+	while(respuesta.next()){
+		idactividades[b]=respuesta.value(0).toInt();
+		ui.comboBox_11->addItem(respuesta.value(1).toString());
+		b++;
+	}
+	cosmecdb.close();
+
+	cosmecdb.open();
+	respuesta.exec(QString("SELECT a.id_material, a.nombre FROM materiales AS a ORDER BY a.nombre"));
+	tamquery2=respuesta.size();
+	idmaterial=new int[tamquery2];
+	b=0;
+	while(respuesta.next()){
+		idmaterial[b]=respuesta.value(0).toInt();
+		ui.comboBox->addItem(respuesta.value(1).toString());
+		b++;
+	}
+	cosmecdb.close();
+
+	cosmecdb.open();
+	respuesta.exec(QString("SELECT id_servicios, nombre_srevicio FROM servicios_externos"));
+	tamquery2=respuesta.size();
+	idserv=new int[tamquery2];
+	b=0;
+	while(respuesta.next()){
+		idserv[b]=respuesta.value(0).toInt();
+		ui.comboBox_6->addItem(respuesta.value(1).toString());
+		b++;
+	}
+	cosmecdb.close();
+	ui.stackedWidget->setCurrentIndex(11);
 }
