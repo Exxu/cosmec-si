@@ -85,6 +85,7 @@ private:
 	double iva;
 	QSqlDatabase cosmecdb;
 	QSqlRecord record;
+	bool modificar;
 	int idusuario;
 	int *idcategoria;
 	int *idquery1;

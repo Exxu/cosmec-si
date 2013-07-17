@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariocategorias.ui'
 **
-** Created: Mon 15. Jul 17:42:38 2013
+** Created: Wed 17. Jul 09:43:17 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

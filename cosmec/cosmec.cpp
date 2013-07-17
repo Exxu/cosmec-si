@@ -3873,6 +3873,7 @@ void cosmec::setactividadesMo(){
 	}
 }
 void cosmec::setnuevaCotizacion(){
+	modificar=false;
 	QString sql;
 	sql="SELECT setval('cotizacion_numero_seq',(SELECT nextval('cotizacion_numero_seq'))-1)";
 	numerocoti=sql_general(sql,0).toInt()+1;
@@ -4388,8 +4389,12 @@ void cosmec::segundaParte(){
 		int ruc=QString(ui.lineEdit->text()).toInt();
 		QString direc=ui.lineEdit_3->text();
 		QString telf=ui.lineEdit_4->text();
-		sql=QString("INSERT INTO cotizacion(nombre,ruc,telefono,direccion,id_usuario_usuarios)"
+		if(modificar){
+			sql=QString("UPDATE cotizacion SET nombre='%1', ruc=%2, telefono='%3', direccion='%4' WHERE numero=%5").arg(nobre).arg(ruc).arg(telf).arg(direc).arg(numerocoti);
+		}else{
+			sql=QString("INSERT INTO cotizacion(nombre,ruc,telefono,direccion,id_usuario_usuarios)"
 			"VALUES ('%1',%2,'%3','%4',%5)").arg(nobre).arg(ruc).arg(telf).arg(direc).arg(idusuario);
+		}
 		insertarsql(sql);
 		for(int a=0;a<numfilas;a++){
 			QTableWidgetItem *itab1 = ui.tableWidget_12->item(a,4);
@@ -6638,13 +6643,15 @@ void cosmec::botonLimpiarExcel(){
 	limpiarExcel();
 }
 void cosmec::modificarCotizacion(){
+	borrartabla(ui.tableWidget_12);
+	borrartabla(ui.tableWidget_24);
 	QTableWidgetItem *itemMaquina;
 	QTableWidgetItem *itemDesc;
 	QTableWidgetItem *itemCate;
 	QTableWidgetItem *itemcant;
 	QTableWidgetItem *itemIdMaq;
 	QTableWidgetItem *itemIdDesc;
-
+	modificar=true;
 	QString serie;
 	QString cantidad_maquina;
 	QString nombre_maquina;
@@ -6916,5 +6923,17 @@ void cosmec::modificarCotizacion(){
 		b++;
 	}
 	cosmecdb.close();
+	sql=QString("DELETE FROM cotizacion_manoobra WHERE numero_cotizacion=%1").arg(numerocoti);
+	insertarsql(sql);
+	sql=QString("DELETE FROM maquina_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
+	insertarsql(sql);
+	sql=QString("DELETE FROM servicios_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
+	insertarsql(sql);
+	sql=QString("DELETE FROM cotizacion_material WHERE numero_cotizacion=%1").arg(numerocoti);
+	insertarsql(sql);
+	sql=QString("DELETE FROM actividades_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
+	insertarsql(sql);
+	sql=QString("DELETE FROM cotizacion_manoobra WHERE numero_cotizacion=%1").arg(numerocoti);
+	insertarsql(sql);
 	ui.stackedWidget->setCurrentIndex(11);
 }
