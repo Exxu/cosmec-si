@@ -4340,7 +4340,7 @@ void cosmec::sumarHerramienta(){
 	}*/
 }
 void cosmec::sumarConsumible(){
-	/*QString consumible=ui.comboBox_4->currentText();
+	QString consumible=ui.comboBox_4->currentText();
 	QString maq=ui.comboBox_3->currentText();
 	int cantH=ui.spinBox_2->value();
 
@@ -4372,7 +4372,7 @@ void cosmec::sumarConsumible(){
 		QMessageBox msgBox;
 		msgBox.setText("La cantidad debe ser diferente de 0");
 		msgBox.exec();
-	}*/
+	}
 }
 void cosmec::eliminarPrimeraCotizacion(){
 	int currentRow=ui.tableWidget_12->currentRow();
@@ -4488,6 +4488,7 @@ void cosmec::sumarMaq(){
 		msgBox.exec();
 	}
 }
+
 void cosmec::sumarActividad(){
 	QString actividad=ui.comboBox_11->currentText();
 	QString maq=ui.comboBox_5->currentText();
@@ -5005,8 +5006,8 @@ double cosmec::calcularcotizacion(int numero){
 		//valor maquina
 		sql=QString("SELECT SUM(costo_hora) FROM herramientas WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(serie);
 		valor_herra=sql_general(sql,0).toDouble();
-		sql=QString("SELECT SUM(costo_hora) FROM consumible WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(serie);
-		valor_consu=sql_general(sql,0).toDouble();
+		/*sql=QString("SELECT SUM(costo_hora) FROM consumible WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(serie);
+		valor_consu=sql_general(sql,0).toDouble();*/
 		
 		sql=QString("SELECT SUM(costo_hora) FROM serv_basico WHERE serie_maquinas=%1").arg(serie);
 		servicios=sql_general(sql,0).toDouble();
@@ -5015,7 +5016,8 @@ double cosmec::calcularcotizacion(int numero){
 		manteni=sql_general(sql,0).toDouble();
 		sql=QString("SELECT ((2*costo)/(vida_util*horas_trabajo_anual)) FROM maquinas WHERE serie=%1").arg(serie);
 		costomaqui=sql_general(sql,0).toDouble();
-		maquina=(valor_herra+valor_consu+servicios+manteni+costomaqui);
+		/*maquina=(valor_herra+valor_consu+servicios+manteni+costomaqui);*/
+		maquina=(valor_herra+servicios+manteni+costomaqui);
 		maquina=redondear(maquina);
 		total_maquina=(maquina)*(1+vcomp)*cantidad_maquina;//<--
 		total_maquina=redondear(total_maquina);
@@ -5291,8 +5293,8 @@ double cosmec::calcularcotizacion2(int numero){
 		//valor maquina
 		sql=QString("SELECT SUM(costo_hora) FROM herramientas WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(serie);
 		valor_herra=sql_general(sql,0).toDouble();
-		sql=QString("SELECT SUM(costo_hora) FROM consumible WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(serie);
-		valor_consu=sql_general(sql,0).toDouble();
+		/*sql=QString("SELECT SUM(costo_hora) FROM consumible WHERE serie_maquinas=%1 GROUP BY serie_maquinas").arg(serie);
+		valor_consu=sql_general(sql,0).toDouble();*/
 		
 		sql=QString("SELECT SUM(costo_hora) FROM serv_basico WHERE serie_maquinas=%1").arg(serie);
 		servicios=sql_general(sql,0).toDouble();
@@ -5301,7 +5303,8 @@ double cosmec::calcularcotizacion2(int numero){
 		manteni=sql_general(sql,0).toDouble();
 		sql=QString("SELECT ((2*costo)/(vida_util*horas_trabajo_anual)) FROM maquinas WHERE serie=%1").arg(serie);
 		costomaqui=sql_general(sql,0).toDouble();
-		maquina=(valor_herra+valor_consu+servicios+manteni+costomaqui);
+		/*maquina=(valor_herra+valor_consu+servicios+manteni+costomaqui);*/
+		maquina=(valor_herra+servicios+manteni+costomaqui);
 		total_maquina=(maquina)*(1+vcomp)*cantidad_maquina;//<--
 		//----------------
 		sql=QString("UPDATE cotizacion_manoobra SET valor_maquinas=%1, cantidad_maquina=%2 "
