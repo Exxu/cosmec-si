@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>12</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1060,6 +1060,11 @@ background: qlineargradient(
                 <string>Máquina</string>
                </property>
               </column>
+              <column>
+               <property name="text">
+                <string>Aplicaciones</string>
+               </property>
+              </column>
              </widget>
             </item>
             <item>
@@ -1299,7 +1304,7 @@ background: qlineargradient(
                <number>3</number>
               </property>
               <attribute name="horizontalHeaderVisible">
-               <bool>true</bool>
+               <bool>false</bool>
               </attribute>
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
@@ -5368,7 +5373,7 @@ background: qlineargradient(
             <property name="minimumSize">
              <size>
               <width>400</width>
-              <height>150</height>
+              <height>180</height>
              </size>
             </property>
             <property name="frameShape">
@@ -5383,7 +5388,7 @@ background: qlineargradient(
                <item>
                 <widget class="QRadioButton" name="radioButton_c">
                  <property name="text">
-                  <string>Por número de Cotización</string>
+                  <string>Por fecha</string>
                  </property>
                 </widget>
                </item>
@@ -5407,6 +5412,34 @@ background: qlineargradient(
                   <string>#############; </string>
                  </property>
                 </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_79">
+               <item>
+                <widget class="QRadioButton" name="radioButton_15">
+                 <property name="text">
+                  <string>Por cliente</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_18"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_80">
+               <item>
+                <widget class="QRadioButton" name="radioButton_16">
+                 <property name="text">
+                  <string>Por proyecto</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_19"/>
                </item>
               </layout>
              </item>
@@ -6065,7 +6098,17 @@ background: qlineargradient(
               </column>
               <column>
                <property name="text">
+                <string>Unidades</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
                 <string>Costo [$/kg]</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Aplicaciones</string>
                </property>
               </column>
              </widget>
