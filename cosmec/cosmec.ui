@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>12</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -564,7 +564,7 @@ background: qlineargradient(
               </column>
               <column>
                <property name="text">
-                <string>Horas de trabajo anuales [h/año]</string>
+                <string>Disponibilidad anual de la máquina [h]</string>
                </property>
               </column>
               <column>
@@ -579,7 +579,7 @@ background: qlineargradient(
               </column>
               <column>
                <property name="text">
-                <string>Presupuesto anual [$]</string>
+                <string>Presupuesto anual de mantenimiento correctivo [$]</string>
                </property>
               </column>
               <item row="0" column="0">
@@ -820,7 +820,7 @@ background: qlineargradient(
               </column>
               <column>
                <property name="text">
-                <string>Vida útil [año]</string>
+                <string>Vida útil [años]</string>
                </property>
               </column>
               <column>
@@ -1038,11 +1038,6 @@ background: qlineargradient(
               <column>
                <property name="text">
                 <string>Nombre</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Cantidad</string>
                </property>
               </column>
               <column>
@@ -1304,7 +1299,7 @@ background: qlineargradient(
                <number>3</number>
               </property>
               <attribute name="horizontalHeaderVisible">
-               <bool>false</bool>
+               <bool>true</bool>
               </attribute>
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
@@ -4808,6 +4803,12 @@ background: qlineargradient(
                <property name="decimals">
                 <number>2</number>
                </property>
+               <property name="minimum">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="0" column="5">
@@ -4875,6 +4876,12 @@ background: qlineargradient(
                  <height>20</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="4" column="1">
@@ -4933,6 +4940,15 @@ background: qlineargradient(
                </property>
                <property name="decimals">
                 <number>2</number>
+               </property>
+               <property name="minimum">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>0.500000000000000</double>
                </property>
               </widget>
              </item>
@@ -5022,6 +5038,12 @@ background: qlineargradient(
                  <height>20</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="5" column="3">
@@ -5074,8 +5096,11 @@ background: qlineargradient(
              <string>Pedido</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_61">
-             <property name="topMargin">
-              <number>12</number>
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
              </property>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -5683,7 +5708,7 @@ background: qlineargradient(
        </layout>
       </widget>
       <widget class="QWidget" name="page_15">
-       <layout class="QVBoxLayout" name="verticalLayout_63">
+       <layout class="QVBoxLayout" name="verticalLayout_71">
         <item>
          <widget class="QLabel" name="label_37">
           <property name="minimumSize">
@@ -5962,11 +5987,22 @@ background: qlineargradient(
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="modificar">
-            <property name="text">
-             <string>Modificar</string>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_63">
+            <item>
+             <widget class="QCheckBox" name="checkBox_clonar">
+              <property name="text">
+               <string>Clonar cotización</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="modificar">
+              <property name="text">
+               <string>Modificar</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <spacer name="horizontalSpacer_67">

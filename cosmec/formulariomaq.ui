@@ -184,7 +184,7 @@ QLineEdit {
        <item row="3" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Costo</string>
+          <string>Costo [$]</string>
          </property>
         </widget>
        </item>
@@ -198,7 +198,7 @@ QLineEdit {
        <item row="4" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Vida útil</string>
+          <string>Vida útil [años]</string>
          </property>
         </widget>
        </item>
@@ -211,22 +211,29 @@ QLineEdit {
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="label_7">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
          <property name="text">
-          <string>Horas de trabajo anuales [h]</string>
+          <string>Disponibilidad anual de la
+máquina [h]</string>
          </property>
         </widget>
        </item>
        <item row="5" column="1">
         <widget class="QSpinBox" name="spinBox_2">
          <property name="maximum">
-          <number>999999999</number>
+          <number>1920</number>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>Depreciación</string>
+          <string>Depreciación [$]</string>
          </property>
         </widget>
        </item>
@@ -240,7 +247,7 @@ QLineEdit {
        <item row="7" column="0">
         <widget class="QLabel" name="label_9">
          <property name="text">
-          <string>Costo Hora</string>
+          <string>Costo Hora [$/h]</string>
          </property>
         </widget>
        </item>
@@ -253,8 +260,15 @@ QLineEdit {
        </item>
        <item row="8" column="0">
         <widget class="QLabel" name="label_10">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
          <property name="text">
-          <string>Presupuesto anual</string>
+          <string>Presupuesto anual de
+mantenimiento correctivo [$]</string>
          </property>
         </widget>
        </item>
@@ -296,7 +310,7 @@ QLineEdit {
        <item row="13" column="0">
         <widget class="QLabel" name="label_14">
          <property name="text">
-          <string>Costo hora cotización</string>
+          <string>Costo hora cotización [$/h]</string>
          </property>
         </widget>
        </item>
@@ -478,6 +492,9 @@ QLineEdit {
         <widget class="QLabel" name="label_17">
          <property name="text">
           <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>costo_maq.png</pixmap>
          </property>
         </widget>
        </item>
