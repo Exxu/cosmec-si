@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1042,11 +1042,6 @@ background: qlineargradient(
               </column>
               <column>
                <property name="text">
-                <string>Cantidad</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
                 <string>Costo unitario [$]</string>
                </property>
               </column>
@@ -1299,7 +1294,7 @@ background: qlineargradient(
                <number>3</number>
               </property>
               <attribute name="horizontalHeaderVisible">
-               <bool>true</bool>
+               <bool>false</bool>
               </attribute>
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
@@ -5089,6 +5084,9 @@ background: qlineargradient(
                    <height>20</height>
                   </size>
                  </property>
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
                 </widget>
                </item>
               </layout>
@@ -5802,48 +5800,51 @@ background: qlineargradient(
             </property>
             <layout class="QGridLayout" name="gridLayout_22">
              <item row="0" column="1">
-              <widget class="QLabel" name="label_155">
+              <widget class="QLabel" name="label_102">
                <property name="text">
-                <string>Sutotal [$]</string>
+                <string>Numero de piezas :</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="lineEdit_27">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="label_154">
-               <property name="text">
-                <string>% IVA</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLineEdit" name="lineEdit_30">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="label_153">
-               <property name="text">
-                <string>Total [$]</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
+             <item row="3" column="4">
               <widget class="QLineEdit" name="lineEdit_29">
                <property name="enabled">
                 <bool>false</bool>
                </property>
               </widget>
              </item>
-             <item row="0" column="0">
+             <item row="3" column="3">
+              <widget class="QLabel" name="label_153">
+               <property name="text">
+                <string>Total [$]</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="4">
+              <widget class="QLineEdit" name="lineEdit_27">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLineEdit" name="lineEdit_18"/>
+             </item>
+             <item row="2" column="3">
+              <widget class="QLabel" name="label_154">
+               <property name="text">
+                <string>% IVA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLabel" name="label_155">
+               <property name="text">
+                <string>Sutotal [$]</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
               <spacer name="horizontalSpacer_82">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -5853,11 +5854,38 @@ background: qlineargradient(
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>450</width>
+                 <width>200</width>
                  <height>20</height>
                 </size>
                </property>
               </spacer>
+             </item>
+             <item row="2" column="4">
+              <widget class="QLineEdit" name="lineEdit_30">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLabel" name="label_104">
+               <property name="text">
+                <string>Total[$]</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLineEdit" name="lineEdit_19"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_103">
+               <property name="text">
+                <string>Descuento [%]:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="4">
+              <widget class="QLineEdit" name="lineEdit_20"/>
              </item>
             </layout>
            </widget>

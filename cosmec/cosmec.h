@@ -352,6 +352,8 @@ private slots:
 	void borrartablaSlot(int index);
 	void botonLimpiarRpt();
 	void botonLimpiarExcel();
+
+	void cambiarcomboconsumible(int index);
 };
 
 #endif // COSMEC_H
