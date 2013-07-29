@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>450</height>
+    <height>471</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -108,7 +108,7 @@ QLineEdit {
         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
        </property>
        <property name="verticalSpacing">
-        <number>20</number>
+        <number>15</number>
        </property>
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
@@ -125,7 +125,7 @@ QLineEdit {
          <property name="minimumSize">
           <size>
            <width>300</width>
-           <height>0</height>
+           <height>20</height>
           </size>
          </property>
         </widget>
@@ -142,7 +142,7 @@ QLineEdit {
          <property name="minimumSize">
           <size>
            <width>200</width>
-           <height>0</height>
+           <height>20</height>
           </size>
          </property>
         </widget>
@@ -156,6 +156,12 @@ QLineEdit {
        </item>
        <item row="2" column="1">
         <widget class="QDoubleSpinBox" name="doubleSpinBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="maximum">
           <double>999999999.990000009536743</double>
          </property>
@@ -173,6 +179,12 @@ QLineEdit {
          <property name="enabled">
           <bool>false</bool>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item row="4" column="0">
@@ -187,10 +199,40 @@ QLineEdit {
          <property name="enabled">
           <bool>false</bool>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QComboBox" name="comboBox"/>
+        <widget class="QComboBox" name="comboBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Aplicaciones</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QPlainTextEdit" name="plainTextEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -244,6 +286,9 @@ QLineEdit {
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>costo_cons.png</pixmap>
        </property>
       </widget>
      </item>
