@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sun 28. Jul 17:36:56 2013
+** Created: Sun 28. Jul 20:31:22 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -4756,7 +4756,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(11);
+        stackedWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);

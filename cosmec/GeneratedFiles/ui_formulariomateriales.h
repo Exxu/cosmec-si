@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariomateriales.ui'
 **
-** Created: Mon 22. Jul 15:41:55 2013
+** Created: Sun 28. Jul 20:31:22 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -20,6 +20,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
+#include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QVBoxLayout>
@@ -46,6 +47,10 @@ public:
     QLineEdit *lineEdit_4;
     QDoubleSpinBox *doubleSpinBox;
     QLabel *label_4;
+    QPlainTextEdit *plainTextEdit;
+    QLabel *label_7;
+    QLineEdit *lineEdit_5;
+    QLabel *label_8;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
@@ -59,7 +64,7 @@ public:
     {
         if (formularioMateriales->objectName().isEmpty())
             formularioMateriales->setObjectName(QString::fromUtf8("formularioMateriales"));
-        formularioMateriales->resize(400, 350);
+        formularioMateriales->resize(400, 383);
         formularioMateriales->setMinimumSize(QSize(350, 250));
         formularioMateriales->setStyleSheet(QString::fromUtf8("QWidget#formularioMateriales{\n"
 "background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(221, 235, 255, 255), stop:0.522727 rgba(255, 255, 255, 255));\n"
@@ -176,12 +181,33 @@ public:
         doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
         doubleSpinBox->setMaximum(1e+09);
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, doubleSpinBox);
+        formLayout->setWidget(5, QFormLayout::FieldRole, doubleSpinBox);
 
         label_4 = new QLabel(formularioMateriales);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_4);
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_4);
+
+        plainTextEdit = new QPlainTextEdit(formularioMateriales);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setMinimumSize(QSize(0, 40));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, plainTextEdit);
+
+        label_7 = new QLabel(formularioMateriales);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, label_7);
+
+        lineEdit_5 = new QLineEdit(formularioMateriales);
+        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_5);
+
+        label_8 = new QLabel(formularioMateriales);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_8);
 
 
         horizontalLayout_2->addLayout(formLayout);
@@ -240,6 +266,8 @@ public:
         label_5->setText(QApplication::translate("formularioMateriales", "Geometr\303\255a", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("formularioMateriales", "Dimensiones", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioMateriales", "Costo hora", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("formularioMateriales", "Aplicaciones", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("formularioMateriales", "Unidades", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("formularioMateriales", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioMateriales", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

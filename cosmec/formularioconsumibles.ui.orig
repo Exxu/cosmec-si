@@ -150,7 +150,11 @@ QLineEdit {
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
+<<<<<<< HEAD
           <string>Valor unitario</string>
+=======
+          <string>Valor unitario [$]</string>
+>>>>>>> e5d7c846325096c32b8678e8ce25e3ef45ec4918
          </property>
         </widget>
        </item>
@@ -170,7 +174,11 @@ QLineEdit {
        <item row="3" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
+<<<<<<< HEAD
           <string>Costo hora</string>
+=======
+          <string>Costo hora [$/h]</string>
+>>>>>>> e5d7c846325096c32b8678e8ce25e3ef45ec4918
          </property>
         </widget>
        </item>
@@ -224,6 +232,10 @@ QLineEdit {
          </property>
         </widget>
        </item>
+<<<<<<< HEAD
+       <item row="5" column="1">
+        <widget class="QComboBox" name="comboBox"/>
+=======
        <item row="6" column="1">
         <widget class="QPlainTextEdit" name="plainTextEdit">
          <property name="minimumSize">
@@ -233,6 +245,7 @@ QLineEdit {
           </size>
          </property>
         </widget>
+>>>>>>> e5d7c846325096c32b8678e8ce25e3ef45ec4918
        </item>
       </layout>
      </item>

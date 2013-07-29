@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariomaq.ui'
 **
-** Created: Mon 22. Jul 15:41:55 2013
+** Created: Sun 28. Jul 20:31:22 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -229,12 +229,13 @@ public:
 
         label_7 = new QLabel(formularioMaq);
         label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMinimumSize(QSize(0, 35));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, label_7);
 
         spinBox_2 = new QSpinBox(formularioMaq);
         spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
-        spinBox_2->setMaximum(999999999);
+        spinBox_2->setMaximum(1920);
 
         formLayout->setWidget(5, QFormLayout::FieldRole, spinBox_2);
 
@@ -262,6 +263,7 @@ public:
 
         label_10 = new QLabel(formularioMaq);
         label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setMinimumSize(QSize(0, 35));
 
         formLayout->setWidget(8, QFormLayout::LabelRole, label_10);
 
@@ -395,6 +397,7 @@ public:
 
         label_17 = new QLabel(formularioMaq);
         label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setPixmap(QPixmap(QString::fromUtf8("costo_maq.png")));
 
         verticalLayout->addWidget(label_17);
 
@@ -457,15 +460,17 @@ public:
         label_2->setText(QApplication::translate("formularioMaq", "Serie", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioMaq", "C\303\263digo ESPE", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioMaq", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioMaq", "Costo", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioMaq", "Vida \303\272til", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("formularioMaq", "Horas de trabajo anuales [h]", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("formularioMaq", "Depreciaci\303\263n", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("formularioMaq", "Costo Hora", 0, QApplication::UnicodeUTF8));
-        label_10->setText(QApplication::translate("formularioMaq", "Presupuesto anual", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioMaq", "Costo [$]", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioMaq", "Vida \303\272til [a\303\261os]", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("formularioMaq", "Disponibilidad anual de la\n"
+"m\303\241quina [h]", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("formularioMaq", "Depreciaci\303\263n [$]", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("formularioMaq", "Costo Hora [$/h]", 0, QApplication::UnicodeUTF8));
+        label_10->setText(QApplication::translate("formularioMaq", "Presupuesto anual de\n"
+"mantenimiento correctivo [$]", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("formularioMaq", "Servicios B\303\241sicos [$]", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("formularioMaq", "Herramientas", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("formularioMaq", "Costo hora cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
+        label_14->setText(QApplication::translate("formularioMaq", "Costo hora cotizaci\303\263n [$/h]", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("formularioMaq", "Consumibles", 0, QApplication::UnicodeUTF8));
         label_16->setText(QApplication::translate("formularioMaq", "Mantenimiento [$]", 0, QApplication::UnicodeUTF8));
         label_11->setText(QString());
