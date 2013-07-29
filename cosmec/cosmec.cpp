@@ -4128,6 +4128,8 @@ void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con e
 }
 void cosmec::resultadoCotizacion(){
 	QString sql;
+	int piezas;
+	double descuento;
 	int currentRow=ui.tableWidget_11->currentRow();
 	QTableWidgetItem *itab1 = ui.tableWidget_11->item(currentRow,0);
 	if(currentRow==-1){
@@ -4136,15 +4138,16 @@ void cosmec::resultadoCotizacion(){
 		msgBox.exec();
 	}
 	else{
-		sql=QString("SELECT descuento, piezas FROM cotizacion WHERE numero=%1").arg(numerocoti);
-		int piezas=sql_general(sql,1).toInt();
-		double descuento=sql_general(sql,0).toDouble();
 		numerocoti=QString(itab1->text()).toInt();
+		sql=QString("SELECT descuento, piezas FROM cotizacion WHERE numero=%1").arg(numerocoti);
+		piezas=sql_general(sql,1).toInt();
+		descuento=sql_general(sql,0).toDouble();
 		double subtotal=calcularcotizacion(numerocoti);
 		ui.lineEdit_18->setText(QString::number(piezas));
 		ui.lineEdit_19->setText(QString::number(descuento));
 		double aux=piezas*subtotal*(1-(descuento/100));
-		ui.lineEdit_27->setText(QString::number(aux));
+		ui.lineEdit_20->setText(QString::number(aux));
+		ui.lineEdit_27->setText(QString::number(subtotal));
 		ui.lineEdit_30->setText(QString::number(redondear(iva*aux)));
 		ui.lineEdit_29->setText(QString::number(redondear((1+iva)*aux)));
 		ui.pushButton_35->setVisible(true);
@@ -6773,7 +6776,7 @@ void cosmec::modificarCotizacion(){
 	QTableWidgetItem *itemcant;
 	QTableWidgetItem *itemIdMaq;
 	QTableWidgetItem *itemIdDesc;
-	modificar=true;
+	
 	QString serie;
 	QString cantidad_maquina;
 	QString nombre_maquina;
@@ -6783,6 +6786,10 @@ void cosmec::modificarCotizacion(){
 	QString cant_mat;
 	QString id_mat;
 
+	QString cant_cons;
+	QString id_cons;
+	QString nombre_cons;//<--
+
 	QString cant_activi;
 	QString id_activi;
 	QString nombre_activi;
@@ -6790,27 +6797,52 @@ void cosmec::modificarCotizacion(){
 	QString cant_serv;
 	QString id_serv;
 	QString nombre_serv;
+
+	QString sql;
+	int num;
 	
 	QSqlQuery cot(cosmecdb);
 	QSqlQuery mac(cosmecdb);
 	QSqlQuery aux(cosmecdb);
-
+    QDate qdate;
+		
+	if(ui.checkBox_clonar->isChecked()){
+		sql="SELECT setval('cotizacion_numero_seq',(SELECT nextval('cotizacion_numero_seq'))-1)";
+		num=sql_general(sql,0).toInt()+1;
+		ui.label_27->setText(QString::number(num));
+		modificar=false;
+	}else{
+		ui.label_27->setText(QString::number(numerocoti));//<-aqui if chekbox
+		modificar=true;
+	}
+	
 	cosmecdb.open();
-	QString sql=QString("SELECT numero, nombre, ruc, telefono, direccion "
-		"FROM cotizacion WHERE numero=%1").arg(numerocoti);
-    
-	ui.label_27->setText(QString::number(numerocoti));
+	sql=QString("SELECT nombre, dirigido, fecha, ruc, proyecto, ciudad, telefono, "
+		"direccion, forma_pago, lugar_entrega, "
+		"tiempo_entrega, duracion_cotizacion,descuento, " 
+		"piezas FROM cotizacion WHERE numero=%1").arg(numerocoti);
+
 	if(!cot.exec(sql)){
 		QMessageBox msgBox;
 		msgBox.setText("Error al agregar datos :"+cot.lastError().databaseText());
 		msgBox.exec();
 	}else{
 		while(cot.next()){
-			ui.label_7->setText(cot.value(0).toString());
-			ui.lineEdit_2->setText(cot.value(1).toString());
-			ui.lineEdit->setText(cot.value(2).toString());
-			ui.lineEdit_4->setText(cot.value(3).toString());
-			ui.lineEdit_3->setText(cot.value(4).toString());
+			ui.lineEdit_2->setText(cot.value(0).toString());
+			ui.lineEdit_11->setText(cot.value(1).toString());
+			qdate = QDate::fromString(cot.value(2).toString(),"yyyy-mm-dd");
+			ui.dateEdit->setDate(qdate);
+			ui.lineEdit->setText(cot.value(3).toString());
+			ui.lineEdit_12->setText(cot.value(4).toString());
+			ui.lineEdit_13->setText(cot.value(5).toString());
+			ui.lineEdit_4->setText(cot.value(6).toString());
+			ui.lineEdit_3->setText(cot.value(7).toString());
+			ui.lineEdit_14->setText(cot.value(8).toString());
+			ui.lineEdit_17->setText(cot.value(9).toString());
+			ui.lineEdit_15->setText(cot.value(10).toString());
+			ui.lineEdit_16->setText(cot.value(11).toString());
+			ui.doubleSpinBox_6->setValue(cot.value(12).toDouble());
+			ui.spinBox->setValue(cot.value(13).toInt());
 		}
 	}
 
@@ -6899,6 +6931,46 @@ void cosmec::modificarCotizacion(){
 				itemcant->setText(cant_mat);
 				itemIdMaq->setText(serie); //id maquina
 				itemIdDesc->setText(id_mat); //id maquina
+
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,2,itemDesc);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,3,itemIdDesc);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,4,itemCate);
+				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,5,itemcant);
+			}
+		}
+		cosmecdb.close();
+		
+		//Consumibles
+		cosmecdb.open();
+		sql=QString("SELECT a.cantidad, b.id_consumible, b.nombre_consumible FROM consumibles_cotizacion AS a, consumible AS b WHERE a.id_consumible_consumible=b.id_consumible AND b.serie_maquinas=%1 AND a.numero_cotizacion=%2").arg(serie).arg(numerocoti);
+		if(!aux.exec(sql)){
+			QMessageBox msgBox;
+			msgBox.setText("Error al agregar datos :"+aux.lastError().databaseText());
+			msgBox.exec();
+		}else{
+			while(aux.next()){
+				//--------------------------------------
+				cant_cons=aux.value(0).toString();
+				id_cons=aux.value(1).toString();
+				nombre_cons=aux.value(2).toString();//<--
+				//--------------------------------------
+				ui.tableWidget_12->insertRow(ui.tableWidget_12->rowCount());
+
+				QTableWidgetItem *itemMaquina = new QTableWidgetItem;
+				QTableWidgetItem *itemDesc = new QTableWidgetItem;
+				QTableWidgetItem *itemCate = new QTableWidgetItem;
+				QTableWidgetItem *itemcant = new QTableWidgetItem;
+				QTableWidgetItem *itemIdMaq = new QTableWidgetItem;
+				QTableWidgetItem *itemIdDesc = new QTableWidgetItem;
+
+				itemMaquina->setText(nombre_maquina);
+				itemDesc->setText(nombre_cons);
+				itemCate->setText("Consumible");
+				itemcant->setText(cant_cons);
+				itemIdMaq->setText(serie);
+				itemIdDesc->setText(id_cons);
 
 				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,0,itemMaquina);
 				ui.tableWidget_12->setItem(ui.tableWidget_12->rowCount()-1,1,itemIdMaq);
@@ -7045,18 +7117,24 @@ void cosmec::modificarCotizacion(){
 		b++;
 	}
 	cosmecdb.close();
-	sql=QString("DELETE FROM cotizacion_manoobra WHERE numero_cotizacion=%1").arg(numerocoti);
-	insertarsql(sql);
-	sql=QString("DELETE FROM maquina_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
-	insertarsql(sql);
-	sql=QString("DELETE FROM servicios_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
-	insertarsql(sql);
-	sql=QString("DELETE FROM cotizacion_material WHERE numero_cotizacion=%1").arg(numerocoti);
-	insertarsql(sql);
-	sql=QString("DELETE FROM actividades_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
-	insertarsql(sql);
-	sql=QString("DELETE FROM cotizacion_manoobra WHERE numero_cotizacion=%1").arg(numerocoti);
-	insertarsql(sql);
+
+	if(ui.checkBox_clonar->isChecked()){
+		numerocoti=num;
+	}else{
+		sql=QString("DELETE FROM cotizacion_manoobra WHERE numero_cotizacion=%1").arg(numerocoti);
+		insertarsql(sql);
+		sql=QString("DELETE FROM maquina_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
+		insertarsql(sql);
+		sql=QString("DELETE FROM servicios_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
+		insertarsql(sql);
+		sql=QString("DELETE FROM cotizacion_material WHERE numero_cotizacion=%1").arg(numerocoti);
+		insertarsql(sql);
+		sql=QString("DELETE FROM actividades_cotizacion WHERE numero_cotizacion=%1").arg(numerocoti);
+		insertarsql(sql);
+		sql=QString("DELETE FROM cotizacion_manoobra WHERE numero_cotizacion=%1").arg(numerocoti);
+		insertarsql(sql);
+	}
+	
 	ui.stackedWidget->setCurrentIndex(11);
 }
 void cosmec::cambiarcomboconsumible(int index){

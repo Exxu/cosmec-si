@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioconsumibles.ui'
 **
-** Created: Sun 28. Jul 20:31:22 2013
+** Created: Sun 28. Jul 22:45:41 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -214,7 +214,7 @@ public:
         plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
         plainTextEdit->setMinimumSize(QSize(0, 40));
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, plainTextEdit);
+        formLayout->setWidget(6, QFormLayout::FieldRole, plainTextEdit);
 
 
         horizontalLayout_3->addLayout(formLayout);

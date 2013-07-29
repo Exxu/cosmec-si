@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sun 28. Jul 20:31:22 2013
+** Created: Sun 28. Jul 22:45:43 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -600,7 +600,7 @@ public:
     QSpacerItem *horizontalSpacer_65;
     QSpacerItem *verticalSpacer_61;
     QWidget *page_15;
-    QVBoxLayout *verticalLayout_63;
+    QVBoxLayout *verticalLayout_71;
     QLabel *label_37;
     QSpacerItem *verticalSpacer_62;
     QHBoxLayout *horizontalLayout_61;
@@ -632,6 +632,8 @@ public:
     QSpacerItem *horizontalSpacer_66;
     QPushButton *pushButton_35;
     QSpacerItem *horizontalSpacer_130;
+    QVBoxLayout *verticalLayout_63;
+    QCheckBox *checkBox_clonar;
     QPushButton *modificar;
     QSpacerItem *horizontalSpacer_67;
     QCommandLinkButton *commandLinkButton_4;
@@ -1493,7 +1495,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->setRowCount(1);
         tableWidget->setColumnCount(3);
-        tableWidget->horizontalHeader()->setVisible(false);
+        tableWidget->horizontalHeader()->setVisible(true);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -3894,19 +3896,19 @@ public:
         stackedWidget->addWidget(page_14);
         page_15 = new QWidget();
         page_15->setObjectName(QString::fromUtf8("page_15"));
-        verticalLayout_63 = new QVBoxLayout(page_15);
-        verticalLayout_63->setSpacing(6);
-        verticalLayout_63->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_63->setObjectName(QString::fromUtf8("verticalLayout_63"));
+        verticalLayout_71 = new QVBoxLayout(page_15);
+        verticalLayout_71->setSpacing(6);
+        verticalLayout_71->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_71->setObjectName(QString::fromUtf8("verticalLayout_71"));
         label_37 = new QLabel(page_15);
         label_37->setObjectName(QString::fromUtf8("label_37"));
         label_37->setMinimumSize(QSize(0, 30));
 
-        verticalLayout_63->addWidget(label_37);
+        verticalLayout_71->addWidget(label_37);
 
         verticalSpacer_62 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_63->addItem(verticalSpacer_62);
+        verticalLayout_71->addItem(verticalSpacer_62);
 
         horizontalLayout_61 = new QHBoxLayout();
         horizontalLayout_61->setSpacing(6);
@@ -3952,7 +3954,7 @@ public:
         horizontalLayout_61->addItem(horizontalSpacer_108);
 
 
-        verticalLayout_63->addLayout(horizontalLayout_61);
+        verticalLayout_71->addLayout(horizontalLayout_61);
 
         horizontalLayout_62 = new QHBoxLayout();
         horizontalLayout_62->setSpacing(6);
@@ -4045,11 +4047,11 @@ public:
         horizontalLayout_62->addItem(horizontalSpacer_110);
 
 
-        verticalLayout_63->addLayout(horizontalLayout_62);
+        verticalLayout_71->addLayout(horizontalLayout_62);
 
         verticalSpacer_63 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_63->addItem(verticalSpacer_63);
+        verticalLayout_71->addItem(verticalSpacer_63);
 
         horizontalLayout_42 = new QHBoxLayout();
         horizontalLayout_42->setSpacing(6);
@@ -4067,10 +4069,21 @@ public:
 
         horizontalLayout_42->addItem(horizontalSpacer_130);
 
+        verticalLayout_63 = new QVBoxLayout();
+        verticalLayout_63->setSpacing(6);
+        verticalLayout_63->setObjectName(QString::fromUtf8("verticalLayout_63"));
+        checkBox_clonar = new QCheckBox(page_15);
+        checkBox_clonar->setObjectName(QString::fromUtf8("checkBox_clonar"));
+
+        verticalLayout_63->addWidget(checkBox_clonar);
+
         modificar = new QPushButton(page_15);
         modificar->setObjectName(QString::fromUtf8("modificar"));
 
-        horizontalLayout_42->addWidget(modificar);
+        verticalLayout_63->addWidget(modificar);
+
+
+        horizontalLayout_42->addLayout(verticalLayout_63);
 
         horizontalSpacer_67 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -4083,11 +4096,11 @@ public:
         horizontalLayout_42->addWidget(commandLinkButton_4);
 
 
-        verticalLayout_63->addLayout(horizontalLayout_42);
+        verticalLayout_71->addLayout(horizontalLayout_42);
 
         verticalSpacer_64 = new QSpacerItem(17, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_63->addItem(verticalSpacer_64);
+        verticalLayout_71->addItem(verticalSpacer_64);
 
         stackedWidget->addWidget(page_15);
         page_16 = new QWidget();
@@ -4756,7 +4769,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(6);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -5116,6 +5129,7 @@ public:
         label_104->setText(QApplication::translate("cosmecClass", "Total[$]", 0, QApplication::UnicodeUTF8));
         label_103->setText(QApplication::translate("cosmecClass", "Descuento [%]:", 0, QApplication::UnicodeUTF8));
         pushButton_35->setText(QApplication::translate("cosmecClass", "Detalle", 0, QApplication::UnicodeUTF8));
+        checkBox_clonar->setText(QApplication::translate("cosmecClass", "S\303\263lo cargar datos?", 0, QApplication::UnicodeUTF8));
         modificar->setText(QApplication::translate("cosmecClass", "Modificar", 0, QApplication::UnicodeUTF8));
         commandLinkButton_4->setText(QApplication::translate("cosmecClass", "Imprimir", 0, QApplication::UnicodeUTF8));
         label_38->setText(QApplication::translate("cosmecClass", "Materiales", 0, QApplication::UnicodeUTF8));
