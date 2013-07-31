@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioherr.ui'
 **
-** Created: Tue 30. Jul 22:22:52 2013
+** Created: Tue 30. Jul 22:29:58 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,7 +33,9 @@ class Ui_formularioHerr
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label;
+    QPushButton *pushButton_3;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
@@ -100,6 +102,11 @@ public:
 "font: 11pt \"Arial\";\n"
 "background: transparent;\n"
 "}\n"
+"QPushButton#pushButton_3{ /*ayuda*/\n"
+"  border: 1px inset darkblue;\n"
+"  border-radius:12px;\n"
+" font: bold 12pt \"Calibri\";\n"
+"}\n"
 ".QPushButton {\n"
 "background: qlineargradient(\n"
 "  x1:0, y1:0, x2:0, y2:1,\n"
@@ -112,7 +119,8 @@ public:
 "}\n"
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
-"     border-radius: 5px;\n"
+"    "
+                        " border-radius: 5px;\n"
 "     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
@@ -120,11 +128,24 @@ public:
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label = new QLabel(formularioHerr);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
 
-        verticalLayout->addWidget(label);
+        horizontalLayout_5->addWidget(label);
+
+        pushButton_3 = new QPushButton(formularioHerr);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setMinimumSize(QSize(25, 25));
+        pushButton_3->setMaximumSize(QSize(25, 25));
+
+        horizontalLayout_5->addWidget(pushButton_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
 
         verticalSpacer_2 = new QSpacerItem(20, 6, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -269,6 +290,7 @@ public:
 
         label_11 = new QLabel(formularioHerr);
         label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setPixmap(QPixmap(QString::fromUtf8("../Win32/Release/costo_herramienta.png")));
 
         horizontalLayout_4->addWidget(label_11);
 
@@ -327,6 +349,7 @@ public:
     {
         formularioHerr->setWindowTitle(QApplication::translate("formularioHerr", "formularioHerr", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("formularioHerr", "Herramienta", 0, QApplication::UnicodeUTF8));
+        pushButton_3->setText(QApplication::translate("formularioHerr", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioHerr", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioHerr", "Nombre", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioHerr", "Valor unitario", 0, QApplication::UnicodeUTF8));

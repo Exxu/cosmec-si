@@ -6,6 +6,7 @@
 #include <QtGui/QPlainTextEdit>
 #include "ui_formulariomaq.h"
 #include <QtDebug>
+#include <QtGui/QMessageBox>
 #include <math.h>
 
 class formularioMaq : public QWidget
@@ -29,6 +30,7 @@ private slots:
 	void costo_hora(double costo);
 	void costo_hora2(int horas);
 	void costo_hora3(int vida);
+	void ayuda();
 };
 
 #endif // FORMULARIOMAQ_H

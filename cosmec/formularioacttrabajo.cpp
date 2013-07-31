@@ -7,6 +7,7 @@ formularioActTrabajo::formularioActTrabajo(QWidget *parent)
 	connect(ui.comboBox,SIGNAL(currentIndexChanged(QString)),this,SLOT(labelCombo(QString)));
 	connect(ui.doubleSpinBox,SIGNAL(valueChanged(double)),this,SLOT(costo_hora(double)));
 	connect(ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora2(int)));
+	connect(ui.pushButton_3,SIGNAL(clicked()),this,SLOT(ayuda()));
 }
 
 formularioActTrabajo::~formularioActTrabajo()
@@ -34,4 +35,12 @@ void formularioActTrabajo::costo_hora2(int hora){
 		double resultado=redondear(ui.doubleSpinBox->value()/hora);
 		ui.lineEdit_3->setText(QString::number(resultado));
 	}
+}
+void formularioActTrabajo::ayuda(){
+	QMessageBox msgBox;
+	QString text="Ingrese los datos como se indica a continuación:\n\n\n";
+	msgBox.setText(text);
+	msgBox.setWindowTitle("Ayuda");
+	msgBox.setIcon(QMessageBox::Information);
+	msgBox.exec();
 }

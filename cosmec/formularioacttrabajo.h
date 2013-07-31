@@ -2,6 +2,7 @@
 #define FORMULARIOACTTRABAJO_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioacttrabajo.h"
 #include <math.h>
 
@@ -22,6 +23,7 @@ private slots:
 	void labelCombo(QString actual);
 	void costo_hora(double valor);
 	void costo_hora2(int hora);
+	void ayuda();
 	
 };
 
