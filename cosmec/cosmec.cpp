@@ -4417,7 +4417,7 @@ void cosmec::segundaParte(){
 		QString forma_pago=ui.lineEdit_14->text();
 		QString dura_coti=ui.lineEdit_16->text();
 		QString ciudad=ui.lineEdit_13->text();
-		QString fecha=ui.dateEdit->date().toString("dd/MM/yyyy");
+		QString fecha=ui.dateEdit->date().toString("dd-MM-yyyy");
 		int ruc=QString(ui.lineEdit->text()).toInt();
 		QString tiempo=ui.lineEdit_15->text();
 		QString lugar=ui.lineEdit_17->text();
@@ -6843,7 +6843,7 @@ void cosmec::modificarCotizacion(){
 		while(cot.next()){
 			ui.lineEdit_2->setText(cot.value(0).toString());
 			ui.lineEdit_11->setText(cot.value(1).toString());
-			qdate = QDate::fromString(cot.value(2).toString(),"yyyy-mm-dd");
+			qdate = QDate::fromString(cot.value(2).toString());
 			ui.dateEdit->setDate(qdate);
 			ui.lineEdit->setText(cot.value(3).toString());
 			ui.lineEdit_12->setText(cot.value(4).toString());
