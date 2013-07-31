@@ -4107,14 +4107,27 @@ void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con e
 	QString sql;
 	//cosmecdb.open()
 	//QSqlQuery aux(cosmecdb);
-	if(ui.radioButton_c->isChecked() || ui.radioButton_2->isChecked()){
+	if(ui.radioButton_c->isChecked() || ui.radioButton_2->isChecked() || ui.radioButton_15->isChecked()||ui.radioButton_16->isChecked()){
 		if(ui.radioButton_c->isChecked()){
-			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.numero=%1").arg(ui.lineEdit_5->text());
+			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.nombre='%1'").arg(ui.lineEdit_5->text());
 			llenartabla(ui.tableWidget_11,sql);
 			llenartabla(ui.tableWidget_11,sql);
 			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
-		}else{
+		}
+		if(ui.radioButton_2->isChecked()){
 			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.ruc=%1").arg(ui.lineEdit_6->text());
+			llenartabla(ui.tableWidget_11,sql);
+			llenartabla(ui.tableWidget_11,sql);
+			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
+		}
+		if(ui.radioButton_15->isChecked()){
+			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.proyecto='%1'").arg(ui.lineEdit_21->text());
+			llenartabla(ui.tableWidget_11,sql);
+			llenartabla(ui.tableWidget_11,sql);
+			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
+		}
+		if(ui.radioButton_16->isChecked()){
+			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.fecha='%1'").arg(ui.dateEdit_2->date().toString("yyyy-MM-dd"));
 			llenartabla(ui.tableWidget_11,sql);
 			llenartabla(ui.tableWidget_11,sql);
 			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);

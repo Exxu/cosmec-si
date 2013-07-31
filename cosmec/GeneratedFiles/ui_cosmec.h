@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Sun 28. Jul 22:45:43 2013
+** Created: Tue 30. Jul 22:22:52 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -581,6 +581,12 @@ public:
     QHBoxLayout *horizontalLayout_40;
     QRadioButton *radioButton_2;
     QLineEdit *lineEdit_6;
+    QHBoxLayout *horizontalLayout_78;
+    QRadioButton *radioButton_15;
+    QLineEdit *lineEdit_21;
+    QHBoxLayout *horizontalLayout_79;
+    QRadioButton *radioButton_16;
+    QDateEdit *dateEdit_2;
     QHBoxLayout *horizontalLayout_38;
     QSpacerItem *horizontalSpacer_60;
     QPushButton *pushButton_36;
@@ -1495,7 +1501,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->setRowCount(1);
         tableWidget->setColumnCount(3);
-        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -3785,6 +3791,38 @@ public:
 
         verticalLayout_30->addLayout(horizontalLayout_40);
 
+        horizontalLayout_78 = new QHBoxLayout();
+        horizontalLayout_78->setSpacing(6);
+        horizontalLayout_78->setObjectName(QString::fromUtf8("horizontalLayout_78"));
+        radioButton_15 = new QRadioButton(frame_3);
+        radioButton_15->setObjectName(QString::fromUtf8("radioButton_15"));
+
+        horizontalLayout_78->addWidget(radioButton_15);
+
+        lineEdit_21 = new QLineEdit(frame_3);
+        lineEdit_21->setObjectName(QString::fromUtf8("lineEdit_21"));
+
+        horizontalLayout_78->addWidget(lineEdit_21);
+
+
+        verticalLayout_30->addLayout(horizontalLayout_78);
+
+        horizontalLayout_79 = new QHBoxLayout();
+        horizontalLayout_79->setSpacing(6);
+        horizontalLayout_79->setObjectName(QString::fromUtf8("horizontalLayout_79"));
+        radioButton_16 = new QRadioButton(frame_3);
+        radioButton_16->setObjectName(QString::fromUtf8("radioButton_16"));
+
+        horizontalLayout_79->addWidget(radioButton_16);
+
+        dateEdit_2 = new QDateEdit(frame_3);
+        dateEdit_2->setObjectName(QString::fromUtf8("dateEdit_2"));
+
+        horizontalLayout_79->addWidget(dateEdit_2);
+
+
+        verticalLayout_30->addLayout(horizontalLayout_79);
+
         horizontalLayout_38 = new QHBoxLayout();
         horizontalLayout_38->setSpacing(6);
         horizontalLayout_38->setObjectName(QString::fromUtf8("horizontalLayout_38"));
@@ -3804,6 +3842,8 @@ public:
 
         verticalLayout_30->addLayout(horizontalLayout_38);
 
+        radioButton_16->raise();
+        dateEdit_2->raise();
 
         horizontalLayout_59->addWidget(frame_3);
 
@@ -4769,7 +4809,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(12);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -5094,9 +5134,11 @@ public:
         pushButton_34->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
         commandLinkButton->setText(QApplication::translate("cosmecClass", "Siguiente", 0, QApplication::UnicodeUTF8));
         label_36->setText(QApplication::translate("cosmecClass", "Buscar Cotizaciones", 0, QApplication::UnicodeUTF8));
-        radioButton_c->setText(QApplication::translate("cosmecClass", "Por n\303\272mero de Cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
+        radioButton_c->setText(QApplication::translate("cosmecClass", "Por Cliente", 0, QApplication::UnicodeUTF8));
         radioButton_2->setText(QApplication::translate("cosmecClass", "Por n\303\272mero de c\303\251dula / RUC", 0, QApplication::UnicodeUTF8));
         lineEdit_6->setInputMask(QApplication::translate("cosmecClass", "#############; ", 0, QApplication::UnicodeUTF8));
+        radioButton_15->setText(QApplication::translate("cosmecClass", "Por proyecto", 0, QApplication::UnicodeUTF8));
+        radioButton_16->setText(QApplication::translate("cosmecClass", "Por Fecha", 0, QApplication::UnicodeUTF8));
         pushButton_36->setText(QApplication::translate("cosmecClass", "Buscar", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem61 = tableWidget_11->horizontalHeaderItem(0);
         ___qtablewidgetitem61->setText(QApplication::translate("cosmecClass", "No. Cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
