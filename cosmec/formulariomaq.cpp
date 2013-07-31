@@ -14,6 +14,7 @@ formularioMaq::formularioMaq(QWidget *parent)
 	connect(ui.doubleSpinBox_2,SIGNAL(valueChanged(double)),this,SLOT(costo_hora(double)));
 	connect(ui.spinBox_2,SIGNAL(valueChanged(int)),this,SLOT(costo_hora2(int)));
 	connect(ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora3(int)));
+	connect(ui.pushButton_4,SIGNAL(clicked()),this,SLOT(ayuda()));
 }
 
 formularioMaq::~formularioMaq()
@@ -69,4 +70,26 @@ double formularioMaq::redondear(double num){
 	double scale = 0.01;  // i.e. round to nearest one-hundreth
 	val = floor(num / scale + 0.5) * scale;
 	return val;
+}
+void formularioMaq::ayuda(){
+	QMessageBox msgBox;
+	QString text="Ingrese los datos como se indica a continuación:\n\n\n"
+"Serie:\t\tNúmero de identificación de la máquina\n\n"
+"Codigo ESPE:\tCorresponde al código asignado por la Unidad de Planta Física de la ESPE a la máquina\n\n"
+"Nombre:\tCorresponde al nombre con el que se le conoce a la máquina\n\n"
+"Costo:\t\tEs la inversión que implicó la compra de la máquina (en dólares)\n\n"
+"Vida útil:\tEs el tiempo (en años) durante el cual la máquina funcionará adecuadamente\n\n"
+"Disponibilidad anual de la máquina:\tEs el tiempo (en horas) en que se podrá usar la máquina durante un año, tomando en cuenta una jornada de 8 horas diarias y 240 días laborables al año\n\n"
+"Depreciación:\tSe calculará automáticamente\n\n"
+"Costo hora:\tSe calculará automáticamente\n\n"
+"Presupuesto anual de mantenimiento correctivo:\tLa cantidad de dinero previstas para reparaciones de la máquina durante el año\n\n"
+"Servicios públicos:\tCosto de servicios básicos asociados a la máquina. Dato informativo\n\n"
+"Herramientas:\t\tNúmero de herramientas asociadas a esta máquina\n\n"
+"Consumibles:\t\tNúmero de consumibles asociados a esta máquina\n\n"
+"Mantenimiento:\tPresupuesto total de mantenimiento para esta máquina\n\n"
+"Costo hora cotización:\tCosto de la máquina por hora de servicio para calcular las cotizaciones";
+	msgBox.setText(text);
+	msgBox.setWindowTitle("Ayuda");
+	msgBox.setIcon(QMessageBox::Information);
+	msgBox.exec();
 }

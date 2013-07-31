@@ -46,6 +46,11 @@ border: 0px;
 font: 11pt &quot;Arial&quot;;
 background: transparent;
 }
+QPushButton#pushButton_3{ /*ayuda*/
+  border: 1px inset darkblue;
+  border-radius:12px;
+ font: bold 12pt &quot;Calibri&quot;;
+}
 .QPushButton {
 background: qlineargradient(
   x1:0, y1:0, x2:0, y2:1,
@@ -65,17 +70,40 @@ QLineEdit {
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Materiales</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Materiales</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>?</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <spacer name="verticalSpacer">

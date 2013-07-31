@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formulariomaq.ui'
 **
-** Created: Sun 28. Jul 22:45:40 2013
+** Created: Tue 30. Jul 22:29:58 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,7 +33,9 @@ class Ui_formularioMaq
 {
 public:
     QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label;
+    QPushButton *pushButton_4;
     QSpacerItem *verticalSpacer_3;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_3;
@@ -122,27 +124,35 @@ public:
 "font: 11pt \"Arial\";\n"
 "background: transparent;\n"
 "}\n"
+"QPushButton#pushButton_4{ /*ayuda*/\n"
+"  border: 1px inset darkblue;\n"
+"  border-radius:12px;\n"
+" font: bold 12pt \"Calibri\";\n"
+"}\n"
 ".QPushButton {\n"
 "background: qlineargradient(\n"
 "  x1:0, y1:0, x2:0, y2:1,\n"
 "  stop:0 #68778e,\n"
 "  stop: 0.4 #5c637d\n"
 "  stop: 0.5 #717990,\n"
-"  stop:1 #bec1d2\n"
+"  stop:1 #b"
+                        "ec1d2\n"
 " );\n"
 " color: white;\n"
 "}\n"
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
 "     border-radius: 5px;\n"
-"     background"
-                        ":white;\n"
+"     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
         verticalLayout_2 = new QVBoxLayout(formularioMaq);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label = new QLabel(formularioMaq);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
@@ -150,7 +160,17 @@ public:
         label->setFrameShadow(QFrame::Raised);
         label->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_2->addWidget(label);
+        horizontalLayout_5->addWidget(label);
+
+        pushButton_4 = new QPushButton(formularioMaq);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setMinimumSize(QSize(25, 25));
+        pushButton_4->setMaximumSize(QSize(25, 25));
+
+        horizontalLayout_5->addWidget(pushButton_4);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_5);
 
         verticalSpacer_3 = new QSpacerItem(20, 9, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -457,6 +477,7 @@ public:
     {
         formularioMaq->setWindowTitle(QApplication::translate("formularioMaq", "formularioMaq", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("formularioMaq", "M\303\241quinas", 0, QApplication::UnicodeUTF8));
+        pushButton_4->setText(QApplication::translate("formularioMaq", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioMaq", "Serie", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioMaq", "C\303\263digo ESPE", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioMaq", "Nombre", 0, QApplication::UnicodeUTF8));

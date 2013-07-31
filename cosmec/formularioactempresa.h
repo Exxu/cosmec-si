@@ -2,6 +2,7 @@
 #define FORMULARIOACTEMPRESA_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioactempresa.h"
 
 class formularioActEmpresa : public QWidget
@@ -17,6 +18,7 @@ public:
 
 private slots:
 	void labelCombo(QString actual);
+	void ayuda();
 };
 
 #endif // FORMULARIOACTEMPRESA_H

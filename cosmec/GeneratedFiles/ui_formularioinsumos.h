@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioinsumos.ui'
 **
-** Created: Sun 28. Jul 22:45:41 2013
+** Created: Tue 30. Jul 22:29:58 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,7 +33,9 @@ class Ui_formularioInsumos
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label;
+    QPushButton *pushButton_3;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
@@ -94,32 +96,50 @@ public:
 "font: 11pt \"Arial\";\n"
 "background: transparent;\n"
 "}\n"
+"QPushButton#pushButton_3{ /*ayuda*/\n"
+"  border: 1px inset darkblue;\n"
+"  border-radius:12px;\n"
+" font: bold 12pt \"Calibri\";\n"
+"}\n"
 ".QPushButton {\n"
 "background: qlineargradient(\n"
 "  x1:0, y1:0, x2:0, y2:1,\n"
 "  stop:0 #68778e,\n"
 "  stop: 0.4 #5c637d\n"
 "  stop: 0.5 #717990,\n"
-"  stop:1 #bec1d2\n"
+"  stop:"
+                        "1 #bec1d2\n"
 " );\n"
 " color: white;\n"
 "}\n"
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
 "     border-radius: 5px;\n"
-"     backgr"
-                        "ound:white;\n"
+"     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
         verticalLayout = new QVBoxLayout(formularioInsumos);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label = new QLabel(formularioInsumos);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
 
-        verticalLayout->addWidget(label);
+        horizontalLayout_3->addWidget(label);
+
+        pushButton_3 = new QPushButton(formularioInsumos);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setMinimumSize(QSize(25, 25));
+        pushButton_3->setMaximumSize(QSize(25, 25));
+
+        horizontalLayout_3->addWidget(pushButton_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -271,6 +291,7 @@ public:
     {
         formularioInsumos->setWindowTitle(QApplication::translate("formularioInsumos", "formularioInsumos", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("formularioInsumos", "Insumos de Mantenimiento", 0, QApplication::UnicodeUTF8));
+        pushButton_3->setText(QApplication::translate("formularioInsumos", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioInsumos", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioInsumos", "Nombre", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioInsumos", "Valor unitario", 0, QApplication::UnicodeUTF8));
