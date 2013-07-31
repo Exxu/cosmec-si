@@ -2,10 +2,10 @@
 ** Form generated from reading UI file 'formularioconsumibles.ui'
 **
 <<<<<<< HEAD
-** Created: Mon 22. Jul 14:35:41 2013
+** Created: Tue 30. Jul 22:22:52 2013
 =======
-** Created: Mon 22. Jul 15:41:56 2013
->>>>>>> 95c4879a5d79046bba87c3ef1f2dce917fd352c1
+** Created: Tue 30. Jul 22:29:58 2013
+>>>>>>> 7c931fe2c6514f1d9f4393455304c814796c9be1
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,9 +25,9 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
+#include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
-#include <QtGui/QSpinBox>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -37,24 +37,26 @@ class Ui_formularioConsumibles
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label;
+    QPushButton *pushButton_3;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer;
     QFormLayout *formLayout;
     QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
     QLineEdit *lineEdit;
+    QLabel *label_3;
     QLineEdit *lineEdit_2;
+    QLabel *label_4;
     QDoubleSpinBox *doubleSpinBox;
-    QSpinBox *spinBox;
+    QLabel *label_6;
     QLineEdit *lineEdit_3;
     QLabel *label_7;
     QLineEdit *lineEdit_4;
     QComboBox *comboBox;
+    QLabel *label_9;
+    QPlainTextEdit *plainTextEdit;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_4;
     QHBoxLayout *horizontalLayout_4;
@@ -74,7 +76,7 @@ public:
     {
         if (formularioConsumibles->objectName().isEmpty())
             formularioConsumibles->setObjectName(QString::fromUtf8("formularioConsumibles"));
-        formularioConsumibles->resize(500, 450);
+        formularioConsumibles->resize(500, 471);
         formularioConsumibles->setStyleSheet(QString::fromUtf8("QWidget#formularioConsumibles{\n"
 "background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(221, 235, 255, 255), stop:0.522727 rgba(255, 255, 255, 255));\n"
 "border: 1px solid black;\n"
@@ -101,32 +103,50 @@ public:
 "font: 11pt \"Arial\";\n"
 "background: transparent;\n"
 "}\n"
+"QPushButton#pushButton_3{ /*ayuda*/\n"
+"  border: 1px inset darkblue;\n"
+"  border-radius:12px;\n"
+" font: bold 12pt \"Calibri\";\n"
+"}\n"
 ".QPushButton {\n"
 "background: qlineargradient(\n"
 "  x1:0, y1:0, x2:0, y2:1,\n"
 "  stop:0 #68778e,\n"
 "  stop: 0.4 #5c637d\n"
 "  stop: 0.5 #717990,\n"
-"  stop:1 #bec1d2\n"
+"  s"
+                        "top:1 #bec1d2\n"
 " );\n"
 " color: white;\n"
 "}\n"
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
 "     border-radius: 5px;\n"
-"     ba"
-                        "ckground:white;\n"
+"     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
         verticalLayout = new QVBoxLayout(formularioConsumibles);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label = new QLabel(formularioConsumibles);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
 
-        verticalLayout->addWidget(label);
+        horizontalLayout_5->addWidget(label);
+
+        pushButton_3 = new QPushButton(formularioConsumibles);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setMinimumSize(QSize(25, 25));
+        pushButton_3->setMaximumSize(QSize(25, 25));
+
+        horizontalLayout_5->addWidget(pushButton_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
 
         verticalSpacer = new QSpacerItem(20, 8, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -142,78 +162,83 @@ public:
         formLayout = new QFormLayout();
         formLayout->setSpacing(6);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        formLayout->setVerticalSpacing(20);
+        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        formLayout->setVerticalSpacing(15);
         label_2 = new QLabel(formularioConsumibles);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label_2);
+
+        lineEdit = new QLineEdit(formularioConsumibles);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setEnabled(false);
+        lineEdit->setMinimumSize(QSize(300, 20));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit);
 
         label_3 = new QLabel(formularioConsumibles);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_3);
 
+        lineEdit_2 = new QLineEdit(formularioConsumibles);
+        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setMinimumSize(QSize(200, 20));
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
+
         label_4 = new QLabel(formularioConsumibles);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_4);
 
-        label_5 = new QLabel(formularioConsumibles);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        formLayout->setWidget(3, QFormLayout::LabelRole, label_5);
-
-        label_6 = new QLabel(formularioConsumibles);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_6);
-
-        lineEdit = new QLineEdit(formularioConsumibles);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setEnabled(false);
-        lineEdit->setMinimumSize(QSize(300, 0));
-
-        formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit);
-
-        lineEdit_2 = new QLineEdit(formularioConsumibles);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setMinimumSize(QSize(200, 0));
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
-
         doubleSpinBox = new QDoubleSpinBox(formularioConsumibles);
         doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
+        doubleSpinBox->setMinimumSize(QSize(0, 20));
         doubleSpinBox->setMaximum(1e+09);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, doubleSpinBox);
 
-        spinBox = new QSpinBox(formularioConsumibles);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setMaximum(999999999);
+        label_6 = new QLabel(formularioConsumibles);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, spinBox);
+        formLayout->setWidget(3, QFormLayout::LabelRole, label_6);
 
         lineEdit_3 = new QLineEdit(formularioConsumibles);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
         lineEdit_3->setEnabled(false);
+        lineEdit_3->setMinimumSize(QSize(0, 20));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_3);
+        formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_3);
 
         label_7 = new QLabel(formularioConsumibles);
         label_7->setObjectName(QString::fromUtf8("label_7"));
 
-        formLayout->setWidget(5, QFormLayout::LabelRole, label_7);
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_7);
 
         lineEdit_4 = new QLineEdit(formularioConsumibles);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
         lineEdit_4->setEnabled(false);
+        lineEdit_4->setMinimumSize(QSize(0, 20));
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, lineEdit_4);
+        formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_4);
 
         comboBox = new QComboBox(formularioConsumibles);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setMinimumSize(QSize(0, 20));
 
-        formLayout->setWidget(6, QFormLayout::FieldRole, comboBox);
+        formLayout->setWidget(5, QFormLayout::FieldRole, comboBox);
+
+        label_9 = new QLabel(formularioConsumibles);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, label_9);
+
+        plainTextEdit = new QPlainTextEdit(formularioConsumibles);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setMinimumSize(QSize(0, 40));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, plainTextEdit);
 
 
         horizontalLayout_3->addLayout(formLayout);
@@ -238,6 +263,7 @@ public:
 
         label_8 = new QLabel(formularioConsumibles);
         label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setPixmap(QPixmap(QString::fromUtf8("costo_cons.png")));
 
         horizontalLayout_4->addWidget(label_8);
 
@@ -296,12 +322,13 @@ public:
     {
         formularioConsumibles->setWindowTitle(QApplication::translate("formularioConsumibles", "formularioConsumibles", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("formularioConsumibles", "Consumibles", 0, QApplication::UnicodeUTF8));
+        pushButton_3->setText(QApplication::translate("formularioConsumibles", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioConsumibles", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioConsumibles", "Nombre", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioConsumibles", "Valor unitario", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioConsumibles", "Cantidad anual", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("formularioConsumibles", "Costo hora", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("formularioConsumibles", "M\303\241quina", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("formularioConsumibles", "Aplicaciones", 0, QApplication::UnicodeUTF8));
         label_8->setText(QString());
         pushButton->setText(QApplication::translate("formularioConsumibles", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioConsumibles", "Guardar", 0, QApplication::UnicodeUTF8));

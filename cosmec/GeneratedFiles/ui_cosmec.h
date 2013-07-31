@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Tue 30. Jul 22:22:52 2013
+** Created: Tue 30. Jul 23:59:53 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -10,6 +10,7 @@
 #ifndef UI_COSMEC_H
 #define UI_COSMEC_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
@@ -3817,6 +3818,8 @@ public:
 
         dateEdit_2 = new QDateEdit(frame_3);
         dateEdit_2->setObjectName(QString::fromUtf8("dateEdit_2"));
+        dateEdit_2->setDateTime(QDateTime(QDate(2000, 1, 2), QTime(0, 0, 0)));
+        dateEdit_2->setDate(QDate(2000, 1, 2));
 
         horizontalLayout_79->addWidget(dateEdit_2);
 
@@ -3842,8 +3845,6 @@ public:
 
         verticalLayout_30->addLayout(horizontalLayout_38);
 
-        radioButton_16->raise();
-        dateEdit_2->raise();
 
         horizontalLayout_59->addWidget(frame_3);
 
@@ -4809,7 +4810,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(12);
+        stackedWidget->setCurrentIndex(11);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -5086,7 +5087,7 @@ public:
         label_27->setText(QApplication::translate("cosmecClass", "#####", 0, QApplication::UnicodeUTF8));
         label_89->setText(QApplication::translate("cosmecClass", "Dirigido a:", 0, QApplication::UnicodeUTF8));
         label_90->setText(QApplication::translate("cosmecClass", "Fecha:", 0, QApplication::UnicodeUTF8));
-        dateEdit->setDisplayFormat(QApplication::translate("cosmecClass", "dd/MM/yyyy", 0, QApplication::UnicodeUTF8));
+        dateEdit->setDisplayFormat(QApplication::translate("cosmecClass", "yyyy-MM-dd", 0, QApplication::UnicodeUTF8));
         label_28->setText(QApplication::translate("cosmecClass", "Direcci\303\263n:", 0, QApplication::UnicodeUTF8));
         label_92->setText(QApplication::translate("cosmecClass", "Ciudad:", 0, QApplication::UnicodeUTF8));
         label_29->setText(QApplication::translate("cosmecClass", "Tel\303\251fono:", 0, QApplication::UnicodeUTF8));

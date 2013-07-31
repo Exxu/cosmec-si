@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>12</number>
+       <number>11</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -4467,7 +4467,7 @@ background: qlineargradient(
                 </size>
                </property>
                <property name="displayFormat">
-                <string>dd/MM/yyyy</string>
+                <string>yyyy-MM-dd</string>
                </property>
               </widget>
              </item>
@@ -5432,7 +5432,25 @@ background: qlineargradient(
                 </widget>
                </item>
                <item>
-                <widget class="QDateEdit" name="dateEdit_2"/>
+                <widget class="QDateEdit" name="dateEdit_2">
+                 <property name="dateTime">
+                  <datetime>
+                   <hour>0</hour>
+                   <minute>0</minute>
+                   <second>0</second>
+                   <year>2000</year>
+                   <month>1</month>
+                   <day>2</day>
+                  </datetime>
+                 </property>
+                 <property name="date">
+                  <date>
+                   <year>2000</year>
+                   <month>1</month>
+                   <day>2</day>
+                  </date>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -5474,9 +5492,6 @@ background: qlineargradient(
               </layout>
              </item>
             </layout>
-            <zorder>radioButton_16</zorder>
-            <zorder>dateEdit_2</zorder>
-            <zorder>horizontalSpacer_60</zorder>
            </widget>
           </item>
           <item>

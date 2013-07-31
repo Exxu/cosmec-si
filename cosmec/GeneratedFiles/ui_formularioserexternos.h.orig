@@ -2,10 +2,10 @@
 ** Form generated from reading UI file 'formularioserexternos.ui'
 **
 <<<<<<< HEAD
-** Created: Mon 22. Jul 14:35:39 2013
+** Created: Tue 30. Jul 22:22:51 2013
 =======
-** Created: Mon 22. Jul 15:41:55 2013
->>>>>>> 95c4879a5d79046bba87c3ef1f2dce917fd352c1
+** Created: Tue 30. Jul 22:29:57 2013
+>>>>>>> 7c931fe2c6514f1d9f4393455304c814796c9be1
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,7 +35,9 @@ class Ui_formularioSerExternos
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label;
+    QPushButton *pushButton_3;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
@@ -87,32 +89,50 @@ public:
 "font: 11pt \"Arial\";\n"
 "background: transparent;\n"
 "}\n"
+"QPushButton#pushButton_3{ /*ayuda*/\n"
+"  border: 1px inset darkblue;\n"
+"  border-radius:12px;\n"
+" font: bold 12pt \"Calibri\";\n"
+"}\n"
 ".QPushButton {\n"
 "background: qlineargradient(\n"
 "  x1:0, y1:0, x2:0, y2:1,\n"
 "  stop:0 #68778e,\n"
 "  stop: 0.4 #5c637d\n"
 "  stop: 0.5 #717990,\n"
-"  stop:1 #bec1d2\n"
+"  s"
+                        "top:1 #bec1d2\n"
 " );\n"
 " color: white;\n"
 "}\n"
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
 "     border-radius: 5px;\n"
-"     ba"
-                        "ckground:white;\n"
+"     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
         verticalLayout = new QVBoxLayout(formularioSerExternos);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label = new QLabel(formularioSerExternos);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
 
-        verticalLayout->addWidget(label);
+        horizontalLayout_3->addWidget(label);
+
+        pushButton_3 = new QPushButton(formularioSerExternos);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setMinimumSize(QSize(25, 25));
+        pushButton_3->setMaximumSize(QSize(25, 25));
+
+        horizontalLayout_3->addWidget(pushButton_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -214,6 +234,7 @@ public:
     {
         formularioSerExternos->setWindowTitle(QApplication::translate("formularioSerExternos", "formularioSerExternos", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("formularioSerExternos", "Servicios Externos", 0, QApplication::UnicodeUTF8));
+        pushButton_3->setText(QApplication::translate("formularioSerExternos", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioSerExternos", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioSerExternos", "Nombre", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioSerExternos", "Costo hora", 0, QApplication::UnicodeUTF8));

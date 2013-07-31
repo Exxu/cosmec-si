@@ -2,10 +2,10 @@
 ** Form generated from reading UI file 'formulariomaq.ui'
 **
 <<<<<<< HEAD
-** Created: Mon 22. Jul 14:35:40 2013
+** Created: Tue 30. Jul 22:22:52 2013
 =======
-** Created: Mon 22. Jul 15:41:55 2013
->>>>>>> 95c4879a5d79046bba87c3ef1f2dce917fd352c1
+** Created: Tue 30. Jul 22:29:58 2013
+>>>>>>> 7c931fe2c6514f1d9f4393455304c814796c9be1
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,7 +37,9 @@ class Ui_formularioMaq
 {
 public:
     QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label;
+    QPushButton *pushButton_4;
     QSpacerItem *verticalSpacer_3;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_3;
@@ -126,27 +128,35 @@ public:
 "font: 11pt \"Arial\";\n"
 "background: transparent;\n"
 "}\n"
+"QPushButton#pushButton_4{ /*ayuda*/\n"
+"  border: 1px inset darkblue;\n"
+"  border-radius:12px;\n"
+" font: bold 12pt \"Calibri\";\n"
+"}\n"
 ".QPushButton {\n"
 "background: qlineargradient(\n"
 "  x1:0, y1:0, x2:0, y2:1,\n"
 "  stop:0 #68778e,\n"
 "  stop: 0.4 #5c637d\n"
 "  stop: 0.5 #717990,\n"
-"  stop:1 #bec1d2\n"
+"  stop:1 #b"
+                        "ec1d2\n"
 " );\n"
 " color: white;\n"
 "}\n"
 "QLineEdit {\n"
 "     border: 1px inset darkblue;\n"
 "     border-radius: 5px;\n"
-"     background"
-                        ":white;\n"
+"     background:white;\n"
 "     selection-background-color: darkgray;\n"
 " }"));
         verticalLayout_2 = new QVBoxLayout(formularioMaq);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label = new QLabel(formularioMaq);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 30));
@@ -154,7 +164,17 @@ public:
         label->setFrameShadow(QFrame::Raised);
         label->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_2->addWidget(label);
+        horizontalLayout_5->addWidget(label);
+
+        pushButton_4 = new QPushButton(formularioMaq);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setMinimumSize(QSize(25, 25));
+        pushButton_4->setMaximumSize(QSize(25, 25));
+
+        horizontalLayout_5->addWidget(pushButton_4);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_5);
 
         verticalSpacer_3 = new QSpacerItem(20, 9, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -233,12 +253,13 @@ public:
 
         label_7 = new QLabel(formularioMaq);
         label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMinimumSize(QSize(0, 35));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, label_7);
 
         spinBox_2 = new QSpinBox(formularioMaq);
         spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
-        spinBox_2->setMaximum(999999999);
+        spinBox_2->setMaximum(1920);
 
         formLayout->setWidget(5, QFormLayout::FieldRole, spinBox_2);
 
@@ -266,6 +287,7 @@ public:
 
         label_10 = new QLabel(formularioMaq);
         label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setMinimumSize(QSize(0, 35));
 
         formLayout->setWidget(8, QFormLayout::LabelRole, label_10);
 
@@ -399,6 +421,7 @@ public:
 
         label_17 = new QLabel(formularioMaq);
         label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setPixmap(QPixmap(QString::fromUtf8("costo_maq.png")));
 
         verticalLayout->addWidget(label_17);
 
@@ -458,18 +481,21 @@ public:
     {
         formularioMaq->setWindowTitle(QApplication::translate("formularioMaq", "formularioMaq", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("formularioMaq", "M\303\241quinas", 0, QApplication::UnicodeUTF8));
+        pushButton_4->setText(QApplication::translate("formularioMaq", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioMaq", "Serie", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioMaq", "C\303\263digo ESPE", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioMaq", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioMaq", "Costo", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioMaq", "Vida \303\272til", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("formularioMaq", "Horas de trabajo anuales [h]", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("formularioMaq", "Depreciaci\303\263n", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("formularioMaq", "Costo Hora", 0, QApplication::UnicodeUTF8));
-        label_10->setText(QApplication::translate("formularioMaq", "Presupuesto anual", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioMaq", "Costo [$]", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioMaq", "Vida \303\272til [a\303\261os]", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("formularioMaq", "Disponibilidad anual de la\n"
+"m\303\241quina [h]", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("formularioMaq", "Depreciaci\303\263n [$]", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("formularioMaq", "Costo Hora [$/h]", 0, QApplication::UnicodeUTF8));
+        label_10->setText(QApplication::translate("formularioMaq", "Presupuesto anual de\n"
+"mantenimiento correctivo [$]", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("formularioMaq", "Servicios B\303\241sicos [$]", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("formularioMaq", "Herramientas", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("formularioMaq", "Costo hora cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
+        label_14->setText(QApplication::translate("formularioMaq", "Costo hora cotizaci\303\263n [$/h]", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("formularioMaq", "Consumibles", 0, QApplication::UnicodeUTF8));
         label_16->setText(QApplication::translate("formularioMaq", "Mantenimiento [$]", 0, QApplication::UnicodeUTF8));
         label_11->setText(QString());
