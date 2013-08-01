@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>11</number>
+       <number>14</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1053,6 +1053,11 @@ background: qlineargradient(
               <column>
                <property name="text">
                 <string>Máquina</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Aplicaciones</string>
                </property>
               </column>
              </widget>
@@ -4459,15 +4464,12 @@ background: qlineargradient(
               </widget>
              </item>
              <item>
-              <widget class="QDateEdit" name="dateEdit">
-               <property name="minimumSize">
+              <widget class="QLineEdit" name="lineEdit_22">
+               <property name="maximumSize">
                 <size>
-                 <width>0</width>
-                 <height>20</height>
+                 <width>150</width>
+                 <height>16777215</height>
                 </size>
-               </property>
-               <property name="displayFormat">
-                <string>yyyy-MM-dd</string>
                </property>
               </widget>
              </item>
@@ -5432,25 +5434,7 @@ background: qlineargradient(
                 </widget>
                </item>
                <item>
-                <widget class="QDateEdit" name="dateEdit_2">
-                 <property name="dateTime">
-                  <datetime>
-                   <hour>0</hour>
-                   <minute>0</minute>
-                   <second>0</second>
-                   <year>2000</year>
-                   <month>1</month>
-                   <day>2</day>
-                  </datetime>
-                 </property>
-                 <property name="date">
-                  <date>
-                   <year>2000</year>
-                   <month>1</month>
-                   <day>2</day>
-                  </date>
-                 </property>
-                </widget>
+                <widget class="QLineEdit" name="lineEdit_23"/>
                </item>
               </layout>
              </item>
@@ -6151,6 +6135,11 @@ background: qlineargradient(
               <column>
                <property name="text">
                 <string>Costo [$/kg]</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Aplicaciones</string>
                </property>
               </column>
              </widget>

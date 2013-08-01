@@ -1646,7 +1646,7 @@ void cosmec::eliminarFilaCons()
 		QTableWidgetItem *itab1 = ui.tableWidget_5->item(currentRow,0);
 		sql=QString("DELETE FROM consumible WHERE id_consumible=%1").arg(itab1->text());
 		insertarsql(sql);
-		QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 		llenartabla(ui.tableWidget_5,sql);
 	}
 }
@@ -1754,6 +1754,7 @@ void cosmec::nuevoCons(){
 	int fila=fcons->ui.comboBox->currentIndex();
 	int id_maquina=idmaquinas[fila];
 	QString nombre=fcons->ui.lineEdit_2->text();
+	QString aplicacion=fcons->ui.plainTextEdit->toPlainText();
 	//int cantidad=fcons->ui.spinBox->value();
 	int cantidad=1;
 	double costo=fcons->ui.doubleSpinBox->value();
@@ -1763,9 +1764,9 @@ void cosmec::nuevoCons(){
 		double costo_cant=costo*cantidad;
 		double costo_hora=costo_cant/horas;
 		sql=QString("INSERT INTO consumible(nombre_consumible, costo_unitario, costo_hora," 
-			"serie_maquinas) VALUES ('%1',%2,%3,%4)").arg(nombre).arg(costo).arg(costo_hora).arg(idmaquinas[fila]);
+			"serie_maquinas,aplicacion) VALUES ('%1',%2,%3,%4,'%5')").arg(nombre).arg(costo).arg(costo_hora).arg(idmaquinas[fila]).arg(aplicacion);
 		insertarsql(sql);
-		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 		llenartabla(ui.tableWidget_5,sql);
 
 		limpiarFCons();
@@ -1789,19 +1790,21 @@ void cosmec::editarCons(){
 		QTableWidgetItem *itab3 = ui.tableWidget_5->item(filh,2);
 		QTableWidgetItem *itab4 = ui.tableWidget_5->item(filh,3);
 		QTableWidgetItem *itab5 = ui.tableWidget_5->item(filh,4);
-		
+		QTableWidgetItem *itab6 = ui.tableWidget_5->item(filh,5);
 
 		QString id_consumible=itab1->text();
 		QString nombre=itab2->text();
 		QString costo=itab3->text();
 		QString costo_hora=itab4->text();
 		QString maquina=itab5->text();
+		QString aplicacion=itab6->text();
 		
 		fcons->ui.lineEdit->setText(id_consumible);
 		fcons->ui.lineEdit_2->setText(nombre);
 		fcons->ui.doubleSpinBox->setValue(QString(costo).toDouble());
 		fcons->ui.lineEdit_3->setText(costo_hora);
 		fcons->ui.lineEdit_4->setText(maquina);
+		fcons->ui.plainTextEdit->setPlainText(aplicacion);
 
 		//llenar combobox maq
 		QString sql="SELECT a.serie,a.modelo,a.cod_espe FROM maquinas AS a ORDER BY a.modelo";
@@ -1826,6 +1829,7 @@ void cosmec::updateCons(){
 	int fila=fcons->ui.comboBox->currentIndex();
 	int id=idmaquinas[fila];
 	QString nombre=fcons->ui.lineEdit_2->text();
+	QString aplicaciones=fcons->ui.plainTextEdit->toPlainText();
 	//int cantidad=fcons->ui.spinBox->value();
 	int cantidad=1;
 	double costo=fcons->ui.doubleSpinBox->value();
@@ -1835,9 +1839,9 @@ void cosmec::updateCons(){
 		double costo_cant=costo*cantidad;
 		double costo_hora=costo_cant/horas;
 		sql=QString("UPDATE consumible SET nombre_consumible='%1', costo_unitario=%2, costo_hora=%3," 
-			"serie_maquinas=%4 WHERE id_consumible=%5").arg(nombre).arg(costo).arg(costo_hora).arg(id).arg(id_consumible);
+			"serie_maquinas=%4,aplicacion='%5' WHERE id_consumible=%6").arg(nombre).arg(costo).arg(costo_hora).arg(id).arg(aplicaciones).arg(id_consumible);
 		insertarsql(sql);
-		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 		llenartabla(ui.tableWidget_5,sql);
 
 		limpiarFCons();
@@ -3235,7 +3239,7 @@ void cosmec::setherramienta(){
 }
 void cosmec::setconsumible(){
 	fcons->ui.comboBox->setVisible(true);
-	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_5,sql);
 	ui.stackedWidget->setCurrentIndex(3);
 }
@@ -4127,7 +4131,7 @@ void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con e
 			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
 		}
 		if(ui.radioButton_16->isChecked()){
-			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.fecha='%1'").arg(ui.dateEdit_2->date().toString("yyyy-MM-dd"));
+			sql=QString("SELECT a.numero,a.nombre,a.ruc,a.subtotal_cotizacion,b.nombre FROM cotizacion AS a, usuarios AS b WHERE b.id_usuario=a.id_usuario_usuarios AND a.fecha='%1'").arg(ui.lineEdit_23->text());
 			llenartabla(ui.tableWidget_11,sql);
 			llenartabla(ui.tableWidget_11,sql);
 			ui.tableWidget_11->removeRow(ui.tableWidget_11->rowCount()-1);
@@ -4415,7 +4419,7 @@ void cosmec::segundaParte(){
 		QString forma_pago=ui.lineEdit_14->text();
 		QString dura_coti=ui.lineEdit_16->text();
 		QString ciudad=ui.lineEdit_13->text();
-		QString fecha=ui.dateEdit->date().toString("dd-MM-yyyy");
+		QString fecha=ui.lineEdit_22->text();
 		int ruc=QString(ui.lineEdit->text()).toInt();
 		QString tiempo=ui.lineEdit_15->text();
 		QString lugar=ui.lineEdit_17->text();
@@ -4426,7 +4430,7 @@ void cosmec::segundaParte(){
 
 		if(modificar){
 			sql=QString("UPDATE cotizacion"
-				"SET nombre='%1', dirigido='%2', fecha=%3, ruc=%4, proyecto='%5', ciudad='%6', " 
+				"SET nombre='%1', dirigido='%2', fecha='%3', ruc=%4, proyecto='%5', ciudad='%6', " 
 				"telefono='%7', direccion='%8', forma_pago='%9', "
 				"lugar_entrega='%10', tiempo_entrega='%11', duracion_cotizacion='%12', " 
 				"descuento=%13, piezas=%14 "
@@ -6841,8 +6845,7 @@ void cosmec::modificarCotizacion(){
 		while(cot.next()){
 			ui.lineEdit_2->setText(cot.value(0).toString());
 			ui.lineEdit_11->setText(cot.value(1).toString());
-			qdate = QDate::fromString(cot.value(2).toString());
-			ui.dateEdit->setDate(qdate);
+			ui.lineEdit_22->setText(cot.value(2).toString());
 			ui.lineEdit->setText(cot.value(3).toString());
 			ui.lineEdit_12->setText(cot.value(4).toString());
 			ui.lineEdit_13->setText(cot.value(5).toString());
