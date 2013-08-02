@@ -491,7 +491,7 @@ void cosmec::comboMaq(QTableWidget *tableNum,int fil, int col){
 	comboMaquina=new QComboBox(this);
 	cosmecdb.open();
 	QSqlQuery respuesta(cosmecdb);
-	respuesta.exec("SELECT a.serie,a.modelo FROM maquinas AS a ORDER BY a.modelo");
+	respuesta.exec("SELECT a.serie,a.modelo||' ('||a.cod_espe||')' FROM maquinas AS a ORDER BY a.modelo");
 	record = respuesta.record();
 	tamquery1=respuesta.size();
 	idmaquinas=new int[tamquery1];
@@ -1229,7 +1229,7 @@ void cosmec::eliminarFilaMat()
 		QTableWidgetItem *itab1 = ui.tableWidget_14->item(currentRow,0);
 		sql=QString("DELETE FROM materiales WHERE id_material=%1").arg(itab1->text());
 		insertarsql(sql);
-		sql="SELECT id_material, nombre, geometria, dimencion, costo"
+		sql="SELECT id_material, nombre, geometria, unidades, dimencion, costo,aplicacion"
 			" FROM materiales";
 		llenartabla(ui.tableWidget_14,sql);
 	}
@@ -1315,11 +1315,14 @@ void cosmec::nuevoMat(){
 	QString geometria=fmateriales->ui.lineEdit_3->text();
 	QString dimensiones=fmateriales->ui.lineEdit_4->text();
 	double costo=fmateriales->ui.doubleSpinBox->value();
+	QString aplicacion=fmateriales->ui.plainTextEdit->toPlainText();
+	QString unidad=fmateriales->ui.lineEdit_5->text();
+
 	if(material!="" && geometria!="" && dimensiones!="" && costo!=0){
-		sql=QString("INSERT INTO materiales(nombre, geometria, dimencion, costo)"
-			"VALUES ('%1','%2','%3',%4)").arg(material).arg(geometria).arg(dimensiones).arg(costo);
+		sql=QString("INSERT INTO materiales(nombre, geometria, unidades, dimencion, costo, aplicacion)"
+			"VALUES ('%1','%2','%3','%4',%5,'%6')").arg(material).arg(geometria).arg(unidad).arg(dimensiones).arg(costo).arg(aplicacion);
 		insertarsql(sql);
-		sql="SELECT id_material, nombre, geometria, dimencion, costo"
+		sql="SELECT id_material, nombre, geometria, unidades, dimencion, costo, aplicacion"
 			" FROM materiales";
 		llenartabla(ui.tableWidget_14,sql);
 
@@ -1343,18 +1346,24 @@ void cosmec::editarMat(){
 		QTableWidgetItem *itab3 = ui.tableWidget_14->item(filh,2);
 		QTableWidgetItem *itab4 = ui.tableWidget_14->item(filh,3);
 		QTableWidgetItem *itab5 = ui.tableWidget_14->item(filh,4);
+		QTableWidgetItem *itab6 = ui.tableWidget_14->item(filh,5);
+		QTableWidgetItem *itab7 = ui.tableWidget_14->item(filh,6);
 
 		QString id=itab1->text();
 		QString material=itab2->text();
 		QString geometria=itab3->text();
-		QString dimensiones=itab4->text();
-		QString costo=itab5->text();
+		QString unidad=itab4->text();
+		QString dimensiones=itab5->text();
+		QString costo=itab6->text();
+		QString aplicacion=itab7->text();
 
 		fmateriales->ui.lineEdit->setText(id);
 		fmateriales->ui.lineEdit_2->setText(material);
 		fmateriales->ui.lineEdit_3->setText(geometria);
 		fmateriales->ui.lineEdit_4->setText(dimensiones);
+		fmateriales->ui.lineEdit_5->setText(unidad);
 		fmateriales->ui.doubleSpinBox->setValue(QString(costo).toDouble());
+		fmateriales->ui.plainTextEdit->setPlainText(aplicacion);
 		fmateriales->show();
 	}
 	else{
@@ -1371,11 +1380,14 @@ void cosmec::updateMat(){
 	QString geometria=fmateriales->ui.lineEdit_3->text();
 	QString dimensiones=fmateriales->ui.lineEdit_4->text();
 	double costo=fmateriales->ui.doubleSpinBox->value();
+	QString aplicacion=fmateriales->ui.plainTextEdit->toPlainText();
+	QString unidad=fmateriales->ui.lineEdit_5->text();
+
 	if(material!="" && geometria!="" && dimensiones!="" && costo!=0){
-		sql=QString("UPDATE materiales SET  nombre='%1', geometria='%2', dimencion='%3', costo=%4 "
-			"WHERE id_material=%5").arg(material).arg(geometria).arg(dimensiones).arg(costo).arg(id);
+		sql=QString("UPDATE materiales SET  nombre='%1', geometria='%2', dimencion='%3', costo=%4, aplicacion='%5',unidades='%6' "
+			"WHERE id_material=%7").arg(material).arg(geometria).arg(dimensiones).arg(costo).arg(aplicacion).arg(unidad).arg(id);
 		insertarsql(sql);
-		sql="SELECT id_material, nombre, geometria, dimencion, costo"
+		sql="SELECT id_material, nombre, geometria, unidades, dimencion, costo, aplicacion"
 			" FROM materiales";
 		llenartabla(ui.tableWidget_14,sql);
 
@@ -3233,20 +3245,20 @@ void cosmec::setmaquina(){
 }
 void cosmec::setherramienta(){
 	fherr->ui.comboBox->setVisible(true);
-	QString sql="SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario,a.vida_util,a.depreciacion,a.costo_hora,b.modelo FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+	QString sql="SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario,a.vida_util,a.depreciacion,a.costo_hora,b.modelo||' ('||b.cod_espe||')' FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_4,sql);
 	ui.stackedWidget->setCurrentIndex(2);
 }
 void cosmec::setconsumible(){
 	fcons->ui.comboBox->setVisible(true);
-	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo||' ('||b.cod_espe||')',a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_5,sql);
 	ui.stackedWidget->setCurrentIndex(3);
 }
 void cosmec::setenergia(){
 	fser->ui.comboBox->setVisible(true);
 	QString sql="SELECT a.nombre_servi, a.tipo_consum, a.unidad, a.consumo_serv, a.consumo_hora, "
-		"a.costo_consu, a.costo_hora, b.modelo FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		"a.costo_consu, a.costo_hora, b.modelo||' ('||b.cod_espe||')' FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	cargaridenergia();
 	llenartabla(ui.tableWidget_6,sql);
 	llenartabla(ui.tableWidget_6,sql);
@@ -3255,7 +3267,7 @@ void cosmec::setenergia(){
 void cosmec::setmantenimiento(){
 	finsumo->ui.comboBox->setVisible(true);
 	QString sql="SELECT a.nombre, a.costo_unitario, a.cantidad_anual, "
-		"a.valor_total, a.costo_hora, b.modelo FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		"a.valor_total, a.costo_hora, b.modelo||' ('||b.cod_espe||')' FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_7,sql);
 	llenartabla(ui.tableWidget_7,sql);
 	cargaridinsumo();
@@ -3869,7 +3881,7 @@ void cosmec::reporteexel(){
 	}
 }
 void cosmec::setactividadesMo(){
-	QString sql="SELECT c.id_actividad,c.nombre,a.serie, a.modelo FROM maquinas AS a,mano_obra AS b,actividades_trabajo AS c WHERE c.id_actividad=b.id_actividad_actividades_trabajo AND b.serie_maquinas=a.serie ORDER BY a.modelo";
+	QString sql="SELECT c.id_actividad,c.nombre,a.serie, a.modelo||' ('||a.cod_espe||')' FROM maquinas AS a,mano_obra AS b,actividades_trabajo AS c WHERE c.id_actividad=b.id_actividad_actividades_trabajo AND b.serie_maquinas=a.serie ORDER BY a.modelo";
 	llenartabla(ui.tableWidget_13,sql);
 	llenartabla(ui.tableWidget_13,sql);
 	ui.stackedWidget->setCurrentIndex(15);
@@ -3930,7 +3942,7 @@ void cosmec::setnuevaCotizacion(){
 	cosmecdb.close();
 	
 	cosmecdb.open();
-	respuesta.exec(QString("SELECT a.id_material, a.nombre FROM materiales AS a ORDER BY a.nombre"));
+	respuesta.exec(QString("SELECT a.id_material, a.nombre||' ('||a.geometria||'-'||a.dimencion||')' As nombre FROM materiales AS a ORDER BY a.nombre"));
 	tamquery2=respuesta.size();
 	idmaterial=new int[tamquery2];
 	b=0;
@@ -3971,7 +3983,7 @@ void cosmec::setbuscarCotizacion(){
 	ui.stackedWidget->setCurrentIndex(12);
 }
 void cosmec::setmateriales(){
-	QString sql="SELECT id_material, nombre, geometria, dimencion, costo"
+	QString sql="SELECT id_material, nombre, geometria,unidades, dimencion, costo, aplicacion"
 		" FROM materiales";
 	llenartabla(ui.tableWidget_14,sql);
 	llenartabla(ui.tableWidget_14,sql);
@@ -5884,7 +5896,7 @@ void cosmec::tablaBusqueda(){
 			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
 		case 2:
-			sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.cantidad_anual,a.costo_unitario,a.costo_hora,b.modelo "
+			sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo "
 				"FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND b.serie=%1 ORDER BY b.modelo").arg(idmaquinas[ui.comboBox_3->currentIndex()]);
 			ui.tableWidget_17->setColumnHidden(2,true);
 			break;
@@ -5987,7 +5999,9 @@ void cosmec::mostrarFormlleno(){
 	QString material="";
 	QString geometria="";
 	QString dimensiones="";
-	
+
+	QString aplicacion;
+	QString unidad;
 	
 		switch(ui.comboBox_2->currentIndex()){
 			case 0:
@@ -6076,7 +6090,7 @@ void cosmec::mostrarFormlleno(){
 				fherr->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_herramienta,a.nombre_herramienta,a.cantidad_anual,a.costo_unitario, "
-					"a.vida_util,a.depreciacion,a.costo_hora,b.modelo FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie AND a.id_herramienta=%1 ORDER BY b.modelo").arg(idid);
+					"a.vida_util,a.depreciacion,a.costo_hora,b.modelo||' ('||b.cod_espe||')' FROM maquinas AS b,herramientas AS a WHERE a.serie_maquinas=b.serie AND a.id_herramienta=%1 ORDER BY b.modelo").arg(idid);
 				if(!respuesta.exec(sql)){
 					QMessageBox msgBox;
 					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
@@ -6104,7 +6118,7 @@ void cosmec::mostrarFormlleno(){
 				fcons->ui.pushButton->setVisible(false);
 				fcons->ui.comboBox->setVisible(false);
 				cosmecdb.open();
-				sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND a.id_consumible=%1 ORDER BY b.modelo").arg(idid);
+				sql=QString("SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo||' ('||b.cod_espe||')',a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie AND a.id_consumible=%1 ORDER BY b.modelo").arg(idid);
 				if(!respuesta.exec(sql)){
 					QMessageBox msgBox;
 					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
@@ -6117,7 +6131,8 @@ void cosmec::mostrarFormlleno(){
 						costo=respuesta.value(2).toString();
 						//cantidad=respuesta.value(2).toString();
 						costo_hora=respuesta.value(3).toString();
-						maquina=respuesta.value(4).toString();		
+						maquina=respuesta.value(4).toString();	
+						aplicacion=respuesta.value(5).toString();
 					}
 					fcons->ui.lineEdit->setText(id_consumible);
 					fcons->ui.lineEdit_2->setText(nombre);
@@ -6125,6 +6140,7 @@ void cosmec::mostrarFormlleno(){
 					//fcons->ui.spinBox->setValue(QString(cantidad).toInt());
 					fcons->ui.lineEdit_3->setText(costo_hora);
 					fcons->ui.lineEdit_4->setText(maquina);	
+					fcons->ui.plainTextEdit->setPlainText(aplicacion);
 				}
 				cosmecdb.close();
 				fcons->show();
@@ -6136,7 +6152,7 @@ void cosmec::mostrarFormlleno(){
 				fser->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_serv_basico, a.nombre_servi, a.tipo_consum, a.unidad, a.consumo_serv, a.consumo_hora, "
-					"a.costo_consu, a.costo_hora, b.modelo FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_serv_basico=%1 ORDER BY b.modelo").arg(idid);
+					"a.costo_consu, a.costo_hora, b.modelo||' ('||b.cod_espe||')' FROM serv_basico AS a, maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_serv_basico=%1 ORDER BY b.modelo").arg(idid);
 				if(!respuesta.exec(sql)){
 					QMessageBox msgBox;
 					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
@@ -6174,7 +6190,7 @@ void cosmec::mostrarFormlleno(){
 				finsumo->ui.comboBox->setVisible(false);
 				cosmecdb.open();
 				sql=QString("SELECT a.id_insumo, a.nombre, a.costo_unitario, a.cantidad_anual, "
-					"a.valor_total, a.costo_hora, b.modelo FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_insumo=%1 ORDER BY b.modelo").arg(idid);
+					"a.valor_total, a.costo_hora, b.modelo||' ('||b.cod_espe||')' FROM mantenimiento_preventivo AS a,maquinas AS b WHERE a.serie_maquinas=b.serie AND a.id_insumo=%1 ORDER BY b.modelo").arg(idid);
 				if(!respuesta.exec(sql)){
 					QMessageBox msgBox;
 					msgBox.setText("Error al consultar datos"+respuesta.lastError().databaseText());
@@ -6310,7 +6326,7 @@ void cosmec::mostrarFormlleno(){
 				fmateriales->ui.pushButton_2->setVisible(false);
 				fmateriales->ui.pushButton->setVisible(false);
 				cosmecdb.open();
-				sql=QString("SELECT id_material, nombre, geometria, dimencion, costo"
+				sql=QString("SELECT id_material, nombre, geometria, dimencion, costo,unidades,aplicacion"
 					" FROM materiales WHERE id_material=%1").arg(idid);
 				if(!respuesta.exec(sql)){
 					QMessageBox msgBox;
@@ -6324,12 +6340,16 @@ void cosmec::mostrarFormlleno(){
 						geometria=respuesta.value(2).toString();
 						dimensiones=respuesta.value(3).toString();
 						costo=respuesta.value(4).toString();
+						unidad=respuesta.value(5).toString();
+						aplicacion=respuesta.value(6).toString();
 					}
 					fmateriales->ui.lineEdit->setText(id);
 					fmateriales->ui.lineEdit_2->setText(material);
 					fmateriales->ui.lineEdit_3->setText(geometria);
 					fmateriales->ui.lineEdit_4->setText(dimensiones);
+					fmateriales->ui.lineEdit_5->setText(unidad);
 					fmateriales->ui.doubleSpinBox->setValue(QString(costo).toDouble());
+					fmateriales->ui.plainTextEdit->setPlainText(aplicacion);
 				}
 				cosmecdb.close();
 				fmateriales->show();
@@ -7109,7 +7129,7 @@ void cosmec::modificarCotizacion(){
 	cosmecdb.close();
 
 	cosmecdb.open();
-	respuesta.exec(QString("SELECT a.id_material, a.nombre FROM materiales AS a ORDER BY a.nombre"));
+	respuesta.exec(QString("SELECT a.id_material, a.nombre||' ('||a.geometria||'-'||a.dimencion||')' FROM materiales AS a ORDER BY a.nombre"));
 	tamquery2=respuesta.size();
 	idmaterial=new int[tamquery2];
 	b=0;
