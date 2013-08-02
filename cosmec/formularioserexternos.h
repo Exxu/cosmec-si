@@ -2,6 +2,7 @@
 #define FORMULARIOSEREXTERNOS_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioserexternos.h"
 
 class formularioSerExternos : public QWidget
@@ -14,6 +15,9 @@ public:
 
 //private:
 	Ui::formularioSerExternos ui;
+
+	private slots:
+		void ayuda();
 };
 
 #endif // FORMULARIOSEREXTERNOS_H

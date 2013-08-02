@@ -2,6 +2,7 @@
 #define FORMULARIOMATERIALES_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formulariomateriales.h"
 
 class formularioMateriales : public QWidget
@@ -14,6 +15,9 @@ public:
 
 //private:
 	Ui::formularioMateriales ui;
+
+	private slots:
+		void ayuda();
 };
 
 #endif // FORMULARIOMATERIALES_H

@@ -173,7 +173,7 @@ QLineEdit {
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Valor unitario</string>
+          <string>Valor unitario [$]</string>
          </property>
         </widget>
        </item>
@@ -187,7 +187,7 @@ QLineEdit {
        <item row="3" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Vida útil</string>
+          <string>Vida útil [años]</string>
          </property>
         </widget>
        </item>
@@ -201,7 +201,7 @@ QLineEdit {
        <item row="4" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Depreciación</string>
+          <string>Depreciación [$]</string>
          </property>
         </widget>
        </item>
@@ -215,7 +215,7 @@ QLineEdit {
        <item row="5" column="0">
         <widget class="QLabel" name="label_7">
          <property name="text">
-          <string>Costo hora</string>
+          <string>Costo hora [$/h]</string>
          </property>
         </widget>
        </item>
@@ -229,7 +229,7 @@ QLineEdit {
        <item row="6" column="0">
         <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>Cantidad anual</string>
+          <string>Cantidad anual [u]</string>
          </property>
         </widget>
        </item>
@@ -243,7 +243,7 @@ QLineEdit {
        <item row="7" column="0">
         <widget class="QLabel" name="label_9">
          <property name="text">
-          <string>Costo total</string>
+          <string>Costo total [$]</string>
          </property>
         </widget>
        </item>

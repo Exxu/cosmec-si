@@ -10,6 +10,7 @@ formularioServicios::formularioServicios(QWidget *parent)
 	connect(ui.doubleSpinBox,SIGNAL(valueChanged(double)),this,SLOT(costo_hora(double)));
 	connect(ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora2(int)));
 	connect(ui.doubleSpinBox_2,SIGNAL(valueChanged(double)),this,SLOT(costo_hora3(double)));
+	connect(ui.pushButton_3,SIGNAL(clicked()),this,SLOT(ayuda()));
 }
 
 formularioServicios::~formularioServicios()
@@ -54,4 +55,21 @@ void formularioServicios::costo_hora3(double unitario){
 		double resultado=redondear((ui.doubleSpinBox->value()/ui.spinBox->value())*unitario);
 		ui.lineEdit_4->setText(QString::number(resultado));
 	}
+}
+void formularioServicios::ayuda(){
+	QMessageBox msgBox;
+	QString text="Ingrese los datos como se indica a continuación:\n\n\n"
+		"ID:\t\t\tNúmero único asignado a este cargo. Se llenará automáticamente\n\n"
+		"Nombre:\t\tCorresponde al nombre del servicio básico\n\n"
+		"Tiempo de consumo:\tPeriodo de consumo en horas\n\n"
+		"Consumo total del servicio:\tCantidad de servicio consumido en unidades correspondientes\n\n"
+		"Consumo por hora:\tSe calculará automáticamente\n\n"
+		"Costo por unidad consumida:\tCosto de la unidad del servicio\n\n"
+		"Costo hora servicio:\tSe calculará automáticamente\n\n"
+		"Unidad:\t\tEn las que se mide el consumo del servicio\n\n"
+		"Máquina\t\tMáquina que consume este servicio básico";
+	msgBox.setText(text);
+	msgBox.setWindowTitle("Ayuda");
+	msgBox.setIcon(QMessageBox::Information);
+	msgBox.exec();
 }

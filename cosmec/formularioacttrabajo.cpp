@@ -38,7 +38,13 @@ void formularioActTrabajo::costo_hora2(int hora){
 }
 void formularioActTrabajo::ayuda(){
 	QMessageBox msgBox;
-	QString text="Ingrese los datos como se indica a continuación:\n\n\n";
+	QString text="Ingrese los datos como se indica a continuación:\n\n\n"
+		"ID:\t\t\t\tNúmero único asignado a la nueva actividad. Se llena automáticamente\n\n"
+		"Nombre:\t\t\tCorresponde al nombre de la nueva actividad\n\n"
+		"Horas de trabajo mensual:\tHoras de trabajo dedicada a esta actividad\n\n"
+		"Valor mensual de la actividad:\tCosto asociado a esta actividad mensual\n\n"
+		"Costo hora:\t\t\tCorresponde al costo de esta actividad por hora\n\n"
+		"Cargo:\t\t\t\tCargo de trabajo al que se asociará esta actividad";
 	msgBox.setText(text);
 	msgBox.setWindowTitle("Ayuda");
 	msgBox.setIcon(QMessageBox::Information);

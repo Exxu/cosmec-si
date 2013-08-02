@@ -2,6 +2,7 @@
 #define FORMULARIOHERR_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioherr.h"
 
 class formularioHerr : public QWidget
@@ -17,6 +18,7 @@ public:
 
 private slots:
 		void labelCombo(QString actual);
+		void ayuda();
 };
 
 #endif // FORMULARIOHERR_H

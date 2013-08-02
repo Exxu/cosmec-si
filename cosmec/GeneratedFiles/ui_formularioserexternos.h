@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioserexternos.ui'
 **
-** Created: Wed 31. Jul 21:42:28 2013
+** Created: Thu 1. Aug 22:55:14 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -233,7 +233,7 @@ public:
         pushButton_3->setText(QApplication::translate("formularioSerExternos", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioSerExternos", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioSerExternos", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioSerExternos", "Costo hora", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioSerExternos", "Costo hora [$]", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("formularioSerExternos", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioSerExternos", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

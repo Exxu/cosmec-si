@@ -187,7 +187,7 @@ QLineEdit {
        <item row="3" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Dimensiones</string>
+          <string>Dimensiones [u]</string>
          </property>
         </widget>
        </item>
@@ -204,7 +204,7 @@ QLineEdit {
        <item row="5" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Costo hora</string>
+          <string>Costo hora [$]</string>
          </property>
         </widget>
        </item>
@@ -231,7 +231,7 @@ QLineEdit {
        <item row="4" column="0">
         <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>Unidades</string>
+          <string>Unidades [u]</string>
          </property>
         </widget>
        </item>

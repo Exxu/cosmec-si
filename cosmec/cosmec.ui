@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>14</number>
+       <number>11</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -4773,6 +4773,9 @@ background: qlineargradient(
                  <height>20</height>
                 </size>
                </property>
+               <property name="maximum">
+                <double>999.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="3" column="3">
@@ -4799,6 +4802,9 @@ background: qlineargradient(
                </property>
                <property name="decimals">
                 <number>2</number>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
                </property>
               </widget>
              </item>
@@ -4867,6 +4873,15 @@ background: qlineargradient(
                  <height>20</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>0.000000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>0.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="4" column="1">
@@ -4926,6 +4941,15 @@ background: qlineargradient(
                <property name="decimals">
                 <number>2</number>
                </property>
+               <property name="minimum">
+                <double>0.000000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>0.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="2" column="0">
@@ -4978,6 +5002,9 @@ background: qlineargradient(
                  <height>20</height>
                 </size>
                </property>
+               <property name="maximum">
+                <double>999.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item row="5" column="0">
@@ -5013,6 +5040,9 @@ background: qlineargradient(
                  <width>0</width>
                  <height>20</height>
                 </size>
+               </property>
+               <property name="maximum">
+                <double>50.000000000000000</double>
                </property>
               </widget>
              </item>
@@ -5066,8 +5096,14 @@ background: qlineargradient(
              <string>Pedido</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_61">
+             <property name="spacing">
+              <number>3</number>
+             </property>
              <property name="topMargin">
-              <number>12</number>
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
              </property>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -5097,8 +5133,14 @@ background: qlineargradient(
               <layout class="QHBoxLayout" name="horizontalLayout_37">
                <item>
                 <widget class="QLabel" name="label_96">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>20</height>
+                  </size>
+                 </property>
                  <property name="text">
-                  <string>Descuento</string>
+                  <string>Descuento [%]</string>
                  </property>
                 </widget>
                </item>

@@ -152,7 +152,7 @@ QLineEdit {
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Tiempo de cosumo [horas]</string>
+          <string>Tiempo de cosumo [h]</string>
          </property>
         </widget>
        </item>

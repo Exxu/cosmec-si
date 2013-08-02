@@ -177,7 +177,7 @@ QLineEdit {
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Horas de trabajo mensual</string>
+          <string>Horas de trabajo mensual [h]</string>
          </property>
         </widget>
        </item>
@@ -191,7 +191,7 @@ QLineEdit {
        <item row="3" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Valor mensual de la actividad</string>
+          <string>Valor mensual de la actividad [$]</string>
          </property>
         </widget>
        </item>
@@ -205,7 +205,7 @@ QLineEdit {
        <item row="4" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Costo hora</string>
+          <string>Costo hora [$/h]</string>
          </property>
         </widget>
        </item>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioactempresa.ui'
 **
-** Created: Wed 31. Jul 21:42:29 2013
+** Created: Thu 1. Aug 22:55:14 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -253,7 +253,7 @@ public:
         pushButton_3->setText(QApplication::translate("formularioActEmpresa", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioActEmpresa", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioActEmpresa", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioActEmpresa", "Costo hora", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioActEmpresa", "Costo hora [$]", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("formularioActEmpresa", "Categor\303\255a", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("formularioActEmpresa", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioActEmpresa", "Guardar", 0, QApplication::UnicodeUTF8));
