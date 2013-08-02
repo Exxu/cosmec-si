@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioacttrabajo.ui'
 **
-** Created: Wed 31. Jul 21:42:29 2013
+** Created: Thu 1. Aug 22:55:14 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -281,9 +281,9 @@ public:
         pushButton_3->setText(QApplication::translate("formularioActTrabajo", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioActTrabajo", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioActTrabajo", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioActTrabajo", "Horas de trabajo mensual", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioActTrabajo", "Valor mensual de la actividad", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioActTrabajo", "Costo hora", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioActTrabajo", "Horas de trabajo mensual [h]", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioActTrabajo", "Valor mensual de la actividad [$]", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioActTrabajo", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("formularioActTrabajo", "Cargo", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("formularioActTrabajo", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioActTrabajo", "Guardar", 0, QApplication::UnicodeUTF8));

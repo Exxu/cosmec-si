@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioinsumos.ui'
 **
-** Created: Wed 31. Jul 21:42:29 2013
+** Created: Thu 1. Aug 22:55:14 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -294,10 +294,10 @@ public:
         pushButton_3->setText(QApplication::translate("formularioInsumos", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioInsumos", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioInsumos", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioInsumos", "Valor unitario", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioInsumos", "Cantidad anual", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioInsumos", "Valor total", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("formularioInsumos", "Costo hora", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioInsumos", "Valor unitario [$]", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioInsumos", "Cantidad anual [u]", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioInsumos", "Valor total [$]", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("formularioInsumos", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("formularioInsumos", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("formularioInsumos", "Crear", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("formularioInsumos", "Guardar", 0, QApplication::UnicodeUTF8));

@@ -2,6 +2,7 @@
 #define FORMULARIOINSUMOS_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioinsumos.h"
 
 class formularioInsumos : public QWidget
@@ -17,6 +18,7 @@ public:
 
 private slots:
 	void labelCombo(QString actual);
+	void ayuda();
 };
 
 #endif // FORMULARIOINSUMOS_H

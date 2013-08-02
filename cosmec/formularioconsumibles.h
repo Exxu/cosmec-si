@@ -2,6 +2,7 @@
 #define FORMULARIOCONSUMIBLES_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioconsumibles.h"
 #include <math.h>
 
@@ -18,6 +19,7 @@ public:
 
 private slots:
 	void labelCombo(QString actual);
+	void ayuda();
 };
 
 #endif // FORMULARIOCONSUMIBLES_H

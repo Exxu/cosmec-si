@@ -2,6 +2,7 @@
 #define FORMULARIOCATEGORIAS_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formulariocategorias.h"
 
 class formularioCategorias : public QWidget
@@ -14,6 +15,8 @@ public:
 
 //private:
 	Ui::formularioCategorias ui;
+	private slots:
+		void ayuda();
 };
 
 #endif // FORMULARIOCATEGORIAS_H

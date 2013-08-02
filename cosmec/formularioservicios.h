@@ -2,6 +2,7 @@
 #define FORMULARIOSERVICIOS_H
 
 #include <QWidget>
+#include <QtGui/QMessageBox>
 #include "ui_formularioservicios.h"
 #include <math.h>
 
@@ -25,6 +26,7 @@ private slots:
 	void costo_hora(double consumo);
 	void costo_hora2(int tiempo);
 	void costo_hora3(double unitario);
+	void ayuda();
 };
 
 #endif // FORMULARIOSERVICIOS_H

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioherr.ui'
 **
-** Created: Wed 31. Jul 21:42:29 2013
+** Created: Thu 1. Aug 22:55:14 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -352,12 +352,12 @@ public:
         pushButton_3->setText(QApplication::translate("formularioHerr", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioHerr", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioHerr", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioHerr", "Valor unitario", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("formularioHerr", "Vida \303\272til", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioHerr", "Depreciaci\303\263n", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("formularioHerr", "Costo hora", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("formularioHerr", "Cantidad anual", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("formularioHerr", "Costo total", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioHerr", "Valor unitario [$]", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("formularioHerr", "Vida \303\272til [a\303\261os]", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("formularioHerr", "Depreciaci\303\263n [$]", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("formularioHerr", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("formularioHerr", "Cantidad anual [u]", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("formularioHerr", "Costo total [$]", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("formularioHerr", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_11->setText(QString());
         pushButton->setText(QApplication::translate("formularioHerr", "Crear", 0, QApplication::UnicodeUTF8));

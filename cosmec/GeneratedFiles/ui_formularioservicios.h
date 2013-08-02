@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioservicios.ui'
 **
-** Created: Wed 31. Jul 21:42:28 2013
+** Created: Thu 1. Aug 22:55:14 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -324,7 +324,7 @@ public:
         pushButton_3->setText(QApplication::translate("formularioServicios", "?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("formularioServicios", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioServicios", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("formularioServicios", "Tiempo de cosumo [horas]", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("formularioServicios", "Tiempo de cosumo [h]", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("formularioServicios", "Consumo total del servicio [u]", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("formularioServicios", "Consumo por hora [u/h]", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("formularioServicios", "Costo por unidad consumida [$/u]", 0, QApplication::UnicodeUTF8));

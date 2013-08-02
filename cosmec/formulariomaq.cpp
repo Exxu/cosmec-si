@@ -87,7 +87,8 @@ void formularioMaq::ayuda(){
 "Herramientas:\t\tNúmero de herramientas asociadas a esta máquina\n\n"
 "Consumibles:\t\tNúmero de consumibles asociados a esta máquina\n\n"
 "Mantenimiento:\tPresupuesto total de mantenimiento para esta máquina\n\n"
-"Costo hora cotización:\tCosto de la máquina por hora de servicio para calcular las cotizaciones";
+"Costo hora cotización:\tCosto de la máquina por hora de servicio para calcular las cotizaciones\n\n"
+"Imagen:\t\tFotografía correspodiente a la máquina a ingresar";
 	msgBox.setText(text);
 	msgBox.setWindowTitle("Ayuda");
 	msgBox.setIcon(QMessageBox::Information);

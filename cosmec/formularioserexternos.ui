@@ -174,7 +174,7 @@ QLineEdit {
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Costo hora</string>
+          <string>Costo hora [$]</string>
          </property>
         </widget>
        </item>
