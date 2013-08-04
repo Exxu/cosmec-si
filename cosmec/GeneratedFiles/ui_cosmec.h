@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Thu 1. Aug 22:40:37 2013
+** Created: Sun 4. Aug 17:32:46 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -1502,7 +1502,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->setRowCount(1);
         tableWidget->setColumnCount(3);
-        tableWidget->horizontalHeader()->setVisible(false);
+        tableWidget->horizontalHeader()->setVisible(true);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(200);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -3436,7 +3436,6 @@ public:
         doubleSpinBox_7 = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox_7->setObjectName(QString::fromUtf8("doubleSpinBox_7"));
         doubleSpinBox_7->setMinimumSize(QSize(0, 20));
-        doubleSpinBox_7->setMaximum(999);
 
         gridLayout_4->addWidget(doubleSpinBox_7, 2, 4, 1, 1);
 
@@ -3454,7 +3453,6 @@ public:
         doubleSpinBox_3->setObjectName(QString::fromUtf8("doubleSpinBox_3"));
         doubleSpinBox_3->setMinimumSize(QSize(0, 20));
         doubleSpinBox_3->setDecimals(2);
-        doubleSpinBox_3->setMaximum(50);
 
         gridLayout_4->addWidget(doubleSpinBox_3, 4, 4, 1, 1);
 
@@ -3482,9 +3480,6 @@ public:
         doubleSpinBox = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
         doubleSpinBox->setMinimumSize(QSize(0, 20));
-        doubleSpinBox->setMinimum(0);
-        doubleSpinBox->setMaximum(50);
-        doubleSpinBox->setValue(0);
 
         gridLayout_4->addWidget(doubleSpinBox, 1, 4, 1, 1);
 
@@ -3518,9 +3513,6 @@ public:
         doubleSpinBox_2->setObjectName(QString::fromUtf8("doubleSpinBox_2"));
         doubleSpinBox_2->setMinimumSize(QSize(80, 20));
         doubleSpinBox_2->setDecimals(2);
-        doubleSpinBox_2->setMinimum(0);
-        doubleSpinBox_2->setMaximum(50);
-        doubleSpinBox_2->setValue(0);
 
         gridLayout_4->addWidget(doubleSpinBox_2, 0, 4, 1, 1);
 
@@ -3547,7 +3539,6 @@ public:
         doubleSpinBox_4 = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox_4->setObjectName(QString::fromUtf8("doubleSpinBox_4"));
         doubleSpinBox_4->setMinimumSize(QSize(0, 20));
-        doubleSpinBox_4->setMaximum(999);
 
         gridLayout_4->addWidget(doubleSpinBox_4, 3, 4, 1, 1);
 
@@ -3566,7 +3557,6 @@ public:
         doubleSpinBox_5 = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox_5->setObjectName(QString::fromUtf8("doubleSpinBox_5"));
         doubleSpinBox_5->setMinimumSize(QSize(0, 20));
-        doubleSpinBox_5->setMaximum(50);
 
         gridLayout_4->addWidget(doubleSpinBox_5, 5, 4, 1, 1);
 
@@ -3589,10 +3579,10 @@ public:
         groupBox_13->setMinimumSize(QSize(250, 0));
         groupBox_13->setMaximumSize(QSize(400, 16777215));
         verticalLayout_61 = new QVBoxLayout(groupBox_13);
-        verticalLayout_61->setSpacing(3);
+        verticalLayout_61->setSpacing(6);
         verticalLayout_61->setContentsMargins(11, 11, 11, 11);
         verticalLayout_61->setObjectName(QString::fromUtf8("verticalLayout_61"));
-        verticalLayout_61->setContentsMargins(-1, 10, -1, 5);
+        verticalLayout_61->setContentsMargins(-1, 12, -1, -1);
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setSpacing(6);
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
@@ -3605,6 +3595,7 @@ public:
         spinBox->setObjectName(QString::fromUtf8("spinBox"));
         spinBox->setMinimumSize(QSize(0, 20));
         spinBox->setMinimum(1);
+        spinBox->setMaximum(999);
 
         horizontalLayout_19->addWidget(spinBox);
 
@@ -3616,7 +3607,6 @@ public:
         horizontalLayout_37->setObjectName(QString::fromUtf8("horizontalLayout_37"));
         label_96 = new QLabel(groupBox_13);
         label_96->setObjectName(QString::fromUtf8("label_96"));
-        label_96->setMinimumSize(QSize(0, 20));
 
         horizontalLayout_37->addWidget(label_96);
 
@@ -4823,7 +4813,7 @@ public:
 
         retranslateUi(cosmecClass);
 
-        stackedWidget->setCurrentIndex(11);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -5130,7 +5120,7 @@ public:
         label_64->setText(QApplication::translate("cosmecClass", "Tiempo [h]", 0, QApplication::UnicodeUTF8));
         groupBox_13->setTitle(QApplication::translate("cosmecClass", "Pedido", 0, QApplication::UnicodeUTF8));
         label_95->setText(QApplication::translate("cosmecClass", "N\303\272mero de piezas", 0, QApplication::UnicodeUTF8));
-        label_96->setText(QApplication::translate("cosmecClass", "Descuento [%]", 0, QApplication::UnicodeUTF8));
+        label_96->setText(QApplication::translate("cosmecClass", "Descuento", 0, QApplication::UnicodeUTF8));
         label_99->setText(QApplication::translate("cosmecClass", "Tiempo de entrega:", 0, QApplication::UnicodeUTF8));
         label_100->setText(QApplication::translate("cosmecClass", "Lugar de entrega:", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem56 = tableWidget_12->horizontalHeaderItem(0);
