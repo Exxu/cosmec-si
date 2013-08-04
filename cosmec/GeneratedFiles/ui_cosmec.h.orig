@@ -2,10 +2,10 @@
 ** Form generated from reading UI file 'cosmec.ui'
 **
 <<<<<<< HEAD
-** Created: Mon 22. Jul 14:35:42 2013
+** Created: Thu 1. Aug 21:37:20 2013
 =======
-** Created: Mon 22. Jul 15:44:32 2013
->>>>>>> 95c4879a5d79046bba87c3ef1f2dce917fd352c1
+** Created: Thu 1. Aug 22:40:37 2013
+>>>>>>> 0dcd1d2e49a96766a505bff9a810f566ca01536b
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -21,7 +21,6 @@
 #include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
 #include <QtGui/QCommandLinkButton>
-#include <QtGui/QDateEdit>
 #include <QtGui/QDoubleSpinBox>
 #include <QtGui/QFormLayout>
 #include <QtGui/QFrame>
@@ -494,7 +493,7 @@ public:
     QLineEdit *lineEdit_11;
     QSpacerItem *horizontalSpacer_44;
     QLabel *label_90;
-    QDateEdit *dateEdit;
+    QLineEdit *lineEdit_22;
     QHBoxLayout *horizontalLayout_28;
     QLabel *label_28;
     QLineEdit *lineEdit_3;
@@ -585,6 +584,12 @@ public:
     QHBoxLayout *horizontalLayout_40;
     QRadioButton *radioButton_2;
     QLineEdit *lineEdit_6;
+    QHBoxLayout *horizontalLayout_78;
+    QRadioButton *radioButton_15;
+    QLineEdit *lineEdit_21;
+    QHBoxLayout *horizontalLayout_79;
+    QRadioButton *radioButton_16;
+    QLineEdit *lineEdit_23;
     QHBoxLayout *horizontalLayout_38;
     QSpacerItem *horizontalSpacer_60;
     QPushButton *pushButton_36;
@@ -604,7 +609,7 @@ public:
     QSpacerItem *horizontalSpacer_65;
     QSpacerItem *verticalSpacer_61;
     QWidget *page_15;
-    QVBoxLayout *verticalLayout_63;
+    QVBoxLayout *verticalLayout_71;
     QLabel *label_37;
     QSpacerItem *verticalSpacer_62;
     QHBoxLayout *horizontalLayout_61;
@@ -617,19 +622,27 @@ public:
     QSpacerItem *horizontalSpacer_111;
     QFrame *frame_13;
     QGridLayout *gridLayout_22;
-    QLabel *label_155;
-    QLineEdit *lineEdit_27;
-    QLabel *label_154;
-    QLineEdit *lineEdit_30;
-    QLabel *label_153;
+    QLabel *label_102;
     QLineEdit *lineEdit_29;
+    QLabel *label_153;
+    QLineEdit *lineEdit_27;
+    QLineEdit *lineEdit_18;
+    QLabel *label_154;
+    QLabel *label_155;
     QSpacerItem *horizontalSpacer_82;
+    QLineEdit *lineEdit_30;
+    QLabel *label_104;
+    QLineEdit *lineEdit_19;
+    QLabel *label_103;
+    QLineEdit *lineEdit_20;
     QSpacerItem *horizontalSpacer_110;
     QSpacerItem *verticalSpacer_63;
     QHBoxLayout *horizontalLayout_42;
     QSpacerItem *horizontalSpacer_66;
     QPushButton *pushButton_35;
     QSpacerItem *horizontalSpacer_130;
+    QVBoxLayout *verticalLayout_63;
+    QCheckBox *checkBox_clonar;
     QPushButton *modificar;
     QSpacerItem *horizontalSpacer_67;
     QCommandLinkButton *commandLinkButton_4;
@@ -3245,11 +3258,11 @@ public:
 
         horizontalLayout_25->addWidget(label_90);
 
-        dateEdit = new QDateEdit(groupBox_91);
-        dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setMinimumSize(QSize(0, 20));
+        lineEdit_22 = new QLineEdit(groupBox_91);
+        lineEdit_22->setObjectName(QString::fromUtf8("lineEdit_22"));
+        lineEdit_22->setMaximumSize(QSize(150, 16777215));
 
-        horizontalLayout_25->addWidget(dateEdit);
+        horizontalLayout_25->addWidget(lineEdit_22);
 
 
         verticalLayout_70->addLayout(horizontalLayout_25);
@@ -3427,6 +3440,7 @@ public:
         doubleSpinBox_7 = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox_7->setObjectName(QString::fromUtf8("doubleSpinBox_7"));
         doubleSpinBox_7->setMinimumSize(QSize(0, 20));
+        doubleSpinBox_7->setMaximum(999);
 
         gridLayout_4->addWidget(doubleSpinBox_7, 2, 4, 1, 1);
 
@@ -3444,6 +3458,7 @@ public:
         doubleSpinBox_3->setObjectName(QString::fromUtf8("doubleSpinBox_3"));
         doubleSpinBox_3->setMinimumSize(QSize(0, 20));
         doubleSpinBox_3->setDecimals(2);
+        doubleSpinBox_3->setMaximum(50);
 
         gridLayout_4->addWidget(doubleSpinBox_3, 4, 4, 1, 1);
 
@@ -3471,6 +3486,9 @@ public:
         doubleSpinBox = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
         doubleSpinBox->setMinimumSize(QSize(0, 20));
+        doubleSpinBox->setMinimum(0);
+        doubleSpinBox->setMaximum(50);
+        doubleSpinBox->setValue(0);
 
         gridLayout_4->addWidget(doubleSpinBox, 1, 4, 1, 1);
 
@@ -3504,6 +3522,9 @@ public:
         doubleSpinBox_2->setObjectName(QString::fromUtf8("doubleSpinBox_2"));
         doubleSpinBox_2->setMinimumSize(QSize(80, 20));
         doubleSpinBox_2->setDecimals(2);
+        doubleSpinBox_2->setMinimum(0);
+        doubleSpinBox_2->setMaximum(50);
+        doubleSpinBox_2->setValue(0);
 
         gridLayout_4->addWidget(doubleSpinBox_2, 0, 4, 1, 1);
 
@@ -3530,6 +3551,7 @@ public:
         doubleSpinBox_4 = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox_4->setObjectName(QString::fromUtf8("doubleSpinBox_4"));
         doubleSpinBox_4->setMinimumSize(QSize(0, 20));
+        doubleSpinBox_4->setMaximum(999);
 
         gridLayout_4->addWidget(doubleSpinBox_4, 3, 4, 1, 1);
 
@@ -3548,6 +3570,7 @@ public:
         doubleSpinBox_5 = new QDoubleSpinBox(groupBox_101);
         doubleSpinBox_5->setObjectName(QString::fromUtf8("doubleSpinBox_5"));
         doubleSpinBox_5->setMinimumSize(QSize(0, 20));
+        doubleSpinBox_5->setMaximum(50);
 
         gridLayout_4->addWidget(doubleSpinBox_5, 5, 4, 1, 1);
 
@@ -3570,10 +3593,10 @@ public:
         groupBox_13->setMinimumSize(QSize(250, 0));
         groupBox_13->setMaximumSize(QSize(400, 16777215));
         verticalLayout_61 = new QVBoxLayout(groupBox_13);
-        verticalLayout_61->setSpacing(6);
+        verticalLayout_61->setSpacing(3);
         verticalLayout_61->setContentsMargins(11, 11, 11, 11);
         verticalLayout_61->setObjectName(QString::fromUtf8("verticalLayout_61"));
-        verticalLayout_61->setContentsMargins(-1, 12, -1, -1);
+        verticalLayout_61->setContentsMargins(-1, 10, -1, 5);
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setSpacing(6);
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
@@ -3585,6 +3608,7 @@ public:
         spinBox = new QSpinBox(groupBox_13);
         spinBox->setObjectName(QString::fromUtf8("spinBox"));
         spinBox->setMinimumSize(QSize(0, 20));
+        spinBox->setMinimum(1);
 
         horizontalLayout_19->addWidget(spinBox);
 
@@ -3596,6 +3620,7 @@ public:
         horizontalLayout_37->setObjectName(QString::fromUtf8("horizontalLayout_37"));
         label_96 = new QLabel(groupBox_13);
         label_96->setObjectName(QString::fromUtf8("label_96"));
+        label_96->setMinimumSize(QSize(0, 20));
 
         horizontalLayout_37->addWidget(label_96);
 
@@ -3782,6 +3807,38 @@ public:
 
         verticalLayout_30->addLayout(horizontalLayout_40);
 
+        horizontalLayout_78 = new QHBoxLayout();
+        horizontalLayout_78->setSpacing(6);
+        horizontalLayout_78->setObjectName(QString::fromUtf8("horizontalLayout_78"));
+        radioButton_15 = new QRadioButton(frame_3);
+        radioButton_15->setObjectName(QString::fromUtf8("radioButton_15"));
+
+        horizontalLayout_78->addWidget(radioButton_15);
+
+        lineEdit_21 = new QLineEdit(frame_3);
+        lineEdit_21->setObjectName(QString::fromUtf8("lineEdit_21"));
+
+        horizontalLayout_78->addWidget(lineEdit_21);
+
+
+        verticalLayout_30->addLayout(horizontalLayout_78);
+
+        horizontalLayout_79 = new QHBoxLayout();
+        horizontalLayout_79->setSpacing(6);
+        horizontalLayout_79->setObjectName(QString::fromUtf8("horizontalLayout_79"));
+        radioButton_16 = new QRadioButton(frame_3);
+        radioButton_16->setObjectName(QString::fromUtf8("radioButton_16"));
+
+        horizontalLayout_79->addWidget(radioButton_16);
+
+        lineEdit_23 = new QLineEdit(frame_3);
+        lineEdit_23->setObjectName(QString::fromUtf8("lineEdit_23"));
+
+        horizontalLayout_79->addWidget(lineEdit_23);
+
+
+        verticalLayout_30->addLayout(horizontalLayout_79);
+
         horizontalLayout_38 = new QHBoxLayout();
         horizontalLayout_38->setSpacing(6);
         horizontalLayout_38->setObjectName(QString::fromUtf8("horizontalLayout_38"));
@@ -3893,19 +3950,19 @@ public:
         stackedWidget->addWidget(page_14);
         page_15 = new QWidget();
         page_15->setObjectName(QString::fromUtf8("page_15"));
-        verticalLayout_63 = new QVBoxLayout(page_15);
-        verticalLayout_63->setSpacing(6);
-        verticalLayout_63->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_63->setObjectName(QString::fromUtf8("verticalLayout_63"));
+        verticalLayout_71 = new QVBoxLayout(page_15);
+        verticalLayout_71->setSpacing(6);
+        verticalLayout_71->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_71->setObjectName(QString::fromUtf8("verticalLayout_71"));
         label_37 = new QLabel(page_15);
         label_37->setObjectName(QString::fromUtf8("label_37"));
         label_37->setMinimumSize(QSize(0, 30));
 
-        verticalLayout_63->addWidget(label_37);
+        verticalLayout_71->addWidget(label_37);
 
         verticalSpacer_62 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_63->addItem(verticalSpacer_62);
+        verticalLayout_71->addItem(verticalSpacer_62);
 
         horizontalLayout_61 = new QHBoxLayout();
         horizontalLayout_61->setSpacing(6);
@@ -3951,7 +4008,7 @@ public:
         horizontalLayout_61->addItem(horizontalSpacer_108);
 
 
-        verticalLayout_63->addLayout(horizontalLayout_61);
+        verticalLayout_71->addLayout(horizontalLayout_61);
 
         horizontalLayout_62 = new QHBoxLayout();
         horizontalLayout_62->setSpacing(6);
@@ -3969,42 +4026,72 @@ public:
         gridLayout_22->setSpacing(6);
         gridLayout_22->setContentsMargins(11, 11, 11, 11);
         gridLayout_22->setObjectName(QString::fromUtf8("gridLayout_22"));
-        label_155 = new QLabel(frame_13);
-        label_155->setObjectName(QString::fromUtf8("label_155"));
+        label_102 = new QLabel(frame_13);
+        label_102->setObjectName(QString::fromUtf8("label_102"));
 
-        gridLayout_22->addWidget(label_155, 0, 1, 1, 1);
-
-        lineEdit_27 = new QLineEdit(frame_13);
-        lineEdit_27->setObjectName(QString::fromUtf8("lineEdit_27"));
-        lineEdit_27->setEnabled(false);
-
-        gridLayout_22->addWidget(lineEdit_27, 0, 2, 1, 1);
-
-        label_154 = new QLabel(frame_13);
-        label_154->setObjectName(QString::fromUtf8("label_154"));
-
-        gridLayout_22->addWidget(label_154, 1, 1, 1, 1);
-
-        lineEdit_30 = new QLineEdit(frame_13);
-        lineEdit_30->setObjectName(QString::fromUtf8("lineEdit_30"));
-        lineEdit_30->setEnabled(false);
-
-        gridLayout_22->addWidget(lineEdit_30, 1, 2, 1, 1);
-
-        label_153 = new QLabel(frame_13);
-        label_153->setObjectName(QString::fromUtf8("label_153"));
-
-        gridLayout_22->addWidget(label_153, 2, 1, 1, 1);
+        gridLayout_22->addWidget(label_102, 0, 1, 1, 1);
 
         lineEdit_29 = new QLineEdit(frame_13);
         lineEdit_29->setObjectName(QString::fromUtf8("lineEdit_29"));
         lineEdit_29->setEnabled(false);
 
-        gridLayout_22->addWidget(lineEdit_29, 2, 2, 1, 1);
+        gridLayout_22->addWidget(lineEdit_29, 3, 4, 1, 1);
 
-        horizontalSpacer_82 = new QSpacerItem(450, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        label_153 = new QLabel(frame_13);
+        label_153->setObjectName(QString::fromUtf8("label_153"));
 
-        gridLayout_22->addItem(horizontalSpacer_82, 0, 0, 1, 1);
+        gridLayout_22->addWidget(label_153, 3, 3, 1, 1);
+
+        lineEdit_27 = new QLineEdit(frame_13);
+        lineEdit_27->setObjectName(QString::fromUtf8("lineEdit_27"));
+        lineEdit_27->setEnabled(false);
+
+        gridLayout_22->addWidget(lineEdit_27, 0, 4, 1, 1);
+
+        lineEdit_18 = new QLineEdit(frame_13);
+        lineEdit_18->setObjectName(QString::fromUtf8("lineEdit_18"));
+
+        gridLayout_22->addWidget(lineEdit_18, 0, 2, 1, 1);
+
+        label_154 = new QLabel(frame_13);
+        label_154->setObjectName(QString::fromUtf8("label_154"));
+
+        gridLayout_22->addWidget(label_154, 2, 3, 1, 1);
+
+        label_155 = new QLabel(frame_13);
+        label_155->setObjectName(QString::fromUtf8("label_155"));
+
+        gridLayout_22->addWidget(label_155, 0, 3, 1, 1);
+
+        horizontalSpacer_82 = new QSpacerItem(200, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+        gridLayout_22->addItem(horizontalSpacer_82, 2, 0, 1, 1);
+
+        lineEdit_30 = new QLineEdit(frame_13);
+        lineEdit_30->setObjectName(QString::fromUtf8("lineEdit_30"));
+        lineEdit_30->setEnabled(false);
+
+        gridLayout_22->addWidget(lineEdit_30, 2, 4, 1, 1);
+
+        label_104 = new QLabel(frame_13);
+        label_104->setObjectName(QString::fromUtf8("label_104"));
+
+        gridLayout_22->addWidget(label_104, 1, 3, 1, 1);
+
+        lineEdit_19 = new QLineEdit(frame_13);
+        lineEdit_19->setObjectName(QString::fromUtf8("lineEdit_19"));
+
+        gridLayout_22->addWidget(lineEdit_19, 1, 2, 1, 1);
+
+        label_103 = new QLabel(frame_13);
+        label_103->setObjectName(QString::fromUtf8("label_103"));
+
+        gridLayout_22->addWidget(label_103, 1, 1, 1, 1);
+
+        lineEdit_20 = new QLineEdit(frame_13);
+        lineEdit_20->setObjectName(QString::fromUtf8("lineEdit_20"));
+
+        gridLayout_22->addWidget(lineEdit_20, 1, 4, 1, 1);
 
 
         horizontalLayout_62->addWidget(frame_13);
@@ -4014,11 +4101,11 @@ public:
         horizontalLayout_62->addItem(horizontalSpacer_110);
 
 
-        verticalLayout_63->addLayout(horizontalLayout_62);
+        verticalLayout_71->addLayout(horizontalLayout_62);
 
         verticalSpacer_63 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_63->addItem(verticalSpacer_63);
+        verticalLayout_71->addItem(verticalSpacer_63);
 
         horizontalLayout_42 = new QHBoxLayout();
         horizontalLayout_42->setSpacing(6);
@@ -4036,10 +4123,21 @@ public:
 
         horizontalLayout_42->addItem(horizontalSpacer_130);
 
+        verticalLayout_63 = new QVBoxLayout();
+        verticalLayout_63->setSpacing(6);
+        verticalLayout_63->setObjectName(QString::fromUtf8("verticalLayout_63"));
+        checkBox_clonar = new QCheckBox(page_15);
+        checkBox_clonar->setObjectName(QString::fromUtf8("checkBox_clonar"));
+
+        verticalLayout_63->addWidget(checkBox_clonar);
+
         modificar = new QPushButton(page_15);
         modificar->setObjectName(QString::fromUtf8("modificar"));
 
-        horizontalLayout_42->addWidget(modificar);
+        verticalLayout_63->addWidget(modificar);
+
+
+        horizontalLayout_42->addLayout(verticalLayout_63);
 
         horizontalSpacer_67 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -4052,11 +4150,11 @@ public:
         horizontalLayout_42->addWidget(commandLinkButton_4);
 
 
-        verticalLayout_63->addLayout(horizontalLayout_42);
+        verticalLayout_71->addLayout(horizontalLayout_42);
 
         verticalSpacer_64 = new QSpacerItem(17, 38, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_63->addItem(verticalSpacer_64);
+        verticalLayout_71->addItem(verticalSpacer_64);
 
         stackedWidget->addWidget(page_15);
         page_16 = new QWidget();
@@ -4086,8 +4184,8 @@ public:
         verticalLayout_39->setSpacing(6);
         verticalLayout_39->setObjectName(QString::fromUtf8("verticalLayout_39"));
         tableWidget_14 = new QTableWidget(page_16);
-        if (tableWidget_14->columnCount() < 5)
-            tableWidget_14->setColumnCount(5);
+        if (tableWidget_14->columnCount() < 7)
+            tableWidget_14->setColumnCount(7);
         QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
         tableWidget_14->setHorizontalHeaderItem(0, __qtablewidgetitem75);
         QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
@@ -4098,6 +4196,10 @@ public:
         tableWidget_14->setHorizontalHeaderItem(3, __qtablewidgetitem78);
         QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
         tableWidget_14->setHorizontalHeaderItem(4, __qtablewidgetitem79);
+        QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
+        tableWidget_14->setHorizontalHeaderItem(5, __qtablewidgetitem80);
+        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
+        tableWidget_14->setHorizontalHeaderItem(6, __qtablewidgetitem81);
         tableWidget_14->setObjectName(QString::fromUtf8("tableWidget_14"));
         tableWidget_14->setMinimumSize(QSize(700, 300));
         tableWidget_14->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -4189,14 +4291,14 @@ public:
         tableWidget_13 = new QTableWidget(page_17);
         if (tableWidget_13->columnCount() < 4)
             tableWidget_13->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(0, __qtablewidgetitem80);
-        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(1, __qtablewidgetitem81);
         QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(2, __qtablewidgetitem82);
+        tableWidget_13->setHorizontalHeaderItem(0, __qtablewidgetitem82);
         QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
-        tableWidget_13->setHorizontalHeaderItem(3, __qtablewidgetitem83);
+        tableWidget_13->setHorizontalHeaderItem(1, __qtablewidgetitem83);
+        QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
+        tableWidget_13->setHorizontalHeaderItem(2, __qtablewidgetitem84);
+        QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
+        tableWidget_13->setHorizontalHeaderItem(3, __qtablewidgetitem85);
         tableWidget_13->setObjectName(QString::fromUtf8("tableWidget_13"));
         tableWidget_13->setMinimumSize(QSize(700, 300));
         tableWidget_13->setLineWidth(1);
@@ -4283,12 +4385,12 @@ public:
         tableWidget_15 = new QTableWidget(page_12);
         if (tableWidget_15->columnCount() < 3)
             tableWidget_15->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
-        tableWidget_15->setHorizontalHeaderItem(0, __qtablewidgetitem84);
-        QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
-        tableWidget_15->setHorizontalHeaderItem(1, __qtablewidgetitem85);
         QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
-        tableWidget_15->setHorizontalHeaderItem(2, __qtablewidgetitem86);
+        tableWidget_15->setHorizontalHeaderItem(0, __qtablewidgetitem86);
+        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
+        tableWidget_15->setHorizontalHeaderItem(1, __qtablewidgetitem87);
+        QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
+        tableWidget_15->setHorizontalHeaderItem(2, __qtablewidgetitem88);
         if (tableWidget_15->rowCount() < 1)
             tableWidget_15->setRowCount(1);
         tableWidget_15->setObjectName(QString::fromUtf8("tableWidget_15"));
@@ -4445,10 +4547,10 @@ public:
         tableWidget_16 = new QTableWidget(page_18);
         if (tableWidget_16->columnCount() < 2)
             tableWidget_16->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
-        tableWidget_16->setHorizontalHeaderItem(0, __qtablewidgetitem87);
-        QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
-        tableWidget_16->setHorizontalHeaderItem(1, __qtablewidgetitem88);
+        QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
+        tableWidget_16->setHorizontalHeaderItem(0, __qtablewidgetitem89);
+        QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
+        tableWidget_16->setHorizontalHeaderItem(1, __qtablewidgetitem90);
         tableWidget_16->setObjectName(QString::fromUtf8("tableWidget_16"));
         tableWidget_16->setMinimumSize(QSize(200, 0));
         tableWidget_16->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -4619,12 +4721,12 @@ public:
         tableWidget_17 = new QTableWidget(page_19);
         if (tableWidget_17->columnCount() < 3)
             tableWidget_17->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
-        tableWidget_17->setHorizontalHeaderItem(0, __qtablewidgetitem89);
-        QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
-        tableWidget_17->setHorizontalHeaderItem(1, __qtablewidgetitem90);
         QTableWidgetItem *__qtablewidgetitem91 = new QTableWidgetItem();
-        tableWidget_17->setHorizontalHeaderItem(2, __qtablewidgetitem91);
+        tableWidget_17->setHorizontalHeaderItem(0, __qtablewidgetitem91);
+        QTableWidgetItem *__qtablewidgetitem92 = new QTableWidgetItem();
+        tableWidget_17->setHorizontalHeaderItem(1, __qtablewidgetitem92);
+        QTableWidgetItem *__qtablewidgetitem93 = new QTableWidgetItem();
+        tableWidget_17->setHorizontalHeaderItem(2, __qtablewidgetitem93);
         tableWidget_17->setObjectName(QString::fromUtf8("tableWidget_17"));
         tableWidget_17->setMinimumSize(QSize(400, 0));
         tableWidget_17->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -4725,7 +4827,11 @@ public:
 
         retranslateUi(cosmecClass);
 
+<<<<<<< HEAD
+        stackedWidget->setCurrentIndex(14);
+=======
         stackedWidget->setCurrentIndex(11);
+>>>>>>> 0dcd1d2e49a96766a505bff9a810f566ca01536b
 
 
         QMetaObject::connectSlotsByName(cosmecClass);
@@ -4815,13 +4921,13 @@ public:
         QTableWidgetItem *___qtablewidgetitem18 = tableWidget_5->horizontalHeaderItem(1);
         ___qtablewidgetitem18->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem19 = tableWidget_5->horizontalHeaderItem(2);
-        ___qtablewidgetitem19->setText(QApplication::translate("cosmecClass", "Cantidad", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem19->setText(QApplication::translate("cosmecClass", "Costo unitario [$]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem20 = tableWidget_5->horizontalHeaderItem(3);
-        ___qtablewidgetitem20->setText(QApplication::translate("cosmecClass", "Costo unitario [$]", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem20->setText(QApplication::translate("cosmecClass", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem21 = tableWidget_5->horizontalHeaderItem(4);
-        ___qtablewidgetitem21->setText(QApplication::translate("cosmecClass", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem21->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem22 = tableWidget_5->horizontalHeaderItem(5);
-        ___qtablewidgetitem22->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem22->setText(QApplication::translate("cosmecClass", "Aplicaciones", 0, QApplication::UnicodeUTF8));
         label_73->setText(QApplication::translate("cosmecClass", "Esta tabla muestra los \303\272tiles de corte usados por todas las m\303\241quinas de la empresa", 0, QApplication::UnicodeUTF8));
         pushButton_29->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_30->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
@@ -5004,7 +5110,6 @@ public:
         label_27->setText(QApplication::translate("cosmecClass", "#####", 0, QApplication::UnicodeUTF8));
         label_89->setText(QApplication::translate("cosmecClass", "Dirigido a:", 0, QApplication::UnicodeUTF8));
         label_90->setText(QApplication::translate("cosmecClass", "Fecha:", 0, QApplication::UnicodeUTF8));
-        dateEdit->setDisplayFormat(QApplication::translate("cosmecClass", "dd/MM/yyyy", 0, QApplication::UnicodeUTF8));
         label_28->setText(QApplication::translate("cosmecClass", "Direcci\303\263n:", 0, QApplication::UnicodeUTF8));
         label_92->setText(QApplication::translate("cosmecClass", "Ciudad:", 0, QApplication::UnicodeUTF8));
         label_29->setText(QApplication::translate("cosmecClass", "Tel\303\251fono:", 0, QApplication::UnicodeUTF8));
@@ -5033,7 +5138,7 @@ public:
         label_64->setText(QApplication::translate("cosmecClass", "Tiempo [h]", 0, QApplication::UnicodeUTF8));
         groupBox_13->setTitle(QApplication::translate("cosmecClass", "Pedido", 0, QApplication::UnicodeUTF8));
         label_95->setText(QApplication::translate("cosmecClass", "N\303\272mero de piezas", 0, QApplication::UnicodeUTF8));
-        label_96->setText(QApplication::translate("cosmecClass", "Descuento", 0, QApplication::UnicodeUTF8));
+        label_96->setText(QApplication::translate("cosmecClass", "Descuento [%]", 0, QApplication::UnicodeUTF8));
         label_99->setText(QApplication::translate("cosmecClass", "Tiempo de entrega:", 0, QApplication::UnicodeUTF8));
         label_100->setText(QApplication::translate("cosmecClass", "Lugar de entrega:", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem56 = tableWidget_12->horizontalHeaderItem(0);
@@ -5052,9 +5157,11 @@ public:
         pushButton_34->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
         commandLinkButton->setText(QApplication::translate("cosmecClass", "Siguiente", 0, QApplication::UnicodeUTF8));
         label_36->setText(QApplication::translate("cosmecClass", "Buscar Cotizaciones", 0, QApplication::UnicodeUTF8));
-        radioButton_c->setText(QApplication::translate("cosmecClass", "Por n\303\272mero de Cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
+        radioButton_c->setText(QApplication::translate("cosmecClass", "Por Cliente", 0, QApplication::UnicodeUTF8));
         radioButton_2->setText(QApplication::translate("cosmecClass", "Por n\303\272mero de c\303\251dula / RUC", 0, QApplication::UnicodeUTF8));
         lineEdit_6->setInputMask(QApplication::translate("cosmecClass", "#############; ", 0, QApplication::UnicodeUTF8));
+        radioButton_15->setText(QApplication::translate("cosmecClass", "Por proyecto", 0, QApplication::UnicodeUTF8));
+        radioButton_16->setText(QApplication::translate("cosmecClass", "Por Fecha", 0, QApplication::UnicodeUTF8));
         pushButton_36->setText(QApplication::translate("cosmecClass", "Buscar", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem62 = tableWidget_11->horizontalHeaderItem(0);
         ___qtablewidgetitem62->setText(QApplication::translate("cosmecClass", "No. Cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
@@ -5080,10 +5187,14 @@ public:
         QTableWidgetItem *___qtablewidgetitem71 = tableWidget_24->horizontalHeaderItem(4);
         ___qtablewidgetitem71->setText(QApplication::translate("cosmecClass", "Costo Total [$]", 0, QApplication::UnicodeUTF8));
         label_83->setText(QApplication::translate("cosmecClass", "Esta tabla muestra los \303\255tems que intervienen en la cotizaci\303\263n", 0, QApplication::UnicodeUTF8));
-        label_155->setText(QApplication::translate("cosmecClass", "Sutotal [$]", 0, QApplication::UnicodeUTF8));
-        label_154->setText(QApplication::translate("cosmecClass", "% IVA", 0, QApplication::UnicodeUTF8));
+        label_102->setText(QApplication::translate("cosmecClass", "Numero de piezas :", 0, QApplication::UnicodeUTF8));
         label_153->setText(QApplication::translate("cosmecClass", "Total [$]", 0, QApplication::UnicodeUTF8));
+        label_154->setText(QApplication::translate("cosmecClass", "% IVA", 0, QApplication::UnicodeUTF8));
+        label_155->setText(QApplication::translate("cosmecClass", "Sutotal [$]", 0, QApplication::UnicodeUTF8));
+        label_104->setText(QApplication::translate("cosmecClass", "Total[$]", 0, QApplication::UnicodeUTF8));
+        label_103->setText(QApplication::translate("cosmecClass", "Descuento [%]:", 0, QApplication::UnicodeUTF8));
         pushButton_35->setText(QApplication::translate("cosmecClass", "Detalle", 0, QApplication::UnicodeUTF8));
+        checkBox_clonar->setText(QApplication::translate("cosmecClass", "S\303\263lo cargar datos?", 0, QApplication::UnicodeUTF8));
         modificar->setText(QApplication::translate("cosmecClass", "Modificar", 0, QApplication::UnicodeUTF8));
         commandLinkButton_4->setText(QApplication::translate("cosmecClass", "Imprimir", 0, QApplication::UnicodeUTF8));
         label_38->setText(QApplication::translate("cosmecClass", "Materiales", 0, QApplication::UnicodeUTF8));
@@ -5094,32 +5205,36 @@ public:
         QTableWidgetItem *___qtablewidgetitem74 = tableWidget_14->horizontalHeaderItem(2);
         ___qtablewidgetitem74->setText(QApplication::translate("cosmecClass", "Geometr\303\255a", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem75 = tableWidget_14->horizontalHeaderItem(3);
-        ___qtablewidgetitem75->setText(QApplication::translate("cosmecClass", "Dimensiones", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem75->setText(QApplication::translate("cosmecClass", "Unidad", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem76 = tableWidget_14->horizontalHeaderItem(4);
-        ___qtablewidgetitem76->setText(QApplication::translate("cosmecClass", "Costo [$/kg]", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem76->setText(QApplication::translate("cosmecClass", "Dimensiones", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem77 = tableWidget_14->horizontalHeaderItem(5);
+        ___qtablewidgetitem77->setText(QApplication::translate("cosmecClass", "Costo [$/kg]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem78 = tableWidget_14->horizontalHeaderItem(6);
+        ___qtablewidgetitem78->setText(QApplication::translate("cosmecClass", "Aplicaciones", 0, QApplication::UnicodeUTF8));
         label_84->setText(QApplication::translate("cosmecClass", "Esta tabla muestra todos los materiales para maquinado que utiliza la empresa", 0, QApplication::UnicodeUTF8));
         pushButton_44->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_41->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
         pushButton_43->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
         label_39->setText(QApplication::translate("cosmecClass", "Actividades - M\303\241quina", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem77 = tableWidget_13->horizontalHeaderItem(0);
-        ___qtablewidgetitem77->setText(QApplication::translate("cosmecClass", "Id actividad", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem78 = tableWidget_13->horizontalHeaderItem(1);
-        ___qtablewidgetitem78->setText(QApplication::translate("cosmecClass", "Actividad", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem79 = tableWidget_13->horizontalHeaderItem(2);
-        ___qtablewidgetitem79->setText(QApplication::translate("cosmecClass", "N\303\272mero de serie", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem80 = tableWidget_13->horizontalHeaderItem(3);
-        ___qtablewidgetitem80->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem79 = tableWidget_13->horizontalHeaderItem(0);
+        ___qtablewidgetitem79->setText(QApplication::translate("cosmecClass", "Id actividad", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem80 = tableWidget_13->horizontalHeaderItem(1);
+        ___qtablewidgetitem80->setText(QApplication::translate("cosmecClass", "Actividad", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem81 = tableWidget_13->horizontalHeaderItem(2);
+        ___qtablewidgetitem81->setText(QApplication::translate("cosmecClass", "N\303\272mero de serie", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem82 = tableWidget_13->horizontalHeaderItem(3);
+        ___qtablewidgetitem82->setText(QApplication::translate("cosmecClass", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_85->setText(QApplication::translate("cosmecClass", "En esta tabla se muestran todas las actividades enlazadas a una m\303\241quina espec\303\255fica de la empresa", 0, QApplication::UnicodeUTF8));
         pushButton_39->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_38->setText(QApplication::translate("cosmecClass", "Eliminar", 0, QApplication::UnicodeUTF8));
         label_31->setText(QApplication::translate("cosmecClass", "Servicios Externos", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem81 = tableWidget_15->horizontalHeaderItem(0);
-        ___qtablewidgetitem81->setText(QApplication::translate("cosmecClass", "ID", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem82 = tableWidget_15->horizontalHeaderItem(1);
-        ___qtablewidgetitem82->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem83 = tableWidget_15->horizontalHeaderItem(2);
-        ___qtablewidgetitem83->setText(QApplication::translate("cosmecClass", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem83 = tableWidget_15->horizontalHeaderItem(0);
+        ___qtablewidgetitem83->setText(QApplication::translate("cosmecClass", "ID", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem84 = tableWidget_15->horizontalHeaderItem(1);
+        ___qtablewidgetitem84->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem85 = tableWidget_15->horizontalHeaderItem(2);
+        ___qtablewidgetitem85->setText(QApplication::translate("cosmecClass", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
         label_86->setText(QApplication::translate("cosmecClass", "Esta tabla muestra los servicios externos contratados por la empresa", 0, QApplication::UnicodeUTF8));
         pushButton_37->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_32->setText(QApplication::translate("cosmecClass", "Actualizar", 0, QApplication::UnicodeUTF8));
@@ -5129,10 +5244,10 @@ public:
         label_44->setText(QApplication::translate("cosmecClass", "Usuario", 0, QApplication::UnicodeUTF8));
         label_45->setText(QApplication::translate("cosmecClass", "Contrase\303\261a", 0, QApplication::UnicodeUTF8));
         checkBox_6->setText(QApplication::translate("cosmecClass", "Este usuario es Administrador?", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem84 = tableWidget_16->horizontalHeaderItem(0);
-        ___qtablewidgetitem84->setText(QApplication::translate("cosmecClass", "Usuario", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem85 = tableWidget_16->horizontalHeaderItem(1);
-        ___qtablewidgetitem85->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem86 = tableWidget_16->horizontalHeaderItem(0);
+        ___qtablewidgetitem86->setText(QApplication::translate("cosmecClass", "Usuario", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem87 = tableWidget_16->horizontalHeaderItem(1);
+        ___qtablewidgetitem87->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
         label_87->setText(QApplication::translate("cosmecClass", "Esta tabla muestra todos los usuarios del software", 0, QApplication::UnicodeUTF8));
         pushButton_12->setText(QApplication::translate("cosmecClass", "Agregar", 0, QApplication::UnicodeUTF8));
         pushButton_40->setText(QApplication::translate("cosmecClass", "Modificar", 0, QApplication::UnicodeUTF8));
@@ -5154,12 +5269,12 @@ public:
          << QApplication::translate("cosmecClass", "Servicios Externos", 0, QApplication::UnicodeUTF8)
         );
         pushButton_42->setText(QApplication::translate("cosmecClass", "Buscar", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem86 = tableWidget_17->horizontalHeaderItem(0);
-        ___qtablewidgetitem86->setText(QApplication::translate("cosmecClass", "ID", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem87 = tableWidget_17->horizontalHeaderItem(1);
-        ___qtablewidgetitem87->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem88 = tableWidget_17->horizontalHeaderItem(2);
-        ___qtablewidgetitem88->setText(QApplication::translate("cosmecClass", "Codigo Espe", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem88 = tableWidget_17->horizontalHeaderItem(0);
+        ___qtablewidgetitem88->setText(QApplication::translate("cosmecClass", "ID", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem89 = tableWidget_17->horizontalHeaderItem(1);
+        ___qtablewidgetitem89->setText(QApplication::translate("cosmecClass", "Nombre", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem90 = tableWidget_17->horizontalHeaderItem(2);
+        ___qtablewidgetitem90->setText(QApplication::translate("cosmecClass", "Codigo Espe", 0, QApplication::UnicodeUTF8));
         label_88->setText(QApplication::translate("cosmecClass", "Esta tabla muestra los resultados de la b\303\272squeda especificada", 0, QApplication::UnicodeUTF8));
         pushButton_45->setText(QApplication::translate("cosmecClass", "Mostrar", 0, QApplication::UnicodeUTF8));
         menuArchivos->setTitle(QApplication::translate("cosmecClass", "Registros", 0, QApplication::UnicodeUTF8));
