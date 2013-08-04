@@ -4407,7 +4407,9 @@ void cosmec::eliminarPrimeraCotizacion(){
 	ui.tableWidget_12->removeRow(currentRow);
 }
 void cosmec::segundaParte(){
-	if(ui.lineEdit_2->text()!="" && ui.lineEdit->text()!=""){
+	if(ui.lineEdit_2->text()!="" && ui.lineEdit->text()!="" &&ui.lineEdit_22->text()!="" && ui.lineEdit_14->text()!="" &&
+		ui.lineEdit_16->text()!="" && ui.lineEdit_13->text()!="" && ui.lineEdit_4->text()!="" && ui.lineEdit_15->text()!="" &&
+		ui.lineEdit_17->text()!="" && ui.tableWidget_12->rowCount()!=0 && ui.spinBox->value()!=0){
 		
 		//ui.menuBar->setEnabled(false);
 
@@ -4508,7 +4510,7 @@ void cosmec::segundaParte(){
 	}
 	else{
 		QMessageBox msgBox;
-		msgBox.setText("Ingrese nombre y CI/RUC del cliente");
+		msgBox.setText("Ingrese:\n\n- Cliente\n- CI/RUC\n- Forma de pago\n- Ciudad\n- Fecha\n- Teléfono\n- Duración de la cotización\n- Tiempo de entrega\n- Lugar de entrega\n- Número de piezas diferente de cero\n- Elementos de la cotización");
 		msgBox.exec();
 	}
 
