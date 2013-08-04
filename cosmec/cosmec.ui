@@ -6174,6 +6174,11 @@ background: qlineargradient(
               </column>
               <column>
                <property name="text">
+                <string>Unidad</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
                 <string>Dimensiones</string>
                </property>
               </column>
