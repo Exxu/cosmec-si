@@ -4443,7 +4443,7 @@ void cosmec::segundaParte(){
 		double descuento=ui.doubleSpinBox_6->value();
 
 		if(modificar){
-			sql=QString("UPDATE cotizacion"
+			sql=QString("UPDATE cotizacion "
 				"SET nombre='%1', dirigido='%2', fecha='%3', ruc=%4, proyecto='%5', ciudad='%6', " 
 				"telefono='%7', direccion='%8', forma_pago='%9', "
 				"lugar_entrega='%10', tiempo_entrega='%11', duracion_cotizacion='%12', " 
@@ -5546,8 +5546,8 @@ double cosmec::calcularcotizacion2(int numero){
 		}
 		cosmecdb.close();
 		//--------------------------
-		sql=QString("UPDATE cotizacion_manoobra SET valor_material=%1 "
-			"WHERE serie_maquina=%2 AND numero_cotizacion=%3").arg(total_mat).arg(serie).arg(numero);
+		sql=QString("UPDATE cotizacion_manoobra SET valor_material=%1, valor_consumible=%4 "
+			"WHERE serie_maquina=%2 AND numero_cotizacion=%3").arg(total_mat).arg(serie).arg(numero).arg(total_cons);
 		insertarsql(sql);
 		//--------------------------
 		index++;
