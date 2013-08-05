@@ -419,6 +419,8 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	//buscar cotización
 	connect(ui.radioButton_c,SIGNAL(clicked()),this,SLOT(habilitarBuscarCotizacion()));
 	connect(ui.radioButton_2,SIGNAL(clicked()),this,SLOT(habilitarBuscarRuc()));
+	connect(ui.radioButton_15,SIGNAL(clicked()),this,SLOT(habilitarBuscarProyecto()));
+	connect(ui.radioButton_16,SIGNAL(clicked()),this,SLOT(habilitarBuscarFecha()));
 	connect(ui.pushButton_36,SIGNAL(clicked()),this,SLOT(buscarCotizacion()));
 	connect(ui.commandLinkButton_2,SIGNAL(clicked()),this,SLOT(resultadoCotizacion()));
 	connect(ui.pushButton_35,SIGNAL(clicked()),this,SLOT(detalle()));
@@ -1318,7 +1320,7 @@ void cosmec::nuevoMat(){
 	QString aplicacion=fmateriales->ui.plainTextEdit->toPlainText();
 	QString unidad=fmateriales->ui.lineEdit_5->text();
 
-	if(material!="" && geometria!="" && dimensiones!="" && costo!=0){
+	if(material!="" && geometria!="" && dimensiones!="" && costo!=0 && unidad!="" && aplicacion!=""){
 		sql=QString("INSERT INTO materiales(nombre, geometria, unidades, dimencion, costo, aplicacion)"
 			"VALUES ('%1','%2','%3','%4',%5,'%6')").arg(material).arg(geometria).arg(unidad).arg(dimensiones).arg(costo).arg(aplicacion);
 		insertarsql(sql);
@@ -1771,7 +1773,7 @@ void cosmec::nuevoCons(){
 	int cantidad=1;
 	double costo=fcons->ui.doubleSpinBox->value();
 	int horas=sql_maquina(id_maquina,5).toInt();
-	if(id_maquina!=0 && cantidad!=0 && nombre!="" && costo!=0 && horas!=0){
+	if(id_maquina!=0 && nombre!="" && costo!=0 && aplicacion!=""){
 		//calculos
 		double costo_cant=costo*cantidad;
 		double costo_hora=costo_cant/horas;
@@ -3971,6 +3973,8 @@ void cosmec::setbuscarCotizacion(){
 	borrartabla(ui.tableWidget_11);
 	ui.lineEdit_5->clear();
 	ui.lineEdit_6->clear();
+	ui.lineEdit_23->clear();
+	ui.lineEdit_21->clear();
 
 	ui.radioButton_c->setCheckable(false);
 	ui.radioButton_c->update();
@@ -3979,6 +3983,14 @@ void cosmec::setbuscarCotizacion(){
 	ui.radioButton_2->setCheckable(false);
 	ui.radioButton_2->update();
 	ui.radioButton_2->setCheckable(true);
+
+	ui.radioButton_15->setCheckable(false);
+	ui.radioButton_15->update();
+	ui.radioButton_15->setCheckable(true);
+
+	ui.radioButton_16->setCheckable(false);
+	ui.radioButton_16->update();
+	ui.radioButton_16->setCheckable(true);
 
 	ui.stackedWidget->setCurrentIndex(12);
 }
@@ -4112,12 +4124,28 @@ void cosmec::eliminarFilaMaqActividades(){
 void cosmec::habilitarBuscarRuc(){
 	ui.lineEdit_5->setEnabled(false);
 	ui.lineEdit_6->setEnabled(true);
+	ui.lineEdit_21->setEnabled(false);
+	ui.lineEdit_23->setEnabled(false);
 	//qDebug()<<"habilita ruc";
 }
 void cosmec::habilitarBuscarCotizacion(){
 	ui.lineEdit_5->setEnabled(true);
 	ui.lineEdit_6->setEnabled(false);
+	ui.lineEdit_21->setEnabled(false);
+	ui.lineEdit_23->setEnabled(false);
 	//qDebug()<<"habilita cotizacion";
+}
+void cosmec::habilitarBuscarProyecto(){
+	ui.lineEdit_5->setEnabled(false);
+	ui.lineEdit_6->setEnabled(false);
+	ui.lineEdit_21->setEnabled(true);
+	ui.lineEdit_23->setEnabled(false);
+}
+void cosmec::habilitarBuscarFecha(){
+	ui.lineEdit_5->setEnabled(false);
+	ui.lineEdit_6->setEnabled(false);
+	ui.lineEdit_21->setEnabled(false);
+	ui.lineEdit_23->setEnabled(true);
 }
 void cosmec::buscarCotizacion(){//llenar tabla de cotizaciones encontradas con ese valor de RUC o # cotizacion
 	QString sql;
@@ -6391,7 +6419,9 @@ void cosmec::limpiarFMaq(){
 	fmaquina->ui.lineEdit->setText("");
 	fmaquina->ui.lineEdit_2->setText("");
 	fmaquina->ui.lineEdit_3->setText("");
+	fmaquina->ui.lineEdit_4->setText("");
 	fmaquina->ui.lineEdit_5->setText("");
+	fmaquina->ui.lineEdit_6->setText("");
 	fmaquina->ui.lineEdit_10->setText("");
 	fmaquina->ui.lineEdit_7->setText("");
 	fmaquina->ui.lineEdit_8->setText("");
@@ -6400,6 +6430,8 @@ void cosmec::limpiarFMaq(){
 	fmaquina->ui.doubleSpinBox_3->setValue(0);
 	fmaquina->ui.spinBox->setValue(0);
 	fmaquina->ui.spinBox_2->setValue(0);
+	fmaquina->ui.label_11->setText("");
+	fmaquina->ui.plainTextEdit->setPlainText("");
 }
 void cosmec::llenarcombomaq(QString sql,QComboBox *combo){
 	combo->clear();
@@ -6453,6 +6485,7 @@ void cosmec::limpiarFCons(){
 	fcons->ui.lineEdit_4->setText("");
 	fcons->ui.doubleSpinBox->setValue(0);
 	//fcons->ui.spinBox->setValue(0);
+	fcons->ui.plainTextEdit->setPlainText("");
 }
 void cosmec::limpiarFser(){
 	fser->ui.lineEdit->setText("");
@@ -6504,6 +6537,8 @@ void cosmec::limpiarFMateriales(){
 	fmateriales->ui.lineEdit_3->setText("");
 	fmateriales->ui.lineEdit_4->setText("");
 	fmateriales->ui.doubleSpinBox->setValue(0);
+	fmateriales->ui.lineEdit_5->setText("");
+	fmateriales->ui.plainTextEdit->setPlainText("");
 }
 void cosmec::limpiarFSexternos(){
 	fexternos->ui.lineEdit->setText("");

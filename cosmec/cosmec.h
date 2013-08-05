@@ -1,3 +1,4 @@
+
 #ifndef COSMEC_H
 #define COSMEC_H
 
@@ -287,6 +288,8 @@ private slots:
 	//buscar cotización
 	void habilitarBuscarRuc();
 	void habilitarBuscarCotizacion();
+	void habilitarBuscarProyecto();
+	void habilitarBuscarFecha();
 	void buscarCotizacion();
 	void resultadoCotizacion();
 	void imprimirCotizacion();
