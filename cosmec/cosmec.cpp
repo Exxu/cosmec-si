@@ -478,6 +478,9 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(finsumo->ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora_insumo2(int)));
 	connect(finsumo->ui.comboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(costo_hora_insumo3(int)));
 
+	connect(fActTrab->ui.comboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(costo_hora_actrab2(int)));
+	connect(fActTrab->ui.spinBox,SIGNAL(valueChanged(int)),this,SLOT(costo_hora_actrab(int)));
+
 	//vaciar tabla busqueda
 	connect(ui.comboBox_2,SIGNAL(currentIndexChanged(int)),this,SLOT(borrartablaSlot(int)));
 	connect(ui.comboBox_3,SIGNAL(currentIndexChanged(int)),this,SLOT(borrartablaSlot(int)));
@@ -1780,7 +1783,7 @@ void cosmec::nuevoCons(){
 		sql=QString("INSERT INTO consumible(nombre_consumible, costo_unitario, costo_hora," 
 			"serie_maquinas,aplicacion) VALUES ('%1',%2,%3,%4,'%5')").arg(nombre).arg(costo).arg(costo_hora).arg(idmaquinas[fila]).arg(aplicacion);
 		insertarsql(sql);
-		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 		llenartabla(ui.tableWidget_5,sql);
 
 		limpiarFCons();
@@ -1802,21 +1805,21 @@ void cosmec::editarCons(){
 		QTableWidgetItem *itab1 = ui.tableWidget_5->item(filh,0);
 		QTableWidgetItem *itab2 = ui.tableWidget_5->item(filh,1);
 		QTableWidgetItem *itab3 = ui.tableWidget_5->item(filh,2);
-		QTableWidgetItem *itab4 = ui.tableWidget_5->item(filh,3);
-		QTableWidgetItem *itab5 = ui.tableWidget_5->item(filh,4);
-		QTableWidgetItem *itab6 = ui.tableWidget_5->item(filh,5);
+		//QTableWidgetItem *itab4 = ui.tableWidget_5->item(filh,3);
+		QTableWidgetItem *itab5 = ui.tableWidget_5->item(filh,3);
+		QTableWidgetItem *itab6 = ui.tableWidget_5->item(filh,4);
 
 		QString id_consumible=itab1->text();
 		QString nombre=itab2->text();
 		QString costo=itab3->text();
-		QString costo_hora=itab4->text();
+		//QString costo_hora=itab4->text();
 		QString maquina=itab5->text();
 		QString aplicacion=itab6->text();
 		
 		fcons->ui.lineEdit->setText(id_consumible);
 		fcons->ui.lineEdit_2->setText(nombre);
 		fcons->ui.doubleSpinBox->setValue(QString(costo).toDouble());
-		fcons->ui.lineEdit_3->setText(costo_hora);
+		//fcons->ui.lineEdit_3->setText(costo_hora);
 		fcons->ui.lineEdit_4->setText(maquina);
 		fcons->ui.plainTextEdit->setPlainText(aplicacion);
 
@@ -1855,7 +1858,7 @@ void cosmec::updateCons(){
 		sql=QString("UPDATE consumible SET nombre_consumible='%1', costo_unitario=%2, costo_hora=%3," 
 			"serie_maquinas=%4,aplicacion='%5' WHERE id_consumible=%6").arg(nombre).arg(costo).arg(costo_hora).arg(id).arg(aplicaciones).arg(id_consumible);
 		insertarsql(sql);
-		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+		sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,b.modelo,a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 		llenartabla(ui.tableWidget_5,sql);
 
 		limpiarFCons();
@@ -3253,7 +3256,7 @@ void cosmec::setherramienta(){
 }
 void cosmec::setconsumible(){
 	fcons->ui.comboBox->setVisible(true);
-	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,a.costo_hora,b.modelo||' ('||b.cod_espe||')',a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
+	QString sql="SELECT a.id_consumible,a.nombre_consumible,a.costo_unitario,b.modelo||' ('||b.cod_espe||')',a.aplicacion FROM maquinas AS b,consumible AS a WHERE a.serie_maquinas=b.serie ORDER BY b.modelo";
 	llenartabla(ui.tableWidget_5,sql);
 	ui.stackedWidget->setCurrentIndex(3);
 }
@@ -6168,7 +6171,7 @@ void cosmec::mostrarFormlleno(){
 					fcons->ui.lineEdit_2->setText(nombre);
 					fcons->ui.doubleSpinBox->setValue(QString(costo).toDouble());
 					//fcons->ui.spinBox->setValue(QString(cantidad).toInt());
-					fcons->ui.lineEdit_3->setText(costo_hora);
+					//fcons->ui.lineEdit_3->setText(costo_hora);
 					fcons->ui.lineEdit_4->setText(maquina);	
 					fcons->ui.plainTextEdit->setPlainText(aplicacion);
 				}
@@ -6481,7 +6484,7 @@ void cosmec::limpiarFHerr(){
 void cosmec::limpiarFCons(){
 	fcons->ui.lineEdit->setText("");
 	fcons->ui.lineEdit_2->setText("");
-	fcons->ui.lineEdit_3->setText("");
+	//fcons->ui.lineEdit_3->setText("");
 	fcons->ui.lineEdit_4->setText("");
 	fcons->ui.doubleSpinBox->setValue(0);
 	//fcons->ui.spinBox->setValue(0);
@@ -6581,14 +6584,14 @@ void cosmec::costo_hora_consumibles(double valor){
 	if(valor !=0){
 		int horas_maq=sql_maquina(idmaquinas[fcons->ui.comboBox->currentIndex()],5).toInt();
 		double resultado=redondear((valor*1)/(horas_maq));
-		fcons->ui.lineEdit_3->setText(QString::number(resultado));
+		//fcons->ui.lineEdit_3->setText(QString::number(resultado));
 	}
 }
 void cosmec::costo_hora_consumibles2(int cantidad){
 	if(cantidad!=0 && fcons->ui.doubleSpinBox->value()!=0){
 		int horas_maq=sql_maquina(idmaquinas[fcons->ui.comboBox->currentIndex()],5).toInt();
 		double resultado=redondear((cantidad*fcons->ui.doubleSpinBox->value())/(horas_maq));
-		fcons->ui.lineEdit_3->setText(QString::number(resultado));
+		//fcons->ui.lineEdit_3->setText(QString::number(resultado));
 	}
 
 }
@@ -6596,7 +6599,7 @@ void cosmec::costo_hora_consumibles3( int maq){
 	if(fcons->ui.doubleSpinBox->value()!=0){
 		int horas_maq=sql_maquina(idmaquinas[maq],5).toInt();
 		double resultado=redondear((fcons->ui.doubleSpinBox->value()*1)/(horas_maq));
-		fcons->ui.lineEdit_3->setText(QString::number(resultado));
+		//fcons->ui.lineEdit_3->setText(QString::number(resultado));
 	}
 }
 void cosmec::depre_herramientas(double costo){
@@ -6725,6 +6728,28 @@ void cosmec::costo_hora_insumo3(int maq){
 	if(unitario!=0 && cantidad!=0){
 		double resultado=redondear(unitario*cantidad/horas_maq);
 		finsumo->ui.lineEdit_4->setText(QString::number(resultado));
+	}
+}
+void cosmec::costo_hora_actrab(int horasact){
+	int fila=fActTrab->ui.comboBox->currentIndex();
+	int id_cargo=idcargo[fila];
+	QString sql=QString("SELECT salario FROM cargo WHERE id_cargo=%1").arg(id_cargo);;
+	double salario_cargo=sql_general(sql,0).toDouble();
+	if(horasact!=0){
+		double resultado=redondear((salario_cargo/160)*horasact);
+		fActTrab->ui.lineEdit_3->setText(QString::number(redondear(salario_cargo/160)));
+		fActTrab->ui.doubleSpinBox->setValue(resultado);
+	}
+}
+void cosmec::costo_hora_actrab2(int car){
+	int id_cargo=idcargo[car];
+	QString sql=QString("SELECT salario FROM cargo WHERE id_cargo=%1").arg(id_cargo);;
+	double salario_cargo=sql_general(sql,0).toDouble();
+	int horasact=fActTrab->ui.spinBox->value();
+	if(horasact!=0){
+		double resultado=redondear((salario_cargo/160)*horasact);
+		fActTrab->ui.lineEdit_3->setText(QString::number(redondear(salario_cargo/160)));
+		fActTrab->ui.doubleSpinBox->setValue(resultado);
 	}
 }
 void cosmec::limpiarRep(){

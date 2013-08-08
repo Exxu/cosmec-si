@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioacttrabajo.ui'
 **
-** Created: Fri 2. Aug 01:12:04 2013
+** Created: Wed 7. Aug 21:42:07 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -195,6 +195,7 @@ public:
 
         doubleSpinBox = new QDoubleSpinBox(formularioActTrabajo);
         doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
+        doubleSpinBox->setEnabled(true);
         doubleSpinBox->setMaximum(1e+09);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, doubleSpinBox);

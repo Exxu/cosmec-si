@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioconsumibles.ui'
 **
-** Created: Fri 2. Aug 01:12:04 2013
+** Created: Wed 7. Aug 22:42:55 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,8 +46,6 @@ public:
     QLineEdit *lineEdit_2;
     QLabel *label_4;
     QDoubleSpinBox *doubleSpinBox;
-    QLabel *label_6;
-    QLineEdit *lineEdit_3;
     QLabel *label_7;
     QLineEdit *lineEdit_4;
     QComboBox *comboBox;
@@ -195,46 +193,34 @@ public:
 
         formLayout->setWidget(2, QFormLayout::FieldRole, doubleSpinBox);
 
-        label_6 = new QLabel(formularioConsumibles);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-
-        formLayout->setWidget(3, QFormLayout::LabelRole, label_6);
-
-        lineEdit_3 = new QLineEdit(formularioConsumibles);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-        lineEdit_3->setEnabled(false);
-        lineEdit_3->setMinimumSize(QSize(0, 20));
-
-        formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_3);
-
         label_7 = new QLabel(formularioConsumibles);
         label_7->setObjectName(QString::fromUtf8("label_7"));
 
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_7);
+        formLayout->setWidget(3, QFormLayout::LabelRole, label_7);
 
         lineEdit_4 = new QLineEdit(formularioConsumibles);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
         lineEdit_4->setEnabled(false);
         lineEdit_4->setMinimumSize(QSize(0, 20));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_4);
+        formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_4);
 
         comboBox = new QComboBox(formularioConsumibles);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setMinimumSize(QSize(0, 20));
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, comboBox);
+        formLayout->setWidget(4, QFormLayout::FieldRole, comboBox);
 
         label_9 = new QLabel(formularioConsumibles);
         label_9->setObjectName(QString::fromUtf8("label_9"));
 
-        formLayout->setWidget(6, QFormLayout::LabelRole, label_9);
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_9);
 
         plainTextEdit = new QPlainTextEdit(formularioConsumibles);
         plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
         plainTextEdit->setMinimumSize(QSize(0, 40));
 
-        formLayout->setWidget(6, QFormLayout::FieldRole, plainTextEdit);
+        formLayout->setWidget(5, QFormLayout::FieldRole, plainTextEdit);
 
 
         horizontalLayout_3->addLayout(formLayout);
@@ -322,7 +308,6 @@ public:
         label_2->setText(QApplication::translate("formularioConsumibles", "ID", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("formularioConsumibles", "Nombre", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("formularioConsumibles", "Valor unitario [$]", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("formularioConsumibles", "Costo hora [$/h]", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("formularioConsumibles", "M\303\241quina", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("formularioConsumibles", "Aplicaciones", 0, QApplication::UnicodeUTF8));
         label_8->setText(QString());

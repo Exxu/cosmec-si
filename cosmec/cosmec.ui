@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>11</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1043,11 +1043,6 @@ background: qlineargradient(
               <column>
                <property name="text">
                 <string>Costo unitario [$]</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Costo hora [$/h]</string>
                </property>
               </column>
               <column>

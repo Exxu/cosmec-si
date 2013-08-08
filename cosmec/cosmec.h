@@ -136,6 +136,7 @@ private:
 	double calcularcotizacion2(int numero);
 	void borrartabla2(QTableWidget *tableNum2);
 	double redondear(double num);
+
 	void limpiarFMaq();
 	void limpiarFHerr();
 	void limpiarFCons();
@@ -328,6 +329,9 @@ private slots:
 	void centrarItem(QTableWidgetItem *elemento);
 
 	//CALCULOS EN TIEMPO REAL
+	void costo_hora_actrab(int horasact);
+	void costo_hora_actrab2(int car);
+
 	void costo_hora_consumibles(double valor);
 	void costo_hora_consumibles2(int cantidad);
 	void costo_hora_consumibles3( int maq);

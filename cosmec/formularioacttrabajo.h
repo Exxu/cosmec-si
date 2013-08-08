@@ -21,8 +21,8 @@ private:
 
 private slots:
 	void labelCombo(QString actual);
-	void costo_hora(double valor);
-	void costo_hora2(int hora);
+	/*void costo_hora(double valor);
+	void costo_hora2(int hora);*/
 	void ayuda();
 	
 };
