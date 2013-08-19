@@ -82,7 +82,122 @@
             <Interior ss:Color="#76933C" ss:Pattern="Solid" />
         </Style>
     </Styles>
-    <Worksheet ss:Name="Consumibles">
+    <Worksheet ss:Name="mano de obra">
+        <Table ss:ExpandedColumnCount="199" ss:ExpandedRowCount="200" x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
+            <Row />
+            <Row ss:Height="25">
+                <Cell ss:Index="2" ss:MergeAcross="6" ss:StyleID="s23">
+                    <Data ss:Type="String">Escuela Politecnica del Ejercito</Data>
+                </Cell>
+            </Row>
+            <Row ss:Height="15">
+                <Cell ss:Index="2" ss:MergeAcross="6" ss:StyleID="s23">
+                    <Data ss:Type="String">Departamento de ciencias de la energia y mecanica</Data>
+                </Cell>
+            </Row>
+            <Row />
+            <Row ss:Height="30">
+                <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s23">
+                    <Data ss:Type="String">MANO DE OBRA DE LA MAQUINA: VIWA VTC</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="25">
+                <Cell ss:StyleID="s18" ss:Index="2">
+                    <Data ss:Type="String">Nombre de la Actividad</Data>
+                </Cell>
+                <Cell ss:StyleID="s18">
+                    <Data ss:Type="String">Cargo</Data>
+                </Cell>
+                <Cell ss:StyleID="s18">
+                    <Data ss:Type="String">Hora de Trabajo</Data>
+                </Cell>
+                <Cell ss:StyleID="s18">
+                    <Data ss:Type="String">Costo del Trabajo</Data>
+                </Cell>
+                <Cell ss:StyleID="s18">
+                    <Data ss:Type="String">Costo Hora</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Mantenimiento</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="String">Laboratorista</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">60</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">420.65</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">36.8570927889249102</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Operacion de la maquinaria</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="String">Laboratorista</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">60</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">420.65</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">36.8570927889249102</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Programar</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="String">Disenador</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">40</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">150.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">13.1429072110750898</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Mantenimiento ayudante</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="String">Ayudante</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">60</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">150.00</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">13.1429072110750898</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="4" ss:StyleID="s23">
+                    <Data ss:Type="String">Valor de mano de obra</Data>
+                </Cell>
+                <Cell ss:Index="5" ss:StyleID="s21" ss:Formula="=SUM(R[-4]C:R[-1]C)">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+            </Row>
+            <Row />
+        </Table>
+    </Worksheet>
+    <Worksheet ss:Name="Actividades">
         <Table ss:ExpandedColumnCount="199" ss:ExpandedRowCount="200" x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
             <Row />
             <Row ss:Height="25">
@@ -98,204 +213,220 @@
             <Row />
             <Row ss:Height="30">
                 <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s23">
-                    <Data ss:Type="String">CONSUMIBLES DE LA MAQUINA: FADAL VMC</Data>
+                    <Data ss:Type="String">REPORTE DE ACTIVIDADES DE: Ayudante</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="25">
                 <Cell ss:StyleID="s18" ss:Index="2">
-                    <Data ss:Type="String">Nombre del Consumible</Data>
+                    <Data ss:Type="String">Nombre de la actividad</Data>
                 </Cell>
                 <Cell ss:StyleID="s18">
-                    <Data ss:Type="String">Valor</Data>
+                    <Data ss:Type="String">Hora de Trabajo</Data>
                 </Cell>
                 <Cell ss:StyleID="s18">
-                    <Data ss:Type="String">Costo Hora</Data>
+                    <Data ss:Type="String">Costo de Trabajo</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Fresa planear LT 610-M-W-D80/6</Data>
+                    <Data ss:Type="String">Mantenimiento ayudante</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">582.00</Data>
+                    <Data ss:Type="Number">60</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.30</Data>
+                    <Data ss:Type="Number">150.00</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Fresa de escuadra LT730-M-W-D50</Data>
+                    <Data ss:Type="String">Bodegaje</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">396.00</Data>
+                    <Data ss:Type="Number">40</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.21</Data>
+                    <Data ss:Type="Number">100.00</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Fresa de alto avance LT 900 W-W-D25/3 Roseta</Data>
+                    <Data ss:Type="String">Limpieza</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">349.00</Data>
+                    <Data ss:Type="Number">20</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.18</Data>
+                    <Data ss:Type="Number">50.00</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Fresa de alto avance LT 900 M-W-D250/6 Roseta</Data>
+                    <Data ss:Type="String">Entrega de productos terminados</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">571.00</Data>
+                    <Data ss:Type="Number">40</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.30</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Fresa de ranurado LT720 W-W-D16/2</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">224.00</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.12</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Fresa de ranurado LT720 W-W-D25/3</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">238.00</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.12</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos SEKT 12T3 AGSN LT 30</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">10.84</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.06</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos APKT 1604 PDRT LT 30</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">10.84</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.06</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos APKT 160424 ER LT 30</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">10.84</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.06</Data>
-                </Cell>
-            </Row>
-            <Row ss:AutoFitHeight="1" ss:Height="15">
-                <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos SNKX 09T3 -HF</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">17.61</Data>
-                </Cell>
-                <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.09</Data>
+                    <Data ss:Type="Number">100.00</Data>
                 </Cell>
             </Row>
             <Row>
                 <Cell ss:Index="3" ss:StyleID="s23">
-                    <Data ss:Type="String">Costo Hora total</Data>
+                    <Data ss:Type="String">Salario</Data>
                 </Cell>
-                <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-10]C:R[-1]C)">
+                <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-4]C:R[-1]C)">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="3" ss:StyleID="s23">
+                    <Data ss:Type="String">Horas de trabajo total</Data>
+                </Cell>
+                <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-5]C[-1]:R[-2]C[-1])">
                     <Data ss:Type="Number">1</Data>
                 </Cell>
             </Row>
             <Row />
             <Row ss:Height="30">
                 <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s23">
-                    <Data ss:Type="String">CONSUMIBLES DE LA MAQUINA: VIWA VTC</Data>
+                    <Data ss:Type="String">REPORTE DE ACTIVIDADES DE: Disenador</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="25">
                 <Cell ss:StyleID="s18" ss:Index="2">
-                    <Data ss:Type="String">Nombre del Consumible</Data>
+                    <Data ss:Type="String">Nombre de la actividad</Data>
                 </Cell>
                 <Cell ss:StyleID="s18">
-                    <Data ss:Type="String">Valor</Data>
+                    <Data ss:Type="String">Hora de Trabajo</Data>
                 </Cell>
                 <Cell ss:StyleID="s18">
-                    <Data ss:Type="String">Costo Hora</Data>
+                    <Data ss:Type="String">Costo de Trabajo</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos WNMG 080404 NN LT10</Data>
+                    <Data ss:Type="String">Disenar</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">10.00</Data>
+                    <Data ss:Type="Number">60</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.05</Data>
+                    <Data ss:Type="Number">225.00</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos WNMG 160404 NN LT10</Data>
+                    <Data ss:Type="String">Programar</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">8.50</Data>
+                    <Data ss:Type="Number">40</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.04</Data>
+                    <Data ss:Type="Number">150.00</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos WNMG 160408 NN LT10</Data>
+                    <Data ss:Type="String">Servicios administracion</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">8.50</Data>
+                    <Data ss:Type="Number">40</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.04</Data>
+                    <Data ss:Type="Number">150.00</Data>
                 </Cell>
             </Row>
             <Row ss:AutoFitHeight="1" ss:Height="15">
                 <Cell ss:StyleID="s19" ss:Index="2">
-                    <Data ss:Type="String">Insertos WNMG 150708 NN LT10</Data>
+                    <Data ss:Type="String">Promocion de servicios</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">11.90</Data>
+                    <Data ss:Type="Number">20</Data>
                 </Cell>
                 <Cell ss:StyleID="s19">
-                    <Data ss:Type="Number">0.06</Data>
+                    <Data ss:Type="Number">75.00</Data>
                 </Cell>
             </Row>
             <Row>
                 <Cell ss:Index="3" ss:StyleID="s23">
-                    <Data ss:Type="String">Costo Hora total</Data>
+                    <Data ss:Type="String">Salario</Data>
                 </Cell>
                 <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-4]C:R[-1]C)">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="3" ss:StyleID="s23">
+                    <Data ss:Type="String">Horas de trabajo total</Data>
+                </Cell>
+                <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-5]C[-1]:R[-2]C[-1])">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+            </Row>
+            <Row />
+            <Row ss:Height="30">
+                <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s23">
+                    <Data ss:Type="String">REPORTE DE ACTIVIDADES DE: Laboratorista</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="25">
+                <Cell ss:StyleID="s18" ss:Index="2">
+                    <Data ss:Type="String">Nombre de la actividad</Data>
+                </Cell>
+                <Cell ss:StyleID="s18">
+                    <Data ss:Type="String">Hora de Trabajo</Data>
+                </Cell>
+                <Cell ss:StyleID="s18">
+                    <Data ss:Type="String">Costo de Trabajo</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Mantenimiento</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">60</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">420.65</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Operacion de la maquinaria</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">60</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">420.65</Data>
+                </Cell>
+            </Row>
+            <Row ss:AutoFitHeight="1" ss:Height="15">
+                <Cell ss:StyleID="s19" ss:Index="2">
+                    <Data ss:Type="String">Inspeccion</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">40</Data>
+                </Cell>
+                <Cell ss:StyleID="s19">
+                    <Data ss:Type="Number">280.44</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="3" ss:StyleID="s23">
+                    <Data ss:Type="String">Salario</Data>
+                </Cell>
+                <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-3]C:R[-1]C)">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:Index="3" ss:StyleID="s23">
+                    <Data ss:Type="String">Horas de trabajo total</Data>
+                </Cell>
+                <Cell ss:Index="4" ss:StyleID="s21" ss:Formula="=SUM(R[-4]C[-1]:R[-2]C[-1])">
                     <Data ss:Type="Number">1</Data>
                 </Cell>
             </Row>
