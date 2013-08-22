@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'formularioinsumos.ui'
 **
-** Created: Fri 2. Aug 01:12:03 2013
+** Created: Wed 21. Aug 21:47:34 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

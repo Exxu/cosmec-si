@@ -134,6 +134,12 @@ private:
 	void borrartabla(QTableWidget *tableNum);
 	double calcularcotizacion(int numero);
 	double calcularcotizacion2(int numero);
+	double calcularcotmaquin(int numero);
+	double calcularcotconsumible(int numero);
+	double calcularcotmat(int numero);
+	double calcularcotmanoobra(int numero);
+	double calcularcotact(int numero);
+	double calcularcotserv(int numero);
 	void borrartabla2(QTableWidget *tableNum2);
 	double redondear(double num);
 
@@ -324,6 +330,7 @@ private slots:
 	void cambiarCombo(int opcion);
 	void mostrarFormlleno();
 	void tablaBusqueda();
+	void filtrar(int index);
 
 	//CENTRAR DATOS DE LAS TABLAS
 	void centrarItem(QTableWidgetItem *elemento);

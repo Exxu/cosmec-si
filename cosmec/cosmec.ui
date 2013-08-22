@@ -146,7 +146,7 @@ background: qlineargradient(
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -5767,13 +5767,6 @@ background: qlineargradient(
               </column>
              </widget>
             </item>
-            <item>
-             <widget class="QLabel" name="label_83">
-              <property name="text">
-               <string>Esta tabla muestra los ítems que intervienen en la cotización</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
           <item>
@@ -5793,6 +5786,13 @@ background: qlineargradient(
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_83">
+          <property name="text">
+           <string>Esta tabla muestra los ítems que intervienen en la cotización</string>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_62">
@@ -5827,52 +5827,52 @@ background: qlineargradient(
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QGridLayout" name="gridLayout_22">
-             <item row="0" column="1">
+             <item row="0" column="2">
               <widget class="QLabel" name="label_102">
                <property name="text">
                 <string>Numero de piezas :</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="4">
+             <item row="3" column="5">
               <widget class="QLineEdit" name="lineEdit_29">
                <property name="enabled">
                 <bool>false</bool>
                </property>
               </widget>
              </item>
-             <item row="3" column="3">
+             <item row="3" column="4">
               <widget class="QLabel" name="label_153">
                <property name="text">
                 <string>Total [$]</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="4">
+             <item row="0" column="5">
               <widget class="QLineEdit" name="lineEdit_27">
                <property name="enabled">
                 <bool>false</bool>
                </property>
               </widget>
              </item>
-             <item row="0" column="2">
+             <item row="0" column="3">
               <widget class="QLineEdit" name="lineEdit_18"/>
              </item>
-             <item row="2" column="3">
+             <item row="2" column="4">
               <widget class="QLabel" name="label_154">
                <property name="text">
                 <string>% IVA</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="3">
+             <item row="0" column="4">
               <widget class="QLabel" name="label_155">
                <property name="text">
                 <string>Sutotal [$]</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="0">
+             <item row="2" column="1">
               <spacer name="horizontalSpacer_82">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -5882,38 +5882,96 @@ background: qlineargradient(
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>200</width>
+                 <width>50</width>
                  <height>20</height>
                 </size>
                </property>
               </spacer>
              </item>
-             <item row="2" column="4">
+             <item row="2" column="5">
               <widget class="QLineEdit" name="lineEdit_30">
                <property name="enabled">
                 <bool>false</bool>
                </property>
               </widget>
              </item>
-             <item row="1" column="3">
+             <item row="1" column="4">
               <widget class="QLabel" name="label_104">
                <property name="text">
                 <string>Total[$]</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="2">
+             <item row="1" column="3">
               <widget class="QLineEdit" name="lineEdit_19"/>
              </item>
-             <item row="1" column="1">
+             <item row="1" column="2">
               <widget class="QLabel" name="label_103">
                <property name="text">
                 <string>Descuento [%]:</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="4">
+             <item row="1" column="5">
               <widget class="QLineEdit" name="lineEdit_20"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QComboBox" name="comboBox_14">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Maquinas</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Consumibles</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Materiales</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Actividades</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Servicios Externos</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mano de obra</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Todo</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_105">
+               <property name="text">
+                <string>Filtrado por:</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -7401,7 +7459,16 @@ background: qlineargradient(
     <property name="title">
      <string>Cotizaciones</string>
     </property>
-    <addaction name="actionNueva"/>
+    <widget class="QMenu" name="menuNueva">
+     <property name="title">
+      <string>Nueva</string>
+     </property>
+     <addaction name="actionFormato1"/>
+     <addaction name="actionFormato2"/>
+     <addaction name="actionFormato_3"/>
+     <addaction name="actionFormato_4"/>
+    </widget>
+    <addaction name="menuNueva"/>
     <addaction name="actionBuscar"/>
    </widget>
    <widget class="QMenu" name="menuReportes">
@@ -7466,11 +7533,6 @@ background: qlineargradient(
     <string>Buscar</string>
    </property>
   </action>
-  <action name="actionNueva">
-   <property name="text">
-    <string>Nueva</string>
-   </property>
-  </action>
   <action name="actionBuscar">
    <property name="text">
     <string>Buscar</string>
@@ -7519,6 +7581,26 @@ background: qlineargradient(
   <action name="actionBuscarReg">
    <property name="text">
     <string>Buscar</string>
+   </property>
+  </action>
+  <action name="actionFormato1">
+   <property name="text">
+    <string>Formato1</string>
+   </property>
+  </action>
+  <action name="actionFormato2">
+   <property name="text">
+    <string>Formato 2</string>
+   </property>
+  </action>
+  <action name="actionFormato_3">
+   <property name="text">
+    <string>Formato 3</string>
+   </property>
+  </action>
+  <action name="actionFormato_4">
+   <property name="text">
+    <string>Formato 4</string>
    </property>
   </action>
  </widget>
