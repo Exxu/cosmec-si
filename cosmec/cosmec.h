@@ -88,6 +88,7 @@ private:
 	QSqlRecord record;
 	bool modificar;
 	int idusuario;
+	int formato;
 	int *idcategoria;
 	int *idquery1;
 	int *idmaquinacot;
@@ -191,6 +192,10 @@ private slots:
 	void setmateriales();
 	void setrptcotizaciones();
 	void setServiciosExternos();
+	void setformulario1();
+	void setformulario2();
+	void setformulario3();
+	void setformulario4();
 	//reportes
 	void setgenerador();
 	void setreporteexel();

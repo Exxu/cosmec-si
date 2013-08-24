@@ -284,7 +284,12 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(ui.actionMano_de_Obra, SIGNAL(triggered()),this, SLOT(setmanoobra()));
 	connect(ui.actionActividades, SIGNAL(triggered()),this, SLOT(setactividades()));
     connect(ui.actionMano_de_Obra_2, SIGNAL(triggered()),this, SLOT(setactividadesMo()));
-	connect(ui.actionFormato1, SIGNAL(triggered()),this, SLOT(setnuevaCotizacion()));
+	
+	connect(ui.actionFormato1, SIGNAL(triggered()),this, SLOT(setformulario1()));
+	connect(ui.actionFormato2, SIGNAL(triggered()),this, SLOT(setformulario2()));
+	connect(ui.actionFormato_3, SIGNAL(triggered()),this, SLOT(setformulario3()));
+	connect(ui.actionFormato_4, SIGNAL(triggered()),this, SLOT(setformulario4()));
+
 	connect(ui.actionBuscar, SIGNAL(triggered()),this, SLOT(setbuscarCotizacion()));
 	connect(ui.actionMateriales, SIGNAL(triggered()),this, SLOT(setmateriales()));
 	connect(ui.actionReportes_de_cotizaciones,SIGNAL(triggered()),this,SLOT(setrptcotizaciones()));
@@ -3472,7 +3477,6 @@ void cosmec::reportesinter(NCReport *report){
 		pv->setReport( report );
 		pv->setOutput((NCReportPreviewOutput *)report->output());
 		pv->setWindowModality(Qt::ApplicationModal);
-		//pv->setAttribute(Qt::WA_DeleteOnClose);
 		pv->show();
 		report->reset(true);
 	}
@@ -4208,13 +4212,43 @@ void cosmec::imprimirCotizacion()
 	//preview de cotización
 	report = new NCReport();
 	report->reset(true);
-	report->setReportFile("../reportes/cotizacion2.xml");
+	switch(ui.comboBox_14->currentIndex()){
+		case 0:
+
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			switch (formato){
+				case 1:
+					report->setReportFile("../reportes/cotizacion2.xml");
+					break;
+				case 2:
+					report->setReportFile("../reportes/cotizacion2.xml");
+					break;
+				case 3:
+					report->setReportFile("../reportes/cotizacion2.xml");
+					break;
+				case 4:
+					report->setReportFile("../reportes/cotizacion2.xml");
+					break;
+			}
+			break;
+	}
 	report->addParameter("numerop",numerocoti);
-	QString filename=QFileDialog::getSaveFileName(this,tr("Guardar Archivo PDF"),QString("Cotizacion_%1.pdf").arg(numerocoti),
+	/*QString filename=QFileDialog::getSaveFileName(this,tr("Guardar Archivo PDF"),QString("Cotizacion_%1.pdf").arg(numerocoti),
 		tr("Pdf file (*.pdf)"));
-    report->runReportToPDF(filename);
+	report->runReportToPDF(filename);*/
 	//report->runReportToPrinter(1,true,this);
-	//reportesinter(report);
+	reportesinter(report);
 }
 void cosmec::detalle(){
 	dialogDetalle *pop=new dialogDetalle();
@@ -7491,13 +7525,13 @@ double cosmec::calcularcotmaquin(int numero){
 	double total_cons=0;
 	double cantidad_maquina;
 	double valor_herra;
-	double total_mano_obra;
+	double total_mano_obra=0;
 	double valor_consu;
 	double servicios;
 	double manteni;
 	double costomaqui;
 	double maquina;
-	double total_maquina;
+	double total_maquina=0;
 	double mano_obra;
 	double cant_mano_obra;
 	double costo_activi;
@@ -7607,13 +7641,13 @@ double cosmec::calcularcotmat(int numero){
 	double total_cons=0;
 	double cantidad_maquina;
 	double valor_herra;
-	double total_mano_obra;
+	double total_mano_obra=0;
 	double valor_consu;
 	double servicios;
 	double manteni;
 	double costomaqui;
 	double maquina;
-	double total_maquina;
+	double total_maquina=0;
 	double mano_obra;
 	double cant_mano_obra;
 	double costo_activi;
@@ -7743,7 +7777,7 @@ double cosmec::calcularcotmanoobra(int numero){
 	double manteni;
 	double costomaqui;
 	double maquina;
-	double total_maquina;
+	double total_maquina=0;
 	double mano_obra;
 	double cant_mano_obra;
 	double costo_activi;
@@ -8038,4 +8072,20 @@ double cosmec::calcularcotserv(int numero){
 	subtotal=subtotal+redondear(total_serv);
 	qDebug()<<subtotal;
 	return subtotal;
+}
+void cosmec::setformulario1(){
+	formato=1;
+	setnuevaCotizacion();	
+}
+void cosmec::setformulario2(){
+	formato=2;
+	setnuevaCotizacion();
+}
+void cosmec::setformulario3(){
+	formato=3;
+	setnuevaCotizacion();
+}
+void cosmec::setformulario4(){
+	formato=4;
+	setnuevaCotizacion();
 }
