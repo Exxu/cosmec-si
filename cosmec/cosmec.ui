@@ -5915,7 +5915,14 @@ background: qlineargradient(
              <item row="1" column="5">
               <widget class="QLineEdit" name="lineEdit_20"/>
              </item>
-             <item row="2" column="0">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_105">
+               <property name="text">
+                <string>Filtrado por:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
               <widget class="QComboBox" name="comboBox_14">
                <property name="minimumSize">
                 <size>
@@ -5966,11 +5973,35 @@ background: qlineargradient(
                </item>
               </widget>
              </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_105">
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_106">
                <property name="text">
-                <string>Filtrado por:</string>
+                <string>Formato de Impresión:</string>
                </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QComboBox" name="comboBox_15">
+               <item>
+                <property name="text">
+                 <string>Formato 1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Formato 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Formato 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Formato 4</string>
+                </property>
+               </item>
               </widget>
              </item>
             </layout>
@@ -7459,16 +7490,7 @@ background: qlineargradient(
     <property name="title">
      <string>Cotizaciones</string>
     </property>
-    <widget class="QMenu" name="menuNueva">
-     <property name="title">
-      <string>Nueva</string>
-     </property>
-     <addaction name="actionFormato1"/>
-     <addaction name="actionFormato2"/>
-     <addaction name="actionFormato_3"/>
-     <addaction name="actionFormato_4"/>
-    </widget>
-    <addaction name="menuNueva"/>
+    <addaction name="actionNueva_2"/>
     <addaction name="actionBuscar"/>
    </widget>
    <widget class="QMenu" name="menuReportes">
@@ -7601,6 +7623,11 @@ background: qlineargradient(
   <action name="actionFormato_4">
    <property name="text">
     <string>Formato 4</string>
+   </property>
+  </action>
+  <action name="actionNueva_2">
+   <property name="text">
+    <string>Nueva</string>
    </property>
   </action>
  </widget>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cosmec.ui'
 **
-** Created: Wed 21. Aug 21:47:35 2013
+** Created: Sun 25. Aug 14:55:00 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -65,6 +65,7 @@ public:
     QAction *actionFormato2;
     QAction *actionFormato_3;
     QAction *actionFormato_4;
+    QAction *actionNueva_2;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_43;
     QStackedWidget *stackedWidget;
@@ -634,8 +635,10 @@ public:
     QLineEdit *lineEdit_19;
     QLabel *label_103;
     QLineEdit *lineEdit_20;
-    QComboBox *comboBox_14;
     QLabel *label_105;
+    QComboBox *comboBox_14;
+    QLabel *label_106;
+    QComboBox *comboBox_15;
     QSpacerItem *horizontalSpacer_110;
     QSpacerItem *verticalSpacer_63;
     QHBoxLayout *horizontalLayout_42;
@@ -765,7 +768,6 @@ public:
     QMenu *menuArchivos;
     QMenu *menuNuevo;
     QMenu *menuCotizaciones;
-    QMenu *menuNueva;
     QMenu *menuReportes;
     QMenu *menuConfiguracion;
 
@@ -931,6 +933,8 @@ public:
         actionFormato_3->setObjectName(QString::fromUtf8("actionFormato_3"));
         actionFormato_4 = new QAction(cosmecClass);
         actionFormato_4->setObjectName(QString::fromUtf8("actionFormato_4"));
+        actionNueva_2 = new QAction(cosmecClass);
+        actionNueva_2->setObjectName(QString::fromUtf8("actionNueva_2"));
         centralWidget = new QWidget(cosmecClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         centralWidget->setMaximumSize(QSize(16777215, 16777215));
@@ -4089,17 +4093,27 @@ public:
 
         gridLayout_22->addWidget(lineEdit_20, 1, 5, 1, 1);
 
+        label_105 = new QLabel(frame_13);
+        label_105->setObjectName(QString::fromUtf8("label_105"));
+
+        gridLayout_22->addWidget(label_105, 0, 0, 1, 1);
+
         comboBox_14 = new QComboBox(frame_13);
         comboBox_14->setObjectName(QString::fromUtf8("comboBox_14"));
         comboBox_14->setMinimumSize(QSize(150, 0));
         comboBox_14->setMaximumSize(QSize(16777215, 200));
 
-        gridLayout_22->addWidget(comboBox_14, 2, 0, 1, 1);
+        gridLayout_22->addWidget(comboBox_14, 1, 0, 1, 1);
 
-        label_105 = new QLabel(frame_13);
-        label_105->setObjectName(QString::fromUtf8("label_105"));
+        label_106 = new QLabel(frame_13);
+        label_106->setObjectName(QString::fromUtf8("label_106"));
 
-        gridLayout_22->addWidget(label_105, 1, 0, 1, 1);
+        gridLayout_22->addWidget(label_106, 2, 0, 1, 1);
+
+        comboBox_15 = new QComboBox(frame_13);
+        comboBox_15->setObjectName(QString::fromUtf8("comboBox_15"));
+
+        gridLayout_22->addWidget(comboBox_15, 3, 0, 1, 1);
 
 
         horizontalLayout_62->addWidget(frame_13);
@@ -4803,8 +4817,6 @@ public:
         menuNuevo->setEnabled(true);
         menuCotizaciones = new QMenu(menuBar);
         menuCotizaciones->setObjectName(QString::fromUtf8("menuCotizaciones"));
-        menuNueva = new QMenu(menuCotizaciones);
-        menuNueva->setObjectName(QString::fromUtf8("menuNueva"));
         menuReportes = new QMenu(menuBar);
         menuReportes->setObjectName(QString::fromUtf8("menuReportes"));
         menuConfiguracion = new QMenu(menuBar);
@@ -4828,12 +4840,8 @@ public:
         menuNuevo->addAction(actionMano_de_Obra_2);
         menuNuevo->addAction(actionMateriales);
         menuNuevo->addAction(actionServicios_Externos);
-        menuCotizaciones->addAction(menuNueva->menuAction());
+        menuCotizaciones->addAction(actionNueva_2);
         menuCotizaciones->addAction(actionBuscar);
-        menuNueva->addAction(actionFormato1);
-        menuNueva->addAction(actionFormato2);
-        menuNueva->addAction(actionFormato_3);
-        menuNueva->addAction(actionFormato_4);
         menuReportes->addAction(actionExportar_a_Exel);
         menuReportes->addAction(actionExportar_a_PDF);
         menuConfiguracion->addAction(actionConfiguracion);
@@ -4872,6 +4880,7 @@ public:
         actionFormato2->setText(QApplication::translate("cosmecClass", "Formato 2", 0, QApplication::UnicodeUTF8));
         actionFormato_3->setText(QApplication::translate("cosmecClass", "Formato 3", 0, QApplication::UnicodeUTF8));
         actionFormato_4->setText(QApplication::translate("cosmecClass", "Formato 4", 0, QApplication::UnicodeUTF8));
+        actionNueva_2->setText(QApplication::translate("cosmecClass", "Nueva", 0, QApplication::UnicodeUTF8));
         label_32->setText(QApplication::translate("cosmecClass", "Usuario", 0, QApplication::UnicodeUTF8));
         label_33->setText(QApplication::translate("cosmecClass", "Contrase\303\261a", 0, QApplication::UnicodeUTF8));
         pushButton_11->setText(QApplication::translate("cosmecClass", "Ingresar", 0, QApplication::UnicodeUTF8));
@@ -5204,6 +5213,7 @@ public:
         label_155->setText(QApplication::translate("cosmecClass", "Sutotal [$]", 0, QApplication::UnicodeUTF8));
         label_104->setText(QApplication::translate("cosmecClass", "Total[$]", 0, QApplication::UnicodeUTF8));
         label_103->setText(QApplication::translate("cosmecClass", "Descuento [%]:", 0, QApplication::UnicodeUTF8));
+        label_105->setText(QApplication::translate("cosmecClass", "Filtrado por:", 0, QApplication::UnicodeUTF8));
         comboBox_14->clear();
         comboBox_14->insertItems(0, QStringList()
          << QApplication::translate("cosmecClass", "Maquinas", 0, QApplication::UnicodeUTF8)
@@ -5214,7 +5224,14 @@ public:
          << QApplication::translate("cosmecClass", "Mano de obra", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("cosmecClass", "Todo", 0, QApplication::UnicodeUTF8)
         );
-        label_105->setText(QApplication::translate("cosmecClass", "Filtrado por:", 0, QApplication::UnicodeUTF8));
+        label_106->setText(QApplication::translate("cosmecClass", "Formato de Impresi\303\263n:", 0, QApplication::UnicodeUTF8));
+        comboBox_15->clear();
+        comboBox_15->insertItems(0, QStringList()
+         << QApplication::translate("cosmecClass", "Formato 1", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("cosmecClass", "Formato 2", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("cosmecClass", "Formato 3", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("cosmecClass", "Formato 4", 0, QApplication::UnicodeUTF8)
+        );
         pushButton_35->setText(QApplication::translate("cosmecClass", "Detalle", 0, QApplication::UnicodeUTF8));
         checkBox_clonar->setText(QApplication::translate("cosmecClass", "S\303\263lo cargar datos?", 0, QApplication::UnicodeUTF8));
         modificar->setText(QApplication::translate("cosmecClass", "Modificar", 0, QApplication::UnicodeUTF8));
@@ -5302,7 +5319,6 @@ public:
         menuArchivos->setTitle(QApplication::translate("cosmecClass", "Registros", 0, QApplication::UnicodeUTF8));
         menuNuevo->setTitle(QApplication::translate("cosmecClass", "Agregar / Edtar / Eliminar", 0, QApplication::UnicodeUTF8));
         menuCotizaciones->setTitle(QApplication::translate("cosmecClass", "Cotizaciones", 0, QApplication::UnicodeUTF8));
-        menuNueva->setTitle(QApplication::translate("cosmecClass", "Nueva", 0, QApplication::UnicodeUTF8));
         menuReportes->setTitle(QApplication::translate("cosmecClass", "Reportes", 0, QApplication::UnicodeUTF8));
         menuConfiguracion->setTitle(QApplication::translate("cosmecClass", "Herramientas", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

@@ -285,10 +285,8 @@ cosmec::cosmec(QWidget *parent, Qt::WFlags flags)
 	connect(ui.actionActividades, SIGNAL(triggered()),this, SLOT(setactividades()));
     connect(ui.actionMano_de_Obra_2, SIGNAL(triggered()),this, SLOT(setactividadesMo()));
 	
-	connect(ui.actionFormato1, SIGNAL(triggered()),this, SLOT(setformulario1()));
-	connect(ui.actionFormato2, SIGNAL(triggered()),this, SLOT(setformulario2()));
-	connect(ui.actionFormato_3, SIGNAL(triggered()),this, SLOT(setformulario3()));
-	connect(ui.actionFormato_4, SIGNAL(triggered()),this, SLOT(setformulario4()));
+	connect(ui.actionNueva_2, SIGNAL(triggered()),this, SLOT(setnuevaCotizacion()));
+	
 
 	connect(ui.actionBuscar, SIGNAL(triggered()),this, SLOT(setbuscarCotizacion()));
 	connect(ui.actionMateriales, SIGNAL(triggered()),this, SLOT(setmateriales()));
@@ -4214,32 +4212,38 @@ void cosmec::imprimirCotizacion()
 	report->reset(true);
 	switch(ui.comboBox_14->currentIndex()){
 		case 0:
-
+            report->setReportFile("../reportes/maquina.xml");
 			break;
 		case 1:
+			report->setReportFile("../reportes/consumibles.xml");
 			break;
 		case 2:
+			report->setReportFile("../reportes/mat.xml");
 			break;
 		case 3:
+			report->setReportFile("../reportes/activi.xml");
 			break;
 		case 4:
+			report->setReportFile("../reportes/servexter.xml");
 			break;
 		case 5:
+			report->setReportFile("../reportes/manoobra.xml");
 			break;
 		case 6:
-			switch (formato){
+			switch (ui.comboBox_15->currentIndex()){
+				case 0:
+					report->setReportFile("../reportes/cotizacion2_for1.xml");
+					break;
 				case 1:
-					report->setReportFile("../reportes/cotizacion2.xml");
+					report->setReportFile("../reportes/cotizacion2_for2.xml");
 					break;
 				case 2:
-					report->setReportFile("../reportes/cotizacion2.xml");
+					report->setReportFile("../reportes/cotizacion2_for3.xml");
 					break;
 				case 3:
-					report->setReportFile("../reportes/cotizacion2.xml");
+					report->setReportFile("../reportes/cotizacion2_for4.xml");
 					break;
-				case 4:
-					report->setReportFile("../reportes/cotizacion2.xml");
-					break;
+				
 			}
 			break;
 	}
@@ -8072,20 +8076,4 @@ double cosmec::calcularcotserv(int numero){
 	subtotal=subtotal+redondear(total_serv);
 	qDebug()<<subtotal;
 	return subtotal;
-}
-void cosmec::setformulario1(){
-	formato=1;
-	setnuevaCotizacion();	
-}
-void cosmec::setformulario2(){
-	formato=2;
-	setnuevaCotizacion();
-}
-void cosmec::setformulario3(){
-	formato=3;
-	setnuevaCotizacion();
-}
-void cosmec::setformulario4(){
-	formato=4;
-	setnuevaCotizacion();
 }
